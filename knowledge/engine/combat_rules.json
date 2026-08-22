@@ -1,0 +1,75 @@
+{
+  "turret_rules": {
+    "consecutive_shot_ramp_ratio": 0.40,
+    "max_consecutive_ramp_multiplier": 2.50,
+    "backdoor_damage_reduction": 0.75,
+    "outer_turret_shield_duration_s": 300,
+    "outer_plate_gold_chunk": 120,
+    "num_shield_plates": 3,
+    "max_plate_gold_per_turret": 360,
+    "plate_gold_share_radius": 8.0,
+    "true_sight_range": 8.5,
+    "attack_range": 8.0,
+    "fountain_true_damage_per_tick": 1000,
+    "nexus_out_of_combat_regen_hp_s": 50,
+    "nexus_regen_delay_s": 5.0
+  },
+  "damage_formulas": {
+    "defense_reduction_constant": 120,
+    "physical_reduction_formula": "120 / (120 + physical_defense)",
+    "magic_reduction_formula": "120 / (120 + magic_defense)",
+    "penetration_order": "PERCENT_PEN_BEFORE_FLAT_PEN",
+    "negative_defense_cap": -60,
+    "negative_defense_multiplier_formula": "120 / (120 + defense)"
+  },
+  "roam_rules": {
+    "devotion_duration_s": 480,
+    "devotion_minion_share_ratio": 0.0,
+    "thriving_interval_s": 5,
+    "thriving_gold_tick": [10, 15, 20, 25],
+    "thriving_exp_tick": [15, 20, 25, 30],
+    "blessing_unlock_gold": 600,
+    "thriving_max_gold": 1500,
+    "blessings": {
+      "conceal": { "type": "ACTIVE", "cooldown_s": 80, "duration_s": 5, "speed_bonus_pct": [30, 75] },
+      "encourage": { "type": "AURA", "radius": 7.0, "attack_bonus": [12, 18], "atk_speed_pct": 15 },
+      "favor": { "type": "PASSIVE", "cooldown_s": 10, "base_heal": [300, 750] },
+      "dire_hit": { "type": "PASSIVE", "cooldown_s": 30, "hp_threshold_pct": 35, "extra_damage_pct": [7, 18] }
+    }
+  },
+  "jungle_rules": {
+    "minion_penalty_duration_s": 300,
+    "minion_gold_penalty_pct": 70,
+    "minion_exp_penalty_pct": 50,
+    "retribution_max_stacks": 15,
+    "retribution_hero_unlock_stacks": 5,
+    "retribution_bonus_per_stack": { "bloody_hp": 100, "flame_power": 4, "ice_speed": 4 }
+  },
+  "bounty_rules": {
+    "base_kill_gold": 200,
+    "first_blood_bonus": 100,
+    "max_shutdown_bonus_gold": 700,
+    "streak_bounties": [0, 0, 40, 80, 150, 250, 400, 700],
+    "feeder_decay_table": [200, 160, 130, 100, 75, 50],
+    "feeder_min_gold_floor": 50,
+    "assist_reset_death_step": 1
+  },
+  "assist_rules": {
+    "assist_pool_ratio": 0.60,
+    "assist_window_s": 10.0,
+    "distribution": "EQUAL_SPLIT"
+  },
+  "respawn_timer": {
+    "base_time_per_level": 2.0,
+    "match_time_scaling_factor": 0.05
+  },
+  "map_geometry": {
+    "world_bounds": { "min_x": -50.0, "max_x": 50.0, "min_y": -50.0, "max_y": 50.0 },
+    "blue_nexus_coord": [-41.22, 0.0],
+    "red_nexus_coord": [41.22, 0.0],
+    "blue_fountain_coord": [-50.2, 0.0],
+    "red_fountain_coord": [50.2, 0.0],
+    "wall_sliding_enabled": true,
+    "dash_wall_snap_threshold_pct": 50.0
+  }
+}

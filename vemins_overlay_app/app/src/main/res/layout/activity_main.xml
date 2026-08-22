@@ -1,0 +1,1328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/vemins_bg_dark"
+    android:orientation="vertical">
+
+    <!-- ================================================================= -->
+    <!-- TOP APP BAR / COMMAND HEADER                                       -->
+    <!-- ================================================================= -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/vemins_bg_secondary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingTop="14dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="12dp">
+
+        <ImageView
+            android:id="@+id/ivHeaderLogo"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_bubble" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvBrandTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="V E M I N S // E S P"
+                    android:textColor="@color/vemins_white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvHeaderVersionBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/bg_badge_cyan"
+                    android:paddingLeft="6dp"
+                    android:paddingTop="2dp"
+                    android:paddingRight="6dp"
+                    android:paddingBottom="2dp"
+                    android:text="@string/badge_version"
+                    android:textColor="@color/vemins_white"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_subtitle"
+                android:textColor="@color/vemins_text_secondary"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvHeaderStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_badge_red"
+            android:paddingLeft="8dp"
+            android:paddingTop="4dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="4dp"
+            android:text="STOPPED"
+            android:textColor="@color/vemins_red"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- ================================================================= -->
+    <!-- SCROLLABLE DASHBOARD BODY                                         -->
+    <!-- ================================================================= -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- 1. PERMISSION CARD (Conditionally Visible) -->
+            <LinearLayout
+                android:id="@+id/cardPermission"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card_elevated"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/permission_required_title"
+                    android:textColor="@color/vemins_yellow"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/permission_required_desc"
+                    android:textColor="@color/vemins_text_secondary"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnGrantPermission"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_button_primary"
+                    android:text="@string/btn_grant_permission"
+                    android:textAllCaps="false"
+                    android:textColor="@color/vemins_bg_dark"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- 2. HERO MASTER ACTUATOR CARD -->
+            <LinearLayout
+                android:id="@+id/cardHeroControl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card_elevated"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvServiceStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/status_stopped"
+                            android:textColor="@color/vemins_text_secondary"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvServiceDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="100% Touch-Through | Hardware Passthrough 60 FPS"
+                            android:textColor="@color/vemins_text_muted"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnToggleService"
+                        android:layout_width="140dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_button_primary"
+                        android:text="@string/btn_start_overlay"
+                        android:textAllCaps="false"
+                        android:textColor="@color/vemins_bg_dark"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 3. LIVE CALIBRATION SANDBOX -->
+            <LinearLayout
+                android:id="@+id/cardSandbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="⚡ LIVE CALIBRATION SANDBOX"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btnTogglePreview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:text="COLLAPSE ▲"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/previewContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:background="@drawable/bg_preview_frame"
+                    android:padding="2dp">
+
+                    <com.vemins.esp.view.PreviewCanvasView
+                        android:id="@+id/previewCanvas"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </FrameLayout>
+
+                <!-- Sandbox Presets Bar -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnPresetDefault"
+                        android:layout_width="0dp"
+                        android:layout_height="34dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_secondary"
+                        android:text="Standard"
+                        android:textAllCaps="false"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="11sp" />
+
+                    <Button
+                        android:id="@+id/btnPresetDiamond"
+                        android:layout_width="0dp"
+                        android:layout_height="34dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_secondary"
+                        android:text="45° Diamond"
+                        android:textAllCaps="false"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="11sp" />
+
+                    <Button
+                        android:id="@+id/btnPresetCompact"
+                        android:layout_width="0dp"
+                        android:layout_height="34dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_secondary"
+                        android:text="Notch Safe"
+                        android:textAllCaps="false"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="11sp" />
+
+                    <Button
+                        android:id="@+id/btnPresetWide"
+                        android:layout_width="0dp"
+                        android:layout_height="34dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_secondary"
+                        android:text="Tablet"
+                        android:textAllCaps="false"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 4. REAL-TIME DAEMON DIAGNOSTICS HUD -->
+            <LinearLayout
+                android:id="@+id/cardDiagnostics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="⚡ REAL-TIME DIAGNOSTICS HUD"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvDaemonStatusBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_badge_red"
+                        android:paddingLeft="6dp"
+                        android:paddingTop="2dp"
+                        android:paddingRight="6dp"
+                        android:paddingBottom="2dp"
+                        android:text="STANDBY"
+                        android:textColor="@color/vemins_red"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvServerStatusBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_badge_green"
+                        android:paddingLeft="6dp"
+                        android:paddingTop="2dp"
+                        android:paddingRight="6dp"
+                        android:paddingBottom="2dp"
+                        android:text="API ACTIVE"
+                        android:textColor="@color/vemins_green"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvDaemonStats"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Target: Standby | FPS: 0 | Latency: 0ms | Frames: 0"
+                    android:textColor="@color/vemins_text_secondary"
+                    android:textSize="11sp" />
+
+                <!-- Action Controls in Diagnostics HUD -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnTestPing"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_secondary"
+                        android:text="@string/btn_test_ping"
+                        android:textAllCaps="false"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnSaveConfig"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_primary"
+                        android:text="@string/btn_save_config"
+                        android:textAllCaps="false"
+                        android:textColor="@color/vemins_bg_dark"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnResetDefaults"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_secondary"
+                        android:text="@string/btn_reset_defaults"
+                        android:textAllCaps="false"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 5. TACTICAL DASHBOARD TAB BAR -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/tabBtnRadar"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_tab_selected"
+                    android:text="@string/tab_radar"
+                    android:textAllCaps="false"
+                    android:textColor="@color/vemins_bg_dark"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/tabBtnCombatHud"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1.2"
+                    android:background="@drawable/bg_tab_unselected"
+                    android:text="@string/tab_combat_hud"
+                    android:textAllCaps="false"
+                    android:textColor="@color/vemins_text_secondary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/tabBtnLayers"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1.2"
+                    android:background="@drawable/bg_tab_unselected"
+                    android:text="@string/tab_layers"
+                    android:textAllCaps="false"
+                    android:textColor="@color/vemins_text_secondary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/tabBtnStatus"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1.1"
+                    android:background="@drawable/bg_tab_unselected"
+                    android:text="@string/tab_status"
+                    android:textAllCaps="false"
+                    android:textColor="@color/vemins_text_secondary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- ============================================================= -->
+            <!-- TAB 1: RADAR CALIBRATION PANEL                                -->
+            <!-- ============================================================= -->
+            <LinearLayout
+                android:id="@+id/panelRadar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Minimap Radar Viewport Calibration"
+                    android:textColor="@color/vemins_text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Calibrate X/Y offsets, radar dimensions, opacity, and diamond rotation."
+                    android:textColor="@color/vemins_text_muted"
+                    android:textSize="11sp" />
+
+                <!-- Minimap Pos X -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Minimap X Offset"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/etMinimapX"
+                        android:layout_width="65dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:text="75"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/sbMinimapX"
+                    style="@style/CyberSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="800"
+                    android:progress="75" />
+
+                <!-- Minimap Pos Y -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Minimap Y Offset"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/etMinimapY"
+                        android:layout_width="65dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:text="15"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/sbMinimapY"
+                    style="@style/CyberSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="600"
+                    android:progress="15" />
+
+                <!-- Minimap Size -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Minimap Radar Size (Width &amp; Height)"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/etMinimapSize"
+                        android:layout_width="65dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:text="320"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/sbMinimapSize"
+                    style="@style/CyberSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="600"
+                    android:progress="320" />
+
+                <!-- Minimap Alpha -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Minimap Opacity (Alpha %)"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/etMinimapAlpha"
+                        android:layout_width="65dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:text="85"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/sbMinimapAlpha"
+                    style="@style/CyberSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="100"
+                    android:progress="85" />
+
+                <!-- Minimap Hero Portrait / Icon Size -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Minimap Hero Portrait / Icon Size"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/etMinimapHeroRadius"
+                        android:layout_width="65dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:text="9"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/sbMinimapHeroRadius"
+                    style="@style/CyberSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="25"
+                    android:progress="9" />
+
+                <!-- CheckBoxes: Diamond & Invert Y -->
+                <CheckBox
+                    android:id="@+id/cbMinimapDiamond"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:buttonTint="@color/vemins_white"
+                    android:text="45° Diamond Radar Rotation"
+                    android:textColor="@color/vemins_text_primary"
+                    android:textSize="13sp" />
+
+                <CheckBox
+                    android:id="@+id/cbMinimapInvertY"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:buttonTint="@color/vemins_white"
+                    android:checked="true"
+                    android:text="Invert Minimap Y-Axis (MLBB Standard)"
+                    android:textColor="@color/vemins_text_primary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- ============================================================= -->
+            <!-- TAB 2: COMBAT HUD CALIBRATION PANEL                           -->
+            <!-- ============================================================= -->
+            <LinearLayout
+                android:id="@+id/panelCombatHud"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3D-to-2D Isometric Camera Calibration"
+                    android:textColor="@color/vemins_text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Tune camera zoom scales, overhead vertical lift, and screen edge margin."
+                    android:textColor="@color/vemins_text_muted"
+                    android:textSize="11sp" />
+
+                <!-- Camera Scale X -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Camera Zoom Scale X"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/etScaleX"
+                        android:layout_width="65dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center"
+                        android:inputType="numberDecimal"
+                        android:text="38.0"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/sbScaleX"
+                    style="@style/CyberSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="800"
+                    android:progress="380" />
+
+                <!-- Camera Scale Y -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Camera Zoom Scale Y"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/etScaleY"
+                        android:layout_width="65dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center"
+                        android:inputType="numberDecimal"
+                        android:text="27.0"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/sbScaleY"
+                    style="@style/CyberSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="600"
+                    android:progress="270" />
+
+                <!-- Overhead Lift / HUD Offset Y -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Overhead Vertical Lift (HUD Offset Y)"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/etHudOffsetY"
+                        android:layout_width="65dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:text="65"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/sbHudOffsetY"
+                    style="@style/CyberSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="180"
+                    android:progress="65" />
+
+                <!-- Edge Margin -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Edge Radar Screen Margin"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/etEdgeMargin"
+                        android:layout_width="65dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:text="45"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/sbEdgeMargin"
+                    style="@style/CyberSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="120"
+                    android:progress="45" />
+
+                <!-- Max Radar Distance -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Max Edge Detection Distance (Meters)"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/etMaxRadarDistance"
+                        android:layout_width="65dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:text="45"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/sbMaxRadarDistance"
+                    style="@style/CyberSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="90"
+                    android:progress="45" />
+
+                <!-- HUD Badge Size -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Overhead HUD Skill &amp; Spell Badge Size"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/etHudBadgeRadius"
+                        android:layout_width="65dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:text="9"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/sbHudBadgeRadius"
+                    style="@style/CyberSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="20"
+                    android:progress="9" />
+
+                <!-- HP Bar Scale -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Overhead HP Bar Scaling (%)"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/etHudHpBarScale"
+                        android:layout_width="65dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:text="100"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/sbHudHpBarScale"
+                    style="@style/CyberSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="200"
+                    android:progress="100" />
+
+                <!-- High Camera CheckBox -->
+                <CheckBox
+                    android:id="@+id/cbHighCamera"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:buttonTint="@color/vemins_white"
+                    android:checked="true"
+                    android:text="High Camera Mode (In-Game Camera Setting)"
+                    android:textColor="@color/vemins_text_primary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- ============================================================= -->
+            <!-- TAB 3: LAYERS MATRIX PANEL (11 Tactical CheckBoxes)            -->
+            <!-- ============================================================= -->
+            <LinearLayout
+                android:id="@+id/panelLayers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tactical Render Layers Matrix"
+                    android:textColor="@color/vemins_text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Granularly toggle individual radar primitives and combat HUD elements."
+                    android:textColor="@color/vemins_text_muted"
+                    android:textSize="11sp" />
+
+                <CheckBox
+                    android:id="@+id/cbMinimapEnemies"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:buttonTint="@color/vemins_white"
+                    android:checked="true"
+                    android:text="Enemy Heroes (Minimap Red Portals &amp; Dots)"
+                    android:textColor="@color/vemins_text_primary"
+                    android:textSize="13sp" />
+
+                <CheckBox
+                    android:id="@+id/cbMinimapAllies"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:buttonTint="@color/vemins_white"
+                    android:checked="false"
+                    android:text="Allied Heroes (Minimap Blue Dots)"
+                    android:textColor="@color/vemins_text_primary"
+                    android:textSize="13sp" />
+
+                <CheckBox
+                    android:id="@+id/cbMinimapFacing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:buttonTint="@color/vemins_white"
+                    android:checked="true"
+                    android:text="Hero Heading Direction Vectors (Facing Arrows)"
+                    android:textColor="@color/vemins_text_primary"
+                    android:textSize="13sp" />
+
+                <CheckBox
+                    android:id="@+id/cbMinimapMinions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:buttonTint="@color/vemins_white"
+                    android:checked="true"
+                    android:text="Lane Minion Waves (Blue/Orange Dots)"
+                    android:textColor="@color/vemins_text_primary"
+                    android:textSize="13sp" />
+
+                <CheckBox
+                    android:id="@+id/cbMinimapMonsters"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:buttonTint="@color/vemins_white"
+                    android:checked="true"
+                    android:text="Jungle Objectives (Lord, Turtle, Buffs)"
+                    android:textColor="@color/vemins_text_primary"
+                    android:textSize="13sp" />
+
+                <CheckBox
+                    android:id="@+id/cbScreenHp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:buttonTint="@color/vemins_white"
+                    android:checked="true"
+                    android:text="Overhead Health &amp; Active Shield Bars"
+                    android:textColor="@color/vemins_text_primary"
+                    android:textSize="13sp" />
+
+                <CheckBox
+                    android:id="@+id/cbScreenSkillCd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:buttonTint="@color/vemins_white"
+                    android:checked="true"
+                    android:text="Skill 1 &amp; Skill 2 Cooldown Timers"
+                    android:textColor="@color/vemins_text_primary"
+                    android:textSize="13sp" />
+
+                <CheckBox
+                    android:id="@+id/cbScreenUltBadge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:buttonTint="@color/vemins_white"
+                    android:checked="true"
+                    android:text="Ultimate Readiness &amp; CD Badge"
+                    android:textColor="@color/vemins_text_primary"
+                    android:textSize="13sp" />
+
+                <CheckBox
+                    android:id="@+id/cbScreenSpellBadge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:buttonTint="@color/vemins_white"
+                    android:checked="true"
+                    android:text="Battle Spell Tracker Badge"
+                    android:textColor="@color/vemins_text_primary"
+                    android:textSize="13sp" />
+
+                <CheckBox
+                    android:id="@+id/cbScreenDistance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:buttonTint="@color/vemins_white"
+                    android:checked="true"
+                    android:text="Target Distance Text Readout (Meters)"
+                    android:textColor="@color/vemins_text_primary"
+                    android:textSize="13sp" />
+
+                <CheckBox
+                    android:id="@+id/cbScreenEdgeRadar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:buttonTint="@color/vemins_white"
+                    android:checked="true"
+                    android:text="Off-Screen Edge Radar (Chevrons)"
+                    android:textColor="@color/vemins_text_primary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- ============================================================= -->
+            <!-- TAB 4: VAULT / STATUS & LOCAL API                             -->
+            <!-- ============================================================= -->
+            <LinearLayout
+                android:id="@+id/panelStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="System Diagnostics &amp; Tactical Vault"
+                    android:textColor="@color/vemins_text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Telemetry socket channels, local control server, and JSON configuration vault."
+                    android:textColor="@color/vemins_text_muted"
+                    android:textSize="11sp" />
+
+                <!-- Telemetry Transport Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_card_elevated"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Telemetry Stream Transport"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Channel: 127.0.0.1:9999 (High-Speed Local Socket)"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Mode: Zero-Injection | Touch-Through Hardware Passthrough"
+                        android:textColor="@color/vemins_text_muted"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <!-- Local Control Server Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_card_elevated"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Local Control HTTP Server"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Endpoint: http://127.0.0.1:8888"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="APIs: /api/status, /api/config, /api/toggle, /api/ping"
+                        android:textColor="@color/vemins_text_muted"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <!-- Configuration JSON Vault -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="Configuration JSON Vault"
+                    android:textColor="@color/vemins_text_primary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etConfigJson"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/bg_input_field"
+                    android:gravity="top|start"
+                    android:hint="Current configuration JSON will appear here for export, or paste JSON here to import..."
+                    android:inputType="textMultiLine"
+                    android:padding="10dp"
+                    android:textColor="@color/vemins_white"
+                    android:textColorHint="@color/vemins_text_muted"
+                    android:textSize="11sp"
+                    android:typeface="monospace" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnExportConfig"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_secondary"
+                        android:text="@string/btn_export_config"
+                        android:textAllCaps="false"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnImportConfig"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_secondary"
+                        android:text="@string/btn_import_config"
+                        android:textAllCaps="false"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
+

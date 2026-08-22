@@ -1,0 +1,49 @@
+# =============================================================================
+# VEMINS ESP - GIT IGNORE RULES
+# =============================================================================
+
+# Build & Compiled Temporary Binaries
+*.o
+*.obj
+*.so
+*.dylib
+*.dll
+*.class
+*.dex
+*.idsig
+vemins_daemon_clang
+
+# Android & Gradle Build Artifacts
+.gradle/
+build/
+app/build/
+local.properties
+.idea/
+*.iml
+.cxx/
+captures/
+.externalNativeBuild/
+
+# Python Caches & Environments
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.env
+.venv
+env/
+venv/
+ENV/
+
+# System & Editor Artifacts
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+*.log
+errorLog.txt
+CURRENT_LIVE_BASELINE.json
+REAL_LIVE_GROUND_TRUTH_RESULTS.json

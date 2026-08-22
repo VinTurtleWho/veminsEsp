@@ -1,0 +1,44 @@
+{
+  "screen": {
+    "width": 2400.0,
+    "height": 1080.0
+  },
+  "minimap": {
+    "pos_x": 75.0,
+    "pos_y": 15.0,
+    "width": 320.0,
+    "height": 320.0,
+    "rotation_degrees": 0.0,
+    "invert_y": true
+  },
+  "camera": {
+    "scale_x": 38.0,
+    "scale_y": 27.0,
+    "hud_offset_y": 65.0,
+    "edge_margin": 45.0,
+    "max_radar_distance": 45.0,
+    "high_camera": true
+  },
+  "world_bounds": {
+    "min_x": -52.0,
+    "max_x": 52.0,
+    "min_y": -52.0,
+    "max_y": 52.0
+  },
+  "render_settings": {
+    "minimap_show_enemies": true,
+    "minimap_show_allies": false,
+    "minimap_show_arrows": true,
+    "minimap_show_minions": true,
+    "minimap_show_monsters": true,
+    "minimap_hero_dot_radius": 9.0,
+    "minimap_arrow_length": 18.0,
+    "minimap_minion_dot_radius": 3.5,
+    "minimap_monster_dot_radius": 7.0,
+    "screen_show_overhead_hp": true,
+    "screen_show_skill_cooldowns": true,
+    "screen_show_battle_spell": true,
+    "screen_show_distance": true,
+    "screen_show_edge_radar": true
+  }
+}

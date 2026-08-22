@@ -1,0 +1,82 @@
+{
+    "1501": {
+        "m_bError": false,
+        "m_SkillID": 1501,
+        "m_SkillLevel": 1,
+        "m_SkillName": "",
+        "m_SkillAddition": [],
+        "m_NumDescribe": [],
+        "m_SkillDescription": "",
+        "m_SkillEffect": [],
+        "m_IconFile": "",
+        "m_NeedLevel": 1,
+        "m_SkillStart": [],
+        "m_SkillAnimtionEndTime": 0.0,
+        "m_SkillAttack": [],
+        "m_SkillLoopAttack": "",
+        "m_SkillFinish": "",
+        "m_SpeedOfAction": [
+            1.0
+        ],
+        "m_EffParam": [
+            0.0
+        ],
+        "m_SkillStartEffect": [],
+        "m_SkillAttackEffect": "",
+        "m_SkillLoopAttackEffect": "",
+        "m_SkillStartSound": [],
+        "m_SkillAttackSound": [],
+        "m_SkillLoopAttackSound": "",
+        "m_SkillStartSound3D": [],
+        "m_SkillAttackSound3D": "",
+        "m_SkillLoopAttackSound3D": "",
+        "m_Voice": [],
+        "m_VoiceProbability": 1000,
+        "m_SingTime": 66,
+        "m_LockTime": 0,
+        "m_FinishLockTime": 0,
+        "m_SkillColdDown": 0,
+        "m_ShareColdDown": 0,
+        "m_NeedHP": 0,
+        "m_NeedMP": 0,
+        "m_NeedXP": 0,
+        "m_FunType": [],
+        "m_MutiHurt": 1,
+        "m_BaseType": 44,
+        "m_BaseTypeValue": [],
+        "m_TarType": [
+            0
+        ],
+        "m_ShowTarget": [
+            2
+        ],
+        "m_SpecialParam": [
+            0.0
+        ],
+        "m_ShowRectPara": [],
+        "m_ShowRectParaSpecial": [
+            0.0
+        ],
+        "m_RectType": 1,
+        "m_Value0": 0.0,
+        "m_Value1": 0.0,
+        "m_Value2": 0.0,
+        "m_Value3": 0.0,
+        "m_Value4": 0.0,
+        "m_Value5": 0.0,
+        "m_Effect0": 0,
+        "m_EffectLevel0": 1,
+        "m_Effect1": 0,
+        "m_EffectLevel1": 1,
+        "m_Effect2": 0,
+        "m_EffectLevel2": 1,
+        "m_Effect3": 0,
+        "m_EffectLevel3": 1,
+        "m_Effect4": 0,
+        "m_EffectLevel4": 1,
+        "m_Effect5": 0,
+        "m_EffectLevel5": 1,
+        "m_CallScript": "NULL",
+        "m_Trigger": []
+    }
+}

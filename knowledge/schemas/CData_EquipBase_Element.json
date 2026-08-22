@@ -1,0 +1,181 @@
+{
+    "class_name": "CData_EquipBase_Element",
+    "fields": {
+        "m_bError": {
+            "type": "bool",
+            "offset": 16
+        },
+        "m_EuqipID": {
+            "type": "int",
+            "offset": 20
+        },
+        "m_mItemName": {
+            "type": "string",
+            "offset": 24
+        },
+        "m_Icon": {
+            "type": "string",
+            "offset": 32
+        },
+        "m_EquipType": {
+            "type": "int",
+            "offset": 40
+        },
+        "m_EquipTag": {
+            "type": "int[]",
+            "offset": 48
+        },
+        "m_ModelLevel": {
+            "type": "int",
+            "offset": 56
+        },
+        "m_mEquipTips": {
+            "type": "string",
+            "offset": 64
+        },
+        "m_GrayType": {
+            "type": "int",
+            "offset": 72
+        },
+        "m_GrayTypeOld": {
+            "type": "int",
+            "offset": 76
+        },
+        "m_SkillID": {
+            "type": "int",
+            "offset": 80
+        },
+        "m_GrayTag": {
+            "type": "int",
+            "offset": 84
+        },
+        "m_IsSwitch": {
+            "type": "int",
+            "offset": 88
+        },
+        "m_CommonSwitch": {
+            "type": "int",
+            "offset": 92
+        },
+        "m_mShortTips": {
+            "type": "string",
+            "offset": 96
+        },
+        "m_SkillList": {
+            "type": "int[][]",
+            "offset": 104
+        },
+        "m_SkillListExtra": {
+            "type": "int[]",
+            "offset": 112
+        },
+        "m_ExclusiveType": {
+            "type": "int",
+            "offset": 120
+        },
+        "m_UseType": {
+            "type": "int",
+            "offset": 124
+        },
+        "m_BuyCD": {
+            "type": "int",
+            "offset": 128
+        },
+        "m_ExclusiveAttr1": {
+            "type": "int",
+            "offset": 132
+        },
+        "m_ExclusiveGroup": {
+            "type": "int",
+            "offset": 136
+        },
+        "m_ExclusiveAttrValue1": {
+            "type": "int",
+            "offset": 140
+        },
+        "m_Attr1": {
+            "type": "int",
+            "offset": 144
+        },
+        "m_AttrValue1": {
+            "type": "int",
+            "offset": 148
+        },
+        "m_Attr2": {
+            "type": "int",
+            "offset": 152
+        },
+        "m_AttrValue2": {
+            "type": "int",
+            "offset": 156
+        },
+        "m_Attr3": {
+            "type": "int",
+            "offset": 160
+        },
+        "m_AttrValue3": {
+            "type": "int",
+            "offset": 164
+        },
+        "m_ExtraAttr1": {
+            "type": "int",
+            "offset": 168
+        },
+        "m_ExtraAttrValue1": {
+            "type": "int",
+            "offset": 172
+        },
+        "m_ExtraAttr2": {
+            "type": "int",
+            "offset": 176
+        },
+        "m_ExtraAttrValue2": {
+            "type": "int",
+            "offset": 180
+        },
+        "m_ExtraAttr3": {
+            "type": "int",
+            "offset": 184
+        },
+        "m_ExtraAttrValue3": {
+            "type": "int",
+            "offset": 188
+        },
+        "m_isSummerCopy": {
+            "type": "int",
+            "offset": 192
+        },
+        "m_mItemDes": {
+            "type": "string",
+            "offset": 200
+        },
+        "m_mItemGrowthAttr": {
+            "type": "string",
+            "offset": 208
+        },
+        "m_EquipFilter": {
+            "type": "int[]",
+            "offset": 216
+        },
+        "m_EquipScore": {
+            "type": "int",
+            "offset": 224
+        },
+        "m_mEquipStory": {
+            "type": "string",
+            "offset": 232
+        },
+        "m_mEquiplibTips": {
+            "type": "string",
+            "offset": 240
+        },
+        "m_EquipEffectImage": {
+            "type": "string",
+            "offset": 248
+        },
+        "m_mEquipEffectDes": {
+            "type": "string",
+            "offset": 256
+        }
+    }
+}

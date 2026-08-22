@@ -1,0 +1,41 @@
+{
+    "class_name": "CData_MonsterAttribute_Element",
+    "fields": {
+        "m_bError": {
+            "type": "bool",
+            "offset": 16
+        },
+        "m_ID": {
+            "type": "int",
+            "offset": 20
+        },
+        "m_index": {
+            "type": "int",
+            "offset": 24
+        },
+        "m_attrKind": {
+            "type": "int",
+            "offset": 28
+        },
+        "m_triggerType": {
+            "type": "int",
+            "offset": 32
+        },
+        "m_start": {
+            "type": "int",
+            "offset": 36
+        },
+        "m_interval": {
+            "type": "int",
+            "offset": 40
+        },
+        "m_upValue": {
+            "type": "int",
+            "offset": 44
+        },
+        "m_upType": {
+            "type": "int",
+            "offset": 48
+        }
+    }
+}

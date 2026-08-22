@@ -1,0 +1,265 @@
+{
+    "class_name": "CData_Effect_Element",
+    "fields": {
+        "m_bError": {
+            "type": "bool",
+            "offset": 16
+        },
+        "m_EffectID": {
+            "type": "int",
+            "offset": 20
+        },
+        "m_EffectLevel": {
+            "type": "int",
+            "offset": 24
+        },
+        "m_IconFile": {
+            "type": "string",
+            "offset": 32
+        },
+        "m_StatusDesc": {
+            "type": "string",
+            "offset": 40
+        },
+        "m_EffectDesc": {
+            "type": "string",
+            "offset": 48
+        },
+        "m_NumberDesc": {
+            "type": "string[]",
+            "offset": 56
+        },
+        "m_SkillHitSound": {
+            "type": "string[]",
+            "offset": 64
+        },
+        "m_TargetEffect": {
+            "type": "string[]",
+            "offset": 72
+        },
+        "m_StatusEffect": {
+            "type": "string[]",
+            "offset": 80
+        },
+        "m_SpecialEffectID": {
+            "type": "int",
+            "offset": 88
+        },
+        "m_SpecialEffect": {
+            "type": "string[]",
+            "offset": 96
+        },
+        "m_Relation": {
+            "type": "double",
+            "offset": 104
+        },
+        "m_EffParam": {
+            "type": "float[]",
+            "offset": 112
+        },
+        "m_UnInterrupt": {
+            "type": "int",
+            "offset": 120
+        },
+        "m_CanBeClean": {
+            "type": "int",
+            "offset": 124
+        },
+        "m_OperEnum": {
+            "type": "int",
+            "offset": 128
+        },
+        "m_Para0": {
+            "type": "double",
+            "offset": 136
+        },
+        "m_Para1": {
+            "type": "double",
+            "offset": 144
+        },
+        "m_Para2": {
+            "type": "double",
+            "offset": 152
+        },
+        "m_Para3": {
+            "type": "double",
+            "offset": 160
+        },
+        "m_Para4": {
+            "type": "double",
+            "offset": 168
+        },
+        "m_Para5": {
+            "type": "double",
+            "offset": 176
+        },
+        "m_Para6": {
+            "type": "double",
+            "offset": 184
+        },
+        "m_Para7": {
+            "type": "double",
+            "offset": 192
+        },
+        "m_Para8": {
+            "type": "double",
+            "offset": 200
+        },
+        "m_Para9": {
+            "type": "double",
+            "offset": 208
+        },
+        "m_Para10": {
+            "type": "double",
+            "offset": 216
+        },
+        "m_LogicParam": {
+            "type": "double[]",
+            "offset": 224
+        },
+        "m_Attr0": {
+            "type": "int",
+            "offset": 232
+        },
+        "m_Value0": {
+            "type": "int",
+            "offset": 236
+        },
+        "m_ValueCal0": {
+            "type": "int",
+            "offset": 240
+        },
+        "m_ValueMax0": {
+            "type": "int",
+            "offset": 244
+        },
+        "m_Attr1": {
+            "type": "int",
+            "offset": 248
+        },
+        "m_Value1": {
+            "type": "int",
+            "offset": 252
+        },
+        "m_ValueCal1": {
+            "type": "int",
+            "offset": 256
+        },
+        "m_ValueMax1": {
+            "type": "int",
+            "offset": 260
+        },
+        "m_Attr2": {
+            "type": "int",
+            "offset": 264
+        },
+        "m_Value2": {
+            "type": "int",
+            "offset": 268
+        },
+        "m_ValueCal2": {
+            "type": "int",
+            "offset": 272
+        },
+        "m_ValueMax2": {
+            "type": "int",
+            "offset": 276
+        },
+        "m_Attr3": {
+            "type": "int",
+            "offset": 280
+        },
+        "m_Value3": {
+            "type": "int",
+            "offset": 284
+        },
+        "m_ValueCal3": {
+            "type": "int",
+            "offset": 288
+        },
+        "m_ValueMax3": {
+            "type": "int",
+            "offset": 292
+        },
+        "m_Attr4": {
+            "type": "int",
+            "offset": 296
+        },
+        "m_Value4": {
+            "type": "int",
+            "offset": 300
+        },
+        "m_ValueCal4": {
+            "type": "int",
+            "offset": 304
+        },
+        "m_ValueMax4": {
+            "type": "int",
+            "offset": 308
+        },
+        "m_Calculate": {
+            "type": "int",
+            "offset": 312
+        },
+        "m_FPara0": {
+            "type": "float",
+            "offset": 316
+        },
+        "m_FPara1": {
+            "type": "float",
+            "offset": 320
+        },
+        "m_FPara2": {
+            "type": "float",
+            "offset": 324
+        },
+        "m_FPara3": {
+            "type": "float",
+            "offset": 328
+        },
+        "m_FPara4": {
+            "type": "float",
+            "offset": 332
+        },
+        "m_FPara5": {
+            "type": "float",
+            "offset": 336
+        },
+        "m_FPara6": {
+            "type": "float",
+            "offset": 340
+        },
+        "m_FPara7": {
+            "type": "float",
+            "offset": 344
+        },
+        "m_FPara8": {
+            "type": "float",
+            "offset": 348
+        },
+        "m_FPara9": {
+            "type": "float",
+            "offset": 352
+        },
+        "m_FPara10": {
+            "type": "float",
+            "offset": 356
+        },
+        "m_FPara11": {
+            "type": "float",
+            "offset": 360
+        },
+        "m_FPara12": {
+            "type": "float",
+            "offset": 364
+        },
+        "m_FPara13": {
+            "type": "float",
+            "offset": 368
+        },
+        "m_FPara14": {
+            "type": "float",
+            "offset": 372
+        }
+    }
+}

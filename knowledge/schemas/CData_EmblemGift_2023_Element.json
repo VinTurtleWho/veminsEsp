@@ -1,0 +1,41 @@
+{
+    "class_name": "CData_EmblemGift_2023_Element",
+    "fields": {
+        "m_bError": {
+            "type": "bool",
+            "offset": 16
+        },
+        "m_GiftID": {
+            "type": "int",
+            "offset": 20
+        },
+        "m_GiftTiers": {
+            "type": "int",
+            "offset": 24
+        },
+        "m_Emblem": {
+            "type": "int",
+            "offset": 28
+        },
+        "m_UnlockCondition": {
+            "type": "int",
+            "offset": 32
+        },
+        "m_SkillID": {
+            "type": "int",
+            "offset": 36
+        },
+        "m_mShortTips": {
+            "type": "string",
+            "offset": 40
+        },
+        "m_mStrategy": {
+            "type": "string",
+            "offset": 48
+        },
+        "m_mBnk": {
+            "type": "string",
+            "offset": 56
+        }
+    }
+}

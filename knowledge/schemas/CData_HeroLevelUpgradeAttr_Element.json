@@ -1,0 +1,49 @@
+{
+    "class_name": "CData_HeroLevelUpgradeAttr_Element",
+    "fields": {
+        "m_bError": {
+            "type": "bool",
+            "offset": 16
+        },
+        "m_Level": {
+            "type": "int",
+            "offset": 20
+        },
+        "m_LevelPhyAtt": {
+            "type": "int",
+            "offset": 24
+        },
+        "m_LevelMagAtt": {
+            "type": "int",
+            "offset": 28
+        },
+        "m_LevelAttSpeed": {
+            "type": "int",
+            "offset": 32
+        },
+        "m_PhyLevelShield": {
+            "type": "int",
+            "offset": 36
+        },
+        "m_MagLevelShield": {
+            "type": "int",
+            "offset": 40
+        },
+        "m_LevelHp": {
+            "type": "int",
+            "offset": 44
+        },
+        "m_HPLevelRec": {
+            "type": "int",
+            "offset": 48
+        },
+        "m_LevelMp": {
+            "type": "int",
+            "offset": 52
+        },
+        "m_MPLevelRec": {
+            "type": "int",
+            "offset": 56
+        }
+    }
+}

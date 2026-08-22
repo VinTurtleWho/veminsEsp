@@ -1,0 +1,48 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Glowing Amethyst Aura -->
+    <path
+        android:fillAlpha="0.3"
+        android:fillColor="#8B5CF6"
+        android:pathData="M54,16 L88,48 L54,92 L20,48 Z" />
+
+    <!-- Apex Interceptor 'V' Monogram - Left Wing -->
+    <path
+        android:fillColor="#8B5CF6"
+        android:pathData="M24,24 L42,24 L54,64 L54,80 L36,80 L24,48 Z" />
+
+    <!-- Apex Interceptor 'V' Monogram - Right Wing -->
+    <path
+        android:fillColor="#A855F7"
+        android:pathData="M84,24 L66,24 L54,64 L54,80 L72,80 L84,48 Z" />
+
+    <!-- Left Wing Inner Bevel (Deep Violet Shading) -->
+    <path
+        android:fillColor="#6D28D9"
+        android:pathData="M42,24 L54,64 L48,64 L34,24 Z" />
+
+    <!-- Right Wing Inner Bevel (Bright Amethyst Highlight) -->
+    <path
+        android:fillColor="#C084FC"
+        android:pathData="M66,24 L54,64 L60,64 L74,24 Z" />
+
+    <!-- Central Apex Core Needle - Stark White Precision -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,34 L62,54 L54,74 L46,54 Z" />
+
+    <!-- Top Beacon Pip -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M52,20 L56,20 L56,28 L52,28 Z" />
+
+    <!-- Outer Precision Chamfer Brackets -->
+    <path
+        android:strokeWidth="2"
+        android:strokeColor="#C084FC"
+        android:pathData="M20,32 L20,24 L28,24 M88,32 L88,24 L80,24 M20,68 L20,76 L28,76 M88,68 L88,76 L80,76" />
+</vector>

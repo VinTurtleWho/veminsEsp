@@ -1,0 +1,7230 @@
+{
+  "1001": {
+    "id": 1001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Miya Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "1101": {
+    "id": 1101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Miya Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "1201": {
+    "id": 1201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Miya Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "1202": {
+    "id": 1202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Miya Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "1301": {
+    "id": 1301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Miya Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "2001": {
+    "id": 2001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Balmond Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "2101": {
+    "id": 2101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Balmond Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "2201": {
+    "id": 2201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Balmond Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "2202": {
+    "id": 2202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Balmond Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "2301": {
+    "id": 2301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Balmond Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "3001": {
+    "id": 3001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Saber Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "3101": {
+    "id": 3101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Saber Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "3201": {
+    "id": 3201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Saber Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "3202": {
+    "id": 3202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Saber Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "3301": {
+    "id": 3301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Saber Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "4001": {
+    "id": 4001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Alice Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "4101": {
+    "id": 4101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Alice Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "4201": {
+    "id": 4201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Alice Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "4202": {
+    "id": 4202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Alice Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "4301": {
+    "id": 4301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Alice Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "5001": {
+    "id": 5001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Nana Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "5101": {
+    "id": 5101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Nana Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "5201": {
+    "id": 5201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Nana Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "5202": {
+    "id": 5202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Nana Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "5301": {
+    "id": 5301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Nana Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "6001": {
+    "id": 6001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Tigreal Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "6101": {
+    "id": 6101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Tigreal Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "6201": {
+    "id": 6201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Tigreal Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "6202": {
+    "id": 6202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Tigreal Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "6301": {
+    "id": 6301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Tigreal Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "7001": {
+    "id": 7001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Alucard Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "7101": {
+    "id": 7101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Alucard Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "7201": {
+    "id": 7201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Alucard Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "7202": {
+    "id": 7202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Alucard Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "7301": {
+    "id": 7301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Alucard Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "8001": {
+    "id": 8001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Karina Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "8101": {
+    "id": 8101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Karina Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "8201": {
+    "id": 8201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Karina Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "8202": {
+    "id": 8202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Karina Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "8301": {
+    "id": 8301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Karina Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "9001": {
+    "id": 9001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Akai Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "9101": {
+    "id": 9101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Akai Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "9201": {
+    "id": 9201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Akai Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "9202": {
+    "id": 9202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Akai Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "9301": {
+    "id": 9301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Akai Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "10001": {
+    "id": 10001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Bane Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "10101": {
+    "id": 10101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Bane Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "10201": {
+    "id": 10201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Bane Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "10202": {
+    "id": 10202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Bane Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "10301": {
+    "id": 10301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Bane Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "11001": {
+    "id": 11001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Bruno Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "11101": {
+    "id": 11101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Bruno Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "11201": {
+    "id": 11201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Bruno Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "11202": {
+    "id": 11202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Bruno Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "11301": {
+    "id": 11301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Bruno Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "12001": {
+    "id": 12001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Clint Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "12101": {
+    "id": 12101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Clint Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "12201": {
+    "id": 12201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Clint Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "12202": {
+    "id": 12202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Clint Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "12301": {
+    "id": 12301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Clint Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "13001": {
+    "id": 13001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Rafaela Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "13101": {
+    "id": 13101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Rafaela Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "13201": {
+    "id": 13201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Rafaela Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "13202": {
+    "id": 13202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Rafaela Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "13301": {
+    "id": 13301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Rafaela Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "14001": {
+    "id": 14001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Eudora Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "14101": {
+    "id": 14101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Eudora Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "14201": {
+    "id": 14201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Eudora Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "14202": {
+    "id": 14202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Eudora Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "14301": {
+    "id": 14301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Eudora Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "15001": {
+    "id": 15001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Layla Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "15101": {
+    "id": 15101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Layla Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "15201": {
+    "id": 15201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Layla Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "15202": {
+    "id": 15202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Layla Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "15301": {
+    "id": 15301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Layla Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "16001": {
+    "id": 16001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Minotaur Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "16101": {
+    "id": 16101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Minotaur Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "16201": {
+    "id": 16201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Minotaur Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "16202": {
+    "id": 16202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Minotaur Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "16301": {
+    "id": 16301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Minotaur Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "17001": {
+    "id": 17001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Lolita Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "17101": {
+    "id": 17101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Lolita Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "17201": {
+    "id": 17201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Lolita Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "17202": {
+    "id": 17202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Lolita Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "17301": {
+    "id": 17301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Lolita Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "18001": {
+    "id": 18001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Hayabusa Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "18101": {
+    "id": 18101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Hayabusa Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "18201": {
+    "id": 18201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Hayabusa Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "18202": {
+    "id": 18202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Hayabusa Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "18301": {
+    "id": 18301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Hayabusa Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "19001": {
+    "id": 19001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Freya Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "19101": {
+    "id": 19101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Freya Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "19201": {
+    "id": 19201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Freya Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "19202": {
+    "id": 19202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Freya Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "19301": {
+    "id": 19301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Freya Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "20001": {
+    "id": 20001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Gord Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "20101": {
+    "id": 20101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Gord Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "20201": {
+    "id": 20201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Gord Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "20202": {
+    "id": 20202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Gord Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "20301": {
+    "id": 20301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Gord Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "21001": {
+    "id": 21001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Natalia Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "21101": {
+    "id": 21101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Natalia Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "21201": {
+    "id": 21201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Natalia Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "21202": {
+    "id": 21202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Natalia Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "21301": {
+    "id": 21301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Natalia Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "22001": {
+    "id": 22001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Kagura Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "22101": {
+    "id": 22101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Kagura Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "22201": {
+    "id": 22201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Kagura Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "22202": {
+    "id": 22202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Kagura Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "22301": {
+    "id": 22301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Kagura Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "23001": {
+    "id": 23001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Chou Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "23101": {
+    "id": 23101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Chou Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "23201": {
+    "id": 23201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Chou Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "23202": {
+    "id": 23202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Chou Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "23301": {
+    "id": 23301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Chou Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "24001": {
+    "id": 24001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Sun Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "24101": {
+    "id": 24101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Sun Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "24201": {
+    "id": 24201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Sun Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "24202": {
+    "id": 24202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Sun Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "24301": {
+    "id": 24301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Sun Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "25001": {
+    "id": 25001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Alpha Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "25101": {
+    "id": 25101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Alpha Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "25201": {
+    "id": 25201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Alpha Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "25202": {
+    "id": 25202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Alpha Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "25301": {
+    "id": 25301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Alpha Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "26001": {
+    "id": 26001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Ruby Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "26101": {
+    "id": 26101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Ruby Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "26201": {
+    "id": 26201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Ruby Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "26202": {
+    "id": 26202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Ruby Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "26301": {
+    "id": 26301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Ruby Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "27001": {
+    "id": 27001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Yi Sun-shin Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "27101": {
+    "id": 27101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Yi Sun-shin Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "27201": {
+    "id": 27201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Yi Sun-shin Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "27202": {
+    "id": 27202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Yi Sun-shin Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "27301": {
+    "id": 27301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Yi Sun-shin Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "28001": {
+    "id": 28001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Moskov Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "28101": {
+    "id": 28101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Moskov Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "28201": {
+    "id": 28201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Moskov Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "28202": {
+    "id": 28202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Moskov Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "28301": {
+    "id": 28301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Moskov Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "29001": {
+    "id": 29001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Johnson Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "29101": {
+    "id": 29101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Johnson Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "29201": {
+    "id": 29201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Johnson Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "29202": {
+    "id": 29202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Johnson Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "29301": {
+    "id": 29301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Johnson Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "30001": {
+    "id": 30001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Cyclops Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "30101": {
+    "id": 30101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Cyclops Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "30201": {
+    "id": 30201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Cyclops Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "30202": {
+    "id": 30202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Cyclops Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "30301": {
+    "id": 30301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Cyclops Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "31001": {
+    "id": 31001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Estes Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "31101": {
+    "id": 31101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Estes Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "31201": {
+    "id": 31201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Estes Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "31202": {
+    "id": 31202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Estes Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "31301": {
+    "id": 31301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Estes Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "32001": {
+    "id": 32001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Hilda Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "32101": {
+    "id": 32101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Hilda Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "32201": {
+    "id": 32201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Hilda Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "32202": {
+    "id": 32202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Hilda Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "32301": {
+    "id": 32301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Hilda Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "33001": {
+    "id": 33001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Aurora Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "33101": {
+    "id": 33101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Aurora Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "33201": {
+    "id": 33201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Aurora Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "33202": {
+    "id": 33202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Aurora Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "33301": {
+    "id": 33301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Aurora Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "34001": {
+    "id": 34001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Lapu-Lapu Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "34101": {
+    "id": 34101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Lapu-Lapu Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "34201": {
+    "id": 34201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Lapu-Lapu Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "34202": {
+    "id": 34202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Lapu-Lapu Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "34301": {
+    "id": 34301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Lapu-Lapu Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "35001": {
+    "id": 35001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Vexana Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "35101": {
+    "id": 35101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Vexana Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "35201": {
+    "id": 35201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Vexana Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "35202": {
+    "id": 35202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Vexana Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "35301": {
+    "id": 35301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Vexana Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "36001": {
+    "id": 36001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Roger Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "36101": {
+    "id": 36101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Roger Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "36201": {
+    "id": 36201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Roger Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "36202": {
+    "id": 36202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Roger Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "36301": {
+    "id": 36301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Roger Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "37001": {
+    "id": 37001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Karrie Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "37101": {
+    "id": 37101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Karrie Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "37201": {
+    "id": 37201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Karrie Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "37202": {
+    "id": 37202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Karrie Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "37301": {
+    "id": 37301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Karrie Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "38001": {
+    "id": 38001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Gatotkaca Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "38101": {
+    "id": 38101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Gatotkaca Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "38201": {
+    "id": 38201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Gatotkaca Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "38202": {
+    "id": 38202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Gatotkaca Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "38301": {
+    "id": 38301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Gatotkaca Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "39001": {
+    "id": 39001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Harley Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "39101": {
+    "id": 39101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Harley Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "39201": {
+    "id": 39201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Harley Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "39202": {
+    "id": 39202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Harley Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "39301": {
+    "id": 39301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Harley Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "40001": {
+    "id": 40001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Irithel Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "40101": {
+    "id": 40101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Irithel Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "40201": {
+    "id": 40201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Irithel Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "40202": {
+    "id": 40202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Irithel Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "40301": {
+    "id": 40301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Irithel Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "41001": {
+    "id": 41001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Grock Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "41101": {
+    "id": 41101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Grock Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "41201": {
+    "id": 41201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Grock Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "41202": {
+    "id": 41202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Grock Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "41301": {
+    "id": 41301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Grock Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "42001": {
+    "id": 42001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Argus Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "42101": {
+    "id": 42101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Argus Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "42201": {
+    "id": 42201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Argus Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "42202": {
+    "id": 42202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Argus Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "42301": {
+    "id": 42301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Argus Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "43001": {
+    "id": 43001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Odette Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "43101": {
+    "id": 43101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Odette Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "43201": {
+    "id": 43201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Odette Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "43202": {
+    "id": 43202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Odette Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "43301": {
+    "id": 43301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Odette Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "44001": {
+    "id": 44001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Lancelot Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "44101": {
+    "id": 44101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Lancelot Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "44201": {
+    "id": 44201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Lancelot Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "44202": {
+    "id": 44202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Lancelot Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "44301": {
+    "id": 44301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Lancelot Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "45001": {
+    "id": 45001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Diggie Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "45101": {
+    "id": 45101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Diggie Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "45201": {
+    "id": 45201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Diggie Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "45202": {
+    "id": 45202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Diggie Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "45301": {
+    "id": 45301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Diggie Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "46001": {
+    "id": 46001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Hylos Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "46101": {
+    "id": 46101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Hylos Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "46201": {
+    "id": 46201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Hylos Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "46202": {
+    "id": 46202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Hylos Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "46301": {
+    "id": 46301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Hylos Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "47001": {
+    "id": 47001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Zhask Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "47101": {
+    "id": 47101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Zhask Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "47201": {
+    "id": 47201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Zhask Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "47202": {
+    "id": 47202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Zhask Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "47301": {
+    "id": 47301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Zhask Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "48001": {
+    "id": 48001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Helcurt Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "48101": {
+    "id": 48101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Helcurt Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "48201": {
+    "id": 48201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Helcurt Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "48202": {
+    "id": 48202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Helcurt Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "48301": {
+    "id": 48301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Helcurt Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "49001": {
+    "id": 49001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Pharsa Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "49101": {
+    "id": 49101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Pharsa Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "49201": {
+    "id": 49201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Pharsa Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "49202": {
+    "id": 49202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Pharsa Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "49301": {
+    "id": 49301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Pharsa Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "50001": {
+    "id": 50001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Lesley Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "50101": {
+    "id": 50101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Lesley Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "50201": {
+    "id": 50201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Lesley Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "50202": {
+    "id": 50202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Lesley Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "50301": {
+    "id": 50301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Lesley Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "51001": {
+    "id": 51001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Jawhead Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "51101": {
+    "id": 51101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Jawhead Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "51201": {
+    "id": 51201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Jawhead Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "51202": {
+    "id": 51202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Jawhead Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "51301": {
+    "id": 51301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Jawhead Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "52001": {
+    "id": 52001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Smart Heart Movement Speed Boost",
+    "formula": {
+      "move_speed_add_pct_per_stack": 15.0,
+      "max_stacks": 4,
+      "duration_ms": 4000,
+      "max_speed_boost_pct": 60.0
+    }
+  },
+  "52101": {
+    "id": 52101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Angela Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "52201": {
+    "id": 52201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Angela Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "52202": {
+    "id": 52202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Angela Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "52301": {
+    "id": 52301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Angela Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "53001": {
+    "id": 53001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Gusion Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "53101": {
+    "id": 53101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Gusion Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "53201": {
+    "id": 53201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Gusion Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "53202": {
+    "id": 53202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Gusion Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "53301": {
+    "id": 53301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Gusion Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "54001": {
+    "id": 54001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Valir Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "54101": {
+    "id": 54101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Valir Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "54201": {
+    "id": 54201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Valir Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "54202": {
+    "id": 54202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Valir Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "54301": {
+    "id": 54301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Valir Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "55001": {
+    "id": 55001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Martis Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "55101": {
+    "id": 55101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Martis Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "55201": {
+    "id": 55201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Martis Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "55202": {
+    "id": 55202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Martis Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "55301": {
+    "id": 55301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Martis Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "56001": {
+    "id": 56001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Uranus Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "56101": {
+    "id": 56101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Uranus Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "56201": {
+    "id": 56201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Uranus Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "56202": {
+    "id": 56202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Uranus Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "56301": {
+    "id": 56301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Uranus Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "57001": {
+    "id": 57001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Hanabi Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "57101": {
+    "id": 57101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Hanabi Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "57201": {
+    "id": 57201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Hanabi Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "57202": {
+    "id": 57202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Hanabi Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "57301": {
+    "id": 57301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Hanabi Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "58001": {
+    "id": 58001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Chang'e Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "58101": {
+    "id": 58101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Chang'e Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "58201": {
+    "id": 58201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Chang'e Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "58202": {
+    "id": 58202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Chang'e Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "58301": {
+    "id": 58301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Chang'e Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "59001": {
+    "id": 59001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Kaja Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "59101": {
+    "id": 59101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Kaja Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "59201": {
+    "id": 59201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Kaja Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "59202": {
+    "id": 59202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Kaja Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "59301": {
+    "id": 59301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Kaja Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "60001": {
+    "id": 60001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Selena Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "60101": {
+    "id": 60101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Selena Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "60201": {
+    "id": 60201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Selena Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "60202": {
+    "id": 60202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Selena Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "60301": {
+    "id": 60301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Selena Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "61001": {
+    "id": 61001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Aldous Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "61101": {
+    "id": 61101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Aldous Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "61201": {
+    "id": 61201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Aldous Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "61202": {
+    "id": 61202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Aldous Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "61301": {
+    "id": 61301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Aldous Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "62001": {
+    "id": 62001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Claude Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "62101": {
+    "id": 62101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Claude Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "62201": {
+    "id": 62201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Claude Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "62202": {
+    "id": 62202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Claude Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "62301": {
+    "id": 62301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Claude Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "63001": {
+    "id": 63001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Vale Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "63101": {
+    "id": 63101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Vale Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "63201": {
+    "id": 63201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Vale Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "63202": {
+    "id": 63202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Vale Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "63301": {
+    "id": 63301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Vale Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "64001": {
+    "id": 64001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Leomord Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "64101": {
+    "id": 64101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Leomord Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "64201": {
+    "id": 64201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Leomord Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "64202": {
+    "id": 64202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Leomord Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "64301": {
+    "id": 64301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Leomord Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "65001": {
+    "id": 65001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Lunox Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "65101": {
+    "id": 65101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Lunox Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "65201": {
+    "id": 65201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Lunox Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "65202": {
+    "id": 65202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Lunox Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "65301": {
+    "id": 65301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Lunox Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "66001": {
+    "id": 66001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Hanzo Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "66101": {
+    "id": 66101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Hanzo Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "66201": {
+    "id": 66201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Hanzo Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "66202": {
+    "id": 66202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Hanzo Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "66301": {
+    "id": 66301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Hanzo Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "67001": {
+    "id": 67001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Belerick Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "67101": {
+    "id": 67101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Belerick Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "67201": {
+    "id": 67201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Belerick Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "67202": {
+    "id": 67202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Belerick Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "67301": {
+    "id": 67301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Belerick Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "68001": {
+    "id": 68001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Kimmy Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "68101": {
+    "id": 68101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Kimmy Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "68201": {
+    "id": 68201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Kimmy Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "68202": {
+    "id": 68202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Kimmy Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "68301": {
+    "id": 68301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Kimmy Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "69001": {
+    "id": 69001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Thamuz Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "69101": {
+    "id": 69101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Thamuz Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "69201": {
+    "id": 69201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Thamuz Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "69202": {
+    "id": 69202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Thamuz Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "69301": {
+    "id": 69301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Thamuz Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "70001": {
+    "id": 70001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Harith Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "70101": {
+    "id": 70101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Harith Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "70201": {
+    "id": 70201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Harith Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "70202": {
+    "id": 70202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Harith Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "70301": {
+    "id": 70301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Harith Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "71001": {
+    "id": 71001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Minsitthar Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "71101": {
+    "id": 71101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Minsitthar Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "71201": {
+    "id": 71201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Minsitthar Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "71202": {
+    "id": 71202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Minsitthar Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "71301": {
+    "id": 71301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Minsitthar Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "72001": {
+    "id": 72001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Kadita Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "72101": {
+    "id": 72101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Kadita Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "72201": {
+    "id": 72201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Kadita Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "72202": {
+    "id": 72202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Kadita Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "72301": {
+    "id": 72301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Kadita Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "73001": {
+    "id": 73001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Faramis Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "73101": {
+    "id": 73101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Faramis Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "73201": {
+    "id": 73201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Faramis Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "73202": {
+    "id": 73202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Faramis Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "73301": {
+    "id": 73301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Faramis Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "74001": {
+    "id": 74001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Badang Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "74101": {
+    "id": 74101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Badang Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "74201": {
+    "id": 74201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Badang Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "74202": {
+    "id": 74202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Badang Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "74301": {
+    "id": 74301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Badang Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "75001": {
+    "id": 75001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Khufra Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "75101": {
+    "id": 75101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Khufra Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "75201": {
+    "id": 75201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Khufra Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "75202": {
+    "id": 75202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Khufra Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "75301": {
+    "id": 75301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Khufra Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "76001": {
+    "id": 76001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Granger Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "76101": {
+    "id": 76101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Granger Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "76201": {
+    "id": 76201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Granger Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "76202": {
+    "id": 76202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Granger Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "76301": {
+    "id": 76301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Granger Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "77001": {
+    "id": 77001,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "All United King's Mark Stacking CC & Heal",
+    "formula": {
+      "trigger_stacks": 5,
+      "stun_duration_ms": 800,
+      "cc_type": "DIZZY",
+      "heal_base": 200.0,
+      "heal_hp_scaling": 0.1,
+      "cleanseable": true
+    }
+  },
+  "77101": {
+    "id": 77101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Guinevere Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "77201": {
+    "id": 77201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Guinevere Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "77202": {
+    "id": 77202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Guinevere Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "77301": {
+    "id": 77301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Guinevere Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "78001": {
+    "id": 78001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Esmeralda Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "78101": {
+    "id": 78101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Esmeralda Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "78201": {
+    "id": 78201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Esmeralda Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "78202": {
+    "id": 78202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Esmeralda Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "78301": {
+    "id": 78301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Esmeralda Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "79001": {
+    "id": 79001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Terizla Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "79101": {
+    "id": 79101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Terizla Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "79201": {
+    "id": 79201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Terizla Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "79202": {
+    "id": 79202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Terizla Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "79301": {
+    "id": 79301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Terizla Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "80001": {
+    "id": 80001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "X.Borg Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "80101": {
+    "id": 80101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "X.Borg Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "80201": {
+    "id": 80201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "X.Borg Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "80202": {
+    "id": 80202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "X.Borg Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "80301": {
+    "id": 80301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "X.Borg Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "81001": {
+    "id": 81001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Ling Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "81101": {
+    "id": 81101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Ling Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "81201": {
+    "id": 81201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Ling Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "81202": {
+    "id": 81202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Ling Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "81301": {
+    "id": 81301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Ling Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "82001": {
+    "id": 82001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Dyrroth Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "82101": {
+    "id": 82101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Dyrroth Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "82201": {
+    "id": 82201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Dyrroth Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "82202": {
+    "id": 82202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Dyrroth Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "82301": {
+    "id": 82301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Dyrroth Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "83001": {
+    "id": 83001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Lylia Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "83101": {
+    "id": 83101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Lylia Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "83201": {
+    "id": 83201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Lylia Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "83202": {
+    "id": 83202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Lylia Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "83301": {
+    "id": 83301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Lylia Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "84001": {
+    "id": 84001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Baxia Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "84101": {
+    "id": 84101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Baxia Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "84201": {
+    "id": 84201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Baxia Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "84202": {
+    "id": 84202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Baxia Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "84301": {
+    "id": 84301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Baxia Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "85001": {
+    "id": 85001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Masha Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "85101": {
+    "id": 85101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Masha Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "85201": {
+    "id": 85201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Masha Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "85202": {
+    "id": 85202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Masha Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "85301": {
+    "id": 85301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Masha Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "86001": {
+    "id": 86001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Wanwan Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "86101": {
+    "id": 86101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Wanwan Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "86201": {
+    "id": 86201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Wanwan Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "86202": {
+    "id": 86202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Wanwan Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "86301": {
+    "id": 86301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Wanwan Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "87001": {
+    "id": 87001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Silvanna Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "87101": {
+    "id": 87101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Silvanna Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "87201": {
+    "id": 87201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Silvanna Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "87202": {
+    "id": 87202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Silvanna Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "87301": {
+    "id": 87301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Silvanna Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "88001": {
+    "id": 88001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Carmilla Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "88101": {
+    "id": 88101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Carmilla Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "88201": {
+    "id": 88201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Carmilla Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "88202": {
+    "id": 88202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Carmilla Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "88301": {
+    "id": 88301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Carmilla Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "89001": {
+    "id": 89001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Cecilion Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "89101": {
+    "id": 89101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Cecilion Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "89201": {
+    "id": 89201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Cecilion Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "89202": {
+    "id": 89202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Cecilion Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "89301": {
+    "id": 89301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Cecilion Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "90001": {
+    "id": 90001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Atlas Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "90101": {
+    "id": 90101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Atlas Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "90201": {
+    "id": 90201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Atlas Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "90202": {
+    "id": 90202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Atlas Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "90301": {
+    "id": 90301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Atlas Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "91001": {
+    "id": 91001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Popol and Kupa Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "91101": {
+    "id": 91101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Popol and Kupa Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "91201": {
+    "id": 91201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Popol and Kupa Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "91202": {
+    "id": 91202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Popol and Kupa Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "91301": {
+    "id": 91301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Popol and Kupa Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "92001": {
+    "id": 92001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Yu Zhong Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "92101": {
+    "id": 92101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Yu Zhong Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "92201": {
+    "id": 92201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Yu Zhong Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "92202": {
+    "id": 92202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Yu Zhong Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "92301": {
+    "id": 92301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Yu Zhong Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "93001": {
+    "id": 93001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Luo Yi Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "93101": {
+    "id": 93101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Luo Yi Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "93201": {
+    "id": 93201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Luo Yi Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "93202": {
+    "id": 93202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Luo Yi Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "93301": {
+    "id": 93301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Luo Yi Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "94001": {
+    "id": 94001,
+    "operation_type": 53,
+    "target_attr": 12,
+    "description": "Elapsed Daytime Swordout Intent Dash",
+    "formula": {
+      "operation": "OPER_TYPE_QUICK_MOVE",
+      "dash_distance": 4.5,
+      "dash_speed": 18.0,
+      "can_cross_thin_walls": true
+    }
+  },
+  "94101": {
+    "id": 94101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Benedetta Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "94201": {
+    "id": 94201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Benedetta Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "94202": {
+    "id": 94202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Benedetta Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "94301": {
+    "id": 94301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Benedetta Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "95001": {
+    "id": 95001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Khaleed Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "95101": {
+    "id": 95101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Khaleed Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "95201": {
+    "id": 95201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Khaleed Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "95202": {
+    "id": 95202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Khaleed Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "95301": {
+    "id": 95301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Khaleed Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "96001": {
+    "id": 96001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Barats Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "96101": {
+    "id": 96101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Barats Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "96201": {
+    "id": 96201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Barats Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "96202": {
+    "id": 96202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Barats Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "96301": {
+    "id": 96301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Barats Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "97001": {
+    "id": 97001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Brody Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "97101": {
+    "id": 97101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Brody Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "97201": {
+    "id": 97201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Brody Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "97202": {
+    "id": 97202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Brody Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "97301": {
+    "id": 97301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Brody Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "98001": {
+    "id": 98001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Yve Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "98101": {
+    "id": 98101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Yve Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "98201": {
+    "id": 98201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Yve Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "98202": {
+    "id": 98202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Yve Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "98301": {
+    "id": 98301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Yve Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "99001": {
+    "id": 99001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Mathilda Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "99101": {
+    "id": 99101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Mathilda Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "99201": {
+    "id": 99201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Mathilda Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "99202": {
+    "id": 99202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Mathilda Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "99301": {
+    "id": 99301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Mathilda Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "100001": {
+    "id": 100001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Paquito Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "100101": {
+    "id": 100101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Paquito Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "100201": {
+    "id": 100201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Paquito Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "100202": {
+    "id": 100202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Paquito Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "100301": {
+    "id": 100301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Paquito Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "101001": {
+    "id": 101001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Gloo Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "101101": {
+    "id": 101101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Gloo Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "101201": {
+    "id": 101201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Gloo Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "101202": {
+    "id": 101202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Gloo Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "101301": {
+    "id": 101301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Gloo Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "102001": {
+    "id": 102001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Beatrix Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "102101": {
+    "id": 102101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Beatrix Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "102201": {
+    "id": 102201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Beatrix Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "102202": {
+    "id": 102202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Beatrix Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "102301": {
+    "id": 102301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Beatrix Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "103001": {
+    "id": 103001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Phoveus Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "103101": {
+    "id": 103101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Phoveus Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "103201": {
+    "id": 103201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Phoveus Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "103202": {
+    "id": 103202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Phoveus Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "103301": {
+    "id": 103301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Phoveus Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "104001": {
+    "id": 104001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Natan Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "104101": {
+    "id": 104101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Natan Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "104201": {
+    "id": 104201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Natan Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "104202": {
+    "id": 104202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Natan Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "104301": {
+    "id": 104301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Natan Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "105001": {
+    "id": 105001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Aulus Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "105101": {
+    "id": 105101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Aulus Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "105201": {
+    "id": 105201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Aulus Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "105202": {
+    "id": 105202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Aulus Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "105301": {
+    "id": 105301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Aulus Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "106001": {
+    "id": 106001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Aamon Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "106101": {
+    "id": 106101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Aamon Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "106201": {
+    "id": 106201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Aamon Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "106202": {
+    "id": 106202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Aamon Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "106301": {
+    "id": 106301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Aamon Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "107001": {
+    "id": 107001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Valentina Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "107101": {
+    "id": 107101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Valentina Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "107201": {
+    "id": 107201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Valentina Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "107202": {
+    "id": 107202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Valentina Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "107301": {
+    "id": 107301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Valentina Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "108001": {
+    "id": 108001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Edith Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "108101": {
+    "id": 108101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Edith Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "108201": {
+    "id": 108201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Edith Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "108202": {
+    "id": 108202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Edith Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "108301": {
+    "id": 108301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Edith Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "109001": {
+    "id": 109001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Floryn Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "109101": {
+    "id": 109101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Floryn Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "109201": {
+    "id": 109201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Floryn Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "109202": {
+    "id": 109202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Floryn Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "109301": {
+    "id": 109301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Floryn Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "110001": {
+    "id": 110001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Yin Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "110101": {
+    "id": 110101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Yin Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "110201": {
+    "id": 110201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Yin Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "110202": {
+    "id": 110202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Yin Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "110301": {
+    "id": 110301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Yin Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "111001": {
+    "id": 111001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Melissa Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "111101": {
+    "id": 111101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Melissa Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "111201": {
+    "id": 111201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Melissa Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "111202": {
+    "id": 111202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Melissa Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "111301": {
+    "id": 111301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Melissa Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "112001": {
+    "id": 112001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Xavier Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "112101": {
+    "id": 112101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Xavier Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "112201": {
+    "id": 112201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Xavier Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "112202": {
+    "id": 112202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Xavier Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "112301": {
+    "id": 112301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Xavier Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "113001": {
+    "id": 113001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Julian Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "113101": {
+    "id": 113101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Julian Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "113201": {
+    "id": 113201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Julian Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "113202": {
+    "id": 113202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Julian Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "113301": {
+    "id": 113301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Julian Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "114001": {
+    "id": 114001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Fredrinn Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "114101": {
+    "id": 114101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Fredrinn Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "114201": {
+    "id": 114201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Fredrinn Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "114202": {
+    "id": 114202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Fredrinn Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "114301": {
+    "id": 114301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Fredrinn Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "115001": {
+    "id": 115001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Joy Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "115101": {
+    "id": 115101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Joy Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "115201": {
+    "id": 115201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Joy Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "115202": {
+    "id": 115202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Joy Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "115301": {
+    "id": 115301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Joy Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "116001": {
+    "id": 116001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Novaria Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "116101": {
+    "id": 116101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Novaria Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "116201": {
+    "id": 116201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Novaria Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "116202": {
+    "id": 116202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Novaria Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "116301": {
+    "id": 116301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Novaria Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "117001": {
+    "id": 117001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Arlott Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "117101": {
+    "id": 117101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Arlott Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "117201": {
+    "id": 117201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Arlott Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "117202": {
+    "id": 117202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Arlott Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "117301": {
+    "id": 117301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Arlott Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "118001": {
+    "id": 118001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Ixia Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "118101": {
+    "id": 118101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Ixia Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "118201": {
+    "id": 118201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Ixia Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "118202": {
+    "id": 118202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Ixia Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "118301": {
+    "id": 118301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Ixia Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "119001": {
+    "id": 119001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Nolan Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "119101": {
+    "id": 119101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Nolan Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "119201": {
+    "id": 119201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Nolan Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "119202": {
+    "id": 119202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Nolan Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "119301": {
+    "id": 119301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Nolan Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "120001": {
+    "id": 120001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Cici Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "120101": {
+    "id": 120101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Cici Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "120201": {
+    "id": 120201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Cici Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "120202": {
+    "id": 120202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Cici Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "120301": {
+    "id": 120301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Cici Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "121001": {
+    "id": 121001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Chip Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "121101": {
+    "id": 121101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Chip Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "121201": {
+    "id": 121201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Chip Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "121202": {
+    "id": 121202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Chip Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "121301": {
+    "id": 121301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Chip Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "122001": {
+    "id": 122001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Zhuxin Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "122101": {
+    "id": 122101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Zhuxin Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "122201": {
+    "id": 122201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Zhuxin Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 1.0,
+      "damage_type": "MAGIC"
+    }
+  },
+  "122202": {
+    "id": 122202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Zhuxin Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "DIZZY",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "122301": {
+    "id": 122301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Zhuxin Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 0.0,
+      "total_ap_scaling": 2.2,
+      "damage_type": "MAGIC"
+    }
+  },
+  "123001": {
+    "id": 123001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Suyou Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "123101": {
+    "id": 123101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Suyou Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "123201": {
+    "id": 123201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Suyou Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "123202": {
+    "id": 123202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Suyou Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "123301": {
+    "id": 123301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Suyou Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "124001": {
+    "id": 124001,
+    "operation_type": 1,
+    "target_attr": 21,
+    "description": "Lukas Passive Modifier",
+    "formula": {
+      "base": 10.0,
+      "scaling": 0.1,
+      "duration_ms": 3000
+    }
+  },
+  "124101": {
+    "id": 124101,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Lukas Skill 1 Damage",
+    "formula": {
+      "base_damage": 250.0,
+      "total_ad_scaling": 0.8,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "124201": {
+    "id": 124201,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Lukas Skill 2 Damage",
+    "formula": {
+      "base_damage": 300.0,
+      "total_ad_scaling": 0.9,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "124202": {
+    "id": 124202,
+    "operation_type": 13,
+    "target_attr": 1,
+    "description": "Lukas Skill 2 Crowd Control",
+    "formula": {
+      "cc_type": "SLOW",
+      "duration_ms": 1000,
+      "cleanseable": true
+    }
+  },
+  "124301": {
+    "id": 124301,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Lukas Ultimate Burst Damage",
+    "formula": {
+      "base_damage": 600.0,
+      "total_ad_scaling": 1.6,
+      "total_ap_scaling": 0.0,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "52002": {
+    "id": 52002,
+    "operation_type": 128,
+    "target_attr": 21,
+    "description": "Smart Heart Host Speed Transfer During Ultimate",
+    "formula": {
+      "transfers_speed_to_attached_host": true,
+      "efficiency": 1.0
+    }
+  },
+  "94002": {
+    "id": 94002,
+    "operation_type": 4,
+    "target_attr": 4,
+    "description": "Elapsed Daytime Swordout Slash Damage",
+    "formula": {
+      "base_damage": 210.0,
+      "total_ad_scaling": 2.1,
+      "damage_type": "PHYSICAL"
+    }
+  },
+  "77002": {
+    "id": 77002,
+    "operation_type": 1,
+    "target_attr": 30,
+    "description": "All United Team Kill Gold Bounty Share",
+    "formula": {
+      "gold_per_ally_hero_kill": 60,
+      "global_trigger": true
+    }
+  }
+}

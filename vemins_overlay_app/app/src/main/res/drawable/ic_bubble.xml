@@ -1,0 +1,45 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+
+    <!-- Subtle Outer Precision Diamond -->
+    <path
+        android:fillAlpha="0.12"
+        android:fillColor="#FFFFFF"
+        android:pathData="M24,2 L44,22 L24,46 L4,22 Z" />
+
+    <!-- Apex Interceptor 'V' - Outer Faceted Armor Wings -->
+    <path
+        android:fillColor="#E5E5EA"
+        android:pathData="M6,8 L16,8 L24,28 L24,38 L14,38 L6,22 Z" />
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M42,8 L32,8 L24,28 L24,38 L34,38 L42,22 Z" />
+
+    <!-- Inner Bevel Highlights -->
+    <path
+        android:fillColor="#8E8E93"
+        android:pathData="M16,8 L24,28 L20,28 L12,8 Z" />
+
+    <path
+        android:fillColor="#D1D1D6"
+        android:pathData="M32,8 L24,28 L28,28 L36,8 Z" />
+
+    <!-- Center Apex Core - Stark White Interceptor Needle & Chevron -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M24,14 L28,24 L24,34 L20,24 Z" />
+
+    <!-- Precision Core Notch Dot -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M23,6 L25,6 L25,11 L23,11 Z" />
+
+    <!-- Bottom Anchor Tip Accent -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M22,39 L26,39 L24,44 Z" />
+</vector>

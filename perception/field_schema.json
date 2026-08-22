@@ -1,0 +1,1436 @@
+{
+  "version": "1.1.0",
+  "arch": "arm64-v8a",
+  "classes": {
+    "Battle.LogicPlayer": {
+      "vtable_signature": "0x742002fdf8",
+      "inheritance": [
+        "Battle.LogicPlayer",
+        "Battle.LogicFighter",
+        "Battle.LogicEntityBase",
+        "Battle.EntityBase",
+        "Battle.TimerBase"
+      ],
+      "fields": [
+        {
+          "field": "IsPlayer",
+          "offset": "0x05c",
+          "type": "uint8",
+          "semantic": "is_player",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_uGuid",
+          "offset": "0x0a8",
+          "type": "uint64",
+          "semantic": "guid",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_ID",
+          "offset": "0x0ac",
+          "type": "int32",
+          "semantic": "hero_id",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_Level",
+          "offset": "0x0b4",
+          "type": "int32",
+          "semantic": "level",
+          "confidence": "PROVEN",
+          "required": true,
+          "validation": { "min": 1, "max": 15 }
+        },
+        {
+          "field": "m_Hp",
+          "offset": "0x0c8",
+          "type": "int32",
+          "semantic": "hp",
+          "confidence": "PROVEN",
+          "required": true,
+          "validation": { "min": 0, "max_field": "m_HpMax" }
+        },
+        {
+          "field": "m_HpMax",
+          "offset": "0x0cc",
+          "type": "int32",
+          "semantic": "hp_max",
+          "confidence": "PROVEN",
+          "required": true,
+          "validation": { "min": 1 }
+        },
+        {
+          "field": "m_MechArmorHp",
+          "offset": "0x0d8",
+          "type": "int32",
+          "semantic": "mech_armor_hp",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_AdditionHp1",
+          "offset": "0x0e4",
+          "type": "int32",
+          "semantic": "shield",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_AdditionHp1Max",
+          "offset": "0x0e8",
+          "type": "int32",
+          "semantic": "shield_max",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_AdditionHp2",
+          "offset": "0x0f0",
+          "type": "int32",
+          "semantic": "magic_shield",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_AdditionHp2Max",
+          "offset": "0x0f4",
+          "type": "int32",
+          "semantic": "magic_shield_max",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_Mp",
+          "offset": "0x108",
+          "type": "int32",
+          "semantic": "mp",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "_MpMax",
+          "offset": "0x10c",
+          "type": "int32",
+          "semantic": "mp_max",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_bDeath",
+          "offset": "0x1d0",
+          "type": "uint8",
+          "semantic": "is_dead",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_EntityCampType",
+          "offset": "0x1dc",
+          "type": "int32",
+          "semantic": "camp",
+          "confidence": "PROVEN",
+          "required": true,
+          "validation": { "allowed": [1, 2] }
+        },
+        {
+          "field": "m_iStatus",
+          "offset": "0x1e4",
+          "type": "int32",
+          "semantic": "status",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_bInBattle",
+          "offset": "0x21c",
+          "type": "uint8",
+          "semantic": "in_battle",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_dRealPosX",
+          "offset": "0x268",
+          "type": "double",
+          "semantic": "pos_x",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_dRealPosY",
+          "offset": "0x270",
+          "type": "double",
+          "semantic": "pos_y",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "_v2MoveDir_x",
+          "offset": "0x288",
+          "type": "double",
+          "semantic": "move_dir_x",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "_v2MoveDir_y",
+          "offset": "0x290",
+          "type": "double",
+          "semantic": "move_dir_y",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_v2FaceDir_x",
+          "offset": "0x298",
+          "type": "double",
+          "semantic": "facing_x",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_v2FaceDir_y",
+          "offset": "0x2a0",
+          "type": "double",
+          "semantic": "facing_y",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "_v2Dest_x",
+          "offset": "0x2b8",
+          "type": "double",
+          "semantic": "movement_dest_x",
+          "confidence": "PARTIALLY_PROVEN",
+          "required": false
+        },
+        {
+          "field": "_v2Dest_y",
+          "offset": "0x2c0",
+          "type": "double",
+          "semantic": "movement_dest_y",
+          "confidence": "PARTIALLY_PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_dCurrentRunSpeed",
+          "offset": "0x750",
+          "type": "double",
+          "semantic": "run_speed",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_dCurrentAtkSpeed",
+          "offset": "0x758",
+          "type": "double",
+          "semantic": "attack_speed",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_bInSightValueStatus",
+          "offset": "0x73b",
+          "type": "uint8",
+          "semantic": "is_visible",
+          "confidence": "HYPOTHESIS",
+          "required": false
+        },
+        {
+          "field": "fBornPosX",
+          "offset": "0x340",
+          "type": "double",
+          "semantic": "born_pos_x",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "fBornPosY",
+          "offset": "0x348",
+          "type": "double",
+          "semantic": "born_pos_y",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_uFaceLockTargetID",
+          "offset": "0x370",
+          "type": "uint32",
+          "semantic": "face_lock_target_id",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "auras",
+          "offset": "0x4c0",
+          "type": "uint64",
+          "semantic": "auras_dict_ptr",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_AttrComp",
+          "offset": "0x4d8",
+          "type": "uint64",
+          "semantic": "attr_comp_ptr",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_SkillComp",
+          "offset": "0x4e0",
+          "type": "uint64",
+          "semantic": "skill_comp_ptr",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_EquipComp",
+          "offset": "0x4f8",
+          "type": "uint64",
+          "semantic": "equip_comp_ptr",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_bCantBeHurt",
+          "offset": "0x720",
+          "type": "uint8",
+          "semantic": "is_invulnerable",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_uAttackerId",
+          "offset": "0x560",
+          "type": "uint32",
+          "semantic": "attacker_id",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_Attacker",
+          "offset": "0x588",
+          "type": "uint64",
+          "semantic": "attacker_ptr",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_uBeAttackTimestamp",
+          "offset": "0x590",
+          "type": "uint32",
+          "semantic": "be_attack_timestamp",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_uAttackTimestamp",
+          "offset": "0x594",
+          "type": "uint32",
+          "semantic": "attack_timestamp",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_pEnemy",
+          "offset": "0x5a8",
+          "type": "uint64",
+          "semantic": "target_enemy_ptr",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_pRealEnemy",
+          "offset": "0x5b0",
+          "type": "uint64",
+          "semantic": "real_enemy_ptr",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_HateEnemy",
+          "offset": "0x5b8",
+          "type": "uint64",
+          "semantic": "hate_enemy_ptr",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_uStareTargetGUID",
+          "offset": "0x5c0",
+          "type": "uint32",
+          "semantic": "stare_target_guid",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "_totalGold",
+          "offset": "0x858",
+          "type": "int32",
+          "semantic": "gold",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_HurtTotalValue",
+          "offset": "0x868",
+          "type": "double",
+          "semantic": "hurt_total_value",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_HurtHeroValue",
+          "offset": "0x878",
+          "type": "double",
+          "semantic": "hurt_hero_value",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_HurtTowerValue",
+          "offset": "0x8b8",
+          "type": "double",
+          "semantic": "hurt_tower_value",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_iInjuredShield",
+          "offset": "0x8c8",
+          "type": "int32",
+          "semantic": "injured_shield",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_InjuredValue",
+          "offset": "0x8d0",
+          "type": "double",
+          "semantic": "injured_value",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_CureTeammate",
+          "offset": "0x920",
+          "type": "double",
+          "semantic": "cure_teammate",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_ccsKillTowerTimes",
+          "offset": "0x998",
+          "type": "int32",
+          "semantic": "kill_tower_times",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_ccsLastHitCreep",
+          "offset": "0x99c",
+          "type": "int32",
+          "semantic": "last_hit_creep",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_ccsKillBigDragon",
+          "offset": "0x9a0",
+          "type": "int32",
+          "semantic": "kill_dragon_times",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_ccsKillOuterTower",
+          "offset": "0x9a8",
+          "type": "uint32",
+          "semantic": "kill_outer_tower",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_ccsKillInnerTower",
+          "offset": "0x9ac",
+          "type": "uint32",
+          "semantic": "kill_inner_tower",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_ccsKillInhibitorTower",
+          "offset": "0x9b0",
+          "type": "uint32",
+          "semantic": "kill_inhibitor_tower",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_IsRobotPlayer",
+          "offset": "0xb9a",
+          "type": "uint8",
+          "semantic": "is_bot",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_KillBounty",
+          "offset": "0xcf0",
+          "type": "int32",
+          "semantic": "kill_bounty",
+          "confidence": "PROVEN",
+          "required": false
+        }
+      ]
+    },
+    "Battle.LogicTower": {
+      "vtable_signature": "0x74201ccee8",
+      "inheritance": [
+        "Battle.LogicTower",
+        "Battle.LogicMonster",
+        "Battle.LogicFighter",
+        "Battle.LogicEntityBase",
+        "Battle.EntityBase"
+      ],
+      "fields": [
+        {
+          "field": "m_ID",
+          "offset": "0x0ac",
+          "type": "int32",
+          "semantic": "tower_id",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_Hp",
+          "offset": "0x0c8",
+          "type": "int32",
+          "semantic": "hp",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_HpMax",
+          "offset": "0x0cc",
+          "type": "int32",
+          "semantic": "hp_max",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_bDeath",
+          "offset": "0x1d0",
+          "type": "uint8",
+          "semantic": "is_dead",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_EntityCampType",
+          "offset": "0x1dc",
+          "type": "int32",
+          "semantic": "camp",
+          "confidence": "PROVEN",
+          "required": true,
+          "validation": { "allowed": [1, 2] }
+        },
+        {
+          "field": "m_dRealPosX",
+          "offset": "0x268",
+          "type": "double",
+          "semantic": "pos_x",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_dRealPosY",
+          "offset": "0x270",
+          "type": "double",
+          "semantic": "pos_y",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_TowerType",
+          "offset": "0x850",
+          "type": "int32",
+          "semantic": "tower_type",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_TowerIndex",
+          "offset": "0x8f0",
+          "type": "int32",
+          "semantic": "tower_index",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_SeniorPosID",
+          "offset": "0x8f4",
+          "type": "int32",
+          "semantic": "senior_pos_id",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_uGuardId",
+          "offset": "0x8f8",
+          "type": "uint32",
+          "semantic": "guard_id",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_DefaultEyeRange",
+          "offset": "0x928",
+          "type": "double",
+          "semantic": "eye_range",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_fAttackRange",
+          "offset": "0x930",
+          "type": "double",
+          "semantic": "attack_range",
+          "confidence": "VALIDATED",
+          "required": false
+        }
+      ]
+    },
+    "Battle.LogicSoldier": {
+      "vtable_signature": "0x741ff9d098",
+      "inheritance": [
+        "Battle.LogicSoldier",
+        "Battle.LogicMonster",
+        "Battle.LogicFighter",
+        "Battle.EntityBase"
+      ],
+      "fields": [
+        {
+          "field": "m_ID",
+          "offset": "0x0ac",
+          "type": "int32",
+          "semantic": "soldier_id",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_Hp",
+          "offset": "0x0c8",
+          "type": "int32",
+          "semantic": "hp",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_HpMax",
+          "offset": "0x0cc",
+          "type": "int32",
+          "semantic": "hp_max",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_bDeath",
+          "offset": "0x1d0",
+          "type": "uint8",
+          "semantic": "is_dead",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_EntityCampType",
+          "offset": "0x1dc",
+          "type": "int32",
+          "semantic": "camp",
+          "confidence": "PROVEN",
+          "required": true,
+          "validation": { "allowed": [1, 2] }
+        },
+        {
+          "field": "m_dRealPosX",
+          "offset": "0x268",
+          "type": "double",
+          "semantic": "pos_x",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_dRealPosY",
+          "offset": "0x270",
+          "type": "double",
+          "semantic": "pos_y",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_SoldierType",
+          "offset": "0x8f0",
+          "type": "int32",
+          "semantic": "soldier_type",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_iPathId",
+          "offset": "0x900",
+          "type": "int32",
+          "semantic": "lane",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_pointIndex",
+          "offset": "0x904",
+          "type": "int32",
+          "semantic": "point_index",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_bStakeSoldier",
+          "offset": "0x908",
+          "type": "uint8",
+          "semantic": "stake_soldier",
+          "confidence": "VALIDATED",
+          "required": false
+        }
+      ]
+    },
+    "Battle.LogicMonster": {
+      "vtable_signature": "0x741ff3bec0",
+      "inheritance": [
+        "Battle.LogicMonster",
+        "Battle.LogicFighter",
+        "Battle.EntityBase"
+      ],
+      "fields": [
+        {
+          "field": "m_ID",
+          "offset": "0x0ac",
+          "type": "int32",
+          "semantic": "monster_id",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_Hp",
+          "offset": "0x0c8",
+          "type": "int32",
+          "semantic": "hp",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_HpMax",
+          "offset": "0x0cc",
+          "type": "int32",
+          "semantic": "hp_max",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_bDeath",
+          "offset": "0x1d0",
+          "type": "uint8",
+          "semantic": "is_dead",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_dRealPosX",
+          "offset": "0x268",
+          "type": "double",
+          "semantic": "pos_x",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_dRealPosY",
+          "offset": "0x270",
+          "type": "double",
+          "semantic": "pos_y",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_MonsterType",
+          "offset": "0x850",
+          "type": "int32",
+          "semantic": "monster_type",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_BaseMoney",
+          "offset": "0x858",
+          "type": "double",
+          "semantic": "base_money",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_Money",
+          "offset": "0x868",
+          "type": "double",
+          "semantic": "money",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_BaseExp",
+          "offset": "0x878",
+          "type": "int32",
+          "semantic": "base_exp",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_Exp",
+          "offset": "0x880",
+          "type": "int32",
+          "semantic": "exp",
+          "confidence": "VALIDATED",
+          "required": false
+        }
+      ]
+    },
+    "Battle.LogicWildMonster": {
+      "vtable_signature": "0x741ff3ad80",
+      "inheritance": [
+        "Battle.LogicWildMonster",
+        "Battle.LogicMonster",
+        "Battle.LogicFighter",
+        "Battle.EntityBase"
+      ],
+      "fields": [
+        {
+          "field": "m_ID",
+          "offset": "0x0ac",
+          "type": "int32",
+          "semantic": "monster_id",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_Hp",
+          "offset": "0x0c8",
+          "type": "int32",
+          "semantic": "hp",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_HpMax",
+          "offset": "0x0cc",
+          "type": "int32",
+          "semantic": "hp_max",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_bDeath",
+          "offset": "0x1d0",
+          "type": "uint8",
+          "semantic": "is_dead",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_dRealPosX",
+          "offset": "0x268",
+          "type": "double",
+          "semantic": "pos_x",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_dRealPosY",
+          "offset": "0x270",
+          "type": "double",
+          "semantic": "pos_y",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_MonsterType",
+          "offset": "0x850",
+          "type": "int32",
+          "semantic": "monster_type",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_BaseMoney",
+          "offset": "0x858",
+          "type": "double",
+          "semantic": "base_money",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_Money",
+          "offset": "0x868",
+          "type": "double",
+          "semantic": "money",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_BaseExp",
+          "offset": "0x878",
+          "type": "int32",
+          "semantic": "base_exp",
+          "confidence": "VALIDATED",
+          "required": false
+        },
+        {
+          "field": "m_Exp",
+          "offset": "0x880",
+          "type": "int32",
+          "semantic": "exp",
+          "confidence": "VALIDATED",
+          "required": false
+        }
+      ]
+    },
+    "Battle.LogicBulletBase": {
+      "vtable_signature": "0x7421113bb0",
+      "inheritance": [
+        "Battle.LogicBulletBase",
+        "Battle.LogicBase",
+        "Il2CppObject"
+      ],
+      "fields": [
+        {
+          "field": "m_IsDestory",
+          "offset": "0x018",
+          "type": "uint8",
+          "semantic": "is_destroy",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_Id",
+          "offset": "0x020",
+          "type": "int32",
+          "semantic": "bullet_id",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "dFlyDistance",
+          "offset": "0x048",
+          "type": "double",
+          "semantic": "fly_distance",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "_dRadius",
+          "offset": "0x058",
+          "type": "double",
+          "semantic": "radius",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "_dBulletSpeedForShow",
+          "offset": "0x0c8",
+          "type": "double",
+          "semantic": "speed",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "_vecCurPos_x",
+          "offset": "0x100",
+          "type": "double",
+          "semantic": "pos_x",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "_vecCurPos_y",
+          "offset": "0x108",
+          "type": "double",
+          "semantic": "pos_y",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "_vecDir_x",
+          "offset": "0x110",
+          "type": "double",
+          "semantic": "dir_x",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "_vecDir_y",
+          "offset": "0x118",
+          "type": "double",
+          "semantic": "dir_y",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_pOwner",
+          "offset": "0x138",
+          "type": "uint64",
+          "semantic": "owner_ptr",
+          "confidence": "PROVEN",
+          "required": false
+        }
+      ]
+    },
+    "Battle.LogicSkillComp": {
+      "vtable_signature": "0x7420551a10",
+      "inheritance": [
+        "Battle.LogicSkillComp",
+        "Battle.LogicBase",
+        "Il2CppObject"
+      ],
+      "fields": [
+        {
+          "field": "m_pCurSpell",
+          "offset": "0x058",
+          "type": "uint64",
+          "semantic": "active_spell_ptr",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_CoolDownComp",
+          "offset": "0x0a8",
+          "type": "uint64",
+          "semantic": "cooldown_comp_ptr",
+          "confidence": "PROVEN",
+          "required": false
+        }
+      ]
+    },
+    "Battle.CoolDownComp": {
+      "vtable_signature": "0x7420552b20",
+      "inheritance": [
+        "Battle.CoolDownComp",
+        "Battle.LogicBase",
+        "Il2CppObject"
+      ],
+      "fields": [
+        {
+          "field": "m_DicCoolInfo",
+          "offset": "0x018",
+          "type": "uint64",
+          "semantic": "cool_info_dict_ptr",
+          "confidence": "PROVEN",
+          "required": false
+        }
+      ]
+    },
+    "Battle.CoolDownData": {
+      "vtable_signature": "0x7420553c30",
+      "inheritance": [
+        "Battle.CoolDownData",
+        "Battle.LogicBase",
+        "Il2CppObject"
+      ],
+      "fields": [
+        {
+          "field": "iSpellID",
+          "offset": "0x010",
+          "type": "int32",
+          "semantic": "spell_id",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "uiCoolTime",
+          "offset": "0x014",
+          "type": "uint32",
+          "semantic": "remaining_cd_ms",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "originalMaxCdTime",
+          "offset": "0x018",
+          "type": "uint32",
+          "semantic": "max_cd_ms",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "uiStartTime",
+          "offset": "0x01c",
+          "type": "uint32",
+          "semantic": "start_time_ms",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_isCoolDown",
+          "offset": "0x020",
+          "type": "uint8",
+          "semantic": "is_cooling_down",
+          "confidence": "PROVEN",
+          "required": true
+        }
+      ]
+    },
+    "Battle.LogicEquipComp": {
+      "vtable_signature": "0x7420554d40",
+      "inheritance": [
+        "Battle.LogicEquipComp",
+        "Battle.LogicBase",
+        "Il2CppObject"
+      ],
+      "fields": [
+        {
+          "field": "iMaxCnt",
+          "offset": "0x010",
+          "type": "int32",
+          "semantic": "max_slot_count",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_EquipList",
+          "offset": "0x028",
+          "type": "uint64",
+          "semantic": "equip_list_dict_ptr",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_BuyGankShoeCount",
+          "offset": "0x074",
+          "type": "int32",
+          "semantic": "roam_blessing_count",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_UseEquipIndex",
+          "offset": "0x078",
+          "type": "int32",
+          "semantic": "active_slot_index",
+          "confidence": "PROVEN",
+          "required": false
+        }
+      ]
+    },
+    "Battle.LogicEquipInfo": {
+      "vtable_signature": "0x7420555e50",
+      "inheritance": [
+        "Battle.LogicEquipInfo",
+        "Battle.LogicBase",
+        "Il2CppObject"
+      ],
+      "fields": [
+        {
+          "field": "m_iEquipId",
+          "offset": "0x010",
+          "type": "int32",
+          "semantic": "item_id",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_iInitPrice",
+          "offset": "0x030",
+          "type": "int32",
+          "semantic": "price",
+          "confidence": "PROVEN",
+          "required": false
+        }
+      ]
+    },
+    "Battle.LogicEffect": {
+      "vtable_signature": "0x7420556f60",
+      "inheritance": [
+        "Battle.LogicEffect",
+        "Battle.LogicSkillBase",
+        "Battle.LogicBase",
+        "Il2CppObject"
+      ],
+      "fields": [
+        {
+          "field": "m_uGuid",
+          "offset": "0x010",
+          "type": "uint32",
+          "semantic": "guid",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_ID",
+          "offset": "0x014",
+          "type": "int32",
+          "semantic": "effect_id",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_uOwnerId",
+          "offset": "0x020",
+          "type": "uint32",
+          "semantic": "owner_id",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_bFinish",
+          "offset": "0x080",
+          "type": "uint8",
+          "semantic": "is_finished",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_iOwnSpellId",
+          "offset": "0x084",
+          "type": "int32",
+          "semantic": "source_spell_id",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_uTriggerCount",
+          "offset": "0x090",
+          "type": "uint32",
+          "semantic": "stack_count",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "iEffectVal",
+          "offset": "0x0f0",
+          "type": "int32",
+          "semantic": "effect_value",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "uLastUpdateTime",
+          "offset": "0x108",
+          "type": "uint32",
+          "semantic": "last_update_time",
+          "confidence": "PROVEN",
+          "required": false
+        }
+      ]
+    },
+    "Battle.FightPlayerData": {
+      "vtable_signature": "0x0",
+      "inheritance": [
+        "Battle.FightPlayerData"
+      ],
+      "fields": [
+        {
+          "field": "accountId",
+          "offset": "0x010",
+          "type": "uint64",
+          "semantic": "account_id",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "uiRankLevel",
+          "offset": "0x01c",
+          "type": "uint32",
+          "semantic": "rank_level",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "heroId",
+          "offset": "0x028",
+          "type": "int32",
+          "semantic": "hero_id",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "iCamp",
+          "offset": "0x04c",
+          "type": "int32",
+          "semantic": "camp",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_iPos",
+          "offset": "0x05c",
+          "type": "int32",
+          "semantic": "assigned_lane",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_SummonSkillId",
+          "offset": "0x078",
+          "type": "int32",
+          "semantic": "battle_spell_id",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_RuneId",
+          "offset": "0x084",
+          "type": "int32",
+          "semantic": "emblem_id",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_isRobotPlayer",
+          "offset": "0x12c",
+          "type": "uint8",
+          "semantic": "is_robot_player",
+          "confidence": "PROVEN",
+          "required": false
+        }
+      ]
+    },
+    "Battle.LogicBattleManager": {
+      "vtable_signature": "0x742021a100",
+      "inheritance": [
+        "Battle.LogicBattleManager",
+        "Battle.TimerBase"
+      ],
+      "fields": [
+        {
+          "field": "_m_eState",
+          "offset": "0x180",
+          "type": "int32",
+          "semantic": "battle_state",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_uiFrameTime",
+          "offset": "0x19c",
+          "type": "uint32",
+          "semantic": "frame_time_ms",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_RealSelfPlayer",
+          "offset": "0x200",
+          "type": "uint64",
+          "semantic": "real_self_player_ptr",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_LocalPlayerLogic",
+          "offset": "0x0a0",
+          "type": "uint64",
+          "semantic": "local_player_logic_ptr",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_dicPlayerLogic",
+          "offset": "0x0a8",
+          "type": "uint64",
+          "semantic": "players_dict_ptr",
+          "confidence": "PROVEN",
+          "required": true
+        },
+        {
+          "field": "m_dicMonsterLogic",
+          "offset": "0x0b0",
+          "type": "uint64",
+          "semantic": "monsters_dict_ptr",
+          "confidence": "PARTIALLY_PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_CampAFountain",
+          "offset": "0x0c0",
+          "type": "uint64",
+          "semantic": "camp_a_fountain_ptr",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_CampBFountain",
+          "offset": "0x0c8",
+          "type": "uint64",
+          "semantic": "camp_b_fountain_ptr",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_CampAMainTower",
+          "offset": "0x0d0",
+          "type": "uint64",
+          "semantic": "camp_a_nexus_ptr",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_CampBMainTower",
+          "offset": "0x0d8",
+          "type": "uint64",
+          "semantic": "camp_b_nexus_ptr",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_CampAList",
+          "offset": "0x0e0",
+          "type": "uint64",
+          "semantic": "camp_a_turrets_ptr",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_CampBList",
+          "offset": "0x0e8",
+          "type": "uint64",
+          "semantic": "camp_b_turrets_ptr",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_SoldierList",
+          "offset": "0x128",
+          "type": "uint64",
+          "semantic": "soldier_list_ptr",
+          "confidence": "PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_BulletList",
+          "offset": "0x138",
+          "type": "uint64",
+          "semantic": "bullet_list_ptr",
+          "confidence": "PARTIALLY_PROVEN",
+          "required": false
+        },
+        {
+          "field": "m_bFog",
+          "offset": "0x1d0",
+          "type": "uint8",
+          "semantic": "fog_active",
+          "confidence": "PROVEN",
+          "required": false
+        }
+      ]
+    }
+  }
+}

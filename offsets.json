@@ -1,0 +1,173 @@
+{
+  "game_version": "com.mobile.legends_64bit (MLBB Titan Engine / IL2CPP 64-bit)",
+  "arch": "arm64-v8a",
+  "root_pointers": {
+    "LogicBattleData_get_battleManager_RVA": "0x10c0774",
+    "LogicBattleManager_static_fields_offset": "0xb8",
+    "LogicBattleManager_Instance_offset": "0x00",
+    "LogicBattleManager_get_m_LocalPlayerLogic_RVA": "0x1648e7c",
+    "LogicBattleManager_m_RealSelfPlayer_offset": "0x200",
+    "LogicBattleManager_m_LocalPlayerLogic_offset": "0xa0",
+    "LogicBattleManager_m_dicPlayerLogic_offset": "0xa8",
+    "LogicBattleManager_m_dicMonsterLogic_offset": "0xb0",
+    "LogicBattleManager_m_CampAFountain_offset": "0xc0",
+    "LogicBattleManager_m_CampBFountain_offset": "0xc8",
+    "LogicBattleManager_m_CampAMainTower_offset": "0xd0",
+    "LogicBattleManager_m_CampBMainTower_offset": "0xd8",
+    "LogicBattleManager_m_CampAList_offset": "0xe0",
+    "LogicBattleManager_m_CampBList_offset": "0xe8",
+    "LogicBattleManager_m_SoldierList_offset": "0x128",
+    "LogicBattleManager_m_BulletList_offset": "0x138",
+    "LogicBattleManager__m_eState_offset": "0x180",
+    "LogicBattleManager_m_uiFrameTime_offset": "0x19c",
+    "LogicBattleManager_m_bFog_offset": "0x1d0",
+    "libcsharp_LogicBattleManager_Il2CppClass_RVA": "0x7680928",
+    "LogicBattleManager_Il2CppClass_anchor": "0x778ccb9b38"
+  },
+  "offsets": {
+    "EntityBase": {
+      "m_acId": "0x38",
+      "IsPlayer": "0x5c",
+      "IsSoldier": "0x5f",
+      "IsTower": "0x61",
+      "IsMonster": "0x6c",
+      "m_uGuid": "0xa8",
+      "m_ID": "0xac",
+      "m_Level": "0xb4",
+      "m_Hp": "0xc8",
+      "m_HpMax": "0xcc",
+      "m_HpPer": "0xd0",
+      "m_Mp": "0x108",
+      "m_MpMax": "0x10c",
+      "m_Xp": "0x114",
+      "m_CoolPer": "0x140",
+      "m_AtkSpeed": "0x178",
+      "m_dMoveSpeed": "0x188",
+      "m_uDeadTime": "0x198",
+      "m_bDeath": "0x1d0",
+      "m_EntityCampType": "0x1dc"
+    },
+    "LogicFighter": {
+      "m_iStatus": "0x1e4",
+      "m_bInBattle": "0x21c",
+      "m_v2LastRealPos": "0x248",
+      "m_v2RealPos": "0x258",
+      "m_dRealPosX": "0x268",
+      "m_dRealPosY": "0x270",
+      "m_v2FaceDir": "0x298",
+      "m_v2TurnTargetDir": "0x2a8",
+      "fBornPosX": "0x340",
+      "fBornPosY": "0x348",
+      "m_uFaceLockTargetID": "0x370",
+      "m_AttrComp": "0x4d8",
+      "m_SkillComp": "0x4e0",
+      "m_EquipComp": "0x4f8",
+      "m_pEnemy": "0x5a8",
+      "m_pRealEnemy": "0x5b0",
+      "m_HateEnemy": "0x5b8",
+      "m_uAttackTimestamp": "0x594",
+      "m_uBeAttackTimestamp": "0x590",
+      "m_dCurrentRunSpeed": "0x750",
+      "m_dCurrentAtkSpeed": "0x758"
+    },
+    "LogicPlayer": {
+      "_totalGold": "0x858",
+      "m_HurtTotalValue": "0x868",
+      "m_HurtHeroValue": "0x878",
+      "m_HurtTowerValue": "0x8b8",
+      "m_iInjuredShield": "0x8c8",
+      "m_InjuredValue": "0x8d0",
+      "m_CureTeammate": "0x920",
+      "m_ccsKillTowerTimes": "0x998",
+      "m_ccsLastHitCreep": "0x99c",
+      "m_ccsKillBigDragon": "0x9a0",
+      "m_ccsKillOuterTower": "0x9a8",
+      "m_ccsKillInnerTower": "0x9ac",
+      "m_ccsKillInhibitorTower": "0x9b0"
+    },
+    "LogicMonster": {
+      "m_ConfigData": "0x848",
+      "m_MonsterType": "0x850",
+      "m_BaseMoney": "0x858",
+      "m_Money": "0x868",
+      "m_BaseExp": "0x878",
+      "m_Exp": "0x880"
+    },
+    "LogicTower": {
+      "m_TowerIndex": "0x8f0",
+      "m_SeniorPosID": "0x8f4",
+      "m_uGuardId": "0x8f8",
+      "m_DefaultEyeRange": "0x928",
+      "m_fAttackRange": "0x930",
+      "m_dictLastHurtHeroFrameTime": "0x940"
+    },
+    "LogicEquipComp": {
+      "m_pOwner": "0x18",
+      "m_EquipDict": "0x20",
+      "m_EquipList": "0x28",
+      "equipSkillIds": "0x40",
+      "m_BuyGankShoeCount": "0x74",
+      "m_UseEquipIndex": "0x78",
+      "_listEquip": "0x88"
+    },
+    "LogicSkillComp": {
+      "m_WaitSkill": "0x20",
+      "m_pCurSpell": "0x58",
+      "m_pOwner": "0x60",
+      "m_SpellList": "0x78",
+      "m_CoolDownComp": "0xa8",
+      "m_spellCastNormal": "0xc8"
+    },
+    "CoolDownComp": {
+      "m_Owner": "0x10",
+      "m_DicCoolInfo": "0x18",
+      "m_dFinalAttrCd": "0x20"
+    },
+    "CoolDownData": {
+      "iSpellID": "0x10",
+      "uiCoolTime": "0x14",
+      "originalMaxCdTime": "0x18",
+      "uiStartTime": "0x1c",
+      "m_isCoolDown": "0x20"
+    },
+    "SpellCastData": {
+      "m_uSpellGuid": "0x10",
+      "m_nSpellId": "0x14",
+      "m_nSpellLevel": "0x38",
+      "m_fPosX": "0x40",
+      "m_fPosY": "0x48",
+      "m_fDirX": "0x50",
+      "m_fDirY": "0x58",
+      "m_bPressState": "0x60",
+      "m_dAtkSpeed": "0x78"
+    },
+    "AttributeComp": {
+      "m_ShareAttrComp": "0x80",
+      "m_AttrStruPer": "0x88",
+      "m_eType": "0x90",
+      "m_iAttackRatio": "0x94"
+    },
+    "AttrData": {
+      "m_dictIntAttrs": "0x30",
+      "m_dictIncreaseAttrs": "0x38",
+      "m_pOwner": "0x58"
+    },
+    "LogicBattleManager": {
+      "m_LocalPlayerLogic": "0xa0",
+      "m_dicPlayerLogic": "0xa8",
+      "m_dicMonsterLogic": "0xb0",
+      "m_CampAFountain": "0xc0",
+      "m_CampBFountain": "0xc8",
+      "m_CampAMainTower": "0xd0",
+      "m_CampBMainTower": "0xd8",
+      "m_CampAList": "0xe0",
+      "m_CampBList": "0xe8",
+      "m_SoldierList": "0x128",
+      "m_BulletList": "0x138",
+      "_m_eState": "0x180",
+      "m_uiFrameTime": "0x19c",
+      "m_bFog": "0x1d0",
+      "m_RealSelfPlayer": "0x200"
+    }
+  }
+}

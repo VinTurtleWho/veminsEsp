@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ================================================================= -->
+    <!-- OBSIDIAN VOID MONOCHROME PALETTE                                  -->
+    <!-- Precision Minimalist Architecture (Nothing OS / Linear inspired)   -->
+    <!-- ================================================================= -->
+    <color name="vemins_bg_dark">#000000</color>
+    <color name="vemins_bg_void">#0C0C0C</color>
+    <color name="vemins_bg_secondary">#0C0C0C</color>
+    <color name="vemins_card_bg">#141414</color>
+    <color name="vemins_surface">#141414</color>
+    <color name="vemins_card_bg_elevated">#1C1C1E</color>
+    <color name="vemins_card_border">#2C2C2E</color>
+    <color name="vemins_border">#2C2C2E</color>
+    <color name="vemins_border_light">#3A3A3C</color>
+    <color name="vemins_card_border_glow">#2C2C2E</color>
+    <color name="vemins_card_border_accent">#FFFFFF</color>
+
+    <!-- ================================================================= -->
+    <!-- STARK WHITE & MONOCHROME ACCENTS (NO NEON AI SLOP)                -->
+    <!-- ================================================================= -->
+    <color name="vemins_white">#FFFFFF</color>
+    <color name="vemins_violet">#FFFFFF</color>
+    <color name="vemins_violet_light">#E5E5EA</color>
+    <color name="vemins_violet_bright">#FFFFFF</color>
+    <color name="vemins_violet_dim">#2C2C2E</color>
+    <color name="vemins_violet_deep">#1C1C1E</color>
+    <color name="vemins_violet_glow">#1AFFFFFF</color>
+    <color name="vemins_violet_glow_bright">#33FFFFFF</color>
+
+    <!-- Aliases for Theme and Legacy Accent Bindings (100% Backwards Compatible) -->
+    <color name="vemins_amethyst">#FFFFFF</color>
+    <color name="vemins_amethyst_light">#E5E5EA</color>
+    <color name="vemins_amethyst_bright">#FFFFFF</color>
+    <color name="vemins_cyan">#FFFFFF</color>
+    <color name="vemins_cyan_dim">#2C2C2E</color>
+    <color name="vemins_cyan_dark">#1C1C1E</color>
+    <color name="vemins_cyan_glow">#1AFFFFFF</color>
+    <color name="vemins_purple">#FFFFFF</color>
+    <color name="vemins_blue">#FFFFFF</color>
+    <color name="vemins_orange">#FF9F0A</color>
+
+    <!-- ================================================================= -->
+    <!-- PRECISION MONOCHROME NEUTRALS & TYPOGRAPHY                        -->
+    <!-- ================================================================= -->
+    <color name="vemins_text_primary">#FFFFFF</color>
+    <color name="vemins_text_secondary">#A1A1A6</color>
+    <color name="vemins_text_muted">#636366</color>
+
+    <color name="vemins_zinc_900">#0C0C0C</color>
+    <color name="vemins_zinc_800">#141414</color>
+    <color name="vemins_zinc_700">#1C1C1E</color>
+    <color name="vemins_zinc_600">#2C2C2E</color>
+    <color name="vemins_zinc_border">#2C2C2E</color>
+
+    <!-- ================================================================= -->
+    <!-- REFINED STATUS SIGNALS (SUBDUED, NO GLOW HALOS)                  -->
+    <!-- ================================================================= -->
+    <color name="vemins_green">#30D158</color>
+    <color name="vemins_green_glow">#1A30D158</color>
+    <color name="vemins_emerald">#30D158</color>
+    <color name="vemins_red">#FF453A</color>
+    <color name="vemins_red_glow">#1AFF453A</color>
+    <color name="vemins_yellow">#FF9F0A</color>
+    <color name="vemins_yellow_glow">#1AFF9F0A</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- ================================================================= -->
+    <!-- MATTE GLASS & FLOATING MOD MENU CONTROLS                          -->
+    <!-- ================================================================= -->
+    <color name="vemins_glass_bg">#F2141414</color>
+    <color name="vemins_glass_bg_elevated">#F21C1C1E</color>
+    <color name="vemins_glass_bg_active">#F22C2C2E</color>
+    <color name="vemins_glass_border">#2C2C2E</color>
+    <color name="vemins_glass_border_subtle">#1F2C2C2E</color>
+    <color name="vemins_glass_border_active">#3A3A3C</color>
+    <color name="vemins_trigger_bg">#141414</color>
+    <color name="vemins_trigger_border">#FFFFFF</color>
+    <color name="vemins_trigger_stealth_bg">#10000000</color>
+    <color name="vemins_trigger_stealth_border">#26FFFFFF</color>
+
+    <color name="vemins_tab_active_bg">#FFFFFF</color>
+    <color name="vemins_tab_inactive_bg">#1C1C1E</color>
+    <color name="vemins_chip_selected_bg">#FFFFFF</color>
+    <color name="vemins_chip_unselected_bg">#1C1C1E</color>
+    <color name="vemins_step_btn_normal">#1C1C1E</color>
+    <color name="vemins_step_btn_pressed">#2C2C2E</color>
+    <color name="vemins_step_btn_border">#2C2C2E</color>
+    <color name="vemins_track_bg">#2C2C2E</color>
+    <color name="vemins_track_progress">#FFFFFF</color>
+    <color name="vemins_input_bg">#0A0A0A</color>
+    <color name="vemins_input_border">#2C2C2E</color>
+    <color name="vemins_bubble_bg">#F2141414</color>
+</resources>

@@ -1,0 +1,41 @@
+{
+    "class_name": "CData_Formula_Element",
+    "fields": {
+        "m_bError": {
+            "type": "bool",
+            "offset": 16
+        },
+        "m_Id": {
+            "type": "int",
+            "offset": 20
+        },
+        "m_SrcHurt": {
+            "type": "string",
+            "offset": 24
+        },
+        "m_Hurt": {
+            "type": "string",
+            "offset": 32
+        },
+        "m_Zero": {
+            "type": "float[]",
+            "offset": 40
+        },
+        "m_HurtPositive": {
+            "type": "int",
+            "offset": 48
+        },
+        "m_HurtType": {
+            "type": "int",
+            "offset": 52
+        },
+        "m_HPSteal": {
+            "type": "string",
+            "offset": 56
+        },
+        "m_LifeStealFactor": {
+            "type": "string",
+            "offset": 64
+        }
+    }
+}

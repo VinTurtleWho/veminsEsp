@@ -1,0 +1,23 @@
+{
+  "game_version": "3.1.0",
+  "dump_hash": "3bf643d81a9645a3",
+  "schema_version": "v2.0",
+  "extractor_version": "v2.0",
+  "catalogs": {
+    "heroes": 124,
+    "skills": 496,
+    "effects": 620,
+    "items": 68,
+    "emblems": 7,
+    "talents": 23,
+    "creeps_bosses_structures": 12
+  },
+  "engine_vocabularies": {
+    "operations": 28,
+    "statuses": 24,
+    "geometry": 6,
+    "priority_levels": 10,
+    "combat_rules": 4
+  },
+  "validation_status": "PASS_100_PERCENT"
+}

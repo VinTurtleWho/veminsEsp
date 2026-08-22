@@ -1,0 +1,237 @@
+{
+    "class_name": "CData_Monster_Element",
+    "fields": {
+        "m_bError": {
+            "type": "bool",
+            "offset": 16
+        },
+        "m_ID": {
+            "type": "int",
+            "offset": 20
+        },
+        "m_TransId": {
+            "type": "int",
+            "offset": 24
+        },
+        "m_MonsterName": {
+            "type": "string",
+            "offset": 32
+        },
+        "m_HeadIcon": {
+            "type": "string",
+            "offset": 40
+        },
+        "m_Prefabs": {
+            "type": "string",
+            "offset": 48
+        },
+        "m_Type": {
+            "type": "int",
+            "offset": 56
+        },
+        "m_RenderType": {
+            "type": "int",
+            "offset": 60
+        },
+        "m_Size": {
+            "type": "float",
+            "offset": 64
+        },
+        "m_TypeRadius": {
+            "type": "int",
+            "offset": 68
+        },
+        "m_AttSpeed": {
+            "type": "int",
+            "offset": 72
+        },
+        "m_AttSpeed_show": {
+            "type": "float",
+            "offset": 76
+        },
+        "m_Phy_Att": {
+            "type": "int",
+            "offset": 80
+        },
+        "m_Phy_Att_Grow": {
+            "type": "int",
+            "offset": 84
+        },
+        "m_Magic_Att": {
+            "type": "int",
+            "offset": 88
+        },
+        "m_Magic_Att_Grow": {
+            "type": "int",
+            "offset": 92
+        },
+        "m_Phy_Shield": {
+            "type": "int",
+            "offset": 96
+        },
+        "m_Phy_Shield_Grow": {
+            "type": "int",
+            "offset": 100
+        },
+        "m_Mag_Shield": {
+            "type": "int",
+            "offset": 104
+        },
+        "m_Mag_Shield_Grow": {
+            "type": "int",
+            "offset": 108
+        },
+        "m_Base_HP": {
+            "type": "int",
+            "offset": 112
+        },
+        "m_Base_HP_Grow": {
+            "type": "int",
+            "offset": 116
+        },
+        "m_Move_Speed": {
+            "type": "int",
+            "offset": 120
+        },
+        "m_BaseSpeed": {
+            "type": "int",
+            "offset": 124
+        },
+        "m_Move_Speed_Grow": {
+            "type": "int",
+            "offset": 128
+        },
+        "m_Move_Speed_GrowMax": {
+            "type": "int",
+            "offset": 132
+        },
+        "m_Att_Interval": {
+            "type": "int",
+            "offset": 136
+        },
+        "m_Exp": {
+            "type": "int",
+            "offset": 140
+        },
+        "m_ExpGrow": {
+            "type": "int",
+            "offset": 144
+        },
+        "m_Money": {
+            "type": "int",
+            "offset": 148
+        },
+        "m_MoneyGrow": {
+            "type": "float",
+            "offset": 152
+        },
+        "m_BUFF": {
+            "type": "int",
+            "offset": 156
+        },
+        "m_MoneyExtra": {
+            "type": "int",
+            "offset": 160
+        },
+        "m_AwardType": {
+            "type": "int[]",
+            "offset": 168
+        },
+        "m_EyeRange": {
+            "type": "int[]",
+            "offset": 176
+        },
+        "m_LockRange": {
+            "type": "int",
+            "offset": 184
+        },
+        "m_FightRange": {
+            "type": "int",
+            "offset": 188
+        },
+        "m_ShowCatchRange": {
+            "type": "int[]",
+            "offset": 192
+        },
+        "m_SkillList": {
+            "type": "int[][]",
+            "offset": 200
+        },
+        "m_BornSkill": {
+            "type": "int",
+            "offset": 208
+        },
+        "m_BornMic": {
+            "type": "string",
+            "offset": 216
+        },
+        "m_DeathEffect": {
+            "type": "string",
+            "offset": 224
+        },
+        "m_DeathMic": {
+            "type": "string",
+            "offset": 232
+        },
+        "m_SummonAIType": {
+            "type": "int",
+            "offset": 240
+        },
+        "m_SummonAIParam": {
+            "type": "int[]",
+            "offset": 248
+        },
+        "m_FightHpRec": {
+            "type": "int",
+            "offset": 256
+        },
+        "m_DeadEndTime": {
+            "type": "float",
+            "offset": 260
+        },
+        "m_HighRrame": {
+            "type": "int",
+            "offset": 264
+        },
+        "m_AloneFeature": {
+            "type": "int",
+            "offset": 268
+        },
+        "m_iBloodType": {
+            "type": "int",
+            "offset": 272
+        },
+        "m_iCommmonParm": {
+            "type": "int[]",
+            "offset": 280
+        },
+        "m_AttributeType": {
+            "type": "int",
+            "offset": 288
+        },
+        "m_WarnRange": {
+            "type": "float[]",
+            "offset": 296
+        },
+        "m_WarnEffParam": {
+            "type": "string[]",
+            "offset": 304
+        },
+        "m_IsPreformance": {
+            "type": "int",
+            "offset": 312
+        },
+        "m_Anima": {
+            "type": "string[]",
+            "offset": 320
+        },
+        "m_BTId": {
+            "type": "int",
+            "offset": 328
+        },
+        "m_RotateMode": {
+            "type": "int[]",
+            "offset": 336
+        }
+    }
+}

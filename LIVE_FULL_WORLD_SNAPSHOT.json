@@ -1,0 +1,773 @@
+{
+  "timestamp_ns": 1787383246472542904,
+  "in_match": true,
+  "battle_state": 6,
+  "frame_time_ms": 311718,
+  "local_player": {
+    "address": "0x6d43adc000",
+    "hero_id": 18,
+    "level": 4,
+    "hp": 0,
+    "hp_max": 2780,
+    "mp": 596,
+    "mp_max": 800,
+    "shield": 0,
+    "magic_shield": 0,
+    "pos_x": 2.71,
+    "pos_y": 40.82,
+    "facing_x": 0.75,
+    "facing_y": -0.66,
+    "move_dir_x": 0.75,
+    "move_dir_y": -0.66,
+    "run_speed": 2.9,
+    "attack_speed": 1.42,
+    "camp": 2,
+    "is_dead": true,
+    "gold": 1794,
+    "combat_attributes": {
+      "physical_attack": 160,
+      "magic_power": 0,
+      "physical_defense": 51,
+      "magic_defense": 22,
+      "cooldown_reduction": 0.0,
+      "crit_rate": 0.0,
+      "phys_penetration_flat": 0,
+      "phys_penetration_percent": 0.0,
+      "mag_penetration_flat": 0,
+      "mag_penetration_percent": 0.0,
+      "physical_lifesteal": 0.0,
+      "spell_vamp": 0.0
+    },
+    "inventory": [
+      {
+        "slot": 1,
+        "item_id": 2301
+      },
+      {
+        "slot": 2,
+        "item_id": 1002
+      },
+      {
+        "slot": 3,
+        "item_id": 1002
+      },
+      {
+        "slot": 4,
+        "item_id": 1003
+      }
+    ],
+    "abilities": [
+      {
+        "spell_id": 1810,
+        "remaining_ms": 5600,
+        "max_ms": 5600
+      },
+      {
+        "spell_id": 201800,
+        "remaining_ms": 518,
+        "max_ms": 518
+      },
+      {
+        "spell_id": 1800,
+        "remaining_ms": 518,
+        "max_ms": 518
+      },
+      {
+        "spell_id": 1801,
+        "remaining_ms": 518,
+        "max_ms": 518
+      },
+      {
+        "spell_id": 1802,
+        "remaining_ms": 518,
+        "max_ms": 518
+      },
+      {
+        "spell_id": 1803,
+        "remaining_ms": 518,
+        "max_ms": 518
+      },
+      {
+        "spell_id": 201801,
+        "remaining_ms": 518,
+        "max_ms": 518
+      },
+      {
+        "spell_id": 201802,
+        "remaining_ms": 518,
+        "max_ms": 518
+      },
+      {
+        "spell_id": 201803,
+        "remaining_ms": 518,
+        "max_ms": 518
+      },
+      {
+        "spell_id": 62301,
+        "remaining_ms": 10000,
+        "max_ms": 10000
+      },
+      {
+        "spell_id": 20100,
+        "remaining_ms": 120000,
+        "max_ms": 120000
+      },
+      {
+        "spell_id": 20103,
+        "remaining_ms": 120000,
+        "max_ms": 120000
+      },
+      {
+        "spell_id": 201821,
+        "remaining_ms": 7500,
+        "max_ms": 7500
+      },
+      {
+        "spell_id": 1820,
+        "remaining_ms": 7500,
+        "max_ms": 7500
+      },
+      {
+        "spell_id": 1821,
+        "remaining_ms": 7500,
+        "max_ms": 7500
+      },
+      {
+        "spell_id": 1822,
+        "remaining_ms": 7500,
+        "max_ms": 7500
+      },
+      {
+        "spell_id": 1823,
+        "remaining_ms": 7500,
+        "max_ms": 7500
+      },
+      {
+        "spell_id": 201822,
+        "remaining_ms": 7500,
+        "max_ms": 7500
+      },
+      {
+        "spell_id": 201823,
+        "remaining_ms": 7500,
+        "max_ms": 7500
+      },
+      {
+        "spell_id": 201824,
+        "remaining_ms": 7500,
+        "max_ms": 7500
+      },
+      {
+        "spell_id": 20015,
+        "remaining_ms": 132,
+        "max_ms": 132
+      },
+      {
+        "spell_id": 2020016,
+        "remaining_ms": 132,
+        "max_ms": 132
+      },
+      {
+        "spell_id": 1830,
+        "remaining_ms": 37000,
+        "max_ms": 37000
+      }
+    ]
+  },
+  "allies": [
+    {
+      "address": "0x6d96404000",
+      "hero_id": 3,
+      "level": 7,
+      "hp": 593,
+      "hp_max": 4000,
+      "pos_x": 7.77,
+      "pos_y": 25.3,
+      "camp": 2,
+      "is_dead": false
+    },
+    {
+      "address": "0x6d95aa7000",
+      "hero_id": 6,
+      "level": 6,
+      "hp": 1382,
+      "hp_max": 4230,
+      "pos_x": 5.24,
+      "pos_y": -0.87,
+      "camp": 2,
+      "is_dead": false
+    },
+    {
+      "address": "0x6d8dc9c000",
+      "hero_id": 16,
+      "level": 7,
+      "hp": 0,
+      "hp_max": 3906,
+      "pos_x": 0.03,
+      "pos_y": -39.48,
+      "camp": 2,
+      "is_dead": true
+    },
+    {
+      "address": "0x6d8d423000",
+      "hero_id": 57,
+      "level": 6,
+      "hp": 2694,
+      "hp_max": 3305,
+      "pos_x": 4.42,
+      "pos_y": -1.89,
+      "camp": 2,
+      "is_dead": false
+    }
+  ],
+  "enemies": [
+    {
+      "address": "0x6d44263000",
+      "hero_id": 48,
+      "level": 6,
+      "hp": 3320,
+      "hp_max": 3320,
+      "pos_x": 1.07,
+      "pos_y": 38.34,
+      "camp": 1,
+      "is_dead": false
+    },
+    {
+      "address": "0x6d96e72000",
+      "hero_id": 82,
+      "level": 6,
+      "hp": 2342,
+      "hp_max": 4149,
+      "pos_x": 1.36,
+      "pos_y": -41.34,
+      "camp": 1,
+      "is_dead": false
+    },
+    {
+      "address": "0x6d96180000",
+      "hero_id": 113,
+      "level": 7,
+      "hp": 4110,
+      "hp_max": 4110,
+      "pos_x": -15.58,
+      "pos_y": -22.38,
+      "camp": 1,
+      "is_dead": false
+    },
+    {
+      "address": "0x6d957ac000",
+      "hero_id": 60,
+      "level": 7,
+      "hp": 1372,
+      "hp_max": 3133,
+      "pos_x": -0.56,
+      "pos_y": 42.57,
+      "camp": 1,
+      "is_dead": false
+    },
+    {
+      "address": "0x6d8d894000",
+      "hero_id": 5,
+      "level": 7,
+      "hp": 0,
+      "hp_max": 3310,
+      "pos_x": -9.27,
+      "pos_y": 1.6,
+      "camp": 1,
+      "is_dead": true
+    }
+  ],
+  "soldiers": [
+    {
+      "address": "0x6e9df7f000",
+      "soldier_id": 1101,
+      "soldier_type": 0,
+      "camp": 1,
+      "hp": 542,
+      "hp_max": 2039,
+      "pos_x": 3.86,
+      "pos_y": 39.66,
+      "distance_to_me": 1.64
+    },
+    {
+      "address": "0x6e9de0e000",
+      "soldier_id": 1051,
+      "soldier_type": 0,
+      "camp": 1,
+      "hp": 501,
+      "hp_max": 2039,
+      "pos_x": 2.25,
+      "pos_y": -39.54,
+      "distance_to_me": 80.36
+    },
+    {
+      "address": "0x6e9e3e4000",
+      "soldier_id": 1102,
+      "soldier_type": 0,
+      "camp": 1,
+      "hp": 1602,
+      "hp_max": 1602,
+      "pos_x": 2.68,
+      "pos_y": 40.29,
+      "distance_to_me": 0.53
+    },
+    {
+      "address": "0x6e9df30000",
+      "soldier_id": 1052,
+      "soldier_type": 0,
+      "camp": 1,
+      "hp": 1602,
+      "hp_max": 1602,
+      "pos_x": 0.56,
+      "pos_y": -39.58,
+      "distance_to_me": 80.43
+    },
+    {
+      "address": "0x6e9dfe0000",
+      "soldier_id": 1135,
+      "soldier_type": 0,
+      "camp": 1,
+      "hp": 3078,
+      "hp_max": 3078,
+      "pos_x": 3.49,
+      "pos_y": 39.56,
+      "distance_to_me": 1.48
+    },
+    {
+      "address": "0x6e9d979000",
+      "soldier_id": 1085,
+      "soldier_type": 0,
+      "camp": 1,
+      "hp": 2748,
+      "hp_max": 2748,
+      "pos_x": -0.99,
+      "pos_y": -39.53,
+      "distance_to_me": 80.44
+    },
+    {
+      "address": "0x6e9dfc3000",
+      "soldier_id": 1086,
+      "soldier_type": 0,
+      "camp": 2,
+      "hp": 345,
+      "hp_max": 2748,
+      "pos_x": 4.12,
+      "pos_y": -40.02,
+      "distance_to_me": 80.85
+    }
+  ],
+  "monsters": [
+    {
+      "address": "0x6e9e822000",
+      "monster_id": 2087,
+      "monster_type": 0,
+      "hp": 2183,
+      "hp_max": 2345,
+      "pos_x": 0.35,
+      "pos_y": 20.64,
+      "distance_to_me": 20.32
+    },
+    {
+      "address": "0x6e9e8b0000",
+      "monster_id": 2088,
+      "monster_type": 0,
+      "hp": 2183,
+      "hp_max": 2345,
+      "pos_x": -0.4,
+      "pos_y": -20.64,
+      "distance_to_me": 61.54
+    },
+    {
+      "address": "0x6f44f08000",
+      "monster_id": 2084,
+      "monster_type": 0,
+      "hp": 2183,
+      "hp_max": 2345,
+      "pos_x": -15.0,
+      "pos_y": 12.37,
+      "distance_to_me": 33.51
+    },
+    {
+      "address": "0x6f44fb8000",
+      "monster_id": 2084,
+      "monster_type": 0,
+      "hp": 2183,
+      "hp_max": 2345,
+      "pos_x": 14.87,
+      "pos_y": -12.6,
+      "distance_to_me": 54.79
+    },
+    {
+      "address": "0x6f189a4000",
+      "monster_id": 2086,
+      "monster_type": 0,
+      "hp": 2183,
+      "hp_max": 2345,
+      "pos_x": -6.8,
+      "pos_y": 15.2,
+      "distance_to_me": 27.33
+    },
+    {
+      "address": "0x6e9ee58000",
+      "monster_id": 2086,
+      "monster_type": 0,
+      "hp": 2183,
+      "hp_max": 2345,
+      "pos_x": 6.79,
+      "pos_y": -15.19,
+      "distance_to_me": 56.16
+    },
+    {
+      "address": "0x6e9ee91000",
+      "monster_id": 2083,
+      "monster_type": 0,
+      "hp": 2183,
+      "hp_max": 2345,
+      "pos_x": -18.1,
+      "pos_y": -13.3,
+      "distance_to_me": 57.98
+    },
+    {
+      "address": "0x6e9d30f000",
+      "monster_id": 2083,
+      "monster_type": 0,
+      "hp": 2183,
+      "hp_max": 2345,
+      "pos_x": 18.1,
+      "pos_y": 13.3,
+      "distance_to_me": 31.53
+    },
+    {
+      "address": "0x6e922ca000",
+      "monster_id": 2081,
+      "monster_type": 0,
+      "hp": 2183,
+      "hp_max": 2345,
+      "pos_x": -13.83,
+      "pos_y": 11.1,
+      "distance_to_me": 34.01
+    },
+    {
+      "address": "0x6e91cfd000",
+      "monster_id": 2081,
+      "monster_type": 0,
+      "hp": 2183,
+      "hp_max": 2345,
+      "pos_x": 13.83,
+      "pos_y": -11.1,
+      "distance_to_me": 53.1
+    },
+    {
+      "address": "0x6e9ecb2000",
+      "monster_id": 2158,
+      "monster_type": 0,
+      "hp": 2183,
+      "hp_max": 2345,
+      "pos_x": 0.4,
+      "pos_y": 20.64,
+      "distance_to_me": 20.31
+    },
+    {
+      "address": "0x6e9ecdd000",
+      "monster_id": 2159,
+      "monster_type": 0,
+      "hp": 2183,
+      "hp_max": 2345,
+      "pos_x": -0.4,
+      "pos_y": -20.64,
+      "distance_to_me": 61.54
+    },
+    {
+      "address": "0x6e9e804000",
+      "monster_id": 2091,
+      "monster_type": 0,
+      "hp": 2183,
+      "hp_max": 2345,
+      "pos_x": 0.0,
+      "pos_y": 0.0,
+      "distance_to_me": 40.91
+    },
+    {
+      "address": "0x6d975fc000",
+      "monster_id": 2052,
+      "monster_type": 0,
+      "hp": 2345,
+      "hp_max": 2508,
+      "pos_x": 12.1,
+      "pos_y": -17.4,
+      "distance_to_me": 58.97
+    },
+    {
+      "address": "0x6d96907000",
+      "monster_id": 2051,
+      "monster_type": 0,
+      "hp": 2183,
+      "hp_max": 2345,
+      "pos_x": -12.8,
+      "pos_y": -18.2,
+      "distance_to_me": 61.02
+    },
+    {
+      "address": "0x6d97447000",
+      "monster_id": 2050,
+      "monster_type": 0,
+      "hp": 2833,
+      "hp_max": 2833,
+      "pos_x": -12.1,
+      "pos_y": 17.4,
+      "distance_to_me": 27.71
+    },
+    {
+      "address": "0x6d96521000",
+      "monster_id": 2053,
+      "monster_type": 0,
+      "hp": 2183,
+      "hp_max": 2345,
+      "pos_x": 12.8,
+      "pos_y": 18.2,
+      "distance_to_me": 24.77
+    },
+    {
+      "address": "0x6e924fc000",
+      "monster_id": 2080,
+      "monster_type": 0,
+      "hp": 2996,
+      "hp_max": 2996,
+      "pos_x": -14.79,
+      "pos_y": 12.8,
+      "distance_to_me": 33.03
+    },
+    {
+      "address": "0x6e91d60000",
+      "monster_id": 2085,
+      "monster_type": 0,
+      "hp": 2508,
+      "hp_max": 2671,
+      "pos_x": 13.0,
+      "pos_y": -16.0,
+      "distance_to_me": 57.75
+    },
+    {
+      "address": "0x6e91a1c000",
+      "monster_id": 2009,
+      "monster_type": 0,
+      "hp": 6826,
+      "hp_max": 6826,
+      "pos_x": -10.9,
+      "pos_y": -12.0,
+      "distance_to_me": 54.54
+    },
+    {
+      "address": "0x6e91bf1000",
+      "monster_id": 2009,
+      "monster_type": 0,
+      "hp": 6826,
+      "hp_max": 6826,
+      "pos_x": 10.9,
+      "pos_y": 12.0,
+      "distance_to_me": 29.96
+    },
+    {
+      "address": "0x6d9fea2000",
+      "monster_id": 2006,
+      "monster_type": 0,
+      "hp": 6400,
+      "hp_max": 6400,
+      "pos_x": -14.1,
+      "pos_y": 21.2,
+      "distance_to_me": 25.83
+    },
+    {
+      "address": "0x6d9f9cc000",
+      "monster_id": 2006,
+      "monster_type": 0,
+      "hp": 6400,
+      "hp_max": 6400,
+      "pos_x": 14.1,
+      "pos_y": -21.2,
+      "distance_to_me": 63.06
+    },
+    {
+      "address": "0x6d99386000",
+      "monster_id": 2004,
+      "monster_type": 0,
+      "hp": 7933,
+      "hp_max": 7933,
+      "pos_x": -18.1,
+      "pos_y": -13.9,
+      "distance_to_me": 58.54
+    },
+    {
+      "address": "0x6d9883a000",
+      "monster_id": 2004,
+      "monster_type": 0,
+      "hp": 7933,
+      "hp_max": 7933,
+      "pos_x": 18.1,
+      "pos_y": 13.9,
+      "distance_to_me": 31.01
+    }
+  ],
+  "towers": [
+    {
+      "address": "0x6d7ab6c000",
+      "camp": 1,
+      "hp": 7900,
+      "hp_max": 7900,
+      "pos_x": -41.22,
+      "pos_y": 0.0
+    },
+    {
+      "address": "0x6d8cc79000",
+      "camp": 2,
+      "hp": 7900,
+      "hp_max": 7900,
+      "pos_x": 41.22,
+      "pos_y": 0.0
+    },
+    {
+      "address": "0x6d7ab90000",
+      "camp": 1,
+      "hp": 7300,
+      "hp_max": 7300,
+      "pos_x": -35.52,
+      "pos_y": -11.0
+    },
+    {
+      "address": "0x6d7ab9d000",
+      "camp": 1,
+      "hp": 7300,
+      "hp_max": 7300,
+      "pos_x": -31.2,
+      "pos_y": 0.0
+    },
+    {
+      "address": "0x6d440b6000",
+      "camp": 1,
+      "hp": 7300,
+      "hp_max": 7300,
+      "pos_x": -35.52,
+      "pos_y": 11.0
+    },
+    {
+      "address": "0x6d440b7000",
+      "camp": 1,
+      "hp": 5700,
+      "hp_max": 5700,
+      "pos_x": -26.45,
+      "pos_y": -21.52
+    },
+    {
+      "address": "0x6d441bf000",
+      "camp": 1,
+      "hp": 5700,
+      "hp_max": 5700,
+      "pos_x": -21.2,
+      "pos_y": 1.3
+    },
+    {
+      "address": "0x6d4421c000",
+      "camp": 1,
+      "hp": 5700,
+      "hp_max": 5700,
+      "pos_x": -22.1,
+      "pos_y": 25.0
+    },
+    {
+      "address": "0x6d43c26000",
+      "camp": 1,
+      "hp": 1383,
+      "hp_max": 4500,
+      "pos_x": -11.21,
+      "pos_y": -35.95
+    },
+    {
+      "address": "0x6d43cde000",
+      "camp": 1,
+      "hp": 4326,
+      "hp_max": 4500,
+      "pos_x": -10.18,
+      "pos_y": 1.4
+    },
+    {
+      "address": "0x6d43d15000",
+      "camp": 1,
+      "hp": 4500,
+      "hp_max": 4500,
+      "pos_x": -11.77,
+      "pos_y": 36.04
+    },
+    {
+      "address": "0x6d8cda3000",
+      "camp": 2,
+      "hp": 7300,
+      "hp_max": 7300,
+      "pos_x": 35.52,
+      "pos_y": 11.0
+    },
+    {
+      "address": "0x6d8cda4000",
+      "camp": 2,
+      "hp": 7300,
+      "hp_max": 7300,
+      "pos_x": 31.2,
+      "pos_y": 0.0
+    },
+    {
+      "address": "0x6d8cdd8000",
+      "camp": 2,
+      "hp": 7300,
+      "hp_max": 7300,
+      "pos_x": 35.52,
+      "pos_y": -11.0
+    },
+    {
+      "address": "0x6d8ce4f000",
+      "camp": 2,
+      "hp": 5700,
+      "hp_max": 5700,
+      "pos_x": 26.45,
+      "pos_y": 21.46
+    },
+    {
+      "address": "0x6d8c9c9000",
+      "camp": 2,
+      "hp": 5700,
+      "hp_max": 5700,
+      "pos_x": 21.2,
+      "pos_y": -1.36
+    },
+    {
+      "address": "0x6d8ca80000",
+      "camp": 2,
+      "hp": 5700,
+      "hp_max": 5700,
+      "pos_x": 22.05,
+      "pos_y": -25.15
+    },
+    {
+      "address": "0x6d8cbe5000",
+      "camp": 2,
+      "hp": 4500,
+      "hp_max": 4500,
+      "pos_x": 11.23,
+      "pos_y": 35.84
+    },
+    {
+      "address": "0x6d7ad4d000",
+      "camp": 2,
+      "hp": 4500,
+      "hp_max": 4500,
+      "pos_x": 10.18,
+      "pos_y": -1.48
+    },
+    {
+      "address": "0x6d7aef3000",
+      "camp": 2,
+      "hp": 4500,
+      "hp_max": 4500,
+      "pos_x": 11.7,
+      "pos_y": -36.04
+    }
+  ]
+}

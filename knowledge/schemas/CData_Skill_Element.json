@@ -1,0 +1,269 @@
+{
+    "class_name": "CData_Skill_Element",
+    "fields": {
+        "m_bError": {
+            "type": "bool",
+            "offset": 16
+        },
+        "m_SkillID": {
+            "type": "int",
+            "offset": 20
+        },
+        "m_SkillLevel": {
+            "type": "int",
+            "offset": 24
+        },
+        "m_SkillName": {
+            "type": "string",
+            "offset": 32
+        },
+        "m_SkillAddition": {
+            "type": "string[]",
+            "offset": 40
+        },
+        "m_NumDescribe": {
+            "type": "string[]",
+            "offset": 48
+        },
+        "m_SkillDescription": {
+            "type": "string",
+            "offset": 56
+        },
+        "m_SkillEffect": {
+            "type": "int[]",
+            "offset": 64
+        },
+        "m_IconFile": {
+            "type": "string",
+            "offset": 72
+        },
+        "m_NeedLevel": {
+            "type": "int",
+            "offset": 80
+        },
+        "m_SkillStart": {
+            "type": "string[]",
+            "offset": 88
+        },
+        "m_SkillAnimtionEndTime": {
+            "type": "float",
+            "offset": 96
+        },
+        "m_SkillAttack": {
+            "type": "string[]",
+            "offset": 104
+        },
+        "m_SkillLoopAttack": {
+            "type": "string",
+            "offset": 112
+        },
+        "m_SkillFinish": {
+            "type": "string",
+            "offset": 120
+        },
+        "m_SpeedOfAction": {
+            "type": "float[]",
+            "offset": 128
+        },
+        "m_EffParam": {
+            "type": "float[]",
+            "offset": 136
+        },
+        "m_SkillStartEffect": {
+            "type": "string[]",
+            "offset": 144
+        },
+        "m_SkillAttackEffect": {
+            "type": "string",
+            "offset": 152
+        },
+        "m_SkillLoopAttackEffect": {
+            "type": "string",
+            "offset": 160
+        },
+        "m_SkillStartSound": {
+            "type": "string[]",
+            "offset": 168
+        },
+        "m_SkillAttackSound": {
+            "type": "string[]",
+            "offset": 176
+        },
+        "m_SkillLoopAttackSound": {
+            "type": "string",
+            "offset": 184
+        },
+        "m_SkillStartSound3D": {
+            "type": "string[]",
+            "offset": 192
+        },
+        "m_SkillAttackSound3D": {
+            "type": "string",
+            "offset": 200
+        },
+        "m_SkillLoopAttackSound3D": {
+            "type": "string",
+            "offset": 208
+        },
+        "m_Voice": {
+            "type": "string[]",
+            "offset": 216
+        },
+        "m_VoiceProbability": {
+            "type": "int",
+            "offset": 224
+        },
+        "m_SingTime": {
+            "type": "int",
+            "offset": 228
+        },
+        "m_LockTime": {
+            "type": "int",
+            "offset": 232
+        },
+        "m_FinishLockTime": {
+            "type": "int",
+            "offset": 236
+        },
+        "m_SkillColdDown": {
+            "type": "int",
+            "offset": 240
+        },
+        "m_ShareColdDown": {
+            "type": "int",
+            "offset": 244
+        },
+        "m_NeedHP": {
+            "type": "int",
+            "offset": 248
+        },
+        "m_NeedMP": {
+            "type": "int",
+            "offset": 252
+        },
+        "m_NeedXP": {
+            "type": "int",
+            "offset": 256
+        },
+        "m_FunType": {
+            "type": "int[]",
+            "offset": 264
+        },
+        "m_MutiHurt": {
+            "type": "int",
+            "offset": 272
+        },
+        "m_BaseType": {
+            "type": "int",
+            "offset": 276
+        },
+        "m_BaseTypeValue": {
+            "type": "int[]",
+            "offset": 280
+        },
+        "m_TarType": {
+            "type": "int[]",
+            "offset": 288
+        },
+        "m_ShowTarget": {
+            "type": "int[]",
+            "offset": 296
+        },
+        "m_SpecialParam": {
+            "type": "float[]",
+            "offset": 304
+        },
+        "m_ShowRectPara": {
+            "type": "float[]",
+            "offset": 312
+        },
+        "m_ShowRectParaSpecial": {
+            "type": "float[]",
+            "offset": 320
+        },
+        "m_RectType": {
+            "type": "int",
+            "offset": 328
+        },
+        "m_Value0": {
+            "type": "float",
+            "offset": 332
+        },
+        "m_Value1": {
+            "type": "float",
+            "offset": 336
+        },
+        "m_Value2": {
+            "type": "float",
+            "offset": 340
+        },
+        "m_Value3": {
+            "type": "float",
+            "offset": 344
+        },
+        "m_Value4": {
+            "type": "float",
+            "offset": 348
+        },
+        "m_Value5": {
+            "type": "float",
+            "offset": 352
+        },
+        "m_Effect0": {
+            "type": "int",
+            "offset": 356
+        },
+        "m_EffectLevel0": {
+            "type": "int",
+            "offset": 360
+        },
+        "m_Effect1": {
+            "type": "int",
+            "offset": 364
+        },
+        "m_EffectLevel1": {
+            "type": "int",
+            "offset": 368
+        },
+        "m_Effect2": {
+            "type": "int",
+            "offset": 372
+        },
+        "m_EffectLevel2": {
+            "type": "int",
+            "offset": 376
+        },
+        "m_Effect3": {
+            "type": "int",
+            "offset": 380
+        },
+        "m_EffectLevel3": {
+            "type": "int",
+            "offset": 384
+        },
+        "m_Effect4": {
+            "type": "int",
+            "offset": 388
+        },
+        "m_EffectLevel4": {
+            "type": "int",
+            "offset": 392
+        },
+        "m_Effect5": {
+            "type": "int",
+            "offset": 396
+        },
+        "m_EffectLevel5": {
+            "type": "int",
+            "offset": 400
+        },
+        "m_CallScript": {
+            "type": "string",
+            "offset": 408
+        },
+        "m_Trigger": {
+            "type": "int[]",
+            "offset": 416
+        }
+    }
+}

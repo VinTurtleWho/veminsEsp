@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VeminsESP</string>
+    <string name="app_subtitle">Real-Time Zero-Injection Tactical Telemetry HUD</string>
+    <string name="badge_version">v1.0.0-ESP</string>
+    <string name="badge_pro">HARDWARE PASSTHROUGH</string>
+
+    <!-- Permissions -->
+    <string name="permission_required_title">System Overlay Permission Required</string>
+    <string name="permission_required_desc">VeminsESP requires "Display over other apps" permission to project the transparent 60 FPS hardware-accelerated tactical radar and combat HUD.</string>
+    <string name="btn_grant_permission">Grant Overlay Permission</string>
+    <string name="status_permission_granted">Overlay Permission: Active</string>
+    <string name="status_permission_denied">Overlay Permission: Required</string>
+
+    <!-- Master Service Controls -->
+    <string name="btn_start_overlay">START OVERLAY</string>
+    <string name="btn_stop_overlay">STOP OVERLAY</string>
+    <string name="status_stopped">STATUS: STANDBY / STOPPED</string>
+    <string name="status_running">STATUS: ACTIVE / 60 FPS OVERLAY</string>
+
+    <!-- Notification -->
+    <string name="service_notification_title">VeminsESP Overlay Active</string>
+    <string name="service_notification_desc">Zero-injection telemetry streaming on 127.0.0.1:9999 (100% Touch-Through)</string>
+    <string name="action_stop">Stop Service</string>
+    <string name="action_settings">Settings Dashboard</string>
+
+    <!-- Dashboard Tabs -->
+    <string name="tab_radar">Radar</string>
+    <string name="tab_combat_hud">Combat HUD</string>
+    <string name="tab_layers">Layers Matrix</string>
+    <string name="tab_status">Status &amp; API</string>
+
+    <!-- Common Actions -->
+    <string name="btn_save_config">Save Configuration</string>
+    <string name="btn_reset_defaults">Reset to Defaults</string>
+    <string name="btn_export_config">Export JSON</string>
+    <string name="btn_import_config">Import JSON</string>
+    <string name="btn_test_ping">Test API Ping</string>
+    <string name="calibration_title">Vemins Calibration Panel</string>
+</resources>

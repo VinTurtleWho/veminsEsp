@@ -1,0 +1,101 @@
+{
+    "class_name": "CData_SkillType_Element",
+    "fields": {
+        "m_bError": {
+            "type": "bool",
+            "offset": 16
+        },
+        "m_SkillType": {
+            "type": "int",
+            "offset": 20
+        },
+        "m_LockID": {
+            "type": "int",
+            "offset": 24
+        },
+        "m_StatusCon": {
+            "type": "int",
+            "offset": 28
+        },
+        "m_ActDis": {
+            "type": "int",
+            "offset": 32
+        },
+        "m_AnimatPriority": {
+            "type": "int",
+            "offset": 36
+        },
+        "m_EffectUnStopAnima": {
+            "type": "int[]",
+            "offset": 40
+        },
+        "m_IsCache": {
+            "type": "int",
+            "offset": 48
+        },
+        "m_AttackSpeed": {
+            "type": "int",
+            "offset": 52
+        },
+        "m_Silence": {
+            "type": "int",
+            "offset": 56
+        },
+        "m_AotoAtkState": {
+            "type": "int",
+            "offset": 60
+        },
+        "m_CoverState": {
+            "type": "int",
+            "offset": 64
+        },
+        "m_ColddownType": {
+            "type": "int",
+            "offset": 68
+        },
+        "m_DelayType": {
+            "type": "int",
+            "offset": 72
+        },
+        "m_IsBreak": {
+            "type": "int",
+            "offset": 76
+        },
+        "m_isLockSpecialSkill": {
+            "type": "int",
+            "offset": 80
+        },
+        "m_isLockFaceDir": {
+            "type": "int",
+            "offset": 84
+        },
+        "m_subType": {
+            "type": "int",
+            "offset": 88
+        },
+        "m_isForceType": {
+            "type": "int",
+            "offset": 92
+        },
+        "m_AddCondition": {
+            "type": "int",
+            "offset": 96
+        },
+        "m_skillFunSwitch": {
+            "type": "int",
+            "offset": 100
+        },
+        "m_CastCondition": {
+            "type": "int",
+            "offset": 104
+        },
+        "m_ExcludeCastConditon": {
+            "type": "int",
+            "offset": 108
+        },
+        "m_Exceptions": {
+            "type": "int[]",
+            "offset": 112
+        }
+    }
+}

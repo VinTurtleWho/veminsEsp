@@ -1,0 +1,6606 @@
+{
+  "1": {
+    "id": 1,
+    "name": "Miya",
+    "role": "sheshou",
+    "base_stats": {
+      "hp": 2524,
+      "hp_regen": 35,
+      "mp": 445,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 17,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 145.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.5,
+      "physical_defense_growth": 3.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 100,
+      "skill_1_id": 110,
+      "skill_2_id": 120,
+      "ultimate_skill_id": 130,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "2": {
+    "id": 2,
+    "name": "Balmond",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2736,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 119,
+      "magic_attack": 0,
+      "physical_defense": 25,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 215.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 6.8,
+      "physical_defense_growth": 4.1,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 200,
+      "skill_1_id": 210,
+      "skill_2_id": 220,
+      "ultimate_skill_id": 230,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "3": {
+    "id": 3,
+    "name": "Saber",
+    "role": "cike",
+    "base_stats": {
+      "hp": 2599,
+      "hp_regen": 35,
+      "mp": 443,
+      "mp_regen": 15,
+      "physical_attack": 118,
+      "magic_attack": 0,
+      "physical_defense": 18,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 150.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 9.5,
+      "physical_defense_growth": 3.5,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 300,
+      "skill_1_id": 310,
+      "skill_2_id": 320,
+      "ultimate_skill_id": 330,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "4": {
+    "id": 4,
+    "name": "Alice",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2573,
+      "hp_regen": 35,
+      "mp": 593,
+      "mp_regen": 15,
+      "physical_attack": 114,
+      "magic_attack": 0,
+      "physical_defense": 21,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 170.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.2,
+      "physical_defense_growth": 3.8,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 400,
+      "skill_1_id": 410,
+      "skill_2_id": 420,
+      "ultimate_skill_id": 430,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "5": {
+    "id": 5,
+    "name": "Nana",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2501,
+      "hp_regen": 35,
+      "mp": 510,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 15,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 155.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 4.8,
+      "physical_defense_growth": 3.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 500,
+      "skill_1_id": 510,
+      "skill_2_id": 520,
+      "ultimate_skill_id": 530,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "6": {
+    "id": 6,
+    "name": "Tigreal",
+    "role": "tanke",
+    "base_stats": {
+      "hp": 2890,
+      "hp_regen": 35,
+      "mp": 450,
+      "mp_regen": 15,
+      "physical_attack": 112,
+      "magic_attack": 0,
+      "physical_defense": 26,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 245.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.2,
+      "physical_defense_growth": 4.8,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 600,
+      "skill_1_id": 610,
+      "skill_2_id": 620,
+      "ultimate_skill_id": 630,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "7": {
+    "id": 7,
+    "name": "Alucard",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2621,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 123,
+      "magic_attack": 0,
+      "physical_defense": 21,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 178.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 8.1,
+      "physical_defense_growth": 3.7,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 700,
+      "skill_1_id": 710,
+      "skill_2_id": 720,
+      "ultimate_skill_id": 730,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "8": {
+    "id": 8,
+    "name": "Karina",
+    "role": "cike",
+    "base_stats": {
+      "hp": 2633,
+      "hp_regen": 35,
+      "mp": 431,
+      "mp_regen": 15,
+      "physical_attack": 121,
+      "magic_attack": 0,
+      "physical_defense": 20,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 165.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 8.5,
+      "physical_defense_growth": 3.6,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 800,
+      "skill_1_id": 810,
+      "skill_2_id": 820,
+      "ultimate_skill_id": 830,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "9": {
+    "id": 9,
+    "name": "Akai",
+    "role": "tanke",
+    "base_stats": {
+      "hp": 2769,
+      "hp_regen": 35,
+      "mp": 422,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 24,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 235.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.5,
+      "physical_defense_growth": 4.5,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 900,
+      "skill_1_id": 910,
+      "skill_2_id": 920,
+      "ultimate_skill_id": 930,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "10": {
+    "id": 10,
+    "name": "Franco",
+    "role": "tanke",
+    "base_stats": {
+      "hp": 2709,
+      "hp_regen": 35,
+      "mp": 440,
+      "mp_regen": 15,
+      "physical_attack": 116,
+      "magic_attack": 0,
+      "physical_defense": 25,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 230.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.0,
+      "physical_defense_growth": 4.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 1000,
+      "skill_1_id": 1010,
+      "skill_2_id": 1020,
+      "ultimate_skill_id": 1030,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "11": {
+    "id": 11,
+    "name": "Bane",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2559,
+      "hp_regen": 35,
+      "mp": 450,
+      "mp_regen": 15,
+      "physical_attack": 117,
+      "magic_attack": 0,
+      "physical_defense": 21,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 185.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 7.8,
+      "physical_defense_growth": 3.8,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 1100,
+      "skill_1_id": 1110,
+      "skill_2_id": 1120,
+      "ultimate_skill_id": 1130,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "12": {
+    "id": 12,
+    "name": "Bruno",
+    "role": "sheshou",
+    "base_stats": {
+      "hp": 2522,
+      "hp_regen": 35,
+      "mp": 439,
+      "mp_regen": 15,
+      "physical_attack": 140,
+      "magic_attack": 0,
+      "physical_defense": 17,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 142.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 6.0,
+      "physical_defense_growth": 3.1,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 1200,
+      "skill_1_id": 1210,
+      "skill_2_id": 1220,
+      "ultimate_skill_id": 1230,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "13": {
+    "id": 13,
+    "name": "Clint",
+    "role": "sheshou",
+    "base_stats": {
+      "hp": 2530,
+      "hp_regen": 35,
+      "mp": 450,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 18,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 145.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 6.2,
+      "physical_defense_growth": 3.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 1300,
+      "skill_1_id": 1310,
+      "skill_2_id": 1320,
+      "ultimate_skill_id": 1330,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "14": {
+    "id": 14,
+    "name": "Rafaela",
+    "role": "fuzhu",
+    "base_stats": {
+      "hp": 2441,
+      "hp_regen": 35,
+      "mp": 545,
+      "mp_regen": 15,
+      "physical_attack": 117,
+      "magic_attack": 0,
+      "physical_defense": 15,
+      "magic_defense": 15,
+      "base_speed": 245,
+      "move_speed": 245,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 160.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 4.5,
+      "physical_defense_growth": 3.1,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 1400,
+      "skill_1_id": 1410,
+      "skill_2_id": 1420,
+      "ultimate_skill_id": 1430,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "15": {
+    "id": 15,
+    "name": "Eudora",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2440,
+      "hp_regen": 35,
+      "mp": 500,
+      "mp_regen": 15,
+      "physical_attack": 112,
+      "magic_attack": 0,
+      "physical_defense": 18,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 175.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.85,
+      "physical_defense_growth": 4.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 1500,
+      "skill_1_id": 1510,
+      "skill_2_id": 1520,
+      "ultimate_skill_id": 1530,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "16": {
+    "id": 16,
+    "name": "Zilong",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2689,
+      "hp_regen": 35,
+      "mp": 405,
+      "mp_regen": 15,
+      "physical_attack": 123,
+      "magic_attack": 0,
+      "physical_defense": 25,
+      "magic_defense": 15,
+      "base_speed": 265,
+      "move_speed": 265,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 182.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 8.5,
+      "physical_defense_growth": 4.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 1600,
+      "skill_1_id": 1610,
+      "skill_2_id": 1620,
+      "ultimate_skill_id": 1630,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "17": {
+    "id": 17,
+    "name": "Fanny",
+    "role": "cike",
+    "base_stats": {
+      "hp": 2526,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 126,
+      "magic_attack": 0,
+      "physical_defense": 17,
+      "magic_defense": 15,
+      "base_speed": 265,
+      "move_speed": 265,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 145.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 9.8,
+      "physical_defense_growth": 3.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 1700,
+      "skill_1_id": 1710,
+      "skill_2_id": 1720,
+      "ultimate_skill_id": 1730,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "18": {
+    "id": 18,
+    "name": "Layla",
+    "role": "sheshou",
+    "base_stats": {
+      "hp": 2500,
+      "hp_regen": 35,
+      "mp": 424,
+      "mp_regen": 15,
+      "physical_attack": 130,
+      "magic_attack": 0,
+      "physical_defense": 15,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 140.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.8,
+      "physical_defense_growth": 3.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 1800,
+      "skill_1_id": 1810,
+      "skill_2_id": 1820,
+      "ultimate_skill_id": 1830,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "19": {
+    "id": 19,
+    "name": "Minotaur",
+    "role": "tanke",
+    "base_stats": {
+      "hp": 2855,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 123,
+      "magic_attack": 0,
+      "physical_defense": 24,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 240.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 5.8,
+      "physical_defense_growth": 4.6,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 1900,
+      "skill_1_id": 1910,
+      "skill_2_id": 1920,
+      "ultimate_skill_id": 1930,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "20": {
+    "id": 20,
+    "name": "Lolita",
+    "role": "tanke",
+    "base_stats": {
+      "hp": 2779,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 27,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 230.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 5.1,
+      "physical_defense_growth": 4.7,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 2000,
+      "skill_1_id": 2010,
+      "skill_2_id": 2020,
+      "ultimate_skill_id": 2030,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "21": {
+    "id": 21,
+    "name": "Hayabusa",
+    "role": "cike",
+    "base_stats": {
+      "hp": 2529,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 117,
+      "magic_attack": 0,
+      "physical_defense": 19,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 158.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 9.2,
+      "physical_defense_growth": 3.4,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 2100,
+      "skill_1_id": 2110,
+      "skill_2_id": 2120,
+      "ultimate_skill_id": 2130,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "22": {
+    "id": 22,
+    "name": "Freya",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2673,
+      "hp_regen": 35,
+      "mp": 462,
+      "mp_regen": 15,
+      "physical_attack": 119,
+      "magic_attack": 0,
+      "physical_defense": 22,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 190.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 7.9,
+      "physical_defense_growth": 3.9,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 2200,
+      "skill_1_id": 2210,
+      "skill_2_id": 2220,
+      "ultimate_skill_id": 2230,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "23": {
+    "id": 23,
+    "name": "Gord",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2478,
+      "hp_regen": 35,
+      "mp": 570,
+      "mp_regen": 15,
+      "physical_attack": 110,
+      "magic_attack": 0,
+      "physical_defense": 16,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 160.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.0,
+      "physical_defense_growth": 3.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 2300,
+      "skill_1_id": 2310,
+      "skill_2_id": 2320,
+      "ultimate_skill_id": 2330,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "24": {
+    "id": 24,
+    "name": "Natalia",
+    "role": "cike",
+    "base_stats": {
+      "hp": 2589,
+      "hp_regen": 35,
+      "mp": 450,
+      "mp_regen": 15,
+      "physical_attack": 121,
+      "magic_attack": 0,
+      "physical_defense": 18,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 152.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 9.0,
+      "physical_defense_growth": 3.5,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 2400,
+      "skill_1_id": 2410,
+      "skill_2_id": 2420,
+      "ultimate_skill_id": 2430,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "25": {
+    "id": 25,
+    "name": "Kagura",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2496,
+      "hp_regen": 35,
+      "mp": 519,
+      "mp_regen": 15,
+      "physical_attack": 118,
+      "magic_attack": 0,
+      "physical_defense": 17,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 162.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.3,
+      "physical_defense_growth": 3.3,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 2500,
+      "skill_1_id": 2510,
+      "skill_2_id": 2520,
+      "ultimate_skill_id": 2530,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "26": {
+    "id": 26,
+    "name": "Chou",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2708,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 121,
+      "magic_attack": 0,
+      "physical_defense": 23,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 195.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 8.8,
+      "physical_defense_growth": 4.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 2600,
+      "skill_1_id": 2610,
+      "skill_2_id": 2620,
+      "ultimate_skill_id": 2630,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "27": {
+    "id": 27,
+    "name": "Sun",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2758,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 114,
+      "magic_attack": 0,
+      "physical_defense": 23,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 198.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 7.2,
+      "physical_defense_growth": 4.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 2700,
+      "skill_1_id": 2710,
+      "skill_2_id": 2720,
+      "ultimate_skill_id": 2730,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "28": {
+    "id": 28,
+    "name": "Alpha",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2646,
+      "hp_regen": 35,
+      "mp": 453,
+      "mp_regen": 15,
+      "physical_attack": 121,
+      "magic_attack": 0,
+      "physical_defense": 25,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 192.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 7.6,
+      "physical_defense_growth": 4.1,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 2800,
+      "skill_1_id": 2810,
+      "skill_2_id": 2820,
+      "ultimate_skill_id": 2830,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "29": {
+    "id": 29,
+    "name": "Ruby",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2659,
+      "hp_regen": 35,
+      "mp": 430,
+      "mp_regen": 15,
+      "physical_attack": 114,
+      "magic_attack": 0,
+      "physical_defense": 23,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 205.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 6.5,
+      "physical_defense_growth": 4.3,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 2900,
+      "skill_1_id": 2910,
+      "skill_2_id": 2920,
+      "ultimate_skill_id": 2930,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "30": {
+    "id": 30,
+    "name": "Yi Sun-shin",
+    "role": "cike",
+    "base_stats": {
+      "hp": 2570,
+      "hp_regen": 35,
+      "mp": 438,
+      "mp_regen": 15,
+      "physical_attack": 110,
+      "magic_attack": 0,
+      "physical_defense": 18,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 155.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 8.0,
+      "physical_defense_growth": 3.4,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 3000,
+      "skill_1_id": 3010,
+      "skill_2_id": 3020,
+      "ultimate_skill_id": 3030,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "31": {
+    "id": 31,
+    "name": "Moskov",
+    "role": "sheshou",
+    "base_stats": {
+      "hp": 2455,
+      "hp_regen": 35,
+      "mp": 420,
+      "mp_regen": 15,
+      "physical_attack": 125,
+      "magic_attack": 0,
+      "physical_defense": 16,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 138.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.9,
+      "physical_defense_growth": 3.1,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 3100,
+      "skill_1_id": 3110,
+      "skill_2_id": 3120,
+      "ultimate_skill_id": 3130,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "32": {
+    "id": 32,
+    "name": "Johnson",
+    "role": "tanke",
+    "base_stats": {
+      "hp": 2809,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 120,
+      "magic_attack": 0,
+      "physical_defense": 27,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 240.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 5.4,
+      "physical_defense_growth": 4.9,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 3200,
+      "skill_1_id": 3210,
+      "skill_2_id": 3220,
+      "ultimate_skill_id": 3230,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "33": {
+    "id": 33,
+    "name": "Cyclops",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2521,
+      "hp_regen": 35,
+      "mp": 500,
+      "mp_regen": 15,
+      "physical_attack": 112,
+      "magic_attack": 0,
+      "physical_defense": 18,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 165.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.1,
+      "physical_defense_growth": 3.4,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 3300,
+      "skill_1_id": 3310,
+      "skill_2_id": 3320,
+      "ultimate_skill_id": 3330,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "34": {
+    "id": 34,
+    "name": "Estes",
+    "role": "fuzhu",
+    "base_stats": {
+      "hp": 2421,
+      "hp_regen": 35,
+      "mp": 545,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 15,
+      "magic_defense": 15,
+      "base_speed": 245,
+      "move_speed": 245,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 158.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 4.2,
+      "physical_defense_growth": 3.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 3400,
+      "skill_1_id": 3410,
+      "skill_2_id": 3420,
+      "ultimate_skill_id": 3430,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "35": {
+    "id": 35,
+    "name": "Hilda",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2789,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 123,
+      "magic_attack": 0,
+      "physical_defense": 24,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 220.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 7.5,
+      "physical_defense_growth": 4.4,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 3500,
+      "skill_1_id": 3510,
+      "skill_2_id": 3520,
+      "ultimate_skill_id": 3530,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "36": {
+    "id": 36,
+    "name": "Aurora",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2501,
+      "hp_regen": 35,
+      "mp": 500,
+      "mp_regen": 15,
+      "physical_attack": 110,
+      "magic_attack": 0,
+      "physical_defense": 17,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 168.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.4,
+      "physical_defense_growth": 3.5,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 3600,
+      "skill_1_id": 3610,
+      "skill_2_id": 3620,
+      "ultimate_skill_id": 3630,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "37": {
+    "id": 37,
+    "name": "Lapu-Lapu",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2708,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 119,
+      "magic_attack": 0,
+      "physical_defense": 21,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 198.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 8.2,
+      "physical_defense_growth": 4.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 3700,
+      "skill_1_id": 3710,
+      "skill_2_id": 3720,
+      "ultimate_skill_id": 3730,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "38": {
+    "id": 38,
+    "name": "Vexana",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2481,
+      "hp_regen": 35,
+      "mp": 490,
+      "mp_regen": 15,
+      "physical_attack": 112,
+      "magic_attack": 0,
+      "physical_defense": 17,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 165.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.2,
+      "physical_defense_growth": 3.3,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 3800,
+      "skill_1_id": 3810,
+      "skill_2_id": 3820,
+      "ultimate_skill_id": 3830,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "39": {
+    "id": 39,
+    "name": "Roger",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2580,
+      "hp_regen": 35,
+      "mp": 450,
+      "mp_regen": 15,
+      "physical_attack": 120,
+      "magic_attack": 0,
+      "physical_defense": 22,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 180.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 7.8,
+      "physical_defense_growth": 3.8,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 3900,
+      "skill_1_id": 3910,
+      "skill_2_id": 3920,
+      "ultimate_skill_id": 3930,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "40": {
+    "id": 40,
+    "name": "Karrie",
+    "role": "sheshou",
+    "base_stats": {
+      "hp": 2498,
+      "hp_regen": 35,
+      "mp": 440,
+      "mp_regen": 15,
+      "physical_attack": 112,
+      "magic_attack": 0,
+      "physical_defense": 17,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 140.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.4,
+      "physical_defense_growth": 3.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 4000,
+      "skill_1_id": 4010,
+      "skill_2_id": 4020,
+      "ultimate_skill_id": 4030,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "41": {
+    "id": 41,
+    "name": "Gatotkaca",
+    "role": "tanke",
+    "base_stats": {
+      "hp": 2829,
+      "hp_regen": 35,
+      "mp": 440,
+      "mp_regen": 15,
+      "physical_attack": 120,
+      "magic_attack": 0,
+      "physical_defense": 28,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 242.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.6,
+      "physical_defense_growth": 4.8,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 4100,
+      "skill_1_id": 4110,
+      "skill_2_id": 4120,
+      "ultimate_skill_id": 4130,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "42": {
+    "id": 42,
+    "name": "Harley",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2501,
+      "hp_regen": 35,
+      "mp": 490,
+      "mp_regen": 15,
+      "physical_attack": 114,
+      "magic_attack": 0,
+      "physical_defense": 16,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 160.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 6.5,
+      "physical_defense_growth": 3.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 4200,
+      "skill_1_id": 4210,
+      "skill_2_id": 4220,
+      "ultimate_skill_id": 4230,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "43": {
+    "id": 43,
+    "name": "Irithel",
+    "role": "sheshou",
+    "base_stats": {
+      "hp": 2540,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 118,
+      "magic_attack": 0,
+      "physical_defense": 17,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 145.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 5.8,
+      "physical_defense_growth": 3.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 4300,
+      "skill_1_id": 4310,
+      "skill_2_id": 4320,
+      "ultimate_skill_id": 4330,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "44": {
+    "id": 44,
+    "name": "Grock",
+    "role": "tanke",
+    "base_stats": {
+      "hp": 2819,
+      "hp_regen": 35,
+      "mp": 430,
+      "mp_regen": 15,
+      "physical_attack": 135,
+      "magic_attack": 0,
+      "physical_defense": 21,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 240.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 6.0,
+      "physical_defense_growth": 4.5,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 4400,
+      "skill_1_id": 4410,
+      "skill_2_id": 4420,
+      "ultimate_skill_id": 4430,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "45": {
+    "id": 45,
+    "name": "Argus",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2628,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 116,
+      "magic_attack": 0,
+      "physical_defense": 21,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 182.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 7.5,
+      "physical_defense_growth": 3.8,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 4500,
+      "skill_1_id": 4510,
+      "skill_2_id": 4520,
+      "ultimate_skill_id": 4530,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "46": {
+    "id": 46,
+    "name": "Odette",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2491,
+      "hp_regen": 35,
+      "mp": 495,
+      "mp_regen": 15,
+      "physical_attack": 110,
+      "magic_attack": 0,
+      "physical_defense": 18,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 162.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.2,
+      "physical_defense_growth": 3.4,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 4600,
+      "skill_1_id": 4610,
+      "skill_2_id": 4620,
+      "ultimate_skill_id": 4630,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "47": {
+    "id": 47,
+    "name": "Lancelot",
+    "role": "cike",
+    "base_stats": {
+      "hp": 2549,
+      "hp_regen": 35,
+      "mp": 450,
+      "mp_regen": 15,
+      "physical_attack": 124,
+      "magic_attack": 0,
+      "physical_defense": 18,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 155.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 9.8,
+      "physical_defense_growth": 3.5,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 4700,
+      "skill_1_id": 4710,
+      "skill_2_id": 4720,
+      "ultimate_skill_id": 4730,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "48": {
+    "id": 48,
+    "name": "Diggie",
+    "role": "fuzhu",
+    "base_stats": {
+      "hp": 2468,
+      "hp_regen": 35,
+      "mp": 490,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 16,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 158.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 4.4,
+      "physical_defense_growth": 3.1,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 4800,
+      "skill_1_id": 4810,
+      "skill_2_id": 4820,
+      "ultimate_skill_id": 4830,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "49": {
+    "id": 49,
+    "name": "Hylos",
+    "role": "tanke",
+    "base_stats": {
+      "hp": 3109,
+      "hp_regen": 35,
+      "mp": 430,
+      "mp_regen": 15,
+      "physical_attack": 105,
+      "magic_attack": 0,
+      "physical_defense": 17,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 280.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 4.5,
+      "physical_defense_growth": 4.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 4900,
+      "skill_1_id": 4910,
+      "skill_2_id": 4920,
+      "ultimate_skill_id": 4930,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "50": {
+    "id": 50,
+    "name": "Zhask",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2401,
+      "hp_regen": 35,
+      "mp": 490,
+      "mp_regen": 15,
+      "physical_attack": 107,
+      "magic_attack": 0,
+      "physical_defense": 15,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 155.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.0,
+      "physical_defense_growth": 3.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 5000,
+      "skill_1_id": 5010,
+      "skill_2_id": 5020,
+      "ultimate_skill_id": 5030,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "51": {
+    "id": 51,
+    "name": "Helcurt",
+    "role": "cike",
+    "base_stats": {
+      "hp": 2599,
+      "hp_regen": 35,
+      "mp": 440,
+      "mp_regen": 15,
+      "physical_attack": 121,
+      "magic_attack": 0,
+      "physical_defense": 17,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 152.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 9.5,
+      "physical_defense_growth": 3.4,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 5100,
+      "skill_1_id": 5110,
+      "skill_2_id": 5120,
+      "ultimate_skill_id": 5130,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "52": {
+    "id": 52,
+    "name": "Pharsa",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2421,
+      "hp_regen": 35,
+      "mp": 490,
+      "mp_regen": 15,
+      "physical_attack": 109,
+      "magic_attack": 0,
+      "physical_defense": 15,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 160.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.1,
+      "physical_defense_growth": 3.1,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 5200,
+      "skill_1_id": 5210,
+      "skill_2_id": 5220,
+      "ultimate_skill_id": 5230,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "53": {
+    "id": 53,
+    "name": "Lesley",
+    "role": "sheshou",
+    "base_stats": {
+      "hp": 2490,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 140,
+      "magic_attack": 0,
+      "physical_defense": 14,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 135.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 6.8,
+      "physical_defense_growth": 3.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 5300,
+      "skill_1_id": 5310,
+      "skill_2_id": 5320,
+      "ultimate_skill_id": 5330,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "54": {
+    "id": 54,
+    "name": "Jawhead",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2658,
+      "hp_regen": 35,
+      "mp": 430,
+      "mp_regen": 15,
+      "physical_attack": 119,
+      "magic_attack": 0,
+      "physical_defense": 24,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 192.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 8.0,
+      "physical_defense_growth": 4.1,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 5400,
+      "skill_1_id": 5410,
+      "skill_2_id": 5420,
+      "ultimate_skill_id": 5430,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "55": {
+    "id": 55,
+    "name": "Angela",
+    "role": "fuzhu",
+    "base_stats": {
+      "hp": 2421,
+      "hp_regen": 35,
+      "mp": 515,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 15,
+      "magic_defense": 15,
+      "base_speed": 245,
+      "move_speed": 245,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 155.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 4.3,
+      "physical_defense_growth": 3.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 5500,
+      "skill_1_id": 5510,
+      "skill_2_id": 5520,
+      "ultimate_skill_id": 5530,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "56": {
+    "id": 56,
+    "name": "Gusion",
+    "role": "cike",
+    "base_stats": {
+      "hp": 2578,
+      "hp_regen": 35,
+      "mp": 460,
+      "mp_regen": 15,
+      "physical_attack": 119,
+      "magic_attack": 0,
+      "physical_defense": 18,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 158.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 8.8,
+      "physical_defense_growth": 3.5,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 5600,
+      "skill_1_id": 5610,
+      "skill_2_id": 5620,
+      "ultimate_skill_id": 5630,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "57": {
+    "id": 57,
+    "name": "Valir",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2516,
+      "hp_regen": 35,
+      "mp": 510,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 18,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 165.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.3,
+      "physical_defense_growth": 3.4,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 5700,
+      "skill_1_id": 5710,
+      "skill_2_id": 5720,
+      "ultimate_skill_id": 5730,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "58": {
+    "id": 58,
+    "name": "Martis",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2738,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 128,
+      "magic_attack": 0,
+      "physical_defense": 25,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 205.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 8.5,
+      "physical_defense_growth": 4.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 5800,
+      "skill_1_id": 5810,
+      "skill_2_id": 5820,
+      "ultimate_skill_id": 5830,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "59": {
+    "id": 59,
+    "name": "Uranus",
+    "role": "tanke",
+    "base_stats": {
+      "hp": 2689,
+      "hp_regen": 35,
+      "mp": 430,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 18,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 245.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 4.8,
+      "physical_defense_growth": 4.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 5900,
+      "skill_1_id": 5910,
+      "skill_2_id": 5920,
+      "ultimate_skill_id": 5930,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "60": {
+    "id": 60,
+    "name": "Hanabi",
+    "role": "sheshou",
+    "base_stats": {
+      "hp": 2510,
+      "hp_regen": 35,
+      "mp": 390,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 17,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 140.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.5,
+      "physical_defense_growth": 3.1,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 6000,
+      "skill_1_id": 6010,
+      "skill_2_id": 6020,
+      "ultimate_skill_id": 6030,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "61": {
+    "id": 61,
+    "name": "Chang'e",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2401,
+      "hp_regen": 35,
+      "mp": 505,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 16,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 160.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.0,
+      "physical_defense_growth": 3.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 6100,
+      "skill_1_id": 6110,
+      "skill_2_id": 6120,
+      "ultimate_skill_id": 6130,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "62": {
+    "id": 62,
+    "name": "Kaja",
+    "role": "fuzhu",
+    "base_stats": {
+      "hp": 2609,
+      "hp_regen": 35,
+      "mp": 490,
+      "mp_regen": 15,
+      "physical_attack": 120,
+      "magic_attack": 0,
+      "physical_defense": 25,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 185.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.5,
+      "physical_defense_growth": 4.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 6200,
+      "skill_1_id": 6210,
+      "skill_2_id": 6220,
+      "ultimate_skill_id": 6230,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "63": {
+    "id": 63,
+    "name": "Selena",
+    "role": "cike",
+    "base_stats": {
+      "hp": 2401,
+      "hp_regen": 35,
+      "mp": 490,
+      "mp_regen": 15,
+      "physical_attack": 110,
+      "magic_attack": 0,
+      "physical_defense": 15,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 150.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 7.5,
+      "physical_defense_growth": 3.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 6300,
+      "skill_1_id": 6310,
+      "skill_2_id": 6320,
+      "ultimate_skill_id": 6330,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "64": {
+    "id": 64,
+    "name": "Aldous",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2718,
+      "hp_regen": 35,
+      "mp": 405,
+      "mp_regen": 15,
+      "physical_attack": 129,
+      "magic_attack": 0,
+      "physical_defense": 21,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 210.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 8.2,
+      "physical_defense_growth": 4.1,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 6400,
+      "skill_1_id": 6410,
+      "skill_2_id": 6420,
+      "ultimate_skill_id": 6430,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "65": {
+    "id": 65,
+    "name": "Claude",
+    "role": "sheshou",
+    "base_stats": {
+      "hp": 2470,
+      "hp_regen": 35,
+      "mp": 450,
+      "mp_regen": 15,
+      "physical_attack": 105,
+      "magic_attack": 0,
+      "physical_defense": 18,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 138.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.0,
+      "physical_defense_growth": 3.1,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 6500,
+      "skill_1_id": 6510,
+      "skill_2_id": 6520,
+      "ultimate_skill_id": 6530,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "66": {
+    "id": 66,
+    "name": "Vale",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2461,
+      "hp_regen": 35,
+      "mp": 490,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 17,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 165.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.5,
+      "physical_defense_growth": 3.3,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 6600,
+      "skill_1_id": 6610,
+      "skill_2_id": 6620,
+      "ultimate_skill_id": 6630,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "67": {
+    "id": 67,
+    "name": "Leomord",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2738,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 126,
+      "magic_attack": 0,
+      "physical_defense": 21,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 195.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 8.4,
+      "physical_defense_growth": 4.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 6700,
+      "skill_1_id": 6710,
+      "skill_2_id": 6720,
+      "ultimate_skill_id": 6730,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "68": {
+    "id": 68,
+    "name": "Lunox",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2521,
+      "hp_regen": 35,
+      "mp": 540,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 15,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 160.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.2,
+      "physical_defense_growth": 3.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 6800,
+      "skill_1_id": 6810,
+      "skill_2_id": 6820,
+      "ultimate_skill_id": 6830,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "69": {
+    "id": 69,
+    "name": "Hanzo",
+    "role": "cike",
+    "base_stats": {
+      "hp": 2599,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 118,
+      "magic_attack": 0,
+      "physical_defense": 17,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 155.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 9.0,
+      "physical_defense_growth": 3.5,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 6900,
+      "skill_1_id": 6910,
+      "skill_2_id": 6920,
+      "ultimate_skill_id": 6930,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "70": {
+    "id": 70,
+    "name": "Belerick",
+    "role": "tanke",
+    "base_stats": {
+      "hp": 2719,
+      "hp_regen": 35,
+      "mp": 450,
+      "mp_regen": 15,
+      "physical_attack": 110,
+      "magic_attack": 0,
+      "physical_defense": 20,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 250.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 4.6,
+      "physical_defense_growth": 4.4,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 7000,
+      "skill_1_id": 7010,
+      "skill_2_id": 7020,
+      "ultimate_skill_id": 7030,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "71": {
+    "id": 71,
+    "name": "Kimmy",
+    "role": "sheshou",
+    "base_stats": {
+      "hp": 2450,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 106,
+      "magic_attack": 0,
+      "physical_defense": 16,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 140.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 5.2,
+      "physical_defense_growth": 3.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 7100,
+      "skill_1_id": 7110,
+      "skill_2_id": 7120,
+      "ultimate_skill_id": 7130,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "72": {
+    "id": 72,
+    "name": "Thamuz",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2758,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 117,
+      "magic_attack": 0,
+      "physical_defense": 22,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 215.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 8.0,
+      "physical_defense_growth": 4.3,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 7200,
+      "skill_1_id": 7210,
+      "skill_2_id": 7220,
+      "ultimate_skill_id": 7230,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "73": {
+    "id": 73,
+    "name": "Harith",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2501,
+      "hp_regen": 35,
+      "mp": 490,
+      "mp_regen": 15,
+      "physical_attack": 114,
+      "magic_attack": 0,
+      "physical_defense": 19,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 165.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.5,
+      "physical_defense_growth": 3.5,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 7300,
+      "skill_1_id": 7310,
+      "skill_2_id": 7320,
+      "ultimate_skill_id": 7330,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "74": {
+    "id": 74,
+    "name": "Minsitthar",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2698,
+      "hp_regen": 35,
+      "mp": 430,
+      "mp_regen": 15,
+      "physical_attack": 121,
+      "magic_attack": 0,
+      "physical_defense": 23,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 210.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 7.5,
+      "physical_defense_growth": 4.3,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 7400,
+      "skill_1_id": 7410,
+      "skill_2_id": 7420,
+      "ultimate_skill_id": 7430,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "75": {
+    "id": 75,
+    "name": "Kadita",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2599,
+      "hp_regen": 35,
+      "mp": 495,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 18,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 170.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.8,
+      "physical_defense_growth": 3.6,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 7500,
+      "skill_1_id": 7510,
+      "skill_2_id": 7520,
+      "ultimate_skill_id": 7530,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "76": {
+    "id": 76,
+    "name": "Faramis",
+    "role": "fuzhu",
+    "base_stats": {
+      "hp": 2541,
+      "hp_regen": 35,
+      "mp": 500,
+      "mp_regen": 15,
+      "physical_attack": 118,
+      "magic_attack": 0,
+      "physical_defense": 20,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 175.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.0,
+      "physical_defense_growth": 3.5,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 7600,
+      "skill_1_id": 7610,
+      "skill_2_id": 7620,
+      "ultimate_skill_id": 7630,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "77": {
+    "id": 77,
+    "name": "Badang",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2708,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 119,
+      "magic_attack": 0,
+      "physical_defense": 23,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 200.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 8.1,
+      "physical_defense_growth": 4.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 7700,
+      "skill_1_id": 7710,
+      "skill_2_id": 7720,
+      "ultimate_skill_id": 7730,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "78": {
+    "id": 78,
+    "name": "Khufra",
+    "role": "tanke",
+    "base_stats": {
+      "hp": 2809,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 117,
+      "magic_attack": 0,
+      "physical_defense": 24,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 245.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 5.2,
+      "physical_defense_growth": 4.6,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 7800,
+      "skill_1_id": 7810,
+      "skill_2_id": 7820,
+      "ultimate_skill_id": 7830,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "79": {
+    "id": 79,
+    "name": "Granger",
+    "role": "sheshou",
+    "base_stats": {
+      "hp": 2450,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 110,
+      "magic_attack": 0,
+      "physical_defense": 15,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 145.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 7.5,
+      "physical_defense_growth": 3.1,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 7900,
+      "skill_1_id": 7910,
+      "skill_2_id": 7920,
+      "ultimate_skill_id": 7930,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "80": {
+    "id": 80,
+    "name": "Guinevere",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2528,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 126,
+      "magic_attack": 0,
+      "physical_defense": 18,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 185.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 7.8,
+      "physical_defense_growth": 3.8,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 8000,
+      "skill_1_id": 8010,
+      "skill_2_id": 8020,
+      "ultimate_skill_id": 8030,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "81": {
+    "id": 81,
+    "name": "Esmeralda",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2573,
+      "hp_regen": 35,
+      "mp": 500,
+      "mp_regen": 15,
+      "physical_attack": 114,
+      "magic_attack": 0,
+      "physical_defense": 21,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 185.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.5,
+      "physical_defense_growth": 4.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 8100,
+      "skill_1_id": 8110,
+      "skill_2_id": 8120,
+      "ultimate_skill_id": 8130,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "82": {
+    "id": 82,
+    "name": "Terizla",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2728,
+      "hp_regen": 35,
+      "mp": 430,
+      "mp_regen": 15,
+      "physical_attack": 128,
+      "magic_attack": 0,
+      "physical_defense": 28,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 225.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 8.8,
+      "physical_defense_growth": 4.5,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 8200,
+      "skill_1_id": 8210,
+      "skill_2_id": 8220,
+      "ultimate_skill_id": 8230,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "83": {
+    "id": 83,
+    "name": "X.Borg",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 1138,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 117,
+      "magic_attack": 0,
+      "physical_defense": 25,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 180.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 7.5,
+      "physical_defense_growth": 4.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 8300,
+      "skill_1_id": 8310,
+      "skill_2_id": 8320,
+      "ultimate_skill_id": 8330,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "84": {
+    "id": 84,
+    "name": "Ling",
+    "role": "cike",
+    "base_stats": {
+      "hp": 2528,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 125,
+      "magic_attack": 0,
+      "physical_defense": 18,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 155.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 9.2,
+      "physical_defense_growth": 3.4,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 8400,
+      "skill_1_id": 8410,
+      "skill_2_id": 8420,
+      "ultimate_skill_id": 8430,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "85": {
+    "id": 85,
+    "name": "Dyrroth",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2658,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 117,
+      "magic_attack": 0,
+      "physical_defense": 22,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 200.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 8.2,
+      "physical_defense_growth": 4.1,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 8500,
+      "skill_1_id": 8510,
+      "skill_2_id": 8520,
+      "ultimate_skill_id": 8530,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "86": {
+    "id": 86,
+    "name": "Lylia",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2421,
+      "hp_regen": 35,
+      "mp": 500,
+      "mp_regen": 15,
+      "physical_attack": 113,
+      "magic_attack": 0,
+      "physical_defense": 16,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 160.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.2,
+      "physical_defense_growth": 3.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 8600,
+      "skill_1_id": 8610,
+      "skill_2_id": 8620,
+      "ultimate_skill_id": 8630,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "87": {
+    "id": 87,
+    "name": "Baxia",
+    "role": "tanke",
+    "base_stats": {
+      "hp": 2769,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 25,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 240.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 5.0,
+      "physical_defense_growth": 4.5,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 8700,
+      "skill_1_id": 8710,
+      "skill_2_id": 8720,
+      "ultimate_skill_id": 8730,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "88": {
+    "id": 88,
+    "name": "Masha",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2043,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 91,
+      "magic_attack": 0,
+      "physical_defense": 10,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 150.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 5.5,
+      "physical_defense_growth": 3.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 8800,
+      "skill_1_id": 8810,
+      "skill_2_id": 8820,
+      "ultimate_skill_id": 8830,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "89": {
+    "id": 89,
+    "name": "Wanwan",
+    "role": "sheshou",
+    "base_stats": {
+      "hp": 2540,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 95,
+      "magic_attack": 0,
+      "physical_defense": 15,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 135.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 5.2,
+      "physical_defense_growth": 3.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 8900,
+      "skill_1_id": 8910,
+      "skill_2_id": 8920,
+      "ultimate_skill_id": 8930,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "90": {
+    "id": 90,
+    "name": "Silvanna",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2628,
+      "hp_regen": 35,
+      "mp": 430,
+      "mp_regen": 15,
+      "physical_attack": 126,
+      "magic_attack": 0,
+      "physical_defense": 22,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 190.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 7.5,
+      "physical_defense_growth": 3.9,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 9000,
+      "skill_1_id": 9010,
+      "skill_2_id": 9020,
+      "ultimate_skill_id": 9030,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "91": {
+    "id": 91,
+    "name": "Carmilla",
+    "role": "fuzhu",
+    "base_stats": {
+      "hp": 2628,
+      "hp_regen": 35,
+      "mp": 430,
+      "mp_regen": 15,
+      "physical_attack": 118,
+      "magic_attack": 0,
+      "physical_defense": 25,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 210.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.2,
+      "physical_defense_growth": 4.4,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 9100,
+      "skill_1_id": 9110,
+      "skill_2_id": 9120,
+      "ultimate_skill_id": 9130,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "92": {
+    "id": 92,
+    "name": "Cecilion",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2456,
+      "hp_regen": 35,
+      "mp": 700,
+      "mp_regen": 15,
+      "physical_attack": 110,
+      "magic_attack": 0,
+      "physical_defense": 18,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 165.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.0,
+      "physical_defense_growth": 3.5,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 9200,
+      "skill_1_id": 9210,
+      "skill_2_id": 9220,
+      "ultimate_skill_id": 9230,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "93": {
+    "id": 93,
+    "name": "Atlas",
+    "role": "tanke",
+    "base_stats": {
+      "hp": 2819,
+      "hp_regen": 35,
+      "mp": 430,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 26,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 245.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.1,
+      "physical_defense_growth": 4.8,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 9300,
+      "skill_1_id": 9310,
+      "skill_2_id": 9320,
+      "ultimate_skill_id": 9330,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "94": {
+    "id": 94,
+    "name": "Popol and Kupa",
+    "role": "sheshou",
+    "base_stats": {
+      "hp": 2425,
+      "hp_regen": 35,
+      "mp": 440,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 16,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 140.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.8,
+      "physical_defense_growth": 3.1,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 9400,
+      "skill_1_id": 9410,
+      "skill_2_id": 9420,
+      "ultimate_skill_id": 9430,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "95": {
+    "id": 95,
+    "name": "Yu Zhong",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2698,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 129,
+      "magic_attack": 0,
+      "physical_defense": 21,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 215.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 8.5,
+      "physical_defense_growth": 4.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 9500,
+      "skill_1_id": 9510,
+      "skill_2_id": 9520,
+      "ultimate_skill_id": 9530,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "96": {
+    "id": 96,
+    "name": "Luo Yi",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2481,
+      "hp_regen": 35,
+      "mp": 500,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 17,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 165.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.2,
+      "physical_defense_growth": 3.4,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 9600,
+      "skill_1_id": 9610,
+      "skill_2_id": 9620,
+      "ultimate_skill_id": 9630,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "97": {
+    "id": 97,
+    "name": "Benedetta",
+    "role": "cike",
+    "base_stats": {
+      "hp": 2549,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 128,
+      "magic_attack": 0,
+      "physical_defense": 20,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 165.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 9.0,
+      "physical_defense_growth": 3.6,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 9700,
+      "skill_1_id": 9710,
+      "skill_2_id": 9720,
+      "ultimate_skill_id": 9730,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "98": {
+    "id": 98,
+    "name": "Khaleed",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2708,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 109,
+      "magic_attack": 0,
+      "physical_defense": 21,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 205.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 7.8,
+      "physical_defense_growth": 4.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 9800,
+      "skill_1_id": 9810,
+      "skill_2_id": 9820,
+      "ultimate_skill_id": 9830,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "99": {
+    "id": 99,
+    "name": "Barats",
+    "role": "tanke",
+    "base_stats": {
+      "hp": 2759,
+      "hp_regen": 35,
+      "mp": 430,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 25,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 245.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.2,
+      "physical_defense_growth": 4.5,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 9900,
+      "skill_1_id": 9910,
+      "skill_2_id": 9920,
+      "ultimate_skill_id": 9930,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "100": {
+    "id": 100,
+    "name": "Brody",
+    "role": "sheshou",
+    "base_stats": {
+      "hp": 2490,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 140,
+      "magic_attack": 0,
+      "physical_defense": 20,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 150.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 8.0,
+      "physical_defense_growth": 3.5,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 10000,
+      "skill_1_id": 10010,
+      "skill_2_id": 10020,
+      "ultimate_skill_id": 10030,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "101": {
+    "id": 101,
+    "name": "Yve",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2451,
+      "hp_regen": 35,
+      "mp": 500,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 17,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 160.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.0,
+      "physical_defense_growth": 3.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 10100,
+      "skill_1_id": 10110,
+      "skill_2_id": 10120,
+      "ultimate_skill_id": 10130,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "102": {
+    "id": 102,
+    "name": "Mathilda",
+    "role": "fuzhu",
+    "base_stats": {
+      "hp": 2551,
+      "hp_regen": 35,
+      "mp": 480,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 22,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 185.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.5,
+      "physical_defense_growth": 4.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 10200,
+      "skill_1_id": 10210,
+      "skill_2_id": 10220,
+      "ultimate_skill_id": 10230,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "103": {
+    "id": 103,
+    "name": "Paquito",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2698,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 121,
+      "magic_attack": 0,
+      "physical_defense": 22,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 195.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 8.0,
+      "physical_defense_growth": 4.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 10300,
+      "skill_1_id": 10310,
+      "skill_2_id": 10320,
+      "ultimate_skill_id": 10330,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "104": {
+    "id": 104,
+    "name": "Gloo",
+    "role": "tanke",
+    "base_stats": {
+      "hp": 2869,
+      "hp_regen": 35,
+      "mp": 440,
+      "mp_regen": 15,
+      "physical_attack": 110,
+      "magic_attack": 0,
+      "physical_defense": 24,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 245.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.0,
+      "physical_defense_growth": 4.6,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 10400,
+      "skill_1_id": 10410,
+      "skill_2_id": 10420,
+      "ultimate_skill_id": 10430,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "105": {
+    "id": 105,
+    "name": "Beatrix",
+    "role": "sheshou",
+    "base_stats": {
+      "hp": 2470,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 128,
+      "magic_attack": 0,
+      "physical_defense": 16,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 140.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 6.0,
+      "physical_defense_growth": 3.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 10500,
+      "skill_1_id": 10510,
+      "skill_2_id": 10520,
+      "ultimate_skill_id": 10530,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "106": {
+    "id": 106,
+    "name": "Phoveus",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2828,
+      "hp_regen": 35,
+      "mp": 450,
+      "mp_regen": 15,
+      "physical_attack": 120,
+      "magic_attack": 0,
+      "physical_defense": 26,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 210.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 7.0,
+      "physical_defense_growth": 4.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 10600,
+      "skill_1_id": 10610,
+      "skill_2_id": 10620,
+      "ultimate_skill_id": 10630,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "107": {
+    "id": 107,
+    "name": "Natan",
+    "role": "sheshou",
+    "base_stats": {
+      "hp": 2530,
+      "hp_regen": 35,
+      "mp": 450,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 16,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 140.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.5,
+      "physical_defense_growth": 3.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 10700,
+      "skill_1_id": 10710,
+      "skill_2_id": 10720,
+      "ultimate_skill_id": 10730,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "108": {
+    "id": 108,
+    "name": "Aulus",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2758,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 125,
+      "magic_attack": 0,
+      "physical_defense": 24,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 200.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 8.2,
+      "physical_defense_growth": 4.1,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 10800,
+      "skill_1_id": 10810,
+      "skill_2_id": 10820,
+      "ultimate_skill_id": 10830,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "109": {
+    "id": 109,
+    "name": "Aamon",
+    "role": "cike",
+    "base_stats": {
+      "hp": 2614,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 19,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 160.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 9.0,
+      "physical_defense_growth": 3.4,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 10900,
+      "skill_1_id": 10910,
+      "skill_2_id": 10920,
+      "ultimate_skill_id": 10930,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "110": {
+    "id": 110,
+    "name": "Valentina",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2501,
+      "hp_regen": 35,
+      "mp": 490,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 17,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 160.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.2,
+      "physical_defense_growth": 3.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 11000,
+      "skill_1_id": 11010,
+      "skill_2_id": 11020,
+      "ultimate_skill_id": 11030,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "111": {
+    "id": 111,
+    "name": "Edith",
+    "role": "tanke",
+    "base_stats": {
+      "hp": 2709,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 116,
+      "magic_attack": 0,
+      "physical_defense": 22,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 230.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 5.2,
+      "physical_defense_growth": 4.5,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 11100,
+      "skill_1_id": 11110,
+      "skill_2_id": 11120,
+      "ultimate_skill_id": 11130,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "112": {
+    "id": 112,
+    "name": "Floryn",
+    "role": "fuzhu",
+    "base_stats": {
+      "hp": 2401,
+      "hp_regen": 35,
+      "mp": 510,
+      "mp_regen": 15,
+      "physical_attack": 110,
+      "magic_attack": 0,
+      "physical_defense": 16,
+      "magic_defense": 15,
+      "base_speed": 245,
+      "move_speed": 245,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 150.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 4.2,
+      "physical_defense_growth": 3.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 11200,
+      "skill_1_id": 11210,
+      "skill_2_id": 11220,
+      "ultimate_skill_id": 11230,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "113": {
+    "id": 113,
+    "name": "Yin",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2688,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 124,
+      "magic_attack": 0,
+      "physical_defense": 22,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 195.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 8.0,
+      "physical_defense_growth": 4.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 11300,
+      "skill_1_id": 11310,
+      "skill_2_id": 11320,
+      "ultimate_skill_id": 11330,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "114": {
+    "id": 114,
+    "name": "Melissa",
+    "role": "sheshou",
+    "base_stats": {
+      "hp": 2460,
+      "hp_regen": 35,
+      "mp": 430,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 17,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 140.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.5,
+      "physical_defense_growth": 3.1,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 11400,
+      "skill_1_id": 11410,
+      "skill_2_id": 11420,
+      "ultimate_skill_id": 11430,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "115": {
+    "id": 115,
+    "name": "Xavier",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2461,
+      "hp_regen": 35,
+      "mp": 500,
+      "mp_regen": 15,
+      "physical_attack": 112,
+      "magic_attack": 0,
+      "physical_defense": 16,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 160.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.0,
+      "physical_defense_growth": 3.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 11500,
+      "skill_1_id": 11510,
+      "skill_2_id": 11520,
+      "ultimate_skill_id": 11530,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "116": {
+    "id": 116,
+    "name": "Julian",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2601,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 118,
+      "magic_attack": 0,
+      "physical_defense": 20,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 175.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 7.5,
+      "physical_defense_growth": 3.6,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 11600,
+      "skill_1_id": 11610,
+      "skill_2_id": 11620,
+      "ultimate_skill_id": 11630,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "117": {
+    "id": 117,
+    "name": "Fredrinn",
+    "role": "tanke",
+    "base_stats": {
+      "hp": 2829,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 120,
+      "magic_attack": 0,
+      "physical_defense": 24,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 240.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 5.5,
+      "physical_defense_growth": 4.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 11700,
+      "skill_1_id": 11710,
+      "skill_2_id": 11720,
+      "ultimate_skill_id": 11730,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "118": {
+    "id": 118,
+    "name": "Joy",
+    "role": "cike",
+    "base_stats": {
+      "hp": 2501,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 18,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 150.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 8.5,
+      "physical_defense_growth": 3.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 11800,
+      "skill_1_id": 11810,
+      "skill_2_id": 11820,
+      "ultimate_skill_id": 11830,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "119": {
+    "id": 119,
+    "name": "Novaria",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2421,
+      "hp_regen": 35,
+      "mp": 510,
+      "mp_regen": 15,
+      "physical_attack": 112,
+      "magic_attack": 0,
+      "physical_defense": 16,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 155.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.0,
+      "physical_defense_growth": 3.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 11900,
+      "skill_1_id": 11910,
+      "skill_2_id": 11920,
+      "ultimate_skill_id": 11930,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "120": {
+    "id": 120,
+    "name": "Arlott",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2698,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 125,
+      "magic_attack": 0,
+      "physical_defense": 23,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 200.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 8.2,
+      "physical_defense_growth": 4.1,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 12000,
+      "skill_1_id": 12010,
+      "skill_2_id": 12020,
+      "ultimate_skill_id": 12030,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "121": {
+    "id": 121,
+    "name": "Ixia",
+    "role": "sheshou",
+    "base_stats": {
+      "hp": 2480,
+      "hp_regen": 35,
+      "mp": 440,
+      "mp_regen": 15,
+      "physical_attack": 118,
+      "magic_attack": 0,
+      "physical_defense": 17,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 140.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.6,
+      "physical_defense_growth": 3.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 12100,
+      "skill_1_id": 12110,
+      "skill_2_id": 12120,
+      "ultimate_skill_id": 12130,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "122": {
+    "id": 122,
+    "name": "Nolan",
+    "role": "cike",
+    "base_stats": {
+      "hp": 2588,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 126,
+      "magic_attack": 0,
+      "physical_defense": 19,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 160.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 9.2,
+      "physical_defense_growth": 3.5,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 12200,
+      "skill_1_id": 12210,
+      "skill_2_id": 12220,
+      "ultimate_skill_id": 12230,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "123": {
+    "id": 123,
+    "name": "Cici",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2658,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 120,
+      "magic_attack": 0,
+      "physical_defense": 21,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 190.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 7.8,
+      "physical_defense_growth": 3.8,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 12300,
+      "skill_1_id": 12310,
+      "skill_2_id": 12320,
+      "ultimate_skill_id": 12330,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "124": {
+    "id": 124,
+    "name": "Chip",
+    "role": "tanke",
+    "base_stats": {
+      "hp": 2829,
+      "hp_regen": 35,
+      "mp": 450,
+      "mp_regen": 15,
+      "physical_attack": 115,
+      "magic_attack": 0,
+      "physical_defense": 25,
+      "magic_defense": 15,
+      "base_speed": 255,
+      "move_speed": 255,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 240.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.0,
+      "physical_defense_growth": 4.5,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 12400,
+      "skill_1_id": 12410,
+      "skill_2_id": 12420,
+      "ultimate_skill_id": 12430,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "125": {
+    "id": 125,
+    "name": "Zhuxin",
+    "role": "fashi",
+    "base_stats": {
+      "hp": 2461,
+      "hp_regen": 35,
+      "mp": 520,
+      "mp_regen": 15,
+      "physical_attack": 114,
+      "magic_attack": 0,
+      "physical_defense": 17,
+      "magic_defense": 15,
+      "base_speed": 250,
+      "move_speed": 250,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 160.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 70.0,
+      "mp_regen_growth_per_level": 0.8,
+      "physical_attack_growth": 5.2,
+      "physical_defense_growth": 3.2,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 12500,
+      "skill_1_id": 12510,
+      "skill_2_id": 12520,
+      "ultimate_skill_id": 12530,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "126": {
+    "id": 126,
+    "name": "Suyou",
+    "role": "cike",
+    "base_stats": {
+      "hp": 2628,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 128,
+      "magic_attack": 0,
+      "physical_defense": 20,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 170.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 8.8,
+      "physical_defense_growth": 3.6,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 12600,
+      "skill_1_id": 12610,
+      "skill_2_id": 12620,
+      "ultimate_skill_id": 12630,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  },
+  "127": {
+    "id": 127,
+    "name": "Lukas",
+    "role": "zhanshi",
+    "base_stats": {
+      "hp": 2718,
+      "hp_regen": 35,
+      "mp": 0,
+      "mp_regen": 0,
+      "physical_attack": 124,
+      "magic_attack": 0,
+      "physical_defense": 23,
+      "magic_defense": 15,
+      "base_speed": 260,
+      "move_speed": 260,
+      "attack_speed_base": 0.85,
+      "attack_speed_ratio": 10000,
+      "type_radius": 25,
+      "crit_rate": 0
+    },
+    "growth_stats": {
+      "hp_growth_per_level": 198.0,
+      "hp_regen_growth_per_level": 1.5,
+      "mp_growth_per_level": 0.0,
+      "mp_regen_growth_per_level": 0.0,
+      "physical_attack_growth": 8.0,
+      "physical_defense_growth": 4.0,
+      "magic_defense_growth": 2.5,
+      "attack_speed_growth_per_level": 1.5
+    },
+    "skills": {
+      "passive_skill_id": 12700,
+      "skill_1_id": 12710,
+      "skill_2_id": 12720,
+      "ultimate_skill_id": 12730,
+      "extra_skill_ids": []
+    },
+    "equipment": {
+      "recommend_item_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "recommend_rune_ids": [
+        20001,
+        20003
+      ]
+    }
+  }
+}

@@ -1,0 +1,349 @@
+{
+    "class_name": "CData_Hero_Element",
+    "fields": {
+        "m_bError": {
+            "type": "bool",
+            "offset": 16
+        },
+        "m_ID": {
+            "type": "int",
+            "offset": 20
+        },
+        "m_mName": {
+            "type": "string",
+            "offset": 24
+        },
+        "m_SkinId": {
+            "type": "int",
+            "offset": 32
+        },
+        "m_PreLoadID": {
+            "type": "int",
+            "offset": 36
+        },
+        "m_PreLoadConfId": {
+            "type": "int",
+            "offset": 40
+        },
+        "m_ReadExtraType": {
+            "type": "int",
+            "offset": 44
+        },
+        "m_Prefabs": {
+            "type": "string",
+            "offset": 48
+        },
+        "m_Size": {
+            "type": "float",
+            "offset": 56
+        },
+        "m_GuideType": {
+            "type": "int",
+            "offset": 60
+        },
+        "m_Head": {
+            "type": "string",
+            "offset": 64
+        },
+        "m_HeadExt": {
+            "type": "string",
+            "offset": 72
+        },
+        "m_SmallMap": {
+            "type": "string",
+            "offset": 80
+        },
+        "m_LargeMap": {
+            "type": "string",
+            "offset": 88
+        },
+        "m_SkillList": {
+            "type": "int[][]",
+            "offset": 96
+        },
+        "m_Indicator": {
+            "type": "int[]",
+            "offset": 104
+        },
+        "m_Sort": {
+            "type": "int[]",
+            "offset": 112
+        },
+        "m_SortIcon": {
+            "type": "string",
+            "offset": 120
+        },
+        "m_Specialty": {
+            "type": "int[]",
+            "offset": 128
+        },
+        "m_AbilityShow": {
+            "type": "int[]",
+            "offset": 136
+        },
+        "m_occupation": {
+            "type": "int[]",
+            "offset": 144
+        },
+        "m_BattlePlanRecommend": {
+            "type": "int[]",
+            "offset": 152
+        },
+        "m_RecommendEquip": {
+            "type": "int[]",
+            "offset": 160
+        },
+        "m_SurvivalHeroSort": {
+            "type": "int",
+            "offset": 168
+        },
+        "m_SurvivalRecommendEquipType": {
+            "type": "int[][]",
+            "offset": 176
+        },
+        "m_RecommendRune": {
+            "type": "int[]",
+            "offset": 184
+        },
+        "m_RecommendSkill": {
+            "type": "int[]",
+            "offset": 192
+        },
+        "m_RecommendLevel": {
+            "type": "string[]",
+            "offset": 200
+        },
+        "m_HeroVoice": {
+            "type": "string[]",
+            "offset": 208
+        },
+        "m_HeroVoiceInterval": {
+            "type": "int[]",
+            "offset": 216
+        },
+        "m_DeathVoice": {
+            "type": "string[]",
+            "offset": 224
+        },
+        "m_TypeRadius": {
+            "type": "int",
+            "offset": 232
+        },
+        "m_BaseSpeed": {
+            "type": "int",
+            "offset": 236
+        },
+        "m_MoveSpeed": {
+            "type": "int",
+            "offset": 240
+        },
+        "m_BasePhyAtt": {
+            "type": "int",
+            "offset": 244
+        },
+        "m_BaseMagAtt": {
+            "type": "int",
+            "offset": 248
+        },
+        "m_AttSpeed": {
+            "type": "int",
+            "offset": 252
+        },
+        "m_AttSpeed_show": {
+            "type": "float",
+            "offset": 256
+        },
+        "m_PhyBaseShield": {
+            "type": "int",
+            "offset": 260
+        },
+        "m_MagBaseShield": {
+            "type": "int",
+            "offset": 264
+        },
+        "m_BaseHp": {
+            "type": "int",
+            "offset": 268
+        },
+        "m_FightHpRec": {
+            "type": "int",
+            "offset": 272
+        },
+        "m_BaseMp": {
+            "type": "int",
+            "offset": 276
+        },
+        "m_FightMpRec": {
+            "type": "int",
+            "offset": 280
+        },
+        "m_XpMax": {
+            "type": "int",
+            "offset": 284
+        },
+        "m_CostType": {
+            "type": "int[]",
+            "offset": 288
+        },
+        "m_Crit": {
+            "type": "int",
+            "offset": 296
+        },
+        "m_HeivySpellAtt": {
+            "type": "int",
+            "offset": 300
+        },
+        "m_LevelPhyAtt": {
+            "type": "int",
+            "offset": 304
+        },
+        "m_LevelMagAtt": {
+            "type": "int",
+            "offset": 308
+        },
+        "m_LevelAttSpeed": {
+            "type": "int",
+            "offset": 312
+        },
+        "m_PhyLevelShield": {
+            "type": "int",
+            "offset": 316
+        },
+        "m_MagLevelShield": {
+            "type": "int",
+            "offset": 320
+        },
+        "m_LevelHp": {
+            "type": "int",
+            "offset": 324
+        },
+        "m_HPLevelRec": {
+            "type": "int",
+            "offset": 328
+        },
+        "m_LevelMp": {
+            "type": "int",
+            "offset": 332
+        },
+        "m_MPLevelRec": {
+            "type": "int",
+            "offset": 336
+        },
+        "m_AtkSpeedPer": {
+            "type": "int",
+            "offset": 340
+        },
+        "m_HeroGroup": {
+            "type": "int[]",
+            "offset": 344
+        },
+        "m_HeroTask": {
+            "type": "int[]",
+            "offset": 352
+        },
+        "m_RoadSort": {
+            "type": "int[]",
+            "offset": 360
+        },
+        "m_HeroType": {
+            "type": "int",
+            "offset": 368
+        },
+        "m_Anima": {
+            "type": "string[]",
+            "offset": 376
+        },
+        "m_HeroLocation": {
+            "type": "int[]",
+            "offset": 384
+        },
+        "m_iCommmonParm": {
+            "type": "int[]",
+            "offset": 392
+        },
+        "m_BTId": {
+            "type": "int[]",
+            "offset": 400
+        },
+        "m_StealSkill": {
+            "type": "string[]",
+            "offset": 408
+        },
+        "m_CommonAtkType": {
+            "type": "int[][]",
+            "offset": 416
+        },
+        "m_ExtendRange": {
+            "type": "float[]",
+            "offset": 424
+        },
+        "m_Newbie": {
+            "type": "int",
+            "offset": 432
+        },
+        "m_StateAIType": {
+            "type": "int",
+            "offset": 436
+        },
+        "m_HeroAdjustmentLocation": {
+            "type": "int[]",
+            "offset": 440
+        },
+        "m_RippleParams": {
+            "type": "float[]",
+            "offset": 448
+        },
+        "m_SmallHouseParams": {
+            "type": "int[][]",
+            "offset": 456
+        },
+        "m_SkillPoint": {
+            "type": "int",
+            "offset": 464
+        },
+        "m_NewEmblemRec": {
+            "type": "int[]",
+            "offset": 472
+        },
+        "m_NewEmblemRecName": {
+            "type": "int[]",
+            "offset": 480
+        },
+        "m_EmblemGiftRec1": {
+            "type": "int[]",
+            "offset": 488
+        },
+        "m_EmblemGiftRec2": {
+            "type": "int[]",
+            "offset": 496
+        },
+        "m_EmblemGiftRec3": {
+            "type": "int[]",
+            "offset": 504
+        },
+        "m_SkillsShowType1": {
+            "type": "int[]",
+            "offset": 512
+        },
+        "m_SkillsShowType2": {
+            "type": "int[]",
+            "offset": 520
+        },
+        "m_SkillsShowType3": {
+            "type": "int[]",
+            "offset": 528
+        },
+        "m_NewEmblemRecTips": {
+            "type": "int[]",
+            "offset": 536
+        },
+        "m_NewEmblemRecActLimit": {
+            "type": "int",
+            "offset": 544
+        },
+        "m_HeroStyle": {
+            "type": "string",
+            "offset": 552
+        }
+    }
+}

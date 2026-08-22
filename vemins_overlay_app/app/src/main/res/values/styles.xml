@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base Obsidian Void Theme -->
+    <style name="Theme.VeminsESP" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/vemins_bg_dark</item>
+        <item name="android:colorPrimary">@color/vemins_white</item>
+        <item name="android:colorPrimaryDark">@color/vemins_bg_dark</item>
+        <item name="android:colorAccent">@color/vemins_white</item>
+        <item name="android:textColorPrimary">@color/vemins_text_primary</item>
+        <item name="android:textColorSecondary">@color/vemins_text_secondary</item>
+        <item name="android:statusBarColor">@color/vemins_bg_dark</item>
+        <item name="android:navigationBarColor">@color/vemins_bg_dark</item>
+    </style>
+
+    <style name="Theme.VeminsOverlay" parent="Theme.VeminsESP" />
+
+    <!-- CyberSlider: Minimalist Industrial Track & Thumb -->
+    <style name="CyberSlider" parent="android:Widget.SeekBar">
+        <item name="android:progressDrawable">@drawable/cyber_slider_track</item>
+        <item name="android:thumb">@drawable/cyber_slider_thumb</item>
+        <item name="android:splitTrack">false</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+    </style>
+
+    <!-- Obsidian Card Components -->
+    <style name="ObsidianCard">
+        <item name="android:background">@drawable/bg_card</item>
+        <item name="android:padding">14dp</item>
+    </style>
+
+    <style name="ObsidianCard.Elevated">
+        <item name="android:background">@drawable/bg_card_elevated</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <style name="ObsidianCard.Glass">
+        <item name="android:background">@drawable/bg_glass_card_elevated</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <!-- Obsidian Buttons -->
+    <style name="ObsidianButton.Primary" parent="android:Widget.Button">
+        <item name="android:background">@drawable/bg_button_primary</item>
+        <item name="android:textColor">@color/vemins_bg_dark</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="ObsidianButton.Secondary" parent="android:Widget.Button">
+        <item name="android:background">@drawable/bg_button_secondary</item>
+        <item name="android:textColor">@color/vemins_white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="ObsidianButton.Danger" parent="android:Widget.Button">
+        <item name="android:background">@drawable/bg_button_danger</item>
+        <item name="android:textColor">@color/vemins_red</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+</resources>

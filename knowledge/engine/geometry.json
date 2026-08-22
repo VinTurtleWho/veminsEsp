@@ -1,0 +1,17 @@
+{
+  "collision_primitives": {
+    "0": { "id": 0, "name": "ANGULAR", "description": "Oriented Bounding Box / Linear Rectangle (length, width, direction vector)" },
+    "1": { "id": 1, "name": "CIRCLE", "description": "Radial Circle / Sphere (radius, center pos x, y)" },
+    "2": { "id": 2, "name": "FAN", "description": "Sector / Cone (radius, angle degrees, direction vector)" },
+    "3": { "id": 3, "name": "RING", "description": "Donut / Annulus (inner radius min, outer radius max)" },
+    "4": { "id": 4, "name": "FAN_RING", "description": "Sector Annulus (inner radius min, outer radius max, angle degrees)" },
+    "6": { "id": 6, "name": "OBB_RECT", "description": "Arbitrary Oriented Bounding Box" }
+  },
+  "targeting_modes": {
+    "0": { "id": 0, "name": "SELF", "description": "Cast on self or aura centered on hero" },
+    "1": { "id": 1, "name": "UNIT_TARGET", "description": "Point-and-click unmissable target lock" },
+    "2": { "id": 2, "name": "HERO_ENEMY", "description": "Target prioritized toward enemy heroes" },
+    "4": { "id": 4, "name": "DIRECTIONAL_SKILLSHOT", "description": "Straight trajectory aimed along direction vector" },
+    "5": { "id": 5, "name": "GROUND_POSITION", "description": "Placed at designated ground coordinate" }
+  }
+}

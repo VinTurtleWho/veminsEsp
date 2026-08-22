@@ -1,0 +1,13 @@
+{
+  "20001": { "id": 20001, "name": "Flicker", "cooldown_s": 120, "operation": "OPER_TYPE_BLINK", "range": 4.5, "description": "Teleport a short distance in the specified direction; gains +5 Hybrid Defense for 1s" },
+  "20002": { "id": 20002, "name": "Retribution", "cooldown_s": 35, "operation": "OPER_TYPE_MOD_HP", "damage_type": "TRUE", "description": "Deals 1500-2400 True Damage to creeps/minions and slows enemy heroes" },
+  "20003": { "id": 20003, "name": "Inspire", "cooldown_s": 75, "operation": "OPER_TYPE_MOD_ATTR", "description": "Increases Attack Speed by 500% (caps at 5.0) and ignores 8 physical defense on next 8 basic attacks" },
+  "20004": { "id": 20004, "name": "Sprint", "cooldown_s": 100, "operation": "OPER_TYPE_MOD_SPEED", "duration_s": 6, "description": "+50% Movement Speed decaying over 6s; immune to Slow effects (INUMM_DECSPEED = 31)" },
+  "20005": { "id": 20005, "name": "Revitalize", "cooldown_s": 100, "operation": "OPER_TYPE_ADD_HP", "duration_s": 5, "description": "Summons a Healing Spring restoring 2.5% Max HP per second to nearby allies" },
+  "20006": { "id": 20006, "name": "Aegis", "cooldown_s": 90, "operation": "OPER_TYPE_ADD_SHIELD", "duration_s": 3, "description": "Gains a 750 (+50*Level) shield for 3s and shields the lowest HP nearby ally for 70%" },
+  "20007": { "id": 20007, "name": "Petrify", "cooldown_s": 90, "operation": "OPER_TYPE_ADD_STATUS", "cc_type": "PETRIFACTION", "duration_ms": 800, "description": "Petrifies nearby enemies for 0.8s and slows them by 50% for 0.8s" },
+  "20008": { "id": 20008, "name": "Purify", "cooldown_s": 90, "operation": "OPER_TYPE_DEL_STATUS", "duration_s": 1.2, "description": "Immediately removes all crowd control (except Suppression) and gains CC Immunity (INUMM_CONTROL = 30) and +15% Move Speed for 1.2s" },
+  "20009": { "id": 20009, "name": "Flameshot", "cooldown_s": 50, "operation": "OPER_TYPE_MOD_HP", "damage_type": "MAGIC", "description": "Fires a flaming shot dealing 200-640 (+40%-160% AP) Magic Damage and knocks back nearby enemies" },
+  "20010": { "id": 20010, "name": "Vengeance", "cooldown_s": 75, "operation": "OPER_TYPE_MOD_ATTR", "duration_s": 3, "description": "Gains 35% Damage Reduction and reflects 35% of damage received back to attacker as Magic Damage" },
+  "20011": { "id": 20011, "name": "Arrival", "cooldown_s": 75, "operation": "OPER_TYPE_BLINK", "channel_time_s": 3, "description": "Channels for 3s to teleport to an allied turret or minion; grants +60% Movement Speed decaying over 3s" }
+}

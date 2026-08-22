@@ -1,0 +1,12 @@
+{
+  "Player": { "weight": 1000, "description": "Enemy Heroes (Highest baseline priority)" },
+  "ActiveBoss": { "weight": 900, "description": "Lord / Turtle actively engaged in combat" },
+  "ActiveWild": { "weight": 800, "description": "Jungle monsters actively engaged" },
+  "Summon": { "weight": 700, "description": "Player summons and clones" },
+  "Soldier": { "weight": 600, "description": "Lane minions and siege catapults" },
+  "MainTower": { "weight": 500, "description": "Enemy Base Nexus" },
+  "Tower": { "weight": 400, "description": "Enemy lane defense turrets" },
+  "InactiveWild": { "weight": 300, "description": "Idle jungle creeps" },
+  "InactiveBoss": { "weight": 200, "description": "Idle Lord / Turtle" },
+  "Lowest": { "weight": 0, "description": "Lowest unprioritized target" }
+}

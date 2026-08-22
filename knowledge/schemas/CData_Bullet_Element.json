@@ -1,0 +1,109 @@
+{
+    "class_name": "CData_Bullet_Element",
+    "fields": {
+        "m_bError": {
+            "type": "bool",
+            "offset": 16
+        },
+        "m_ID": {
+            "type": "int",
+            "offset": 20
+        },
+        "m_Type": {
+            "type": "int",
+            "offset": 24
+        },
+        "m_ShowType": {
+            "type": "int",
+            "offset": 28
+        },
+        "m_ShowParam": {
+            "type": "string[]",
+            "offset": 32
+        },
+        "m_BindPart": {
+            "type": "string[]",
+            "offset": 40
+        },
+        "m_Speed": {
+            "type": "float",
+            "offset": 48
+        },
+        "m_radius": {
+            "type": "float",
+            "offset": 52
+        },
+        "m_radiusSpeed": {
+            "type": "float",
+            "offset": 56
+        },
+        "m_HideTime": {
+            "type": "int",
+            "offset": 60
+        },
+        "m_Model": {
+            "type": "string",
+            "offset": 64
+        },
+        "m_Sound": {
+            "type": "string",
+            "offset": 72
+        },
+        "m_DestoryEffectID": {
+            "type": "int",
+            "offset": 80
+        },
+        "m_Scale": {
+            "type": "float",
+            "offset": 84
+        },
+        "m_Range": {
+            "type": "float",
+            "offset": 88
+        },
+        "m_DisappearEffect": {
+            "type": "string",
+            "offset": 96
+        },
+        "m_DisappearTime": {
+            "type": "int",
+            "offset": 104
+        },
+        "m_SpecialValue": {
+            "type": "int[]",
+            "offset": 112
+        },
+        "m_SpecialView": {
+            "type": "int",
+            "offset": 120
+        },
+        "m_SpecialBlock": {
+            "type": "int",
+            "offset": 124
+        },
+        "m_SpecialEffect": {
+            "type": "string[]",
+            "offset": 128
+        },
+        "m_EffParam": {
+            "type": "float[]",
+            "offset": 136
+        },
+        "m_Switch": {
+            "type": "int",
+            "offset": 144
+        },
+        "m_DestroyCond1": {
+            "type": "int[]",
+            "offset": 152
+        },
+        "m_DestroyCond2": {
+            "type": "int[]",
+            "offset": 160
+        },
+        "m_DestroyCond3": {
+            "type": "int[]",
+            "offset": 168
+        }
+    }
+}

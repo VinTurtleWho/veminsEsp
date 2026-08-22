@@ -1,0 +1,2396 @@
+{
+  "timestamp": 1786781809441694859,
+  "proofs": [
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "IsPlayer",
+      "offset": 92,
+      "data_type": "uint8",
+      "semantic": "is_player",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicPlayer.IsPlayer (Type=uint8)",
+        "Static match in dump.cs: public bool IsPlayer; // 0x5c",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_uGuid",
+      "offset": 168,
+      "data_type": "uint64",
+      "semantic": "guid",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_uGuid (Type=uint64)",
+        "Static match in dump.cs: public uint m_uGuid; // 0xa8",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_ID",
+      "offset": 172,
+      "data_type": "int32",
+      "semantic": "hero_id",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_ID (Type=int32)",
+        "Static match in dump.cs: public int m_ID; // 0xac",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_Level",
+      "offset": 180,
+      "data_type": "int32",
+      "semantic": "level",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_Level (Type=int32)",
+        "Static match in dump.cs: private int <m_Level>k__BackingField; // 0xb4",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_Hp",
+      "offset": 200,
+      "data_type": "int32",
+      "semantic": "hp",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_Hp (Type=int32)",
+        "Static match in dump.cs: public int m_Hp; // 0xc8",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_HpMax",
+      "offset": 204,
+      "data_type": "int32",
+      "semantic": "hp_max",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_HpMax (Type=int32)",
+        "Static match in dump.cs: public int m_HpMax; // 0xcc",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_bDeath",
+      "offset": 464,
+      "data_type": "uint8",
+      "semantic": "is_dead",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_bDeath (Type=uint8)",
+        "Static match in dump.cs: private bool <m_bDeath>k__BackingField; // 0x1d0",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_EntityCampType",
+      "offset": 476,
+      "data_type": "int32",
+      "semantic": "camp",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_EntityCampType (Type=int32)",
+        "Static match in dump.cs: public EntityCampType m_EntityCampType; // 0x1dc",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_iStatus",
+      "offset": 484,
+      "data_type": "int32",
+      "semantic": "status",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_iStatus (Type=int32)",
+        "Static match in dump.cs: public int m_iStatus; // 0x1e4",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_bInBattle",
+      "offset": 540,
+      "data_type": "uint8",
+      "semantic": "in_battle",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_bInBattle (Type=uint8)",
+        "Static match in dump.cs: public bool m_bInBattle; // 0x21c",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_dRealPosX",
+      "offset": 616,
+      "data_type": "double",
+      "semantic": "pos_x",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_dRealPosX (Type=double)",
+        "Static match in dump.cs: public double m_dRealPosX; // 0x268",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_dRealPosY",
+      "offset": 624,
+      "data_type": "double",
+      "semantic": "pos_y",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_dRealPosY (Type=double)",
+        "Static match in dump.cs: public double m_dRealPosY; // 0x270",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "fBornPosX",
+      "offset": 832,
+      "data_type": "double",
+      "semantic": "born_pos_x",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicPlayer.fBornPosX (Type=double)",
+        "Static match in dump.cs: protected double fBornPosX; // 0x340",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "fBornPosY",
+      "offset": 840,
+      "data_type": "double",
+      "semantic": "born_pos_y",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicPlayer.fBornPosY (Type=double)",
+        "Static match in dump.cs: protected double fBornPosY; // 0x348",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_uFaceLockTargetID",
+      "offset": 880,
+      "data_type": "uint32",
+      "semantic": "face_lock_target_id",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_uFaceLockTargetID (Type=uint32)",
+        "Static match in dump.cs: public uint m_uFaceLockTargetID; // 0x370",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_uBeAttackTimestamp",
+      "offset": 1424,
+      "data_type": "uint32",
+      "semantic": "be_attack_timestamp",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_uBeAttackTimestamp (Type=uint32)",
+        "Static match in dump.cs: public uint m_uBeAttackTimestamp; // 0x590",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_uAttackTimestamp",
+      "offset": 1428,
+      "data_type": "uint32",
+      "semantic": "attack_timestamp",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_uAttackTimestamp (Type=uint32)",
+        "Static match in dump.cs: public uint m_uAttackTimestamp; // 0x594",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_pEnemy",
+      "offset": 1448,
+      "data_type": "uint64",
+      "semantic": "target_enemy_ptr",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_pEnemy (Type=uint64)",
+        "Static match in dump.cs: public LogicFighter m_pEnemy; // 0x5a8",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "_totalGold",
+      "offset": 2136,
+      "data_type": "int32",
+      "semantic": "gold",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicPlayer._totalGold (Type=int32)",
+        "Static match in dump.cs: private int _totalGold; // 0x858",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_HurtTotalValue",
+      "offset": 2152,
+      "data_type": "double",
+      "semantic": "hurt_total_value",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_HurtTotalValue (Type=double)",
+        "Static match in dump.cs: public double m_HurtTotalValue; // 0x868",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_HurtHeroValue",
+      "offset": 2168,
+      "data_type": "double",
+      "semantic": "hurt_hero_value",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_HurtHeroValue (Type=double)",
+        "Static match in dump.cs: public double m_HurtHeroValue; // 0x878",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_HurtTowerValue",
+      "offset": 2232,
+      "data_type": "double",
+      "semantic": "hurt_tower_value",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_HurtTowerValue (Type=double)",
+        "Static match in dump.cs: public double m_HurtTowerValue; // 0x8b8",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_iInjuredShield",
+      "offset": 2248,
+      "data_type": "int32",
+      "semantic": "injured_shield",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_iInjuredShield (Type=int32)",
+        "Static match in dump.cs: public int m_iInjuredShield; // 0x8c8",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_InjuredValue",
+      "offset": 2256,
+      "data_type": "double",
+      "semantic": "injured_value",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_InjuredValue (Type=double)",
+        "Static match in dump.cs: public double m_InjuredValue; // 0x8d0",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_CureTeammate",
+      "offset": 2336,
+      "data_type": "double",
+      "semantic": "cure_teammate",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_CureTeammate (Type=double)",
+        "Static match in dump.cs: public double m_CureTeammate; // 0x920",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_ccsKillTowerTimes",
+      "offset": 2456,
+      "data_type": "int32",
+      "semantic": "kill_tower_times",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_ccsKillTowerTimes (Type=int32)",
+        "Static match in dump.cs: public int m_ccsKillTowerTimes; // 0x998",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_ccsLastHitCreep",
+      "offset": 2460,
+      "data_type": "int32",
+      "semantic": "last_hit_creep",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_ccsLastHitCreep (Type=int32)",
+        "Static match in dump.cs: public int m_ccsLastHitCreep; // 0x99c",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_ccsKillBigDragon",
+      "offset": 2464,
+      "data_type": "int32",
+      "semantic": "kill_dragon_times",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_ccsKillBigDragon (Type=int32)",
+        "Static match in dump.cs: public int m_ccsKillBigDragon; // 0x9a0",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_ccsKillOuterTower",
+      "offset": 2472,
+      "data_type": "uint32",
+      "semantic": "kill_outer_tower",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_ccsKillOuterTower (Type=uint32)",
+        "Static match in dump.cs: public uint m_ccsKillOuterTower; // 0x9a8",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_ccsKillInnerTower",
+      "offset": 2476,
+      "data_type": "uint32",
+      "semantic": "kill_inner_tower",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_ccsKillInnerTower (Type=uint32)",
+        "Static match in dump.cs: public uint m_ccsKillInnerTower; // 0x9ac",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_ccsKillInhibitorTower",
+      "offset": 2480,
+      "data_type": "uint32",
+      "semantic": "kill_inhibitor_tower",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_ccsKillInhibitorTower (Type=uint32)",
+        "Static match in dump.cs: public uint m_ccsKillInhibitorTower; // 0x9b0",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicPlayer",
+      "field_name": "m_IsRobotPlayer",
+      "offset": 2970,
+      "data_type": "uint8",
+      "semantic": "is_bot",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicPlayer.m_IsRobotPlayer (Type=uint8)",
+        "Static match in dump.cs: public bool m_IsRobotPlayer; // 0xb9a",
+        "Verified VTable signature: 0x742002fdf8",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicTower",
+      "field_name": "m_ID",
+      "offset": 172,
+      "data_type": "int32",
+      "semantic": "tower_id",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicTower.m_ID (Type=int32)",
+        "Static match in dump.cs: public int m_ID; // 0xac",
+        "Verified VTable signature: 0x74201ccee8",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicTower",
+      "field_name": "m_Hp",
+      "offset": 200,
+      "data_type": "int32",
+      "semantic": "hp",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicTower.m_Hp (Type=int32)",
+        "Static match in dump.cs: public int m_Hp; // 0xc8",
+        "Verified VTable signature: 0x74201ccee8",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicTower",
+      "field_name": "m_HpMax",
+      "offset": 204,
+      "data_type": "int32",
+      "semantic": "hp_max",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicTower.m_HpMax (Type=int32)",
+        "Static match in dump.cs: public int m_HpMax; // 0xcc",
+        "Verified VTable signature: 0x74201ccee8",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicTower",
+      "field_name": "m_bDeath",
+      "offset": 464,
+      "data_type": "uint8",
+      "semantic": "is_dead",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicTower.m_bDeath (Type=uint8)",
+        "Static match in dump.cs: private bool <m_bDeath>k__BackingField; // 0x1d0",
+        "Verified VTable signature: 0x74201ccee8",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicTower",
+      "field_name": "m_EntityCampType",
+      "offset": 476,
+      "data_type": "int32",
+      "semantic": "camp",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicTower.m_EntityCampType (Type=int32)",
+        "Static match in dump.cs: public EntityCampType m_EntityCampType; // 0x1dc",
+        "Verified VTable signature: 0x74201ccee8",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicTower",
+      "field_name": "m_dRealPosX",
+      "offset": 616,
+      "data_type": "double",
+      "semantic": "pos_x",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicTower.m_dRealPosX (Type=double)",
+        "Static match in dump.cs: public double m_dRealPosX; // 0x268",
+        "Verified VTable signature: 0x74201ccee8",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicTower",
+      "field_name": "m_dRealPosY",
+      "offset": 624,
+      "data_type": "double",
+      "semantic": "pos_y",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicTower.m_dRealPosY (Type=double)",
+        "Static match in dump.cs: public double m_dRealPosY; // 0x270",
+        "Verified VTable signature: 0x74201ccee8",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicTower",
+      "field_name": "m_TowerType",
+      "offset": 2128,
+      "data_type": "int32",
+      "semantic": "tower_type",
+      "gates_attempted": 8,
+      "gates_passed": 6,
+      "gates_failed": 2,
+      "confidence": "SUPPORTED",
+      "evidence": [
+        "Target: Battle.LogicTower.m_TowerType (Type=int32)",
+        "Verified VTable signature: 0x74201ccee8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": false,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicTower",
+      "field_name": "m_TowerIndex",
+      "offset": 2288,
+      "data_type": "int32",
+      "semantic": "tower_index",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicTower.m_TowerIndex (Type=int32)",
+        "Static match in dump.cs: public int m_TowerIndex; // 0x8f0",
+        "Verified VTable signature: 0x74201ccee8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicTower",
+      "field_name": "m_SeniorPosID",
+      "offset": 2292,
+      "data_type": "int32",
+      "semantic": "senior_pos_id",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicTower.m_SeniorPosID (Type=int32)",
+        "Static match in dump.cs: private int <m_SeniorPosID>k__BackingField; // 0x8f4",
+        "Verified VTable signature: 0x74201ccee8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicTower",
+      "field_name": "m_uGuardId",
+      "offset": 2296,
+      "data_type": "uint32",
+      "semantic": "guard_id",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicTower.m_uGuardId (Type=uint32)",
+        "Static match in dump.cs: public uint m_uGuardId; // 0x8f8",
+        "Verified VTable signature: 0x74201ccee8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicTower",
+      "field_name": "m_DefaultEyeRange",
+      "offset": 2344,
+      "data_type": "double",
+      "semantic": "eye_range",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicTower.m_DefaultEyeRange (Type=double)",
+        "Static match in dump.cs: public double m_DefaultEyeRange; // 0x928",
+        "Verified VTable signature: 0x74201ccee8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicTower",
+      "field_name": "m_fAttackRange",
+      "offset": 2352,
+      "data_type": "double",
+      "semantic": "attack_range",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicTower.m_fAttackRange (Type=double)",
+        "Static match in dump.cs: public double m_fAttackRange; // 0x930",
+        "Verified VTable signature: 0x74201ccee8",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicSoldier",
+      "field_name": "m_ID",
+      "offset": 172,
+      "data_type": "int32",
+      "semantic": "soldier_id",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicSoldier.m_ID (Type=int32)",
+        "Static match in dump.cs: public int m_ID; // 0xac",
+        "Verified VTable signature: 0x741ff9d098",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicSoldier",
+      "field_name": "m_Hp",
+      "offset": 200,
+      "data_type": "int32",
+      "semantic": "hp",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicSoldier.m_Hp (Type=int32)",
+        "Static match in dump.cs: public int m_Hp; // 0xc8",
+        "Verified VTable signature: 0x741ff9d098",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicSoldier",
+      "field_name": "m_HpMax",
+      "offset": 204,
+      "data_type": "int32",
+      "semantic": "hp_max",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicSoldier.m_HpMax (Type=int32)",
+        "Static match in dump.cs: public int m_HpMax; // 0xcc",
+        "Verified VTable signature: 0x741ff9d098",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicSoldier",
+      "field_name": "m_bDeath",
+      "offset": 464,
+      "data_type": "uint8",
+      "semantic": "is_dead",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicSoldier.m_bDeath (Type=uint8)",
+        "Static match in dump.cs: private bool <m_bDeath>k__BackingField; // 0x1d0",
+        "Verified VTable signature: 0x741ff9d098",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicSoldier",
+      "field_name": "m_EntityCampType",
+      "offset": 476,
+      "data_type": "int32",
+      "semantic": "camp",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicSoldier.m_EntityCampType (Type=int32)",
+        "Static match in dump.cs: public EntityCampType m_EntityCampType; // 0x1dc",
+        "Verified VTable signature: 0x741ff9d098",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicSoldier",
+      "field_name": "m_dRealPosX",
+      "offset": 616,
+      "data_type": "double",
+      "semantic": "pos_x",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicSoldier.m_dRealPosX (Type=double)",
+        "Static match in dump.cs: public double m_dRealPosX; // 0x268",
+        "Verified VTable signature: 0x741ff9d098",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicSoldier",
+      "field_name": "m_dRealPosY",
+      "offset": 624,
+      "data_type": "double",
+      "semantic": "pos_y",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicSoldier.m_dRealPosY (Type=double)",
+        "Static match in dump.cs: public double m_dRealPosY; // 0x270",
+        "Verified VTable signature: 0x741ff9d098",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicSoldier",
+      "field_name": "m_SoldierType",
+      "offset": 2288,
+      "data_type": "int32",
+      "semantic": "soldier_type",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicSoldier.m_SoldierType (Type=int32)",
+        "Static match in dump.cs: private SoldierType <m_SoldierType>k__BackingField; // 0x8f0",
+        "Verified VTable signature: 0x741ff9d098",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicSoldier",
+      "field_name": "m_iPathId",
+      "offset": 2304,
+      "data_type": "int32",
+      "semantic": "lane",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicSoldier.m_iPathId (Type=int32)",
+        "Static match in dump.cs: public int m_iPathId; // 0x900",
+        "Verified VTable signature: 0x741ff9d098",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicSoldier",
+      "field_name": "m_pointIndex",
+      "offset": 2308,
+      "data_type": "int32",
+      "semantic": "point_index",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicSoldier.m_pointIndex (Type=int32)",
+        "Static match in dump.cs: private int m_pointIndex; // 0x904",
+        "Verified VTable signature: 0x741ff9d098",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicSoldier",
+      "field_name": "m_bStakeSoldier",
+      "offset": 2312,
+      "data_type": "uint8",
+      "semantic": "stake_soldier",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicSoldier.m_bStakeSoldier (Type=uint8)",
+        "Static match in dump.cs: private bool <m_bStakeSoldier>k__BackingField; // 0x908",
+        "Verified VTable signature: 0x741ff9d098",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicMonster",
+      "field_name": "m_ID",
+      "offset": 172,
+      "data_type": "int32",
+      "semantic": "monster_id",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicMonster.m_ID (Type=int32)",
+        "Static match in dump.cs: public int m_ID; // 0xac",
+        "Verified VTable signature: 0x741ff3bec0",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicMonster",
+      "field_name": "m_Hp",
+      "offset": 200,
+      "data_type": "int32",
+      "semantic": "hp",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicMonster.m_Hp (Type=int32)",
+        "Static match in dump.cs: public int m_Hp; // 0xc8",
+        "Verified VTable signature: 0x741ff3bec0",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicMonster",
+      "field_name": "m_HpMax",
+      "offset": 204,
+      "data_type": "int32",
+      "semantic": "hp_max",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicMonster.m_HpMax (Type=int32)",
+        "Static match in dump.cs: public int m_HpMax; // 0xcc",
+        "Verified VTable signature: 0x741ff3bec0",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicMonster",
+      "field_name": "m_bDeath",
+      "offset": 464,
+      "data_type": "uint8",
+      "semantic": "is_dead",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicMonster.m_bDeath (Type=uint8)",
+        "Static match in dump.cs: private bool <m_bDeath>k__BackingField; // 0x1d0",
+        "Verified VTable signature: 0x741ff3bec0",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicMonster",
+      "field_name": "m_dRealPosX",
+      "offset": 616,
+      "data_type": "double",
+      "semantic": "pos_x",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicMonster.m_dRealPosX (Type=double)",
+        "Static match in dump.cs: public double m_dRealPosX; // 0x268",
+        "Verified VTable signature: 0x741ff3bec0",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicMonster",
+      "field_name": "m_dRealPosY",
+      "offset": 624,
+      "data_type": "double",
+      "semantic": "pos_y",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicMonster.m_dRealPosY (Type=double)",
+        "Static match in dump.cs: public double m_dRealPosY; // 0x270",
+        "Verified VTable signature: 0x741ff3bec0",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicMonster",
+      "field_name": "m_MonsterType",
+      "offset": 2128,
+      "data_type": "int32",
+      "semantic": "monster_type",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicMonster.m_MonsterType (Type=int32)",
+        "Static match in dump.cs: public eMonsterType m_MonsterType; // 0x850",
+        "Verified VTable signature: 0x741ff3bec0",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicMonster",
+      "field_name": "m_BaseMoney",
+      "offset": 2136,
+      "data_type": "double",
+      "semantic": "base_money",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicMonster.m_BaseMoney (Type=double)",
+        "Static match in dump.cs: public double m_BaseMoney; // 0x858",
+        "Verified VTable signature: 0x741ff3bec0",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicMonster",
+      "field_name": "m_Money",
+      "offset": 2152,
+      "data_type": "double",
+      "semantic": "money",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicMonster.m_Money (Type=double)",
+        "Static match in dump.cs: public double m_Money; // 0x868",
+        "Verified VTable signature: 0x741ff3bec0",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicMonster",
+      "field_name": "m_BaseExp",
+      "offset": 2168,
+      "data_type": "int32",
+      "semantic": "base_exp",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicMonster.m_BaseExp (Type=int32)",
+        "Static match in dump.cs: public int m_BaseExp; // 0x878",
+        "Verified VTable signature: 0x741ff3bec0",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicMonster",
+      "field_name": "m_Exp",
+      "offset": 2176,
+      "data_type": "int32",
+      "semantic": "exp",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicMonster.m_Exp (Type=int32)",
+        "Static match in dump.cs: public int m_Exp; // 0x880",
+        "Verified VTable signature: 0x741ff3bec0",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicWildMonster",
+      "field_name": "m_ID",
+      "offset": 172,
+      "data_type": "int32",
+      "semantic": "monster_id",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicWildMonster.m_ID (Type=int32)",
+        "Static match in dump.cs: public int m_ID; // 0xac",
+        "Verified VTable signature: 0x741ff3ad80",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicWildMonster",
+      "field_name": "m_Hp",
+      "offset": 200,
+      "data_type": "int32",
+      "semantic": "hp",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicWildMonster.m_Hp (Type=int32)",
+        "Static match in dump.cs: public int m_Hp; // 0xc8",
+        "Verified VTable signature: 0x741ff3ad80",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicWildMonster",
+      "field_name": "m_HpMax",
+      "offset": 204,
+      "data_type": "int32",
+      "semantic": "hp_max",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicWildMonster.m_HpMax (Type=int32)",
+        "Static match in dump.cs: public int m_HpMax; // 0xcc",
+        "Verified VTable signature: 0x741ff3ad80",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicWildMonster",
+      "field_name": "m_bDeath",
+      "offset": 464,
+      "data_type": "uint8",
+      "semantic": "is_dead",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicWildMonster.m_bDeath (Type=uint8)",
+        "Static match in dump.cs: private bool <m_bDeath>k__BackingField; // 0x1d0",
+        "Verified VTable signature: 0x741ff3ad80",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicWildMonster",
+      "field_name": "m_dRealPosX",
+      "offset": 616,
+      "data_type": "double",
+      "semantic": "pos_x",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicWildMonster.m_dRealPosX (Type=double)",
+        "Static match in dump.cs: public double m_dRealPosX; // 0x268",
+        "Verified VTable signature: 0x741ff3ad80",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicWildMonster",
+      "field_name": "m_dRealPosY",
+      "offset": 624,
+      "data_type": "double",
+      "semantic": "pos_y",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicWildMonster.m_dRealPosY (Type=double)",
+        "Static match in dump.cs: public double m_dRealPosY; // 0x270",
+        "Verified VTable signature: 0x741ff3ad80",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicWildMonster",
+      "field_name": "m_MonsterType",
+      "offset": 2128,
+      "data_type": "int32",
+      "semantic": "monster_type",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicWildMonster.m_MonsterType (Type=int32)",
+        "Static match in dump.cs: public eMonsterType m_MonsterType; // 0x850",
+        "Verified VTable signature: 0x741ff3ad80",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicWildMonster",
+      "field_name": "m_BaseMoney",
+      "offset": 2136,
+      "data_type": "double",
+      "semantic": "base_money",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicWildMonster.m_BaseMoney (Type=double)",
+        "Static match in dump.cs: public double m_BaseMoney; // 0x858",
+        "Verified VTable signature: 0x741ff3ad80",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicWildMonster",
+      "field_name": "m_Money",
+      "offset": 2152,
+      "data_type": "double",
+      "semantic": "money",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicWildMonster.m_Money (Type=double)",
+        "Static match in dump.cs: public double m_Money; // 0x868",
+        "Verified VTable signature: 0x741ff3ad80",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicWildMonster",
+      "field_name": "m_BaseExp",
+      "offset": 2168,
+      "data_type": "int32",
+      "semantic": "base_exp",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicWildMonster.m_BaseExp (Type=int32)",
+        "Static match in dump.cs: public int m_BaseExp; // 0x878",
+        "Verified VTable signature: 0x741ff3ad80",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicWildMonster",
+      "field_name": "m_Exp",
+      "offset": 2176,
+      "data_type": "int32",
+      "semantic": "exp",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicWildMonster.m_Exp (Type=int32)",
+        "Static match in dump.cs: public int m_Exp; // 0x880",
+        "Verified VTable signature: 0x741ff3ad80",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicBulletBase",
+      "field_name": "m_IsDestory",
+      "offset": 24,
+      "data_type": "uint8",
+      "semantic": "is_destroy",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicBulletBase.m_IsDestory (Type=uint8)",
+        "Static match in dump.cs: public bool m_IsDestory; // 0x18",
+        "Verified VTable signature: 0x7421113bb0",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicBulletBase",
+      "field_name": "m_Id",
+      "offset": 32,
+      "data_type": "int32",
+      "semantic": "bullet_id",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicBulletBase.m_Id (Type=int32)",
+        "Static match in dump.cs: public int m_Id; // 0x20",
+        "Verified VTable signature: 0x7421113bb0",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicBulletBase",
+      "field_name": "dFlyDistance",
+      "offset": 72,
+      "data_type": "double",
+      "semantic": "fly_distance",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicBulletBase.dFlyDistance (Type=double)",
+        "Static match in dump.cs: protected double dFlyDistance; // 0x48",
+        "Verified VTable signature: 0x7421113bb0",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicBulletBase",
+      "field_name": "_dRadius",
+      "offset": 88,
+      "data_type": "double",
+      "semantic": "radius",
+      "gates_attempted": 8,
+      "gates_passed": 7,
+      "gates_failed": 1,
+      "confidence": "VALIDATED",
+      "evidence": [
+        "Target: Battle.LogicBulletBase._dRadius (Type=double)",
+        "Static match in dump.cs: protected double _dRadius; // 0x58",
+        "Verified VTable signature: 0x7421113bb0",
+        "Cross-instance validation passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": false,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicBulletBase",
+      "field_name": "m_OwnerFighter",
+      "offset": 160,
+      "data_type": "uint64",
+      "semantic": "owner_ptr",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicBulletBase.m_OwnerFighter (Type=uint64)",
+        "Verified inherited base entity field in dump.cs",
+        "Verified VTable signature: 0x7421113bb0",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    },
+    {
+      "class_name": "Battle.LogicBulletBase",
+      "field_name": "m_TargetPlayer",
+      "offset": 264,
+      "data_type": "uint64",
+      "semantic": "target_ptr",
+      "gates_attempted": 8,
+      "gates_passed": 8,
+      "gates_failed": 0,
+      "confidence": "PROVEN",
+      "evidence": [
+        "Target: Battle.LogicBulletBase.m_TargetPlayer (Type=uint64)",
+        "Verified inherited base entity field in dump.cs",
+        "Verified VTable signature: 0x7421113bb0",
+        "Cross-instance validation passed",
+        "Dynamic temporal sampling passed",
+        "Negative cross-class conflict eliminated"
+      ],
+      "gate_details": {
+        "G0_TargetDef": true,
+        "G1_StaticProvenance": true,
+        "G2_RuntimeClass": true,
+        "G3_TypeDecoding": true,
+        "G4_CrossInstance": true,
+        "G5_DynamicTemporal": true,
+        "G6_NegativeValidation": true,
+        "G7_Classification": true
+      }
+    }
+  ]
+}

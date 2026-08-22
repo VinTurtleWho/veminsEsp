@@ -1,0 +1,45 @@
+{
+    "class_name": "CData_Emblem_2023_Element",
+    "fields": {
+        "m_bError": {
+            "type": "bool",
+            "offset": 16
+        },
+        "m_EmblemID": {
+            "type": "int",
+            "offset": 20
+        },
+        "m_Order": {
+            "type": "int",
+            "offset": 24
+        },
+        "m_EmblemBg": {
+            "type": "int[]",
+            "offset": 32
+        },
+        "m_AttriIconBg": {
+            "type": "string",
+            "offset": 40
+        },
+        "m_AttriIcon": {
+            "type": "string[]",
+            "offset": 48
+        },
+        "m_MaxLevel": {
+            "type": "int",
+            "offset": 56
+        },
+        "m_UnlockLevel": {
+            "type": "int",
+            "offset": 60
+        },
+        "m_mShortName": {
+            "type": "string",
+            "offset": 64
+        },
+        "m_Ability": {
+            "type": "float[]",
+            "offset": 72
+        }
+    }
+}

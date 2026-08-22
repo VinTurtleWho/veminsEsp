@@ -1,0 +1,85 @@
+import json
+
+emblems_data = {
+    "emblems": {
+        "20001": {
+            "id": 20001, "name": "Custom Basic Emblem",
+            "min_stats": { "hp": 135, "hp_regen": 4.0, "adaptive_attack": 6 },
+            "max_stats": { "hp": 500, "hp_regen": 12.0, "adaptive_attack": 22 },
+            "scaling_formula": "min + (max - min) * (level - 1) / 59"
+        },
+        "20002": {
+            "id": 20002, "name": "Custom Mage Emblem",
+            "min_stats": { "magic_power": 8, "cooldown_reduction_pct": 1.5, "magic_pen_flat": 2.0 },
+            "max_stats": { "magic_power": 30, "cooldown_reduction_pct": 5.0, "magic_pen_flat": 8.0 },
+            "scaling_formula": "min + (max - min) * (level - 1) / 59"
+        },
+        "20003": {
+            "id": 20003, "name": "Custom Assassin Emblem",
+            "min_stats": { "adaptive_penetration": 4.0, "adaptive_attack": 3, "move_speed_pct": 1.0 },
+            "max_stats": { "adaptive_penetration": 16.0, "adaptive_attack": 10, "move_speed_pct": 3.0 },
+            "scaling_formula": "min + (max - min) * (level - 1) / 59"
+        },
+        "20004": {
+            "id": 20004, "name": "Custom Tank Emblem",
+            "min_stats": { "hp": 135, "hybrid_defense": 3.0, "hp_regen": 1.0 },
+            "max_stats": { "hp": 500, "hybrid_defense": 10.0, "hp_regen": 4.0 },
+            "scaling_formula": "min + (max - min) * (level - 1) / 59"
+        },
+        "20005": {
+            "id": 20005, "name": "Custom Fighter Emblem",
+            "min_stats": { "spell_vamp_pct": 2.5, "adaptive_attack": 6, "hybrid_defense": 1.5 },
+            "max_stats": { "spell_vamp_pct": 10.0, "adaptive_attack": 22, "hybrid_defense": 6.0 },
+            "scaling_formula": "min + (max - min) * (level - 1) / 59"
+        },
+        "20006": {
+            "id": 20006, "name": "Custom Marksman Emblem",
+            "min_stats": { "attack_speed_pct": 4.0, "adaptive_attack": 1, "lifesteal_pct": 1.5 },
+            "max_stats": { "attack_speed_pct": 15.0, "adaptive_attack": 5, "lifesteal_pct": 5.0 },
+            "scaling_formula": "min + (max - min) * (level - 1) / 59"
+        },
+        "20007": {
+            "id": 20007, "name": "Custom Support Emblem",
+            "min_stats": { "healing_effect_pct": 4.0, "cooldown_reduction_pct": 3.0, "move_speed_pct": 1.5 },
+            "max_stats": { "healing_effect_pct": 15.0, "cooldown_reduction_pct": 10.0, "move_speed_pct": 6.0 },
+            "scaling_formula": "min + (max - min) * (level - 1) / 59"
+        }
+    },
+    "talents": {
+        "tier_1": {
+            "thrill": { "id": 21001, "name": "Thrill", "type": "STAT", "stats": { "adaptive_attack": 16 } },
+            "swift": { "id": 21002, "name": "Swift", "type": "STAT", "stats": { "attack_speed_pct": 10 } },
+            "vitality": { "id": 21003, "name": "Vitality", "type": "STAT", "stats": { "hp": 225 } },
+            "rupture": { "id": 21004, "name": "Rupture", "type": "STAT", "stats": { "adaptive_penetration": 5 } },
+            "agility": { "id": 21005, "name": "Agility", "type": "STAT", "stats": { "move_speed_pct": 4 } },
+            "firmness": { "id": 21006, "name": "Firmness", "type": "STAT", "stats": { "physical_defense": 6, "magic_defense": 6 } },
+            "inspire": { "id": 21007, "name": "Inspire", "type": "STAT", "stats": { "cooldown_reduction_pct": 5 } },
+            "shield": { "id": 21008, "name": "Shield", "type": "STAT", "stats": { "shield_healing_effect_pct": 15 } }
+        },
+        "tier_2": {
+            "seasoned_hunter": { "id": 22001, "name": "Seasoned Hunter", "type": "UTILITY", "description": "+15% damage to Lord, Turtle, and Creeps" },
+            "master_assassin": { "id": 22002, "name": "Master Assassin", "type": "UTILITY", "isolation_radius": 6.0, "description": "+7% damage when target is isolated" },
+            "bargain_hunter": { "id": 22003, "name": "Bargain Hunter", "type": "UTILITY", "equipment_discount_pct": 5, "description": "5% discount on all equipment" },
+            "festival_of_blood": { "id": 22004, "name": "Festival of Blood", "type": "UTILITY", "base_spell_vamp_pct": 6, "stack_spell_vamp_pct": 0.5, "max_stacks": 8, "max_spell_vamp_pct": 10, "description": "Gains spell vamp per kill/assist" },
+            "pull_yourself_together": { "id": 22005, "name": "Pull Yourself Together", "type": "UTILITY", "cooldown_reduction_pct": 15, "description": "-15% Battle Spell and Active Item Cooldown" },
+            "weapon_master": { "id": 22006, "name": "Weapon Master", "type": "UTILITY", "bonus_power_pct": 5, "description": "+5% bonus Physical Attack and Magic Power from gear" },
+            "wilderness_blessing": { "id": 22007, "name": "Wilderness Blessing", "type": "UTILITY", "move_speed_pct": 10, "description": "+10% Move Speed in River and Jungle" },
+            "tenacity": { "id": 22008, "name": "Tenacity", "type": "UTILITY", "hp_threshold_pct": 50, "hybrid_defense": 15, "description": "+15 Physical & Magic Defense when HP drops below 50%" }
+        },
+        "tier_3": {
+            "quantum_charge": { "id": 23003, "name": "Quantum Charge", "type": "CORE", "icd_s": 8.0, "move_speed_pct": 30, "duration_s": 1.5, "heal_base": 75, "heal_per_level": 7.5, "description": "Basic attacks grant 30% MS for 1.5s and heal HP" },
+            "killing_spree": { "id": 23002, "name": "Killing Spree", "type": "CORE", "icd_s": 0.0, "heal_max_hp_pct": 8, "move_speed_pct": 15, "duration_s": 3.0, "description": "Hero kill restores 8% Max HP + 15% MS for 3s" },
+            "brave_smite": { "id": 23004, "name": "Brave Smite", "type": "CORE", "icd_s": 6.0, "heal_max_hp_pct": 4, "description": "Skill damage/CC restores 4% Max HP" },
+            "war_cry": { "id": 23007, "name": "War Cry", "type": "CORE", "icd_s": 6.0, "trigger_hits": 3, "stack_window_s": 3.0, "damage_boost_pct": 8, "duration_s": 6.0, "description": "3 consecutive hits grant +8% all damage for 6s" },
+            "temporal_reign": { "id": 23008, "name": "Temporal Reign", "type": "CORE", "icd_s": 20.0, "move_speed_pct": 15, "cdr_boost_s_per_s": 1.5, "duration_s": 4.0, "description": "Ultimate accelerates non-ult skill cooldowns for 4s" },
+            "lethal_ignition": { "id": 23001, "name": "Lethal Ignition", "type": "CORE", "icd_s": 15.0, "hit_hp_threshold_pct": 7, "trigger_hits": 3, "hit_window_s": 5.0, "burn_base": 162, "burn_per_level": 42, "description": "3 heavy hits burn target for adaptive damage" },
+            "impure_rage": { "id": 23006, "name": "Impure Rage", "type": "CORE", "icd_s": 5.0, "damage_base": 44, "damage_per_level": 14, "mana_regen_pct": 2, "hp_regen_fallback_pct": 1, "description": "Skill damage deals adaptive damage and restores 2% Mana or 1% HP" },
+            "focus_fire": { "id": 23005, "name": "Focus Fire", "type": "CORE", "icd_s": 6.0, "ally_damage_boost_pct": 6, "duration_s": 3.0, "description": "Dealing damage marks target, increasing allied damage to target by 6% for 3s" }
+        }
+    }
+}
+
+with open("/data/data/com.termux/files/home/veminsEsp/knowledge/normalized/emblems.json", "w") as f:
+    json.dump(emblems_data, f, indent=2)
+
+print("Updated emblems.json successfully!")
