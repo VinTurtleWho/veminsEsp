@@ -155,7 +155,8 @@ static uint64_t s_libcsharp_base = 0;
 static int s_read_fail_count = 0;
 
 static bool read_mem(uint64_t addr, void* buf, size_t size) {
-    if (s_mem_fd < 0 || addr < 0x10000000ULL || !buf || size == 0) return false;
+    addr &= 0x0000FFFFFFFFFFFFULL;
+    if (s_mem_fd < 0 || addr < 0x10000ULL || !buf || size == 0) return false;
     ssize_t n = pread(s_mem_fd, buf, size, addr);
     if (n == (ssize_t)size) {
         s_read_fail_count = 0;
@@ -353,8 +354,6 @@ static FrameSnapshot capture_live_snapshot() {
     }
 
     snap.battle_state = read_val<int32_t>(mgr_addr + 0x180);
-    snap.in_match = (snap.battle_state >= 2 && snap.battle_state <= 6);
-    if (!snap.in_match) return snap;
 
     // Gate 8 Authoritative Local Player (+0x200)
     uint64_t self_ptr = read_val<uint64_t>(mgr_addr + 0x200);
@@ -363,10 +362,15 @@ static FrameSnapshot capture_live_snapshot() {
         snap.local_player = parse_hero(self_ptr, true);
     }
 
+    uint64_t dict_players = read_val<uint64_t>(mgr_addr + 0x0a8);
+    int32_t player_count = dict_players ? read_val<int32_t>(dict_players + 0x020) : 0;
+
+    snap.in_match = (self_ptr != 0) || (player_count > 0) || (snap.battle_state >= 1 && snap.battle_state <= 8);
+    if (!snap.in_match) return snap;
+
     int local_camp = snap.local_player.camp ? snap.local_player.camp : 1;
 
     // 10 Hero Players Dictionary (+0x0a8)
-    uint64_t dict_players = read_val<uint64_t>(mgr_addr + 0x0a8);
     if (dict_players) {
         uint64_t entries = read_val<uint64_t>(dict_players + 0x018);
         int32_t count = read_val<int32_t>(dict_players + 0x020);
@@ -453,13 +457,23 @@ static void world_to_minimap(double wx, double wy, float* out_x, float* out_y) {
     *out_y = g_cfg.minimap_y + (norm_y * g_cfg.minimap_h);
 }
 
-// 3D Isometric World-to-Screen Projection
+// 3D Isometric / Perspective World-to-Screen Projection
 static bool world_to_screen_isometric(double target_x, double target_y, double local_x, double local_y, float* out_x, float* out_y) {
     float dx = (float)(target_x - local_x);
     float dy = (float)(target_y - local_y);
 
-    float sx = (g_cfg.screen_w / 2.0f) + (dx - dy) * g_cfg.cam_scale_x;
-    float sy = (g_cfg.screen_h / 2.0f) + (dx + dy) * g_cfg.cam_scale_y - g_cfg.cam_hud_offset_y;
+    // 45-degree ground plane rotation
+    float iso_x = (dx - dy) * 0.70710678f;
+    float iso_y = (dx + dy) * 0.70710678f;
+
+    // True perspective depth along camera ray (Pitch: ~58 deg, Height: 28m)
+    float cam_height = 28.0f;
+    float depth = cam_height + (iso_y * 0.529919f); // cos(58 deg) ~ 0.529919
+    if (depth < 4.0f) depth = 4.0f;
+    float persp_scale = cam_height / depth;
+
+    float sx = (g_cfg.screen_w / 2.0f) + (iso_x * g_cfg.cam_scale_x) * persp_scale;
+    float sy = (g_cfg.screen_h / 2.0f) - ((iso_y * g_cfg.cam_scale_y) + g_cfg.cam_hud_offset_y) * persp_scale;
 
     *out_x = sx;
     *out_y = sy;

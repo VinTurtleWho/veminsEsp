@@ -32,7 +32,9 @@ for src in \
         mkdir -p /data/local/tmp/assets 2>/dev/null || true
         cp -rf "$src/assets/"* /data/local/tmp/assets/ 2>/dev/null || true
     fi
-    if [ -f "$src/vemins_overlay_app.apk" ] && [ -z "$APK_PATH" ]; then
+    if [ -f "$src/veminsEsp.apk" ] && [ -z "$APK_PATH" ]; then
+        APK_PATH="$src/veminsEsp.apk"
+    elif [ -f "$src/vemins_overlay_app.apk" ] && [ -z "$APK_PATH" ]; then
         APK_PATH="$src/vemins_overlay_app.apk"
     fi
 done
@@ -43,34 +45,36 @@ if [ ! -f /data/local/tmp/vemins_daemon ]; then
     exit 1
 fi
 
-chmod 777 /data/local/tmp/vemins_daemon 2>/dev/null || true
+chmod 755 /data/local/tmp/vemins_daemon 2>/dev/null || true
 
 nohup /data/local/tmp/vemins_daemon 9999 > /data/local/tmp/vemins_daemon.log 2>&1 &
 sleep 0.3
 echo "[✓] vemins_daemon running in background on port 9999"
 
 # 4. Auto-install overlay APK if not already installed
-if ! pm list packages | grep -q "com.vemins.overlay"; then
+if ! pm list packages | grep -q "com.vemins.esp"; then
     if [ -n "$APK_PATH" ]; then
-        echo "[+] Installing VEMINS Overlay App..."
+        echo "[+] Installing VEMINS Overlay App from $APK_PATH..."
         pm install -r "$APK_PATH" 2>/dev/null && echo "[✓] Overlay App Installed successfully!"
     else
-        echo "[-] Note: Install vemins_overlay_app.apk manually if not installed."
+        echo "[-] Note: Install veminsEsp.apk manually if not installed."
     fi
 fi
 
-# 5. Automatically grant Overlay Permission (Root)
-appops set com.vemins.overlay SYSTEM_ALERT_WINDOW allow 2>/dev/null || true
+# 5. Automatically grant Overlay & Notification Permissions (Root)
+appops set com.vemins.esp SYSTEM_ALERT_WINDOW allow 2>/dev/null || true
+pm grant com.vemins.esp android.permission.POST_NOTIFICATIONS 2>/dev/null || true
 
-# 6. Launch Overlay Foreground Service
-if pm list packages | grep -q "com.vemins.overlay"; then
-    am start-foreground-service -n com.vemins.overlay/.service.FloatingOverlayService 2>/dev/null || \
-    am startservice -n com.vemins.overlay/.service.FloatingOverlayService 2>/dev/null || \
-    am start -n com.vemins.overlay/.ui.MainActivity 2>/dev/null || true
-    echo "[✓] VEMINS Floating Overlay Service Launched!"
+# 6. Launch Overlay Foreground Service & Dashboard
+if pm list packages | grep -q "com.vemins.esp"; then
+    am start-foreground-service -n com.vemins.esp/.service.FloatingOverlayService 2>/dev/null || \
+    am startservice -n com.vemins.esp/.service.FloatingOverlayService 2>/dev/null || \
+    am start -n com.vemins.esp/.ui.MainActivity 2>/dev/null || true
+    echo "[✓] VEMINS Floating Overlay Service Launched (com.vemins.esp)!"
 fi
 
 echo "====================================================="
 echo "  VEMINS ESP ACTIVE! Launch Mobile Legends to play.  "
+echo "  • Package    : com.vemins.esp                      "
 echo "  • Daemon Log : /data/local/tmp/vemins_daemon.log   "
 echo "====================================================="

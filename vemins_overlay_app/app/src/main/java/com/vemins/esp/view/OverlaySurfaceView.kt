@@ -349,7 +349,51 @@ class OverlaySurfaceView @JvmOverloads constructor(
         textSize = 10.0f
         textAlign = Paint.Align.CENTER
         isFakeBoldText = true
+        setShadowLayer(1.5f, 1.0f, 1.0f, Color.BLACK)
+    }
+
+    // --- Paints: Top-of-Screen Minimalist Glass Pill Strip ---
+    private val paintTopCdBarBg = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.argb(215, 8, 12, 20)
+        style = Paint.Style.FILL
+    }
+
+    private val paintTopCdBarBorder = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.argb(140, 0, 229, 255)
+        style = Paint.Style.STROKE
+        strokeWidth = 1.2f
+    }
+
+    private val paintTopCdDeadOverlay = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.argb(190, 0, 0, 0)
+        style = Paint.Style.FILL
+    }
+
+    private val paintTopCdDeadText = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.rgb(255, 82, 82)
+        textSize = 9.5f
+        textAlign = Paint.Align.CENTER
+        isFakeBoldText = true
         setShadowLayer(2.0f, 1.0f, 1.0f, Color.BLACK)
+    }
+
+    private val paintTopCdTimerText = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.rgb(255, 214, 0)
+        textSize = 8.0f
+        textAlign = Paint.Align.CENTER
+        isFakeBoldText = true
+        setShadowLayer(1.5f, 1.0f, 1.0f, Color.BLACK)
+    }
+
+    private val paintBadgeReadyBorder = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.rgb(0, 230, 118) // Bright Green Neon
+        style = Paint.Style.STROKE
+        strokeWidth = 1.8f
+    }
+
+    private val paintBadgeCdDark = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.argb(190, 0, 0, 0)
+        style = Paint.Style.FILL
     }
 
     // --- Paints: Off-Screen Edge Radar ---
@@ -402,6 +446,9 @@ class OverlaySurfaceView @JvmOverloads constructor(
      * Atomically swaps the latest telemetry snapshot for the rendering thread.
      * Zero-allocation, non-blocking call.
      */
+    private val cachedHeroIdBuffer = IntArray(11) { 0 }
+    private var cachedHeroCount = 0
+
     fun updateSnapshot(snapshot: FrameSnapshot) {
         snapshotRef.set(snapshot)
         if (snapshot.inMatch || snapshot.isValid || snapshot.totalEntitiesCount > 0) {
@@ -409,21 +456,37 @@ class OverlaySurfaceView @JvmOverloads constructor(
             lastValidTimeNs = System.nanoTime()
         }
 
-        // Set-cached hero preloading: preloadCommon is only called when active hero IDs actually change
-        val activeHeroIds = HashSet<Int>(10)
-        snapshot.localPlayer?.let { if (it.heroId > 0) activeHeroIds.add(it.heroId) }
+        // Fast zero-allocation hero ID change detection (eliminates per-frame HashSet allocations)
+        var changed = false
+        var count = 0
+        val lpId = snapshot.localPlayer?.heroId ?: 0
+        if (lpId > 0) {
+            if (cachedHeroIdBuffer[count] != lpId) changed = true
+            cachedHeroIdBuffer[count++] = lpId
+        }
         for (i in snapshot.enemies.indices) {
+            if (count >= 11) break
             val hId = snapshot.enemies[i].heroId
-            if (hId > 0) activeHeroIds.add(hId)
+            if (hId > 0) {
+                if (cachedHeroIdBuffer[count] != hId) changed = true
+                cachedHeroIdBuffer[count++] = hId
+            }
         }
         for (i in snapshot.allies.indices) {
+            if (count >= 11) break
             val hId = snapshot.allies[i].heroId
-            if (hId > 0) activeHeroIds.add(hId)
+            if (hId > 0) {
+                if (cachedHeroIdBuffer[count] != hId) changed = true
+                cachedHeroIdBuffer[count++] = hId
+            }
         }
+        if (count != cachedHeroCount) changed = true
+        cachedHeroCount = count
 
-        if (activeHeroIds.isNotEmpty() && activeHeroIds != lastPreloadedHeroIds) {
-            lastPreloadedHeroIds = activeHeroIds
-            iconCache.preloadCommon(activeHeroIds)
+        if (changed && count > 0) {
+            val heroList = ArrayList<Int>(count)
+            for (i in 0 until count) heroList.add(cachedHeroIdBuffer[i])
+            iconCache.preloadCommon(heroList)
         }
     }
 
@@ -653,7 +716,12 @@ class OverlaySurfaceView @JvmOverloads constructor(
         // 1. Render Layer 1: Top-Left Minimap Radar (Always renders boundary & radar box)
         renderMinimapLayer(canvas, snapshot, config, isStandby)
 
-        // 2. Render Layer 2: Main Screen Overhead Combat HUD & Edge Radar (only when active match)
+        // 2. Render Top-of-Screen Minimalist Glass Pill Strip (Enemy CD & HP HUD)
+        if (!isStandby && config.showTopCdBar) {
+            renderTopCdBar(canvas, snapshot, config)
+        }
+
+        // 3. Render Layer 2: Main Screen Overhead Combat HUD & Edge Radar (only when active match)
         if (!isStandby) {
             renderScreenHudLayer(canvas, snapshot, config)
         }
@@ -699,7 +767,7 @@ class OverlaySurfaceView @JvmOverloads constructor(
                 val soldier = snapshot.soldiers[i]
                 if (soldier.isDead || soldier.hp <= 0) continue
 
-                minimapProjection.worldToMinimap(soldier.posX, soldier.posY, scratchPointA, useDiamond = true)
+                minimapProjection.worldToMinimap(soldier.posX, soldier.posY, scratchPointA)
                 val paint = if (soldier.camp == 1) paintMinionAlly else paintMinionEnemy
                 val radius = if (soldier.isSiegeOrSuper) config.minimapMinionDotRadius * 1.4f else config.minimapMinionDotRadius
                 canvas.drawCircle(scratchPointA.x, scratchPointA.y, radius, paint)
@@ -712,7 +780,7 @@ class OverlaySurfaceView @JvmOverloads constructor(
                 val monster = snapshot.monsters[i]
                 if (monster.isDead || monster.hp <= 0) continue
 
-                minimapProjection.worldToMinimap(monster.posX, monster.posY, scratchPointA, useDiamond = true)
+                minimapProjection.worldToMinimap(monster.posX, monster.posY, scratchPointA)
                 val paint = when {
                     monster.isLord -> paintMonsterLord
                     monster.isTurtle -> paintMonsterTurtle
@@ -737,7 +805,7 @@ class OverlaySurfaceView @JvmOverloads constructor(
         // 4. Local Player Hero Dot (Green) & Heading Arrow
         val lp = snapshot.localPlayer
         if (lp != null && !lp.isDead && lp.hp > 0) {
-            minimapProjection.worldToMinimap(lp.posX, lp.posY, scratchPointA, useDiamond = true)
+            minimapProjection.worldToMinimap(lp.posX, lp.posY, scratchPointA)
 
             // Draw Heading Arrow
             if (config.minimapShowArrows && (lp.facingX != 0.0f || lp.facingY != 0.0f)) {
@@ -747,8 +815,7 @@ class OverlaySurfaceView @JvmOverloads constructor(
                     lp.facingX,
                     lp.facingY,
                     config.minimapArrowLength,
-                    scratchPointB,
-                    rotate45 = true
+                    scratchPointB
                 )
                 drawArrow(canvas, scratchPointA.x, scratchPointA.y, scratchPointB.x, scratchPointB.y, paintArrowSelf)
             }
@@ -771,7 +838,7 @@ class OverlaySurfaceView @JvmOverloads constructor(
                 val ally = snapshot.allies[i]
                 if (ally.isDead || ally.hp <= 0) continue
 
-                minimapProjection.worldToMinimap(ally.posX, ally.posY, scratchPointA, useDiamond = true)
+                minimapProjection.worldToMinimap(ally.posX, ally.posY, scratchPointA)
 
                 if (config.minimapShowArrows && (ally.facingX != 0.0f || ally.facingY != 0.0f)) {
                     minimapProjection.calculateDirectionArrow(
@@ -780,8 +847,7 @@ class OverlaySurfaceView @JvmOverloads constructor(
                         ally.facingX,
                         ally.facingY,
                         config.minimapArrowLength,
-                        scratchPointB,
-                        rotate45 = true
+                        scratchPointB
                     )
                     drawArrow(canvas, scratchPointA.x, scratchPointA.y, scratchPointB.x, scratchPointB.y, paintArrowAlly)
                 }
@@ -804,7 +870,7 @@ class OverlaySurfaceView @JvmOverloads constructor(
                 val enemy = snapshot.enemies[i]
                 if (enemy.isDead || enemy.hp <= 0) continue
 
-                minimapProjection.worldToMinimap(enemy.posX, enemy.posY, scratchPointA, useDiamond = true)
+                minimapProjection.worldToMinimap(enemy.posX, enemy.posY, scratchPointA)
 
                 if (config.minimapShowArrows && (enemy.facingX != 0.0f || enemy.facingY != 0.0f)) {
                     minimapProjection.calculateDirectionArrow(
@@ -813,8 +879,7 @@ class OverlaySurfaceView @JvmOverloads constructor(
                         enemy.facingX,
                         enemy.facingY,
                         config.minimapArrowLength,
-                        scratchPointB,
-                        rotate45 = true
+                        scratchPointB
                     )
                     drawArrow(canvas, scratchPointA.x, scratchPointA.y, scratchPointB.x, scratchPointB.y, paintArrowEnemy)
                 }
@@ -862,29 +927,169 @@ class OverlaySurfaceView @JvmOverloads constructor(
     }
 
     // -------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
+    // TOP-OF-SCREEN MINIMALIST GLASS PILL STRIP (ENEMY CD & HP HUD)
+    // -------------------------------------------------------------------------
+
+    private var sLastValidLocalX: Float = 0.0f
+    private var sLastValidLocalY: Float = 0.0f
+    private var sHasValidLocalPos: Boolean = false
+
+    private fun renderTopCdBar(canvas: Canvas, snapshot: FrameSnapshot, config: MinimapConfig) {
+        val enemies = snapshot.enemies
+        if (enemies.isEmpty()) return
+
+        val scale = config.topCdBarScale.coerceIn(0.5f, 2.0f)
+        val numSlots = enemies.size.coerceIn(1, 5)
+        val avatarRadius = 14.0f * scale
+        val badgeRadius = 9.0f * scale
+        val badgeSpacing = badgeRadius * 2.30f
+
+        // Each enemy has avatar + fixed 4 or 5 ability slots (S1, S2, Ult, [S4], Battle Spell)
+        val enemyCardWidth = (avatarRadius * 2.0f) + 8.0f * scale + (badgeSpacing * 4.0f) + 12.0f * scale
+        val enemyCardHeight = (avatarRadius * 2.0f) + 14.0f * scale
+        val slotGap = 8.0f * scale
+        val padH = 10.0f * scale
+        val padV = 6.0f * scale
+
+        val totalBarWidth = (numSlots * enemyCardWidth) + ((numSlots - 1) * slotGap) + (padH * 2.0f)
+        val totalBarHeight = enemyCardHeight + (padV * 2.0f)
+
+        val startX = (config.screenWidth - totalBarWidth) / 2.0f
+        val startY = config.topCdBarPosY
+
+        // 1. Draw Master Glass Capsule Background & Border
+        scratchRectF.set(startX, startY, startX + totalBarWidth, startY + totalBarHeight)
+        canvas.drawRoundRect(scratchRectF, 12.0f * scale, 12.0f * scale, paintTopCdBarBg)
+        canvas.drawRoundRect(scratchRectF, 12.0f * scale, 12.0f * scale, paintTopCdBarBorder)
+
+        var cardLeft = startX + padH
+
+        for (i in 0 until numSlots) {
+            val enemy = enemies[i]
+            val avatarCx = cardLeft + avatarRadius
+            val avatarCy = startY + padV + avatarRadius
+
+            // Draw Avatar
+            val diameter = (avatarRadius * 2.0f).toInt()
+            val heroIcon = if (enemy.heroId > 0) iconCache.getHeroPortrait(enemy.heroId, diameter) else null
+            if (heroIcon != null) {
+                scratchDstRect.set(avatarCx - avatarRadius, avatarCy - avatarRadius, avatarCx + avatarRadius, avatarCy + avatarRadius)
+                canvas.drawBitmap(heroIcon, null, scratchDstRect, paintBitmapFilter)
+            } else {
+                canvas.drawCircle(avatarCx, avatarCy, avatarRadius, paintHeroEnemy)
+                val label = if (enemy.heroId > 0) "${enemy.heroId}" else "E${i + 1}"
+                canvas.drawText(label, avatarCx, avatarCy + 3.0f * scale, paintTextMinimapHero)
+            }
+            canvas.drawCircle(avatarCx, avatarCy, avatarRadius, paintBorderEnemy)
+
+            // Mini HP Bar directly under avatar
+            val hpBarW = avatarRadius * 2.0f
+            val hpBarH = 3.5f * scale
+            val hpLeft = avatarCx - avatarRadius
+            val hpTop = avatarCy + avatarRadius + 3.0f * scale
+            scratchHpBgRect.set(hpLeft, hpTop, hpLeft + hpBarW, hpTop + hpBarH)
+            canvas.drawRoundRect(scratchHpBgRect, 1.5f, 1.5f, paintHudBg)
+
+            if (!enemy.isDead && enemy.hp > 0) {
+                val hpPct = enemy.hpPercent
+                val fillW = hpBarW * hpPct
+                if (fillW > 0.0f) {
+                    scratchHpFillRect.set(hpLeft, hpTop, hpLeft + fillW, hpTop + hpBarH)
+                    val hpPaint = if (hpPct > 0.45f) paintHpGreen else if (hpPct > 0.20f) paintHpYellow else paintHpRed
+                    canvas.drawRoundRect(scratchHpFillRect, 1.5f, 1.5f, hpPaint)
+                }
+            }
+
+            // Dead Overlay
+            if (enemy.isDead || enemy.hp <= 0) {
+                canvas.drawCircle(avatarCx, avatarCy, avatarRadius, paintTopCdDeadOverlay)
+                canvas.drawText("DEAD", avatarCx, avatarCy + 3.5f * scale, paintTopCdDeadText)
+            }
+
+            // Structured 4 (or 5) Tactical Ability Slots
+            val s1 = enemy.getAbility(1)
+            val s2 = enemy.getAbility(2)
+            val ult = enemy.ultimateAbility ?: enemy.getAbility(3)
+            val s4 = enemy.getAbility(4)
+            val spell = enemy.battleSpell ?: enemy.getAbility(5)
+
+            // Collect ability slot descriptors: (slotIndex, fallbackSpellId, abilityInfo, isUlt, isSpell)
+            data class TopBarSlot(
+                val slot: Int,
+                val defaultSpellId: Int,
+                val info: AbilityInfo?,
+                val isUlt: Boolean,
+                val isSpell: Boolean
+            )
+
+            val slots = mutableListOf<TopBarSlot>()
+            slots.add(TopBarSlot(1, enemy.heroId * 100 + 10, s1, isUlt = false, isSpell = false))
+            slots.add(TopBarSlot(2, enemy.heroId * 100 + 20, s2, isUlt = false, isSpell = false))
+            slots.add(TopBarSlot(3, enemy.heroId * 100 + 30, ult, isUlt = true, isSpell = false))
+            if (s4 != null && s4.spellId > 0 && s4 != ult) {
+                slots.add(TopBarSlot(4, enemy.heroId * 100 + 40, s4, isUlt = false, isSpell = false))
+            }
+            val spellFallbackId = if (spell != null && spell.spellId > 0) spell.spellId else 20001
+            slots.add(TopBarSlot(5, spellFallbackId, spell, isUlt = false, isSpell = true))
+
+            var badgeCx = avatarCx + avatarRadius + 8.0f * scale + badgeRadius
+            val badgeCy = avatarCy
+
+            for (slotItem in slots) {
+                val ab = slotItem.info
+                val effSpellId = if (ab != null && ab.spellId > 0) ab.spellId else slotItem.defaultSpellId
+                val abDia = (badgeRadius * 2.0f).toInt()
+                val icon = iconCache.getHeroAbilityIcon(enemy.heroId, slotItem.slot, effSpellId, abDia)
+
+                scratchDstRect.set(badgeCx - badgeRadius, badgeCy - badgeRadius, badgeCx + badgeRadius, badgeCy + badgeRadius)
+                if (icon != null) {
+                    canvas.drawBitmap(icon, null, scratchDstRect, paintBitmapFilter)
+                } else {
+                    val basePaint = if (slotItem.isUlt) paintBadgeReady else if (slotItem.isSpell) paintBadgeSpell else paintBadgeReady
+                    canvas.drawCircle(badgeCx, badgeCy, badgeRadius, basePaint)
+                }
+
+                val isOnCd = (ab != null && ab.isCoolingDown && ab.remainingSeconds > 0.05f)
+
+                if (!isOnCd && !enemy.isDead) {
+                    // Ready Border Indicator
+                    val borderPaint = if (slotItem.isUlt) paintBadgeReadyBorder else paintBorderEnemy
+                    canvas.drawCircle(badgeCx, badgeCy, badgeRadius, borderPaint)
+                } else if (!enemy.isDead) {
+                    // Active Cooldown Dark Sweep Overlay & Countdown Readout
+                    canvas.drawCircle(badgeCx, badgeCy, badgeRadius, paintBadgeCdDark)
+                    val progress = ab?.cooldownProgress ?: 0.5f
+                    val sweepAngle = progress * 360.0f
+                    scratchSweepRect.set(badgeCx - badgeRadius, badgeCy - badgeRadius, badgeCx + badgeRadius, badgeCy + badgeRadius)
+                    canvas.drawArc(scratchSweepRect, -90.0f, sweepAngle, true, paintCooldownSweep)
+
+                    val remS = ab?.remainingSeconds ?: 0.0f
+                    val cdStr = if (remS >= 10.0f) "${remS.toInt()}" else String.format("%.1f", remS)
+                    canvas.drawText(cdStr, badgeCx, badgeCy + 3.0f * scale, paintTopCdTimerText)
+                }
+
+                badgeCx += badgeSpacing
+            }
+
+            cardLeft += enemyCardWidth + slotGap
+        }
+    }
+
+    // -------------------------------------------------------------------------
     // LAYER 2: MAIN SCREEN OVERHEAD COMBAT HUD & EDGE RADAR PASS
     // -------------------------------------------------------------------------
 
     private fun renderScreenHudLayer(canvas: Canvas, snapshot: FrameSnapshot, config: MinimapConfig) {
-        val lp = snapshot.localPlayer
-        if (lp != null && (!lp.isDead || lp.hp > 0 || lp.posX != 0.0f || lp.posY != 0.0f)) {
-            val dx = lp.posX - lastKnownLocalX
-            val dy = lp.posY - lastKnownLocalY
-            val jumpDistSq = dx * dx + dy * dy
-            if (!hasValidLocalPos || jumpDistSq > 900.0f) { // > 30m instant teleport / new match
-                lastKnownLocalX = lp.posX
-                lastKnownLocalY = lp.posY
-                hasValidLocalPos = true
-            } else {
-                // Exponential Moving Average (EMA) smoothing for stable camera tracking
-                val alpha = 0.35f
-                lastKnownLocalX += alpha * (lp.posX - lastKnownLocalX)
-                lastKnownLocalY += alpha * (lp.posY - lastKnownLocalY)
-            }
+        val lp = snapshot.localPlayer ?: snapshot.allies.firstOrNull()
+        if (lp != null && (lp.posX != 0.0f || lp.posY != 0.0f)) {
+            sLastValidLocalX = lp.posX
+            sLastValidLocalY = lp.posY
+            sHasValidLocalPos = true
         }
 
-        val localX = if (hasValidLocalPos) lastKnownLocalX else (lp?.posX ?: 0.0f)
-        val localY = if (hasValidLocalPos) lastKnownLocalY else (lp?.posY ?: 0.0f)
+        val localX = if (sHasValidLocalPos) (lp?.posX ?: sLastValidLocalX) else 0.0f
+        val localY = if (sHasValidLocalPos) (lp?.posY ?: sLastValidLocalY) else 0.0f
 
         for (i in snapshot.enemies.indices) {
             val enemy = snapshot.enemies[i]
@@ -902,14 +1107,10 @@ class OverlaySurfaceView @JvmOverloads constructor(
 
             if (scratchIsoResult.isOnScreen) {
                 // On-Screen Overhead Combat HUD
-                if (config.screenShowOverheadHp) {
-                    drawOverheadCombatHud(canvas, enemy, scratchIsoResult.screenX, scratchIsoResult.screenY, scratchIsoResult.distanceM, config)
-                }
-            } else {
+                drawOverheadCombatHud(canvas, enemy, scratchIsoResult.screenX, scratchIsoResult.screenY, scratchIsoResult.distanceM, config)
+            } else if (config.screenShowEdgeRadar && scratchIsoResult.distanceM <= config.maxRadarDistance) {
                 // Off-Screen Perimeter Edge Radar
-                if (config.screenShowEdgeRadar && scratchIsoResult.distanceM <= config.maxRadarDistance) {
-                    drawOffScreenEdgeRadar(canvas, enemy, scratchIsoResult.screenX, scratchIsoResult.screenY, scratchIsoResult.distanceM, config)
-                }
+                drawOffScreenEdgeRadar(canvas, enemy, scratchIsoResult.screenX, scratchIsoResult.screenY, scratchIsoResult.distanceM, config)
             }
         }
     }
@@ -930,8 +1131,8 @@ class OverlaySurfaceView @JvmOverloads constructor(
         distanceM: Float,
         config: MinimapConfig
     ) {
-        val barWidth = 136.0f * config.hudHpBarScale
-        val barHeight = 12.0f * config.hudHpBarScale
+        val barWidth = 110.0f * config.hudHpBarScale
+        val barHeight = 9.0f * config.hudHpBarScale
         val halfW = barWidth / 2.0f
 
         val left = centerX - halfW
@@ -940,53 +1141,57 @@ class OverlaySurfaceView @JvmOverloads constructor(
         val bottom = centerY + barHeight
 
         // 1. Hero Name & Level Header (Above HP Bar)
-        val heroName = iconCache.getHeroName(enemy.heroId)
-        val levelLabel = "Lv.${enemy.level} $heroName"
-        canvas.drawText(levelLabel, left, top - 20.0f, paintTextHeroName)
+        if (config.screenShowHeroNames) {
+            val heroName = iconCache.getHeroName(enemy.heroId)
+            val levelLabel = "Lv.${enemy.level} $heroName"
+            canvas.drawText(levelLabel, left, top - 18.0f, paintTextHeroName)
+        }
 
         // 2. Cooldown Badges Row (Above HP Bar)
-        if (config.screenShowSkillCooldowns) {
+        if (config.screenShowSkillCooldowns || config.screenShowUltBadge || config.screenShowSpellBadge) {
             drawCooldownBadges(canvas, enemy, centerX, top - 4.0f, config)
         }
 
-        // 3. HP Bar Background
-        scratchHpBgRect.set(left - 1.0f, top - 1.0f, right + 1.0f, bottom + 1.0f)
-        canvas.drawRoundRect(scratchHpBgRect, 3.0f, 3.0f, paintHudBg)
-        canvas.drawRoundRect(scratchHpBgRect, 3.0f, 3.0f, paintHudBorder)
+        // 3. HP Bar Background & Fill
+        if (config.screenShowOverheadHp) {
+            scratchHpBgRect.set(left - 1.0f, top - 1.0f, right + 1.0f, bottom + 1.0f)
+            canvas.drawRoundRect(scratchHpBgRect, 2.5f, 2.5f, paintHudBg)
+            canvas.drawRoundRect(scratchHpBgRect, 2.5f, 2.5f, paintHudBorder)
 
-        // 4. HP Fill Bar (Green / Yellow / Red based on HP percentage)
-        val hpPct = enemy.hpPercent
-        val fillRight = left + (barWidth * hpPct)
-        if (fillRight > left) {
-            scratchHpFillRect.set(left, top, fillRight, bottom)
-            val hpPaint = when {
-                hpPct > 0.45f -> paintHpGreen
-                hpPct > 0.20f -> paintHpYellow
-                else -> paintHpRed
+            val hpPct = enemy.hpPercent
+            val fillRight = left + (barWidth * hpPct)
+            if (fillRight > left) {
+                scratchHpFillRect.set(left, top, fillRight, bottom)
+                val hpPaint = when {
+                    hpPct > 0.45f -> paintHpGreen
+                    hpPct > 0.20f -> paintHpYellow
+                    else -> paintHpRed
+                }
+                canvas.drawRoundRect(scratchHpFillRect, 2.0f, 2.0f, hpPaint)
             }
-            canvas.drawRoundRect(scratchHpFillRect, 2.0f, 2.0f, hpPaint)
-        }
 
-        // 5. Active Physical & Magic Shields Overlay
-        if (config.screenShowShields && (enemy.shield > 0 || enemy.magicShield > 0)) {
-            val shieldPct = enemy.shieldPercent
-            if (shieldPct > 0.0f) {
-                val shieldRight = (fillRight + (barWidth * shieldPct)).coerceAtMost(right)
-                scratchShieldRect.set(fillRight, top, shieldRight, bottom)
-                canvas.drawRect(scratchShieldRect, paintShieldWhite)
+            // Active Physical & Magic Shields Overlay
+            if (config.screenShowShields && (enemy.shield > 0 || enemy.magicShield > 0)) {
+                val totalShield = enemy.shield + enemy.magicShield
+                val shieldPct = if (enemy.hpMax > 0) (totalShield.toFloat() / enemy.hpMax.toFloat()).coerceIn(0.0f, 1.0f) else 0.0f
+                if (shieldPct > 0.0f) {
+                    val shieldRight = (fillRight + (barWidth * shieldPct)).coerceAtMost(right)
+                    scratchShieldRect.set(fillRight, top, shieldRight, bottom)
+                    canvas.drawRect(scratchShieldRect, paintShieldWhite)
+                }
+            }
+
+            // HP Text Readout
+            if (config.screenShowHealthText) {
+                val hpText = "${enemy.hp}/${enemy.hpMax}"
+                canvas.drawText(hpText, centerX, top + barHeight - 1.5f, paintTextHp)
             }
         }
 
-        // 6. HP Text Readout
-        if (config.screenShowHealthText) {
-            val hpText = "${enemy.hp}/${enemy.hpMax}"
-            canvas.drawText(hpText, centerX, top + barHeight - 2.5f, paintTextHp)
-        }
-
-        // 7. Distance Readout (Below HP Bar)
+        // 4. Distance Readout (Below HP Bar)
         if (config.screenShowDistance) {
             val distText = String.format("%.1fm", distanceM)
-            canvas.drawText(distText, centerX, bottom + 13.0f, paintTextDistance)
+            canvas.drawText(distText, centerX, bottom + 12.0f, paintTextDistance)
         }
     }
 
@@ -1006,42 +1211,44 @@ class OverlaySurfaceView @JvmOverloads constructor(
         val badgeRadius = config.hudBadgeRadius
         val spacing = badgeRadius * 2.44f
 
-        val ult = enemy.ultimateAbility
-        val s1 = enemy.getAbility(1)
-        val s2 = enemy.getAbility(2)
-        val spell = if (config.screenShowBattleSpell) enemy.battleSpell else null
+        val ult = if (config.screenShowUltBadge) (enemy.ultimateAbility ?: enemy.getAbility(3)) else null
+        val s1 = if (config.screenShowSkillCooldowns) enemy.getAbility(1) else null
+        val s2 = if (config.screenShowSkillCooldowns) enemy.getAbility(2) else null
+        val spell = if (config.screenShowSpellBadge && config.screenShowBattleSpell) (enemy.battleSpell ?: enemy.getAbility(5)) else null
 
-        val activeCount = (if (s1 != null && s1.spellId > 0) 1 else 0) +
-                (if (s2 != null && s2.spellId > 0) 1 else 0) +
-                (if (ult != null) 1 else 0) +
-                (if (spell != null) 1 else 0)
+        val activeCount = (if (s1 != null || config.screenShowSkillCooldowns) 1 else 0) +
+                (if (s2 != null || config.screenShowSkillCooldowns) 1 else 0) +
+                (if (ult != null || config.screenShowUltBadge) 1 else 0) +
+                (if (spell != null || config.screenShowSpellBadge) 1 else 0)
+
+        if (activeCount == 0) return
 
         val totalW = (activeCount.coerceAtLeast(1) - 1) * spacing
         var currentX = centerX - (totalW / 2.0f)
         val cy = badgeBottomY - badgeRadius
 
         // 1. Skill 1 Badge
-        if (s1 != null && s1.spellId > 0) {
-            drawCircularSkillBadge(canvas, s1, currentX, cy, badgeRadius, isUlt = false)
+        if (config.screenShowSkillCooldowns) {
+            drawCircularSkillBadge(canvas, enemy.heroId, 1, s1, currentX, cy, badgeRadius, isUlt = false)
             currentX += spacing
         }
 
         // 2. Skill 2 Badge
-        if (s2 != null && s2.spellId > 0) {
-            drawCircularSkillBadge(canvas, s2, currentX, cy, badgeRadius, isUlt = false)
+        if (config.screenShowSkillCooldowns) {
+            drawCircularSkillBadge(canvas, enemy.heroId, 2, s2, currentX, cy, badgeRadius, isUlt = false)
             currentX += spacing
         }
 
-        // 3. Ultimate Badge (Slot 3 or 4)
-        if (ult != null) {
+        // 3. Ultimate Badge (Slot 3)
+        if (config.screenShowUltBadge) {
             val ultRadius = badgeRadius * 1.22f
-            drawCircularSkillBadge(canvas, ult, currentX, cy, ultRadius, isUlt = true)
+            drawCircularSkillBadge(canvas, enemy.heroId, 3, ult, currentX, cy, ultRadius, isUlt = true)
             currentX += spacing
         }
 
         // 4. Battle Spell Badge
-        if (spell != null) {
-            drawCircularSpellBadge(canvas, spell, currentX, cy, badgeRadius)
+        if (config.screenShowSpellBadge && config.screenShowBattleSpell) {
+            drawCircularSpellBadge(canvas, enemy.heroId, spell, currentX, cy, badgeRadius)
         }
     }
 
@@ -1050,44 +1257,47 @@ class OverlaySurfaceView @JvmOverloads constructor(
      */
     private fun drawCircularSkillBadge(
         canvas: Canvas,
-        ability: AbilityInfo,
+        heroId: Int,
+        slot: Int,
+        ability: AbilityInfo?,
         cx: Float,
         cy: Float,
         radius: Float,
         isUlt: Boolean
     ) {
         val diameter = (radius * 2.0f).toInt()
-        val iconBitmap = if (ability.spellId > 0) iconCache.getSkillIcon(ability.spellId, diameter) else null
+        val spellId = if (ability != null && ability.spellId > 0) ability.spellId else (heroId * 100 + slot * 10)
+        val iconBitmap = iconCache.getHeroAbilityIcon(heroId, slot, spellId, diameter)
 
         // 1. Draw Base Icon / Solid Fill
         if (iconBitmap != null) {
             scratchDstRect.set(cx - radius, cy - radius, cx + radius, cy + radius)
             canvas.drawBitmap(iconBitmap, null, scratchDstRect, paintBitmapFilter)
         } else {
-            val fillPaint = if (ability.isReady) (if (isUlt) paintBadgeReady else paintBadgeSpell) else paintBadgeCd
+            val fillPaint = if (ability?.isReady != false) (if (isUlt) paintBadgeReady else paintBadgeSpell) else paintBadgeCd
             canvas.drawCircle(cx, cy, radius, fillPaint)
         }
 
+        val isOnCd = (ability != null && ability.isCoolingDown && ability.remainingSeconds > 0.05f)
+
         // 2. Radial Cooldown Sweep Arc Overlay
-        if (!ability.isReady) {
-            val progress = ability.cooldownProgress
+        if (isOnCd) {
+            canvas.drawCircle(cx, cy, radius, paintBadgeCdDark)
+            val progress = ability?.cooldownProgress ?: 0.5f
             val sweepAngle = progress * 360.0f
             scratchSweepRect.set(cx - radius, cy - radius, cx + radius, cy + radius)
             canvas.drawArc(scratchSweepRect, -90.0f, sweepAngle, true, paintCooldownSweep)
 
             // Cooldown Number
-            val cdText = if (ability.remainingSeconds >= 10.0f) {
-                "${ability.remainingSeconds.toInt()}"
-            } else {
-                String.format("%.1f", ability.remainingSeconds)
-            }
+            val remS = ability?.remainingSeconds ?: 0.0f
+            val cdText = if (remS >= 10.0f) "${remS.toInt()}" else String.format("%.1f", remS)
             canvas.drawText(cdText, cx, cy + 3.0f, paintTextBadge)
         } else if (isUlt) {
             canvas.drawText("RDY", cx, cy + 3.0f, paintTextBadge)
         }
 
         // 3. Outer Border Ring
-        val borderPaint = if (ability.isReady) (if (isUlt) paintBorderSelf else paintBorderAlly) else paintBorderEnemy
+        val borderPaint = if (!isOnCd) (if (isUlt) paintBadgeReadyBorder else paintBorderAlly) else paintBorderEnemy
         canvas.drawCircle(cx, cy, radius, borderPaint)
     }
 
@@ -1096,33 +1306,39 @@ class OverlaySurfaceView @JvmOverloads constructor(
      */
     private fun drawCircularSpellBadge(
         canvas: Canvas,
-        spell: AbilityInfo,
+        heroId: Int,
+        spell: AbilityInfo?,
         cx: Float,
         cy: Float,
         radius: Float
     ) {
         val diameter = (radius * 2.0f).toInt()
-        val iconBitmap = if (spell.spellId > 0) iconCache.getSpellIcon(spell.spellId, diameter) else null
+        val spellId = if (spell != null && spell.spellId > 0) spell.spellId else 20001
+        val iconBitmap = iconCache.getHeroAbilityIcon(heroId, 5, spellId, diameter)
 
         if (iconBitmap != null) {
             scratchDstRect.set(cx - radius, cy - radius, cx + radius, cy + radius)
             canvas.drawBitmap(iconBitmap, null, scratchDstRect, paintBitmapFilter)
         } else {
-            val fillPaint = if (spell.isReady) paintBadgeSpell else paintBadgeCd
+            val fillPaint = if (spell?.isReady != false) paintBadgeSpell else paintBadgeCd
             canvas.drawCircle(cx, cy, radius, fillPaint)
         }
 
-        if (!spell.isReady) {
-            val progress = spell.cooldownProgress
+        val isOnCd = (spell != null && spell.isCoolingDown && spell.remainingSeconds > 0.05f)
+
+        if (isOnCd) {
+            canvas.drawCircle(cx, cy, radius, paintBadgeCdDark)
+            val progress = spell?.cooldownProgress ?: 0.5f
             val sweepAngle = progress * 360.0f
             scratchSweepRect.set(cx - radius, cy - radius, cx + radius, cy + radius)
             canvas.drawArc(scratchSweepRect, -90.0f, sweepAngle, true, paintCooldownSweep)
 
-            val cdText = "${spell.remainingSeconds.toInt()}s"
+            val remS = spell?.remainingSeconds ?: 0.0f
+            val cdText = "${remS.toInt()}s"
             canvas.drawText(cdText, cx, cy + 3.0f, paintTextBadge)
         }
 
-        val borderPaint = if (spell.isReady) paintBorderAlly else paintBorderEnemy
+        val borderPaint = if (!isOnCd) paintBorderAlly else paintBorderEnemy
         canvas.drawCircle(cx, cy, radius, borderPaint)
     }
 

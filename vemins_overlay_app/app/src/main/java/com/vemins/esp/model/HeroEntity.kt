@@ -153,13 +153,23 @@ data class HeroEntity(
      */
     fun getAbility(slot: Int): AbilityInfo? {
         return abilities.firstOrNull { it.slot == slot }
+            ?: when (slot) {
+                1 -> abilities.firstOrNull { it.spellId % 100 == 10 || it.spellId == heroId * 100 + 10 } ?: abilities.getOrNull(0)
+                2 -> abilities.firstOrNull { it.spellId % 100 == 20 || it.spellId == heroId * 100 + 20 } ?: abilities.getOrNull(1)
+                3, 4 -> abilities.firstOrNull { it.spellId % 100 == 30 || it.spellId % 100 == 40 || it.spellId == heroId * 100 + 30 } ?: abilities.getOrNull(2)
+                5 -> abilities.firstOrNull { it.spellId in 20000..299999 } ?: abilities.getOrNull(3)
+                else -> null
+            }
     }
 
     /**
      * Direct reference to Ultimate skill (slot 3 or slot 4 depending on hero archetype).
      */
     val ultimateAbility: AbilityInfo?
-        get() = abilities.firstOrNull { it.slot == 3 || it.slot == 4 } ?: abilities.getOrNull(2)
+        get() = abilities.firstOrNull { it.slot == 3 || it.slot == 4 }
+            ?: abilities.firstOrNull { it.spellId % 100 == 30 || it.spellId % 100 == 40 || it.spellId == heroId * 100 + 30 }
+            ?: abilities.firstOrNull { it.spellId !in 20000..299999 && (it.spellId % 100 != 10 && it.spellId % 100 != 20) && it.spellId > 0 }
+            ?: abilities.getOrNull(2)
 
     /**
      * Returns true if ultimate ability is ready to fire.

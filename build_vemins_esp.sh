@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 # ==============================================================================
 # build_vemins_esp.sh — Build Native Android On-Screen ESP Overlay Executable
 # Compiles with Android NDK Bionic clang++ (targeting /system/bin/linker64).

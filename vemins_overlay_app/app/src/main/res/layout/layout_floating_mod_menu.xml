@@ -113,9 +113,21 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:layout_marginEnd="2dp"
             android:background="@drawable/bg_step_button"
             android:text="WIDE"
             android:textColor="@color/vemins_text_secondary"
+            android:textSize="9sp" />
+
+        <Button
+            android:id="@+id/btnModForce120Hz"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.3"
+            android:background="@drawable/bg_badge_green"
+            android:text="⚡ 120Hz"
+            android:textColor="@color/vemins_green"
+            android:textStyle="bold"
             android:textSize="9sp" />
     </LinearLayout>
 
@@ -516,6 +528,317 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
+                <!-- Minimap Rotation (0° - 360°) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Rotation (0°-360°)"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/tvValMinimapRotation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0°"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnDecMinimapRotation"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="-"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <SeekBar
+                        android:id="@+id/sbModMinimapRotation"
+                        style="@style/CyberSlider"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:max="360"
+                        android:progress="0" />
+
+                    <Button
+                        android:id="@+id/btnIncMinimapRotation"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="+"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Radar Zoom / Spread Scale -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Radar Zoom (%)"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/tvValMinimapZoom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="100%"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnDecMinimapZoom"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="-"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <SeekBar
+                        android:id="@+id/sbModMinimapZoom"
+                        style="@style/CyberSlider"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:max="200"
+                        android:progress="100" />
+
+                    <Button
+                        android:id="@+id/btnIncMinimapZoom"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="+"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Stretch X -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Stretch X (%)"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/tvValStretchX"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="100%"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnDecStretchX"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="-"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <SeekBar
+                        android:id="@+id/sbModStretchX"
+                        style="@style/CyberSlider"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:max="200"
+                        android:progress="100" />
+
+                    <Button
+                        android:id="@+id/btnIncStretchX"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="+"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Stretch Y -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Stretch Y (%)"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/tvValStretchY"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="100%"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnDecStretchY"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="-"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <SeekBar
+                        android:id="@+id/sbModStretchY"
+                        style="@style/CyberSlider"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:max="200"
+                        android:progress="100" />
+
+                    <Button
+                        android:id="@+id/btnIncStretchY"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="+"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Quick Rotation Preset Buttons in Mod Menu -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="4dp">
+
+                    <Button
+                        android:id="@+id/btnModRot0"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="2dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="0°"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="8sp" />
+
+                    <Button
+                        android:id="@+id/btnModRot45"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="2dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="45°"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="8sp" />
+
+                    <Button
+                        android:id="@+id/btnModRot90"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="2dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="90°"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="8sp" />
+
+                    <Button
+                        android:id="@+id/btnModRot180"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="2dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="180°"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="8sp" />
+
+                    <Button
+                        android:id="@+id/btnModRot270"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_step_button"
+                        android:text="270°"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="8sp" />
+                </LinearLayout>
+
                 <!-- Toggles -->
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -528,23 +851,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="45° Diamond"
-                        android:textColor="@color/vemins_text_primary"
-                        android:textSize="11sp" />
-
-                    <Switch
-                        android:id="@+id/switchModDiamond"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:scaleX="0.8"
-                        android:scaleY="0.8" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="8dp"
-                        android:text="Invert Y"
+                        android:text="Invert Y Axis"
                         android:textColor="@color/vemins_text_primary"
                         android:textSize="11sp" />
 
@@ -568,20 +875,30 @@
                 android:orientation="vertical"
                 android:visibility="gone">
 
-                <!-- HUD Skill & Ult Badge Size (PROMINENT AT TOP) -->
+                <!-- SECTION 1: OVERHEAD 3D HUD -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="── 3D OVERHEAD HUD (ABOVE ENEMY HEADS) ──"
+                    android:textColor="@color/vemins_cyan"
+                    android:textStyle="bold"
+                    android:textSize="10sp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="4dp" />
+
+                <!-- HUD Skill & Ult Badge Size -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="2dp">
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="★ HUD BADGE SIZE"
-                        android:textColor="@color/vemins_cyan"
+                        android:text="Skill &amp; Ult Badge Size"
+                        android:textColor="@color/vemins_text_primary"
                         android:textStyle="bold"
                         android:textSize="11sp" />
 
@@ -632,7 +949,7 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <!-- HP Bar Scale (PROMINENT AT TOP) -->
+                <!-- HP Bar Scale -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -644,8 +961,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="★ HP BAR SCALE"
-                        android:textColor="@color/vemins_cyan"
+                        android:text="Overhead HP Bar Width"
+                        android:textColor="@color/vemins_text_primary"
                         android:textStyle="bold"
                         android:textSize="11sp" />
 
@@ -696,7 +1013,7 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <!-- Scale X -->
+                <!-- HUD Overhead Height -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -708,133 +1025,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Scale X (Zoom)"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="11sp" />
-
-                    <TextView
-                        android:id="@+id/tvValScaleX"
-                        android:layout_width="35dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:text="38.0"
-                        android:textColor="@color/vemins_cyan"
-                        android:textSize="11sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/btnDecScaleX"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/bg_step_button"
-                        android:text="-"
-                        android:textColor="@color/vemins_cyan"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                    <SeekBar
-                        android:id="@+id/sbModScaleX"
-                        style="@style/CyberSlider"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:max="800"
-                        android:progress="380" />
-
-                    <Button
-                        android:id="@+id/btnIncScaleX"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/bg_step_button"
-                        android:text="+"
-                        android:textColor="@color/vemins_cyan"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <!-- Scale Y -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="4dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Scale Y (Zoom)"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="11sp" />
-
-                    <TextView
-                        android:id="@+id/tvValScaleY"
-                        android:layout_width="35dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:text="27.0"
-                        android:textColor="@color/vemins_cyan"
-                        android:textSize="11sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/btnDecScaleY"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/bg_step_button"
-                        android:text="-"
-                        android:textColor="@color/vemins_cyan"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                    <SeekBar
-                        android:id="@+id/sbModScaleY"
-                        style="@style/CyberSlider"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:max="600"
-                        android:progress="270" />
-
-                    <Button
-                        android:id="@+id/btnIncScaleY"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/bg_step_button"
-                        android:text="+"
-                        android:textColor="@color/vemins_cyan"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <!-- HUD Overhead Lift -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="4dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Overhead Lift"
+                        android:text="Floating Height (Above Head)"
                         android:textColor="@color/vemins_text_secondary"
                         android:textSize="11sp" />
 
@@ -885,7 +1076,7 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <!-- Edge Margin -->
+                <!-- 3D Alignment Spread X -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -897,16 +1088,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Edge Margin"
+                        android:text="3D Spread Width (Scale X)"
                         android:textColor="@color/vemins_text_secondary"
                         android:textSize="11sp" />
 
                     <TextView
-                        android:id="@+id/tvValEdgeMargin"
+                        android:id="@+id/tvValScaleX"
                         android:layout_width="35dp"
                         android:layout_height="wrap_content"
                         android:gravity="end"
-                        android:text="45"
+                        android:text="38.0"
                         android:textColor="@color/vemins_cyan"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -919,7 +1110,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/btnDecEdgeMargin"
+                        android:id="@+id/btnDecScaleX"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:background="@drawable/bg_step_button"
@@ -929,16 +1120,16 @@
                         android:textStyle="bold" />
 
                     <SeekBar
-                        android:id="@+id/sbModEdgeMargin"
+                        android:id="@+id/sbModScaleX"
                         style="@style/CyberSlider"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:max="120"
-                        android:progress="45" />
+                        android:max="800"
+                        android:progress="380" />
 
                     <Button
-                        android:id="@+id/btnIncEdgeMargin"
+                        android:id="@+id/btnIncScaleX"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:background="@drawable/bg_step_button"
@@ -948,7 +1139,7 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <!-- Max Detection Distance -->
+                <!-- 3D Alignment Depth Y -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -960,16 +1151,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Max Detection Dist"
+                        android:text="3D Distance Depth (Scale Y)"
                         android:textColor="@color/vemins_text_secondary"
                         android:textSize="11sp" />
 
                     <TextView
-                        android:id="@+id/tvValMaxDist"
+                        android:id="@+id/tvValScaleY"
                         android:layout_width="35dp"
                         android:layout_height="wrap_content"
                         android:gravity="end"
-                        android:text="45m"
+                        android:text="27.0"
                         android:textColor="@color/vemins_cyan"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -982,7 +1173,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/btnDecMaxDist"
+                        android:id="@+id/btnDecScaleY"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:background="@drawable/bg_step_button"
@@ -992,16 +1183,16 @@
                         android:textStyle="bold" />
 
                     <SeekBar
-                        android:id="@+id/sbModMaxDist"
+                        android:id="@+id/sbModScaleY"
                         style="@style/CyberSlider"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:max="90"
-                        android:progress="45" />
+                        android:max="600"
+                        android:progress="270" />
 
                     <Button
-                        android:id="@+id/btnIncMaxDist"
+                        android:id="@+id/btnIncScaleY"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:background="@drawable/bg_step_button"
@@ -1010,20 +1201,192 @@
                         android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
+
+                <!-- SECTION 2: TOP SCREEN STATUS BAR -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="── TOP SCREEN STATUS BAR (ALL 5 ENEMIES) ──"
+                    android:textColor="@color/vemins_cyan"
+                    android:textStyle="bold"
+                    android:textSize="10sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="4dp" />
+
+                <!-- Top Enemy CD Bar Switch -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Show Top 5-Enemy Status Strip"
+                        android:textColor="@color/vemins_text_primary"
+                        android:textStyle="bold"
+                        android:textSize="11sp" />
+
+                    <Switch
+                        android:id="@+id/switchModTopCdBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:scaleX="0.8"
+                        android:scaleY="0.8" />
+                </LinearLayout>
+
+                <!-- Top CD Bar Y Position -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Top Strip Distance From Notch"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tvValTopCdBarY"
+                        android:layout_width="35dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="28"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnDecTopCdBarY"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="-"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <SeekBar
+                        android:id="@+id/sbModTopCdBarY"
+                        style="@style/CyberSlider"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:max="150"
+                        android:progress="28" />
+
+                    <Button
+                        android:id="@+id/btnIncTopCdBarY"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="+"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Top CD Bar Scale -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Top Strip Size / Zoom"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tvValTopCdBarScale"
+                        android:layout_width="35dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="100%"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnDecTopCdBarScale"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="-"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <SeekBar
+                        android:id="@+id/sbModTopCdBarScale"
+                        style="@style/CyberSlider"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:max="200"
+                        android:progress="100" />
+
+                    <Button
+                        android:id="@+id/btnIncTopCdBarScale"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="+"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- SECTION 3: IN-GAME CAMERA MODE -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="── GAME CAMERA SETTING ──"
+                    android:textColor="@color/vemins_cyan"
+                    android:textStyle="bold"
+                    android:textSize="10sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="4dp" />
 
                 <!-- High Camera Toggle -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="6dp">
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="High Camera Mode"
+                        android:text="High Camera Mode (Matches Game Setting)"
                         android:textColor="@color/vemins_text_primary"
                         android:textSize="11sp" />
 
@@ -1445,6 +1808,35 @@
                     android:textSize="11sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="6dp" />
+
+                <!-- Anti-Recording Mode Switch -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_glass_card"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="4dp"
+                    android:layout_marginBottom="6dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="🛡️ Hide in Recording (SECURE)"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <Switch
+                        android:id="@+id/swModHideInRecording"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:scaleX="0.8"
+                        android:scaleY="0.8" />
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/btnModRestartDaemon"

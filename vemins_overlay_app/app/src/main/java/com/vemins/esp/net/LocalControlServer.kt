@@ -133,7 +133,7 @@ class LocalControlServer(
             val parts = requestLine.trim().split(" ")
             if (parts.size < 2) return
 
-            val method = parts[0].toUpperCase()
+            val method = parts[0].uppercase()
             val fullPath = parts[1]
             val path = fullPath.split("?")[0]
 
@@ -142,7 +142,7 @@ class LocalControlServer(
             while (!line.isNullOrEmpty()) {
                 val headerParts = line.split(":", limit = 2)
                 if (headerParts.size == 2) {
-                    headers[headerParts[0].trim().toLowerCase()] = headerParts[1].trim()
+                    headers[headerParts[0].trim().lowercase()] = headerParts[1].trim()
                 }
                 line = reader.readLine()
             }

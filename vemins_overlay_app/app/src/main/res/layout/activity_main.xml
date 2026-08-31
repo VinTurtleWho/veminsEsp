@@ -687,22 +687,225 @@
                     android:max="25"
                     android:progress="9" />
 
-                <!-- CheckBoxes: Diamond & Invert Y -->
-                <CheckBox
-                    android:id="@+id/cbMinimapDiamond"
+                <!-- Minimap Radar Rotation (0° - 360°) -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:buttonTint="@color/vemins_white"
-                    android:text="45° Diamond Radar Rotation"
-                    android:textColor="@color/vemins_text_primary"
-                    android:textSize="13sp" />
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Radar Rotation (0° - 360°)"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/etMinimapRotation"
+                        android:layout_width="65dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:text="0"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/sbMinimapRotation"
+                    style="@style/CyberSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="360"
+                    android:progress="0" />
+
+                <!-- Radar Zoom / Spread Scaling -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Radar Zoom / Spread Scale (%)"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/etMinimapZoom"
+                        android:layout_width="65dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:text="100"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/sbMinimapZoom"
+                    style="@style/CyberSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="200"
+                    android:progress="100" />
+
+                <!-- Radar Horizontal Stretch X -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Radar Horizontal Stretch X (%)"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/etStretchX"
+                        android:layout_width="65dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:text="100"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/sbStretchX"
+                    style="@style/CyberSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="200"
+                    android:progress="100" />
+
+                <!-- Radar Vertical Stretch Y -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Radar Vertical Stretch Y (%)"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/etStretchY"
+                        android:layout_width="65dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_input_field"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:text="100"
+                        android:textColor="@color/vemins_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/sbStretchY"
+                    style="@style/CyberSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="200"
+                    android:progress="100" />
+
+                <!-- Quick Rotation Preset Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnRot0"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="3dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="0°"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="10sp" />
+
+                    <Button
+                        android:id="@+id/btnRot45"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="3dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="45°"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="10sp" />
+
+                    <Button
+                        android:id="@+id/btnRot90"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="3dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="90°"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="10sp" />
+
+                    <Button
+                        android:id="@+id/btnRot180"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="3dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="180°"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="10sp" />
+
+                    <Button
+                        android:id="@+id/btnRot270"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_step_button"
+                        android:text="270°"
+                        android:textColor="@color/vemins_text_secondary"
+                        android:textSize="10sp" />
+                </LinearLayout>
 
                 <CheckBox
                     android:id="@+id/cbMinimapInvertY"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="12dp"
                     android:buttonTint="@color/vemins_white"
                     android:checked="true"
                     android:text="Invert Minimap Y-Axis (MLBB Standard)"
@@ -725,7 +928,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3D-to-2D Isometric Camera Calibration"
+                    android:text="3D Combat &amp; Overhead HUD Calibration"
                     android:textColor="@color/vemins_text_primary"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -734,7 +937,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="Tune camera zoom scales, overhead vertical lift, and screen edge margin."
+                    android:text="Calibrate 3D character alignment, overhead bar height, and top-of-screen status strip."
                     android:textColor="@color/vemins_text_muted"
                     android:textSize="11sp" />
 
@@ -750,7 +953,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Camera Zoom Scale X"
+                        android:text="3D Spread Width (Scale X)"
                         android:textColor="@color/vemins_text_secondary"
                         android:textSize="13sp" />
 
@@ -788,7 +991,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Camera Zoom Scale Y"
+                        android:text="3D Distance Depth (Scale Y)"
                         android:textColor="@color/vemins_text_secondary"
                         android:textSize="13sp" />
 
@@ -814,7 +1017,7 @@
                     android:max="600"
                     android:progress="270" />
 
-                <!-- Overhead Lift / HUD Offset Y -->
+                <!-- Overhead Height / HUD Offset Y -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -826,7 +1029,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Overhead Vertical Lift (HUD Offset Y)"
+                        android:text="Floating Height (Above Head)"
                         android:textColor="@color/vemins_text_secondary"
                         android:textSize="13sp" />
 
@@ -852,11 +1055,23 @@
                     android:max="180"
                     android:progress="65" />
 
-                <!-- Edge Margin -->
+                <!-- Top-of-Screen Enemy CD Bar Toggle & Position -->
+                <CheckBox
+                    android:id="@+id/cbShowTopCdBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:buttonTint="@color/vemins_white"
+                    android:checked="true"
+                    android:text="Top Screen Status Strip (All 5 Enemies)"
+                    android:textColor="@color/vemins_cyan"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="8dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -864,37 +1079,37 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Edge Radar Screen Margin"
+                        android:text="Top Strip Distance From Notch"
                         android:textColor="@color/vemins_text_secondary"
                         android:textSize="13sp" />
 
                     <EditText
-                        android:id="@+id/etEdgeMargin"
+                        android:id="@+id/etTopCdBarY"
                         android:layout_width="65dp"
                         android:layout_height="34dp"
                         android:background="@drawable/bg_input_field"
                         android:gravity="center"
                         android:inputType="number"
-                        android:text="45"
+                        android:text="28"
                         android:textColor="@color/vemins_white"
                         android:textSize="13sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
                 <SeekBar
-                    android:id="@+id/sbEdgeMargin"
+                    android:id="@+id/sbTopCdBarY"
                     style="@style/CyberSlider"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:max="120"
-                    android:progress="45" />
+                    android:max="150"
+                    android:progress="28" />
 
-                <!-- Max Radar Distance -->
+                <!-- Top CD Bar Scale -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="8dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -902,31 +1117,31 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Max Edge Detection Distance (Meters)"
+                        android:text="Top Capsule Scale (%)"
                         android:textColor="@color/vemins_text_secondary"
                         android:textSize="13sp" />
 
                     <EditText
-                        android:id="@+id/etMaxRadarDistance"
+                        android:id="@+id/etTopCdBarScale"
                         android:layout_width="65dp"
                         android:layout_height="34dp"
                         android:background="@drawable/bg_input_field"
                         android:gravity="center"
                         android:inputType="number"
-                        android:text="45"
+                        android:text="100"
                         android:textColor="@color/vemins_white"
                         android:textSize="13sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
                 <SeekBar
-                    android:id="@+id/sbMaxRadarDistance"
+                    android:id="@+id/sbTopCdBarScale"
                     style="@style/CyberSlider"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:max="90"
-                    android:progress="45" />
+                    android:max="200"
+                    android:progress="100" />
 
                 <!-- HUD Badge Size -->
                 <LinearLayout
@@ -940,7 +1155,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Overhead HUD Skill &amp; Spell Badge Size"
+                        android:text="Skill &amp; Ult Badge Radius (Circle Size)"
                         android:textColor="@color/vemins_text_secondary"
                         android:textSize="13sp" />
 
@@ -978,7 +1193,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Overhead HP Bar Scaling (%)"
+                        android:text="Overhead HP &amp; Shield Bar Scale (%)"
                         android:textColor="@color/vemins_text_secondary"
                         android:textSize="13sp" />
 
@@ -1165,6 +1380,19 @@
                     android:text="Off-Screen Edge Radar (Chevrons)"
                     android:textColor="@color/vemins_text_primary"
                     android:textSize="13sp" />
+
+                <!-- Anti-Recording / Streamer Mode -->
+                <CheckBox
+                    android:id="@+id/cbHideInRecording"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:buttonTint="@color/vemins_white"
+                    android:checked="false"
+                    android:text="🛡️ Hide in Screen Recording / Screenshots (FLAG_SECURE)"
+                    android:textColor="@color/vemins_cyan"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <!-- ============================================================= -->

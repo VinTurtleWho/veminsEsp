@@ -1,16 +1,17 @@
-#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/bash
 set -e
 
 # ==============================================================================
 # VeminsESP — Standalone CLI Build System
-# Compiles Android Application using local SDK tools: AAPT2, D8, Kotlinc, apksigner
+# Compiles Native C++ libvemins_engine.so + Kotlin/Android App
+# Built with: Clang++, AAPT2, D8, Kotlinc, apksigner
 # ==============================================================================
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
 echo "================================================================================"
-echo " [VEMINS ESP] Building Android Floating Overlay App (VeminsESP)"
+echo " [VEMINS ESP] Building Native Perception Engine & Android Overlay App"
 echo " Project Root: $SCRIPT_DIR"
 echo "================================================================================"
 
@@ -38,7 +39,7 @@ fi
 echo "[+] Using Android SDK: $SDK_DIR"
 
 # 2. Locate Android Platform JAR
-ANDROID_JAR="$SDK_DIR/platforms/android-36/android.jar"
+ANDROID_JAR="$SDK_DIR/platforms/android-35/android.jar"
 if [ ! -f "$ANDROID_JAR" ]; then
     ANDROID_JAR=$(find "$SDK_DIR/platforms" -name "android.jar" | sort -V | tail -n 1)
 fi
@@ -48,72 +49,66 @@ if [ -z "$ANDROID_JAR" ] || [ ! -f "$ANDROID_JAR" ]; then
 fi
 echo "[+] Using Android Platform JAR: $ANDROID_JAR"
 
-# 3. Locate Build Tools (AAPT2, D8, Zipalign, apksigner)
+# 3. Locate Build Tools (AAPT2, D8, apksigner, Kotlinc, Clang++)
 AAPT2_BIN="/data/data/com.termux/files/usr/bin/aapt2"
 if [ ! -x "$AAPT2_BIN" ]; then
     AAPT2_BIN=$(which aapt2 2>/dev/null || find "$SDK_DIR/build-tools" -name "aapt2" | sort -V | tail -n 1)
 fi
 
-D8_JAR="$SDK_DIR/build-tools/35.0.0/lib/d8.jar"
+D8_BIN=$(which d8 2>/dev/null || true)
+D8_JAR="/data/data/com.termux/files/usr/share/java/d8.jar"
 if [ ! -f "$D8_JAR" ]; then
-    D8_JAR=$(find "$SDK_DIR/build-tools" -name "d8.jar" | sort -V | tail -n 1)
+    D8_JAR=$(find "$SDK_DIR/build-tools" -name "d8.jar" 2>/dev/null | sort -V | tail -n 1)
 fi
 
-APKSIGNER_JAR="$SDK_DIR/build-tools/35.0.0/lib/apksigner.jar"
+APKSIGNER_BIN=$(which apksigner 2>/dev/null || true)
+APKSIGNER_JAR="/data/data/com.termux/files/usr/share/java/apksigner.jar"
 if [ ! -f "$APKSIGNER_JAR" ]; then
-    APKSIGNER_JAR=$(find "$SDK_DIR/build-tools" -name "apksigner.jar" | sort -V | tail -n 1)
+    APKSIGNER_JAR=$(find "$SDK_DIR/build-tools" -name "apksigner.jar" 2>/dev/null | sort -V | tail -n 1)
 fi
 
-ZIPALIGN_BIN=$(which zipalign 2>/dev/null || find "$SDK_DIR/build-tools" -name "zipalign" | sort -V | tail -n 1)
+ZIPALIGN_BIN=$(which zipalign 2>/dev/null || find "$SDK_DIR/build-tools" -name "zipalign" 2>/dev/null | sort -V | tail -n 1 || true)
 
-if [ -z "$AAPT2_BIN" ]; then
-    echo "[-] Error: aapt2 not found."
-    exit 1
-fi
-if [ -z "$D8_JAR" ]; then
-    echo "[-] Error: d8.jar not found."
-    exit 1
-fi
-if [ -z "$ZIPALIGN_BIN" ]; then
-    echo "[-] Error: zipalign not found."
-    exit 1
+KOTLIN_STDLIB_JAR="/data/data/com.termux/files/usr/opt/kotlin/lib/kotlin-stdlib.jar"
+if [ ! -f "$KOTLIN_STDLIB_JAR" ]; then
+    KOTLIN_STDLIB_JAR=$(find /data/data/com.termux/files/usr/ /usr/share/ -name "kotlin-stdlib.jar" 2>/dev/null | head -n 1)
 fi
 
 echo "[+] AAPT2: $AAPT2_BIN"
-echo "[+] D8: $D8_JAR"
-echo "[+] Zipalign: $ZIPALIGN_BIN"
-echo "[+] apksigner: $APKSIGNER_JAR"
-
-# 4. Locate Kotlin Compiler & Standard Library
-GRADLE_KOTLIN_DIR="/data/data/com.termux/files/home/.gradle/wrapper/dists/gradle-8.14.3-bin/cv11ve7ro1n3o1j4so8xd9n66/gradle-8.14.3/lib"
-if [ ! -d "$GRADLE_KOTLIN_DIR" ]; then
-    GRADLE_KOTLIN_DIR=$(find /data/data/com.termux/files/home/.gradle/ /root/.gradle/ -name "gradle-8.14.3" -type d 2>/dev/null | head -n 1)/lib
-fi
-
-KOTLIN_STDLIB_JAR=$(find "$GRADLE_KOTLIN_DIR" -name "kotlin-stdlib-2*.jar" 2>/dev/null | head -n 1)
-if [ -z "$KOTLIN_STDLIB_JAR" ] || [ ! -f "$KOTLIN_STDLIB_JAR" ]; then
-    KOTLIN_STDLIB_JAR=$(find /data/data/com.termux/files/home/.gradle/ /root/.gradle/ -name "kotlin-stdlib-2*.jar" 2>/dev/null | head -n 1)
-fi
-if [ -z "$KOTLIN_STDLIB_JAR" ] || [ ! -f "$KOTLIN_STDLIB_JAR" ]; then
-    KOTLIN_STDLIB_JAR="/usr/share/java/kotlin-stdlib.jar"
-fi
-
-echo "[+] Kotlin Compiler Dir: $GRADLE_KOTLIN_DIR"
+echo "[+] D8: ${D8_BIN:-$D8_JAR}"
+echo "[+] apksigner: ${APKSIGNER_BIN:-$APKSIGNER_JAR}"
 echo "[+] Kotlin StdLib: $KOTLIN_STDLIB_JAR"
 
-# 5. Prepare Build Directories
+# 4. Prepare Build Directories
 BUILD_DIR="$SCRIPT_DIR/build"
 GEN_DIR="$BUILD_DIR/gen"
 CLASSES_DIR="$BUILD_DIR/classes"
 R_CLASSES_DIR="$BUILD_DIR/r_classes"
 DEX_DIR="$BUILD_DIR/dex"
+JNILIBS_DIR="$SCRIPT_DIR/app/src/main/jniLibs/arm64-v8a"
 OUT_APK="$SCRIPT_DIR/veminsEsp.apk"
 
 rm -rf "$BUILD_DIR"
-mkdir -p "$GEN_DIR" "$CLASSES_DIR" "$R_CLASSES_DIR" "$DEX_DIR"
+mkdir -p "$GEN_DIR" "$CLASSES_DIR" "$R_CLASSES_DIR" "$DEX_DIR" "$JNILIBS_DIR"
+
+# 5. Compile Native C++ Perception Engine (libvemins_engine.so)
+echo "[*] Step 1/7: Compiling Native C++ Engine (libvemins_engine.so)..."
+clang++ -O3 -ffast-math -flto -fPIC -shared -Wall -Wextra -Werror -nostdlib++ \
+    -Wl,-soname,libvemins_engine.so \
+    -I app/src/main/cpp \
+    app/src/main/cpp/memory_reader.cpp \
+    app/src/main/cpp/jni_bridge.cpp \
+    -lc -lm -ldl -llog -landroid \
+    -o "$JNILIBS_DIR/libvemins_engine.so"
+
+if [ -f "/data/data/com.termux/files/usr/lib/libc++_shared.so" ]; then
+    cp -f "/data/data/com.termux/files/usr/lib/libc++_shared.so" "$JNILIBS_DIR/" 2>/dev/null || true
+fi
+
+echo "[+] Native Engine compiled: $JNILIBS_DIR/libvemins_engine.so ($(du -h "$JNILIBS_DIR/libvemins_engine.so" | cut -f1))"
 
 # 6. Compile Resources with AAPT2
-echo "[*] Step 1/6: Compiling Android resources with AAPT2..."
+echo "[*] Step 2/7: Compiling Android resources with AAPT2..."
 "$AAPT2_BIN" compile --dir app/src/main/res -o "$BUILD_DIR/compiled_res.zip"
 
 ASSETS_ARG=""
@@ -121,7 +116,7 @@ if [ -d "app/src/main/assets" ]; then
     ASSETS_ARG="-A app/src/main/assets"
 fi
 
-echo "[*] Step 2/6: Linking resources & generating R.java..."
+echo "[*] Step 3/7: Linking resources & generating R.java..."
 "$AAPT2_BIN" link \
     -I "$ANDROID_JAR" \
     --manifest app/src/main/AndroidManifest.xml \
@@ -133,7 +128,7 @@ echo "[*] Step 2/6: Linking resources & generating R.java..."
     --auto-add-overlay
 
 # 7. Compile Java & Kotlin Sources
-echo "[*] Step 3/6: Compiling R.java & Kotlin source files..."
+echo "[*] Step 4/7: Compiling R.java & Kotlin source files..."
 R_JAVA_SRCS=$(find "$GEN_DIR" -name "*.java" 2>/dev/null || true)
 if [ -n "$R_JAVA_SRCS" ]; then
     javac -cp "$ANDROID_JAR" -d "$R_CLASSES_DIR" $R_JAVA_SRCS
@@ -146,38 +141,39 @@ fi
 
 KOTLIN_SRCS=$(find app/src/main/java -name "*.kt")
 
-if [ -d "$GRADLE_KOTLIN_DIR" ]; then
-    java -cp "$GRADLE_KOTLIN_DIR/*" org.jetbrains.kotlin.cli.jvm.K2JVMCompiler \
-        -jvm-target 1.8 \
-        -no-stdlib \
-        -cp "$ANDROID_JAR:$R_CLASSES_DIR:$CLASSES_DIR:$KOTLIN_STDLIB_JAR" \
-        -d "$CLASSES_DIR" \
-        $KOTLIN_SRCS
-elif which kotlinc >/dev/null 2>&1; then
-    kotlinc -cp "$ANDROID_JAR:$R_CLASSES_DIR:$CLASSES_DIR:$KOTLIN_STDLIB_JAR" -d "$CLASSES_DIR" $KOTLIN_SRCS
+kotlinc -cp "$ANDROID_JAR:$R_CLASSES_DIR:$CLASSES_DIR:$KOTLIN_STDLIB_JAR" -d "$CLASSES_DIR" $KOTLIN_SRCS
+
+# 8. Convert Class Files to Android Dalvik Executable (DEX)
+echo "[*] Step 5/7: Dexing bytecode with D8..."
+jar cf "$BUILD_DIR/app_classes.jar" -C "$CLASSES_DIR" . -C "$R_CLASSES_DIR" .
+
+if [ -n "$D8_BIN" ]; then
+    "$D8_BIN" --release --min-api 21 --lib "$ANDROID_JAR" --output "$DEX_DIR" \
+        "$BUILD_DIR/app_classes.jar" "$KOTLIN_STDLIB_JAR"
+elif [ -f "$D8_JAR" ]; then
+    java -cp "$D8_JAR" com.android.tools.r8.D8 \
+        --release --min-api 21 --lib "$ANDROID_JAR" --output "$DEX_DIR" \
+        "$BUILD_DIR/app_classes.jar" "$KOTLIN_STDLIB_JAR"
 else
-    echo "[-] Error: No suitable Kotlin compiler found."
+    echo "[-] Error: D8 dexer not found."
     exit 1
 fi
 
-# 8. Convert Class Files to Android Dalvik Executable (DEX)
-echo "[*] Step 4/6: Dexing bytecode with D8 (min-api 21)..."
-jar cf "$BUILD_DIR/app_classes.jar" -C "$CLASSES_DIR" . -C "$R_CLASSES_DIR" .
-java -cp "$D8_JAR" com.android.tools.r8.D8 \
-    --release \
-    --min-api 21 \
-    --lib "$ANDROID_JAR" \
-    --output "$DEX_DIR" \
-    "$BUILD_DIR/app_classes.jar" \
-    "$KOTLIN_STDLIB_JAR"
-
-# 9. Package DEX into APK & Zipalign
-echo "[*] Step 5/6: Packaging DEX and aligning APK with 4-byte boundaries..."
+# 9. Package DEX & Native Libraries into APK
+echo "[*] Step 6/7: Packaging DEX & Native libraries into APK..."
 (cd "$DEX_DIR" && zip -u -q "$BUILD_DIR/unaligned.apk" classes*.dex)
-"$ZIPALIGN_BIN" -f -p 4 "$BUILD_DIR/unaligned.apk" "$BUILD_DIR/aligned.apk"
+mkdir -p "$BUILD_DIR/lib/arm64-v8a"
+cp -f "$JNILIBS_DIR"/*.so "$BUILD_DIR/lib/arm64-v8a/" 2>/dev/null || true
+(cd "$BUILD_DIR" && zip -u -q "$BUILD_DIR/unaligned.apk" lib/arm64-v8a/*.so)
 
-# 10. Generate Debug Keystore if missing & Sign APK
-echo "[*] Step 6/6: Signing APK with apksigner (v1 + v2 + v3 schemes)..."
+if [ -n "$ZIPALIGN_BIN" ] && [ -x "$ZIPALIGN_BIN" ]; then
+    "$ZIPALIGN_BIN" -f -p 4 "$BUILD_DIR/unaligned.apk" "$BUILD_DIR/aligned.apk"
+else
+    cp "$BUILD_DIR/unaligned.apk" "$BUILD_DIR/aligned.apk"
+fi
+
+# 10. Sign APK with apksigner (v1 + v2 + v3 schemes)
+echo "[*] Step 7/7: Signing APK with apksigner..."
 KEYSTORE="$SCRIPT_DIR/debug.keystore"
 if [ ! -f "$KEYSTORE" ]; then
     keytool -genkeypair -v \
@@ -191,7 +187,16 @@ if [ ! -f "$KEYSTORE" ]; then
         -dname "CN=VeminsESP Debug,O=Vemins,C=US"
 fi
 
-if [ -n "$APKSIGNER_JAR" ]; then
+if [ -n "$APKSIGNER_BIN" ]; then
+    "$APKSIGNER_BIN" sign \
+        --ks "$KEYSTORE" \
+        --ks-pass pass:android \
+        --ks-key-alias androiddebugkey \
+        --key-pass pass:android \
+        --out "$OUT_APK" \
+        "$BUILD_DIR/aligned.apk"
+    "$APKSIGNER_BIN" verify --verbose "$OUT_APK"
+elif [ -f "$APKSIGNER_JAR" ]; then
     java -jar "$APKSIGNER_JAR" sign \
         --ks "$KEYSTORE" \
         --ks-pass pass:android \
@@ -199,25 +204,13 @@ if [ -n "$APKSIGNER_JAR" ]; then
         --key-pass pass:android \
         --out "$OUT_APK" \
         "$BUILD_DIR/aligned.apk"
-
-    echo "[*] Verifying APK Signature..."
     java -jar "$APKSIGNER_JAR" verify --verbose "$OUT_APK"
-elif which apksigner >/dev/null 2>&1; then
-    apksigner sign \
-        --ks "$KEYSTORE" \
-        --ks-pass pass:android \
-        --ks-key-alias androiddebugkey \
-        --key-pass pass:android \
-        --out "$OUT_APK" \
-        "$BUILD_DIR/aligned.apk"
-    apksigner verify --verbose "$OUT_APK"
 fi
 
-# Also stage to vemins_overlay_app.apk for backwards compatibility
 cp -f "$OUT_APK" "$SCRIPT_DIR/vemins_overlay_app.apk" 2>/dev/null || true
 
 echo "================================================================================"
-echo " [SUCCESS] VeminsESP APK successfully generated!"
+echo " [SUCCESS] VeminsESP APK successfully built with Native C++ Engine!"
 echo " Artifact: $OUT_APK"
 echo " Size: $(du -h "$OUT_APK" | cut -f1)"
 echo "================================================================================"

@@ -171,17 +171,17 @@ class PreviewCanvasView @JvmOverloads constructor(
 
         paintMinimapBg.color = Color.argb(mapAlphaInt, 12, 18, 30)
 
+        scratchRect.set(mapX, mapY, mapX + mapW, mapY + mapH)
+        canvas.drawRoundRect(scratchRect, 6f, 6f, paintMinimapBg)
+        canvas.drawRoundRect(scratchRect, 6f, 6f, paintMinimapBorder)
+
         canvas.save()
         val mapCenterX = mapX + mapW / 2f
         val mapCenterY = mapY + mapH / 2f
 
-        if (m.diamondMode || m.rotationDegrees != 0f) {
-            canvas.rotate(if (m.diamondMode) 45f else m.rotationDegrees, mapCenterX, mapCenterY)
+        if (m.rotationDegrees != 0f) {
+            canvas.rotate(m.rotationDegrees, mapCenterX, mapCenterY)
         }
-
-        scratchRect.set(mapX, mapY, mapX + mapW, mapY + mapH)
-        canvas.drawRoundRect(scratchRect, 6f, 6f, paintMinimapBg)
-        canvas.drawRoundRect(scratchRect, 6f, 6f, paintMinimapBorder)
 
         // Draw Minimap Content Primitives
         // Local Hero (Self - Green)
@@ -226,6 +226,40 @@ class PreviewCanvasView @JvmOverloads constructor(
         canvas.drawText("RADAR [${m.width.toInt()}x${m.height.toInt()}]", mapCenterX, mapY + mapH + 12f, paintTextLabel)
 
         // -------------------------------------------------------------
+        // TOP-OF-SCREEN ENEMY CD & HP PILL STRIP PREVIEW
+        // -------------------------------------------------------------
+        if (c.showTopCdBar) {
+            val topBarY = c.topCdBarPosY * scaleY
+            val topBarScale = c.topCdBarScale.coerceIn(0.5f, 2.0f) * scaleX
+            val numPills = 5
+            val pillW = 28f * topBarScale
+            val pillH = 18f * topBarScale
+            val gap = 3f * topBarScale
+            val totalBarW = numPills * pillW + (numPills - 1) * gap + 8f * topBarScale
+            val startBarX = (w - totalBarW) / 2f
+
+            scratchRect.set(startBarX, topBarY, startBarX + totalBarW, topBarY + pillH + 4f * topBarScale)
+            paintHpBg.color = Color.argb(200, 10, 14, 22)
+            canvas.drawRoundRect(scratchRect, 8f, 8f, paintHpBg)
+            canvas.drawRoundRect(scratchRect, 8f, 8f, paintMinimapBorder)
+
+            var pillX = startBarX + 4f * topBarScale
+            for (i in 0 until numPills) {
+                val avR = 6f * topBarScale
+                val avCx = pillX + avR
+                val avCy = topBarY + (pillH + 4f * topBarScale) / 2f
+                canvas.drawCircle(avCx, avCy, avR, paintHeroEnemy)
+
+                // Ult dot
+                canvas.drawCircle(pillX + pillW - 4f * topBarScale, topBarY + 5f * topBarScale, 3f * topBarScale, paintBadgeUlt)
+                // Spell dot
+                canvas.drawCircle(pillX + pillW - 4f * topBarScale, topBarY + pillH - 2f * topBarScale, 3f * topBarScale, paintBadgeSpell)
+
+                pillX += pillW + gap
+            }
+        }
+
+        // -------------------------------------------------------------
         // LAYER 2: OVERHEAD COMBAT HUD PREVIEW (Center / Right of Screen)
         // -------------------------------------------------------------
         val hudBaseX = w * 0.65f
@@ -233,30 +267,15 @@ class PreviewCanvasView @JvmOverloads constructor(
         val hudLift = c.hudOffsetY * scaleY
         val hudBaseY = (h * 0.55f) - hudLift
 
-        if (r.screenShowOverheadHp) {
+        if (r.screenShowOverheadHp || r.screenShowSkillCooldowns) {
             val barW = 75f * r.hudHpBarScale
             val barH = 7f * r.hudHpBarScale
             val left = hudBaseX - barW / 2f
             val top = hudBaseY
 
-            // HP Bar Background
-            scratchRect.set(left - 1f, top - 1f, left + barW + 1f, top + barH + 1f)
-            canvas.drawRoundRect(scratchRect, 2f, 2f, paintHpBg)
-
-            // HP Bar Fill (65%)
-            val hpFillW = barW * 0.65f
-            scratchRect.set(left, top, left + hpFillW, top + barH)
-            canvas.drawRoundRect(scratchRect, 2f, 2f, paintHpFill)
-
-            // Shield Fill (15%)
-            if (r.screenShowShields) {
-                scratchRect.set(left + hpFillW, top, left + hpFillW + barW * 0.15f, top + barH)
-                canvas.drawRect(scratchRect, paintShieldFill)
-            }
-
-            // Health Text Readout
-            if (r.screenShowHealthText) {
-                canvas.drawText("3,450 / 5,100", hudBaseX, top + barH - 1f, paintTextWhite)
+            // Hero Name
+            if (r.screenShowHeroNames) {
+                canvas.drawText("Lv.4 Thamuz", left, top - 12f, paintTextWhite)
             }
 
             // Cooldown Badges Row
@@ -278,32 +297,35 @@ class PreviewCanvasView @JvmOverloads constructor(
                 }
             }
 
+            // HP Bar Background
+            if (r.screenShowOverheadHp) {
+                scratchRect.set(left - 1f, top - 1f, left + barW + 1f, top + barH + 1f)
+                canvas.drawRoundRect(scratchRect, 2f, 2f, paintHpBg)
+
+                // HP Bar Fill (65%)
+                val hpFillW = barW * 0.65f
+                scratchRect.set(left, top, left + hpFillW, top + barH)
+                canvas.drawRoundRect(scratchRect, 2f, 2f, paintHpFill)
+
+                // Shield Fill (15%)
+                if (r.screenShowShields) {
+                    scratchRect.set(left + hpFillW, top, left + hpFillW + barW * 0.15f, top + barH)
+                    canvas.drawRect(scratchRect, paintShieldFill)
+                }
+
+                // Health Text Readout
+                if (r.screenShowHealthText) {
+                    canvas.drawText("3,450 / 5,100", hudBaseX, top + barH - 1f, paintTextWhite)
+                }
+            }
+
             // Distance Text
             if (r.screenShowDistance) {
-                canvas.drawText("Hero #18 (14.2m)", hudBaseX, top + barH + 10f, paintTextWhite)
+                canvas.drawText("14.2m", hudBaseX, top + barH + 10f, paintTextWhite)
             }
 
             // Draw Hero Placeholder model
             canvas.drawCircle(hudBaseX, hudBaseY + 28f, 10f, paintHeroEnemy)
-        }
-
-        // -------------------------------------------------------------
-        // LAYER 3: OFF-SCREEN EDGE RADAR CHEVRON PREVIEW
-        // -------------------------------------------------------------
-        if (r.screenShowEdgeRadar) {
-            val edgeMarginScaled = c.edgeMargin * scaleX
-            val chevronX = (w - edgeMarginScaled).coerceIn(20f, w - 10f)
-            val chevronY = h * 0.35f
-
-            scratchPath.reset()
-            scratchPath.moveTo(chevronX, chevronY)
-            scratchPath.lineTo(chevronX - 8f, chevronY - 6f)
-            scratchPath.lineTo(chevronX - 5f, chevronY)
-            scratchPath.lineTo(chevronX - 8f, chevronY + 6f)
-            scratchPath.close()
-
-            canvas.drawPath(scratchPath, paintEdgeChevron)
-            canvas.drawText("28m", chevronX - 6f, chevronY + 14f, paintTextWhite)
         }
     }
 }

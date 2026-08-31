@@ -153,6 +153,46 @@ class MinimapProjector:
         is_on_screen = (0.0 <= screen_x <= self.screen_w and 0.0 <= screen_y <= self.screen_h)
         return screen_x, screen_y, is_on_screen
 
+    def world_to_screen_perspective(
+        self,
+        target_x: float,
+        target_y: float,
+        cam_x: float,
+        cam_y: float,
+        offset_y: Optional[float] = None,
+        cam_height: float = 28.0,
+        pitch_deg: float = 58.0,
+        target_z: float = 0.0
+    ) -> Tuple[float, float, bool]:
+        """
+        Transforms 3D world coordinates into 2D screen coordinates using true perspective projection.
+        Divides by depth along the camera ray (Z_depth = cam_height + iso_y * cos(pitch)),
+        preventing far-distance overshooting and near-distance undershooting.
+        """
+        dx = target_x - cam_x
+        dy = target_y - cam_y
+
+        # 45-degree yaw rotation on ground plane
+        iso_x = (dx - dy) * 0.70710678
+        iso_y = (dx + dy) * 0.70710678
+
+        pitch_rad = math.radians(pitch_deg)
+        cos_pitch = math.cos(pitch_rad)
+        sin_pitch = math.sin(pitch_rad)
+
+        # Depth along camera line of sight
+        depth = cam_height + (iso_y * cos_pitch) - (target_z * sin_pitch)
+        if depth < 4.0:
+            depth = 4.0
+        persp_scale = cam_height / depth
+
+        screen_x = self.screen_cx + (iso_x * self.cam_scale_x) * persp_scale
+        lift_y = (offset_y if offset_y is not None else self.hud_offset_y) * persp_scale
+        screen_y = self.screen_cy - (iso_y * self.cam_scale_y * persp_scale) - lift_y
+
+        is_on_screen = (0.0 <= screen_x <= self.screen_w and 0.0 <= screen_y <= self.screen_h)
+        return screen_x, screen_y, is_on_screen
+
     def calculate_edge_radar(
         self,
         screen_x: float,

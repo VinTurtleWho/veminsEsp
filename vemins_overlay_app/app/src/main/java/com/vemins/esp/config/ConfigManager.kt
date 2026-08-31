@@ -41,8 +41,10 @@ data class MinimapConfig(
     var height: Float = 320.0f,
     var alpha: Float = 0.85f,
     var rotationDegrees: Float = 0.0f,
-    var invertY: Boolean = true,
-    var diamondMode: Boolean = false
+    var radarZoom: Float = 1.0f,
+    var stretchX: Float = 1.0f,
+    var stretchY: Float = 1.0f,
+    var invertY: Boolean = true
 ) {
     fun toJson(): JSONObject = JSONObject().apply {
         put("pos_x", posX.toDouble())
@@ -51,31 +53,33 @@ data class MinimapConfig(
         put("height", height.toDouble())
         put("alpha", alpha.toDouble())
         put("rotation_degrees", rotationDegrees.toDouble())
+        put("radar_zoom", radarZoom.toDouble())
+        put("stretch_x", stretchX.toDouble())
+        put("stretch_y", stretchY.toDouble())
         put("invert_y", invertY)
-        put("diamond_mode", diamondMode)
     }
 
     companion object {
         fun fromJson(json: JSONObject?): MinimapConfig {
             if (json == null) return MinimapConfig()
-            val rot = json.optDouble("rotation_degrees", 0.0).toFloat()
-            val diamond = json.optBoolean("diamond_mode", rot == 45.0f)
             return MinimapConfig(
                 posX = json.optDouble("pos_x", 75.0).toFloat(),
                 posY = json.optDouble("pos_y", 15.0).toFloat(),
                 width = json.optDouble("width", 320.0).toFloat(),
                 height = json.optDouble("height", 320.0).toFloat(),
                 alpha = json.optDouble("alpha", 0.85).toFloat(),
-                rotationDegrees = if (diamond && rot == 0.0f) 45.0f else rot,
-                invertY = json.optBoolean("invert_y", true),
-                diamondMode = diamond
+                rotationDegrees = json.optDouble("rotation_degrees", 0.0).toFloat(),
+                radarZoom = json.optDouble("radar_zoom", 1.0).toFloat(),
+                stretchX = json.optDouble("stretch_x", 1.0).toFloat(),
+                stretchY = json.optDouble("stretch_y", 1.0).toFloat(),
+                invertY = json.optBoolean("invert_y", true)
             )
         }
     }
 }
 
 /**
- * Isometric camera and World-to-Screen projection scaling configuration.
+ * Isometric camera, World-to-Screen projection, and Top CD Bar configuration.
  */
 data class CameraConfig(
     var scaleX: Float = 38.0f,
@@ -83,7 +87,10 @@ data class CameraConfig(
     var hudOffsetY: Float = 65.0f,
     var edgeMargin: Float = 45.0f,
     var maxRadarDistance: Float = 45.0f,
-    var highCamera: Boolean = true
+    var highCamera: Boolean = true,
+    var showTopCdBar: Boolean = true,
+    var topCdBarPosY: Float = 28.0f,
+    var topCdBarScale: Float = 1.0f
 ) {
     fun toJson(): JSONObject = JSONObject().apply {
         put("scale_x", scaleX.toDouble())
@@ -92,6 +99,9 @@ data class CameraConfig(
         put("edge_margin", edgeMargin.toDouble())
         put("max_radar_distance", maxRadarDistance.toDouble())
         put("high_camera", highCamera)
+        put("show_top_cd_bar", showTopCdBar)
+        put("top_cd_bar_pos_y", topCdBarPosY.toDouble())
+        put("top_cd_bar_scale", topCdBarScale.toDouble())
     }
 
     companion object {
@@ -103,7 +113,10 @@ data class CameraConfig(
                 hudOffsetY = json.optDouble("hud_offset_y", 65.0).toFloat(),
                 edgeMargin = json.optDouble("edge_margin", 45.0).toFloat(),
                 maxRadarDistance = json.optDouble("max_radar_distance", 45.0).toFloat(),
-                highCamera = json.optBoolean("high_camera", true)
+                highCamera = json.optBoolean("high_camera", true),
+                showTopCdBar = json.optBoolean("show_top_cd_bar", true),
+                topCdBarPosY = json.optDouble("top_cd_bar_pos_y", 28.0).toFloat(),
+                topCdBarScale = json.optDouble("top_cd_bar_scale", 1.0).toFloat()
             )
         }
     }
@@ -150,7 +163,7 @@ data class RenderSettingsConfig(
     var minimapShowArrows: Boolean = true,
     var minimapShowMinions: Boolean = true,
     var minimapShowMonsters: Boolean = true,
-    var minimapHeroDotRadius: Float = 9.0f,
+    var minimapHeroDotRadius: Float = 19.0f,
     var minimapArrowLength: Float = 18.0f,
     var minimapMinionDotRadius: Float = 3.5f,
     var minimapMonsterDotRadius: Float = 7.0f,
@@ -165,7 +178,8 @@ data class RenderSettingsConfig(
     var screenShowHeroNames: Boolean = true,
     var screenShowHealthText: Boolean = true,
     var hudBadgeRadius: Float = 9.0f,
-    var hudHpBarScale: Float = 1.0f
+    var hudHpBarScale: Float = 1.0f,
+    var hideInRecording: Boolean = false
 ) {
     fun toJson(): JSONObject = JSONObject().apply {
         put("minimap_show_enemies", minimapShowEnemies)
@@ -189,6 +203,7 @@ data class RenderSettingsConfig(
         put("screen_show_health_text", screenShowHealthText)
         put("hud_badge_radius", hudBadgeRadius.toDouble())
         put("hud_hp_bar_scale", hudHpBarScale.toDouble())
+        put("hide_in_recording", hideInRecording)
     }
 
     companion object {
@@ -200,7 +215,7 @@ data class RenderSettingsConfig(
                 minimapShowArrows = json.optBoolean("minimap_show_arrows", true),
                 minimapShowMinions = json.optBoolean("minimap_show_minions", true),
                 minimapShowMonsters = json.optBoolean("minimap_show_monsters", true),
-                minimapHeroDotRadius = json.optDouble("minimap_hero_dot_radius", 9.0).toFloat(),
+                minimapHeroDotRadius = json.optDouble("minimap_hero_dot_radius", 19.0).toFloat(),
                 minimapArrowLength = json.optDouble("minimap_arrow_length", 18.0).toFloat(),
                 minimapMinionDotRadius = json.optDouble("minimap_minion_dot_radius", 3.5).toFloat(),
                 minimapMonsterDotRadius = json.optDouble("minimap_monster_dot_radius", 7.0).toFloat(),
@@ -215,7 +230,8 @@ data class RenderSettingsConfig(
                 screenShowHeroNames = json.optBoolean("screen_show_hero_names", true),
                 screenShowHealthText = json.optBoolean("screen_show_health_text", true),
                 hudBadgeRadius = json.optDouble("hud_badge_radius", 9.0).toFloat(),
-                hudHpBarScale = json.optDouble("hud_hp_bar_scale", 1.0).toFloat()
+                hudHpBarScale = json.optDouble("hud_hp_bar_scale", 1.0).toFloat(),
+                hideInRecording = json.optBoolean("hide_in_recording", false)
             )
         }
     }
@@ -290,7 +306,10 @@ data class OverlayConfig(
             mapWidth = minimap.width,
             mapHeight = minimap.height,
             mapAlpha = minimap.alpha,
-            rotationDegrees = if (minimap.diamondMode) 45.0f else minimap.rotationDegrees,
+            rotationDegrees = minimap.rotationDegrees,
+            radarZoom = minimap.radarZoom,
+            stretchX = minimap.stretchX,
+            stretchY = minimap.stretchY,
             invertY = minimap.invertY,
             scaleX = camera.scaleX,
             scaleY = camera.scaleY,
@@ -298,6 +317,9 @@ data class OverlayConfig(
             edgeMargin = camera.edgeMargin,
             maxRadarDistance = camera.maxRadarDistance,
             highCamera = camera.highCamera,
+            showTopCdBar = camera.showTopCdBar,
+            topCdBarPosY = camera.topCdBarPosY,
+            topCdBarScale = camera.topCdBarScale,
             minX = worldBounds.minX,
             maxX = worldBounds.maxX,
             minY = worldBounds.minY,
@@ -319,9 +341,11 @@ data class OverlayConfig(
             screenShowBattleSpell = renderSettings.screenShowBattleSpell,
             screenShowDistance = renderSettings.screenShowDistance,
             screenShowEdgeRadar = renderSettings.screenShowEdgeRadar,
+            screenShowHeroNames = renderSettings.screenShowHeroNames,
             screenShowHealthText = renderSettings.screenShowHealthText,
             hudBadgeRadius = renderSettings.hudBadgeRadius,
-            hudHpBarScale = renderSettings.hudHpBarScale
+            hudHpBarScale = renderSettings.hudHpBarScale,
+            hideInRecording = renderSettings.hideInRecording
         )
     }
 
@@ -336,8 +360,10 @@ data class OverlayConfig(
                     height = m.mapHeight,
                     alpha = m.mapAlpha,
                     rotationDegrees = m.rotationDegrees,
-                    invertY = m.invertY,
-                    diamondMode = m.rotationDegrees == 45.0f
+                    radarZoom = m.radarZoom,
+                    stretchX = m.stretchX,
+                    stretchY = m.stretchY,
+                    invertY = m.invertY
                 ),
                 camera = CameraConfig(
                     scaleX = m.scaleX,
@@ -345,7 +371,10 @@ data class OverlayConfig(
                     hudOffsetY = m.hudOffsetY,
                     edgeMargin = m.edgeMargin,
                     maxRadarDistance = m.maxRadarDistance,
-                    highCamera = m.highCamera
+                    highCamera = m.highCamera,
+                    showTopCdBar = m.showTopCdBar,
+                    topCdBarPosY = m.topCdBarPosY,
+                    topCdBarScale = m.topCdBarScale
                 ),
                 worldBounds = WorldBoundsConfig(
                     minX = m.minX,
@@ -371,9 +400,11 @@ data class OverlayConfig(
                     screenShowBattleSpell = m.screenShowBattleSpell,
                     screenShowDistance = m.screenShowDistance,
                     screenShowEdgeRadar = m.screenShowEdgeRadar,
+                    screenShowHeroNames = m.screenShowHeroNames,
                     screenShowHealthText = m.screenShowHealthText,
                     hudBadgeRadius = m.hudBadgeRadius,
-                    hudHpBarScale = m.hudHpBarScale
+                    hudHpBarScale = m.hudHpBarScale,
+                    hideInRecording = m.hideInRecording
                 ),
                 server = ServerConfig()
             )
@@ -544,7 +575,7 @@ class ConfigManager(
     }
 
     /**
-     * Atomically saves the current active configuration to disk and SharedPreferences.
+     * Atomically saves the current active configuration to disk and SharedPreferences across all global locations.
      */
     fun saveConfig(): Boolean {
         synchronized(lock) {
@@ -552,16 +583,23 @@ class ConfigManager(
             return try {
                 val jsonString = activeConfig.toJson().toString(2)
 
-                // Save to app internal files directory
+                // 1. Primary app internal files directory
                 writeJsonToFile(configFile, jsonString)
 
-                // Also try syncing to /sdcard/Download if accessible
-                try {
-                    val sdFile = File("/sdcard/Download/minimap_config.json")
-                    if (sdFile.parentFile?.exists() == true || sdFile.parentFile?.mkdirs() == true) {
-                        writeJsonToFile(sdFile, jsonString)
-                    }
-                } catch (_: Exception) {}
+                // 2. Global shared paths for daemons, Termux, and root modules
+                val targetPaths = listOf(
+                    "/data/local/tmp/minimap_config.json",
+                    "/sdcard/Download/minimap_config.json",
+                    "/sdcard/veminsEsp/minimap_config.json",
+                    "/data/data/com.termux/files/home/veminsEsp/minimap_config.json"
+                )
+
+                for (p in targetPaths) {
+                    try {
+                        val f = File(p)
+                        writeJsonToFile(f, jsonString)
+                    } catch (_: Exception) {}
+                }
 
                 true
             } catch (e: Exception) {
@@ -611,17 +649,18 @@ class ConfigManager(
                 putFloat("minimap_width", activeConfig.minimap.width)
                 putFloat("minimap_height", activeConfig.minimap.height)
                 putFloat("minimap_alpha", activeConfig.minimap.alpha)
+                putFloat("minimap_rotation", activeConfig.minimap.rotationDegrees)
                 putFloat("camera_scale_x", activeConfig.camera.scaleX)
                 putFloat("camera_scale_y", activeConfig.camera.scaleY)
                 putFloat("camera_lift", activeConfig.camera.hudOffsetY)
                 putFloat("edge_margin", activeConfig.camera.edgeMargin)
-                apply()
+                commit()
             }
         } catch (_: Exception) {}
     }
 
     /**
-     * Updates minimap viewport coordinates, dimensions, alpha and rotation.
+     * Updates minimap viewport coordinates, dimensions, alpha, rotation, zoom, and stretch.
      */
     fun updateMinimap(
         posX: Float,
@@ -630,7 +669,10 @@ class ConfigManager(
         height: Float,
         alpha: Float? = null,
         invertY: Boolean? = null,
-        diamondMode: Boolean? = null
+        rotationDegrees: Float? = null,
+        radarZoom: Float? = null,
+        stretchX: Float? = null,
+        stretchY: Float? = null
     ) {
         synchronized(lock) {
             activeConfig.minimap.posX = posX
@@ -643,19 +685,36 @@ class ConfigManager(
             if (invertY != null) {
                 activeConfig.minimap.invertY = invertY
             }
-            if (diamondMode != null) {
-                activeConfig.minimap.diamondMode = diamondMode
-                activeConfig.minimap.rotationDegrees = if (diamondMode) 45.0f else 0.0f
+            if (rotationDegrees != null) {
+                val clampedRot = ((rotationDegrees % 360f) + 360f) % 360f
+                activeConfig.minimap.rotationDegrees = clampedRot
+            }
+            if (radarZoom != null) {
+                activeConfig.minimap.radarZoom = radarZoom.coerceIn(0.5f, 2.5f)
+            }
+            if (stretchX != null) {
+                activeConfig.minimap.stretchX = stretchX.coerceIn(0.5f, 2.5f)
+            }
+            if (stretchY != null) {
+                activeConfig.minimap.stretchY = stretchY.coerceIn(0.5f, 2.5f)
             }
         }
-        saveToSharedPreferences()
+        saveConfig()
         notifyListeners()
     }
 
     /**
-     * Updates camera isometric projection scaling and HUD offset.
+     * Updates camera isometric projection scaling, HUD offset, and Top CD Bar settings.
      */
-    fun updateCamera(scaleX: Float, scaleY: Float, hudOffsetY: Float, highCamera: Boolean? = null) {
+    fun updateCamera(
+        scaleX: Float,
+        scaleY: Float,
+        hudOffsetY: Float,
+        highCamera: Boolean? = null,
+        showTopCdBar: Boolean? = null,
+        topCdBarPosY: Float? = null,
+        topCdBarScale: Float? = null
+    ) {
         synchronized(lock) {
             activeConfig.camera.scaleX = scaleX
             activeConfig.camera.scaleY = scaleY
@@ -663,8 +722,17 @@ class ConfigManager(
             if (highCamera != null) {
                 activeConfig.camera.highCamera = highCamera
             }
+            if (showTopCdBar != null) {
+                activeConfig.camera.showTopCdBar = showTopCdBar
+            }
+            if (topCdBarPosY != null) {
+                activeConfig.camera.topCdBarPosY = topCdBarPosY
+            }
+            if (topCdBarScale != null) {
+                activeConfig.camera.topCdBarScale = topCdBarScale
+            }
         }
-        saveToSharedPreferences()
+        saveConfig()
         notifyListeners()
     }
 
@@ -676,7 +744,7 @@ class ConfigManager(
             activeConfig.camera.edgeMargin = edgeMargin
             activeConfig.camera.maxRadarDistance = maxRadarDistance
         }
-        saveToSharedPreferences()
+        saveConfig()
         notifyListeners()
     }
 
@@ -707,7 +775,7 @@ class ConfigManager(
                 activeConfig.renderSettings.hudHpBarScale = hudHpBarScale.coerceIn(0.5f, 2.5f)
             }
         }
-        saveToSharedPreferences()
+        saveConfig()
         notifyListeners()
     }
 
@@ -732,15 +800,13 @@ class ConfigManager(
                 "screen_show_edge_radar" -> activeConfig.renderSettings.screenShowEdgeRadar = enabled
                 "screen_show_hero_names" -> activeConfig.renderSettings.screenShowHeroNames = enabled
                 "screen_show_health_text" -> activeConfig.renderSettings.screenShowHealthText = enabled
+                "show_top_cd_bar" -> activeConfig.camera.showTopCdBar = enabled
+                "hide_in_recording" -> activeConfig.renderSettings.hideInRecording = enabled
                 "invert_y" -> activeConfig.minimap.invertY = enabled
-                "diamond_mode" -> {
-                    activeConfig.minimap.diamondMode = enabled
-                    activeConfig.minimap.rotationDegrees = if (enabled) 45.0f else 0.0f
-                }
                 "high_camera" -> activeConfig.camera.highCamera = enabled
             }
         }
-        saveToSharedPreferences()
+        saveConfig()
         notifyListeners()
     }
 
@@ -752,6 +818,7 @@ class ConfigManager(
             activeConfig.screen.width = width
             activeConfig.screen.height = height
         }
+        saveConfig()
         notifyListeners()
     }
 
@@ -793,13 +860,12 @@ class ConfigManager(
      */
     fun loadPreset(presetName: String) {
         synchronized(lock) {
-            when (presetName.toLowerCase()) {
-                "default", "standard" -> {
+            when (presetName.lowercase()) {
+                "default" -> {
                     activeConfig.minimap.posX = 75.0f
                     activeConfig.minimap.posY = 15.0f
                     activeConfig.minimap.width = 320.0f
                     activeConfig.minimap.height = 320.0f
-                    activeConfig.minimap.diamondMode = false
                     activeConfig.minimap.rotationDegrees = 0.0f
                     activeConfig.camera.scaleX = 38.0f
                     activeConfig.camera.scaleY = 27.0f
@@ -810,7 +876,6 @@ class ConfigManager(
                     activeConfig.minimap.posY = 15.0f
                     activeConfig.minimap.width = 340.0f
                     activeConfig.minimap.height = 340.0f
-                    activeConfig.minimap.diamondMode = true
                     activeConfig.minimap.rotationDegrees = 45.0f
                 }
                 "notch_safe", "compact" -> {

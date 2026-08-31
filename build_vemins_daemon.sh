@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 # ==============================================================================
 # build_vemins_daemon.sh — Deterministic Build & Staging for VEMINS ESP Daemon
 # Read-only external telemetry daemon for MLBB (No evdev/touch injection).

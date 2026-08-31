@@ -38,7 +38,7 @@ import kotlin.concurrent.thread
 /**
  * Studio-Grade Tactical Command Center Dashboard & UI Controller for VeminsESP.
  */
-class MainActivity : Activity(), OverlayStateListener {
+class MainActivity : Activity(), OverlayStateListener, com.vemins.esp.config.ConfigChangeListener {
 
     private lateinit var configManager: ConfigManager
     private val stateManager = OverlayStateManager.getInstance()
@@ -101,20 +101,33 @@ class MainActivity : Activity(), OverlayStateListener {
     private lateinit var etMinimapAlpha: EditText
     private lateinit var sbMinimapHeroRadius: SeekBar
     private lateinit var etMinimapHeroRadius: EditText
-    private lateinit var cbMinimapDiamond: CheckBox
+    private lateinit var sbMinimapRotation: SeekBar
+    private lateinit var etMinimapRotation: EditText
+    private lateinit var sbMinimapZoom: SeekBar
+    private lateinit var etMinimapZoom: EditText
+    private lateinit var sbStretchX: SeekBar
+    private lateinit var etStretchX: EditText
+    private lateinit var sbStretchY: SeekBar
+    private lateinit var etStretchY: EditText
+    private lateinit var btnRot0: Button
+    private lateinit var btnRot45: Button
+    private lateinit var btnRot90: Button
+    private lateinit var btnRot180: Button
+    private lateinit var btnRot270: Button
     private lateinit var cbMinimapInvertY: CheckBox
 
-    // Tab 2: Combat HUD Controls
+    // Tab 2: Combat HUD & Top CD Bar Controls
+    private lateinit var cbShowTopCdBar: CheckBox
+    private lateinit var sbTopCdBarY: SeekBar
+    private lateinit var etTopCdBarY: EditText
+    private lateinit var sbTopCdBarScale: SeekBar
+    private lateinit var etTopCdBarScale: EditText
     private lateinit var sbScaleX: SeekBar
     private lateinit var etScaleX: EditText
     private lateinit var sbScaleY: SeekBar
     private lateinit var etScaleY: EditText
     private lateinit var sbHudOffsetY: SeekBar
     private lateinit var etHudOffsetY: EditText
-    private lateinit var sbEdgeMargin: SeekBar
-    private lateinit var etEdgeMargin: EditText
-    private lateinit var sbMaxRadarDistance: SeekBar
-    private lateinit var etMaxRadarDistance: EditText
     private lateinit var sbHudBadgeRadius: SeekBar
     private lateinit var etHudBadgeRadius: EditText
     private lateinit var sbHudHpBarScale: SeekBar
@@ -133,6 +146,7 @@ class MainActivity : Activity(), OverlayStateListener {
     private lateinit var cbScreenSpellBadge: CheckBox
     private lateinit var cbScreenDistance: CheckBox
     private lateinit var cbScreenEdgeRadar: CheckBox
+    private lateinit var cbHideInRecording: CheckBox
 
     // Tab 4: Vault & Status Controls
     private lateinit var etConfigJson: EditText
@@ -154,6 +168,7 @@ class MainActivity : Activity(), OverlayStateListener {
         bindViews()
         setupListeners()
         stateManager.addListener(this)
+        configManager.addListener(this)
 
         // Sync local control server listener
         LocalControlServer.getInstance("127.0.0.1", 8888).onToggleServiceRequest = {
@@ -169,21 +184,42 @@ class MainActivity : Activity(), OverlayStateListener {
 
         populateUiFromConfig(configManager.getConfig())
         requestNotificationPermissionIfNeeded()
+        checkAndRequestRootAccess()
+    }
 
-        // Auto-extract and start embedded daemon with root watchdog
+    private fun checkAndRequestRootAccess() {
         thread {
-            DaemonManager.getInstance(this).startWatchdog()
+            val daemonMgr = DaemonManager.getInstance(this)
+            val hasRoot = daemonMgr.isRootAvailable()
+            mainHandler.post {
+                if (hasRoot) {
+                    Toast.makeText(this, "✓ Root Access Granted (UID 0)", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "⚠️ Root Access (su) required. Please grant root in Magisk / KernelSU", Toast.LENGTH_LONG).show()
+                }
+            }
+            daemonMgr.startWatchdog()
         }
     }
 
     override fun onResume() {
         super.onResume()
+        populateUiFromConfig(configManager.getConfig())
         updateUiState()
     }
 
     override fun onDestroy() {
         super.onDestroy()
+        configManager.removeListener(this)
         stateManager.removeListener(this)
+    }
+
+    override fun onConfigChanged(config: OverlayConfig) {
+        mainHandler.post {
+            if (!isUpdatingFromCode) {
+                populateUiFromConfig(config)
+            }
+        }
     }
 
     private fun bindViews() {
@@ -243,20 +279,33 @@ class MainActivity : Activity(), OverlayStateListener {
         etMinimapAlpha = findViewById(R.id.etMinimapAlpha)
         sbMinimapHeroRadius = findViewById(R.id.sbMinimapHeroRadius)
         etMinimapHeroRadius = findViewById(R.id.etMinimapHeroRadius)
-        cbMinimapDiamond = findViewById(R.id.cbMinimapDiamond)
+        sbMinimapRotation = findViewById(R.id.sbMinimapRotation)
+        etMinimapRotation = findViewById(R.id.etMinimapRotation)
+        sbMinimapZoom = findViewById(R.id.sbMinimapZoom)
+        etMinimapZoom = findViewById(R.id.etMinimapZoom)
+        sbStretchX = findViewById(R.id.sbStretchX)
+        etStretchX = findViewById(R.id.etStretchX)
+        sbStretchY = findViewById(R.id.sbStretchY)
+        etStretchY = findViewById(R.id.etStretchY)
+        btnRot0 = findViewById(R.id.btnRot0)
+        btnRot45 = findViewById(R.id.btnRot45)
+        btnRot90 = findViewById(R.id.btnRot90)
+        btnRot180 = findViewById(R.id.btnRot180)
+        btnRot270 = findViewById(R.id.btnRot270)
         cbMinimapInvertY = findViewById(R.id.cbMinimapInvertY)
 
-        // Tab 2: Combat HUD
+        // Tab 2: Combat HUD & Top CD Bar
+        cbShowTopCdBar = findViewById(R.id.cbShowTopCdBar)
+        sbTopCdBarY = findViewById(R.id.sbTopCdBarY)
+        etTopCdBarY = findViewById(R.id.etTopCdBarY)
+        sbTopCdBarScale = findViewById(R.id.sbTopCdBarScale)
+        etTopCdBarScale = findViewById(R.id.etTopCdBarScale)
         sbScaleX = findViewById(R.id.sbScaleX)
         etScaleX = findViewById(R.id.etScaleX)
         sbScaleY = findViewById(R.id.sbScaleY)
         etScaleY = findViewById(R.id.etScaleY)
         sbHudOffsetY = findViewById(R.id.sbHudOffsetY)
         etHudOffsetY = findViewById(R.id.etHudOffsetY)
-        sbEdgeMargin = findViewById(R.id.sbEdgeMargin)
-        etEdgeMargin = findViewById(R.id.etEdgeMargin)
-        sbMaxRadarDistance = findViewById(R.id.sbMaxRadarDistance)
-        etMaxRadarDistance = findViewById(R.id.etMaxRadarDistance)
         sbHudBadgeRadius = findViewById(R.id.sbHudBadgeRadius)
         etHudBadgeRadius = findViewById(R.id.etHudBadgeRadius)
         sbHudHpBarScale = findViewById(R.id.sbHudHpBarScale)
@@ -275,6 +324,7 @@ class MainActivity : Activity(), OverlayStateListener {
         cbScreenSpellBadge = findViewById(R.id.cbScreenSpellBadge)
         cbScreenDistance = findViewById(R.id.cbScreenDistance)
         cbScreenEdgeRadar = findViewById(R.id.cbScreenEdgeRadar)
+        cbHideInRecording = findViewById(R.id.cbHideInRecording)
 
         // Tab 4: Vault
         etConfigJson = findViewById(R.id.etConfigJson)
@@ -389,12 +439,59 @@ class MainActivity : Activity(), OverlayStateListener {
             previewCanvas.setConfig(configManager.getConfig())
         }
 
-        cbMinimapDiamond.setOnCheckedChangeListener { _, checked ->
-            if (!isUpdatingFromCode) {
-                configManager.updateRenderToggle("diamond_mode", checked)
-                previewCanvas.setConfig(configManager.getConfig())
-            }
+        setupSeekBarWithInput(sbMinimapRotation, etMinimapRotation, 0, 360) { v ->
+            val cfg = configManager.getConfig().minimap
+            configManager.updateMinimap(
+                posX = cfg.posX,
+                posY = cfg.posY,
+                width = cfg.width,
+                height = cfg.height,
+                rotationDegrees = v.toFloat()
+            )
+            previewCanvas.setConfig(configManager.getConfig())
         }
+
+        setupSeekBarWithInput(sbMinimapZoom, etMinimapZoom, 50, 200) { v ->
+            val cfg = configManager.getConfig().minimap
+            configManager.updateMinimap(
+                posX = cfg.posX,
+                posY = cfg.posY,
+                width = cfg.width,
+                height = cfg.height,
+                radarZoom = v / 100.0f
+            )
+            previewCanvas.setConfig(configManager.getConfig())
+        }
+
+        setupSeekBarWithInput(sbStretchX, etStretchX, 50, 200) { v ->
+            val cfg = configManager.getConfig().minimap
+            configManager.updateMinimap(
+                posX = cfg.posX,
+                posY = cfg.posY,
+                width = cfg.width,
+                height = cfg.height,
+                stretchX = v / 100.0f
+            )
+            previewCanvas.setConfig(configManager.getConfig())
+        }
+
+        setupSeekBarWithInput(sbStretchY, etStretchY, 50, 200) { v ->
+            val cfg = configManager.getConfig().minimap
+            configManager.updateMinimap(
+                posX = cfg.posX,
+                posY = cfg.posY,
+                width = cfg.width,
+                height = cfg.height,
+                stretchY = v / 100.0f
+            )
+            previewCanvas.setConfig(configManager.getConfig())
+        }
+
+        btnRot0.setOnClickListener { setRotationAngle(0) }
+        btnRot45.setOnClickListener { setRotationAngle(45) }
+        btnRot90.setOnClickListener { setRotationAngle(90) }
+        btnRot180.setOnClickListener { setRotationAngle(180) }
+        btnRot270.setOnClickListener { setRotationAngle(270) }
 
         cbMinimapInvertY.setOnCheckedChangeListener { _, checked ->
             if (!isUpdatingFromCode) {
@@ -403,46 +500,62 @@ class MainActivity : Activity(), OverlayStateListener {
             }
         }
 
-        // --- TAB 2: COMBAT HUD SEEKBARS & INPUTS ---
+        // --- TAB 2: COMBAT HUD & TOP CD BAR SEEKBARS & INPUTS ---
+        cbShowTopCdBar.setOnCheckedChangeListener { _, checked ->
+            if (!isUpdatingFromCode) {
+                configManager.updateRenderToggle("show_top_cd_bar", checked)
+                previewCanvas.setConfig(configManager.getConfig())
+            }
+        }
+
+        setupSeekBarWithInput(sbTopCdBarY, etTopCdBarY, 0, 150) { v ->
+            val c = configManager.getConfig().camera
+            configManager.updateCamera(
+                scaleX = c.scaleX,
+                scaleY = c.scaleY,
+                hudOffsetY = c.hudOffsetY,
+                topCdBarPosY = v.toFloat()
+            )
+            previewCanvas.setConfig(configManager.getConfig())
+        }
+
+        setupSeekBarWithInput(sbTopCdBarScale, etTopCdBarScale, 50, 200) { v ->
+            val c = configManager.getConfig().camera
+            configManager.updateCamera(
+                scaleX = c.scaleX,
+                scaleY = c.scaleY,
+                hudOffsetY = c.hudOffsetY,
+                topCdBarScale = v / 100.0f
+            )
+            previewCanvas.setConfig(configManager.getConfig())
+        }
+
         setupSeekBarWithFloatInput(sbScaleX, etScaleX, 100, 800, 10.0f) { v ->
+            val c = configManager.getConfig().camera
             configManager.updateCamera(
                 scaleX = v,
-                scaleY = sbScaleY.progress / 10.0f,
-                hudOffsetY = sbHudOffsetY.progress.toFloat()
+                scaleY = c.scaleY,
+                hudOffsetY = c.hudOffsetY
             )
             previewCanvas.setConfig(configManager.getConfig())
         }
 
         setupSeekBarWithFloatInput(sbScaleY, etScaleY, 100, 600, 10.0f) { v ->
+            val c = configManager.getConfig().camera
             configManager.updateCamera(
-                scaleX = sbScaleX.progress / 10.0f,
+                scaleX = c.scaleX,
                 scaleY = v,
-                hudOffsetY = sbHudOffsetY.progress.toFloat()
+                hudOffsetY = c.hudOffsetY
             )
             previewCanvas.setConfig(configManager.getConfig())
         }
 
         setupSeekBarWithInput(sbHudOffsetY, etHudOffsetY, 0, 180) { v ->
+            val c = configManager.getConfig().camera
             configManager.updateCamera(
-                scaleX = sbScaleX.progress / 10.0f,
-                scaleY = sbScaleY.progress / 10.0f,
+                scaleX = c.scaleX,
+                scaleY = c.scaleY,
                 hudOffsetY = v.toFloat()
-            )
-            previewCanvas.setConfig(configManager.getConfig())
-        }
-
-        setupSeekBarWithInput(sbEdgeMargin, etEdgeMargin, 10, 120) { v ->
-            configManager.updateRadar(
-                edgeMargin = v.toFloat(),
-                maxRadarDistance = sbMaxRadarDistance.progress.toFloat()
-            )
-            previewCanvas.setConfig(configManager.getConfig())
-        }
-
-        setupSeekBarWithInput(sbMaxRadarDistance, etMaxRadarDistance, 15, 90) { v ->
-            configManager.updateRadar(
-                edgeMargin = sbEdgeMargin.progress.toFloat(),
-                maxRadarDistance = v.toFloat()
             )
             previewCanvas.setConfig(configManager.getConfig())
         }
@@ -476,7 +589,8 @@ class MainActivity : Activity(), OverlayStateListener {
             cbScreenUltBadge to "screen_show_ult_badge",
             cbScreenSpellBadge to "screen_show_spell_badge",
             cbScreenDistance to "screen_show_distance",
-            cbScreenEdgeRadar to "screen_show_edge_radar"
+            cbScreenEdgeRadar to "screen_show_edge_radar",
+            cbHideInRecording to "hide_in_recording"
         )
 
         for ((cb, key) in layerToggles) {
@@ -566,6 +680,21 @@ class MainActivity : Activity(), OverlayStateListener {
         panelStatus.visibility = if (index == 3) View.VISIBLE else View.GONE
     }
 
+    private fun setRotationAngle(angle: Int) {
+        val clamped = angle.coerceIn(0, 360)
+        sbMinimapRotation.progress = clamped
+        etMinimapRotation.setText(clamped.toString())
+        val cfg = configManager.getConfig().minimap
+        configManager.updateMinimap(
+            posX = cfg.posX,
+            posY = cfg.posY,
+            width = cfg.width,
+            height = cfg.height,
+            rotationDegrees = clamped.toFloat()
+        )
+        previewCanvas.setConfig(configManager.getConfig())
+    }
+
     @SuppressLint("SetTextI18n")
     private fun populateUiFromConfig(config: OverlayConfig) {
         isUpdatingFromCode = true
@@ -588,10 +717,32 @@ class MainActivity : Activity(), OverlayStateListener {
         sbMinimapHeroRadius.progress = r.minimapHeroDotRadius.toInt()
         etMinimapHeroRadius.setText(r.minimapHeroDotRadius.toInt().toString())
 
-        cbMinimapDiamond.isChecked = m.diamondMode
+        sbMinimapRotation.progress = m.rotationDegrees.toInt()
+        etMinimapRotation.setText(m.rotationDegrees.toInt().toString())
+
+        val zoomInt = (m.radarZoom * 100).toInt()
+        sbMinimapZoom.progress = zoomInt
+        etMinimapZoom.setText(zoomInt.toString())
+
+        val strXInt = (m.stretchX * 100).toInt()
+        sbStretchX.progress = strXInt
+        etStretchX.setText(strXInt.toString())
+
+        val strYInt = (m.stretchY * 100).toInt()
+        sbStretchY.progress = strYInt
+        etStretchY.setText(strYInt.toString())
+
         cbMinimapInvertY.isChecked = m.invertY
 
         val c = config.camera
+        cbShowTopCdBar.isChecked = c.showTopCdBar
+        sbTopCdBarY.progress = c.topCdBarPosY.toInt()
+        etTopCdBarY.setText(c.topCdBarPosY.toInt().toString())
+
+        val topScaleInt = (c.topCdBarScale * 100).toInt()
+        sbTopCdBarScale.progress = topScaleInt
+        etTopCdBarScale.setText(topScaleInt.toString())
+
         sbScaleX.progress = (c.scaleX * 10).toInt()
         etScaleX.setText(String.format(Locale.US, "%.1f", c.scaleX))
 
@@ -600,12 +751,6 @@ class MainActivity : Activity(), OverlayStateListener {
 
         sbHudOffsetY.progress = c.hudOffsetY.toInt()
         etHudOffsetY.setText(c.hudOffsetY.toInt().toString())
-
-        sbEdgeMargin.progress = c.edgeMargin.toInt()
-        etEdgeMargin.setText(c.edgeMargin.toInt().toString())
-
-        sbMaxRadarDistance.progress = c.maxRadarDistance.toInt()
-        etMaxRadarDistance.setText(c.maxRadarDistance.toInt().toString())
 
         sbHudBadgeRadius.progress = r.hudBadgeRadius.toInt()
         etHudBadgeRadius.setText(r.hudBadgeRadius.toInt().toString())
@@ -627,6 +772,7 @@ class MainActivity : Activity(), OverlayStateListener {
         cbScreenSpellBadge.isChecked = r.screenShowSpellBadge
         cbScreenDistance.isChecked = r.screenShowDistance
         cbScreenEdgeRadar.isChecked = r.screenShowEdgeRadar
+        cbHideInRecording.isChecked = r.hideInRecording
 
         updateConfigJsonVault()
         previewCanvas.setConfig(config)
@@ -801,23 +947,31 @@ class MainActivity : Activity(), OverlayStateListener {
     }
 
     private fun startOverlayService() {
-        val intent = Intent(this, FloatingOverlayService::class.java).apply {
-            action = FloatingOverlayService.ACTION_START
+        try {
+            val intent = Intent(this, FloatingOverlayService::class.java).apply {
+                action = FloatingOverlayService.ACTION_START
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                startForegroundService(intent)
+            } else {
+                startService(intent)
+            }
+            Toast.makeText(this, "VeminsESP Overlay Service Started (100% Touch-Through)", Toast.LENGTH_SHORT).show()
+        } catch (e: Exception) {
+            Toast.makeText(this, "Failed to start overlay: ${e.message}", Toast.LENGTH_LONG).show()
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startForegroundService(intent)
-        } else {
-            startService(intent)
-        }
-        Toast.makeText(this, "VeminsESP Overlay Service Started (100% Touch-Through)", Toast.LENGTH_SHORT).show()
     }
 
     private fun stopOverlayService() {
-        val intent = Intent(this, FloatingOverlayService::class.java).apply {
-            action = FloatingOverlayService.ACTION_STOP
+        try {
+            val intent = Intent(this, FloatingOverlayService::class.java).apply {
+                action = FloatingOverlayService.ACTION_STOP
+            }
+            startService(intent)
+            Toast.makeText(this, "VeminsESP Overlay Service Stopped", Toast.LENGTH_SHORT).show()
+        } catch (e: Exception) {
+            // Ignore
         }
-        startService(intent)
-        Toast.makeText(this, "VeminsESP Overlay Service Stopped", Toast.LENGTH_SHORT).show()
     }
 
     @SuppressLint("SetTextI18n")

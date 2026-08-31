@@ -91,6 +91,19 @@ class IsometricProjection(config: MinimapConfig = MinimapConfig()) {
         private set
     var maxRadarDistance: Float = config.maxRadarDistance
         private set
+    var rotationDegrees: Float = config.rotationDegrees
+        private set
+
+    var usePerspective: Boolean = config.usePerspective
+        private set
+    var cameraPitch: Float = config.cameraPitch
+        private set
+    var highCamera: Boolean = config.highCamera
+        private set
+
+    private var rotationRad: Float = Math.toRadians(config.rotationDegrees.toDouble()).toFloat()
+    private var cosRot: Float = kotlin.math.cos(rotationRad)
+    private var sinRot: Float = kotlin.math.sin(rotationRad)
 
     init {
         updateConfig(config)
@@ -106,10 +119,19 @@ class IsometricProjection(config: MinimapConfig = MinimapConfig()) {
         screenCenterY = config.screenCenterY
 
         scaleX = config.scaleX
-        scaleY = config.scaleY
+        val pitchMultiplier = if (config.highCamera) 0.88f else 1.0f
+        scaleY = config.scaleY * pitchMultiplier
         hudOffsetY = config.hudOffsetY
         edgeMargin = config.edgeMargin
         maxRadarDistance = config.maxRadarDistance
+        rotationDegrees = config.rotationDegrees
+        highCamera = config.highCamera
+        usePerspective = config.usePerspective
+        cameraPitch = config.cameraPitch
+
+        rotationRad = Math.toRadians(config.rotationDegrees.toDouble()).toFloat()
+        cosRot = kotlin.math.cos(rotationRad)
+        sinRot = kotlin.math.sin(rotationRad)
     }
 
     /**
@@ -118,8 +140,8 @@ class IsometricProjection(config: MinimapConfig = MinimapConfig()) {
      *
      * @param targetX World X coordinate of target entity.
      * @param targetY World Y coordinate of target entity.
-     * @param localX World X coordinate of local hero.
-     * @param localY World Y coordinate of local hero.
+     * @param localX World X coordinate of local hero or camera center.
+     * @param localY World Y coordinate of local hero or camera center.
      * @param customHudOffsetY Optional custom vertical pixel lift; defaults to configured hudOffsetY if null.
      * @param outResult Output [IsometricResult] container.
      * @return [outResult] populated with projected screen coordinate, on-screen flag, and world distance.
@@ -138,21 +160,39 @@ class IsometricProjection(config: MinimapConfig = MinimapConfig()) {
         // Distance in world meters
         val distM = sqrt(dx * dx + dy * dy)
 
-        // 45-degree ground plane isometric rotation
-        val isoX = (dx - dy) * ISO_FACTOR
-        val isoY = (dx + dy) * ISO_FACTOR
+        // MLBB in-game camera has a 45° ground yaw + custom user rotation offset
+        val totalYawDeg = 45.0 + rotationDegrees
+        val totalYawRad = Math.toRadians(totalYawDeg).toFloat()
+        val cosYaw = kotlin.math.cos(totalYawRad)
+        val sinYaw = kotlin.math.sin(totalYawRad)
+
+        val isoX = dx * cosYaw - dy * sinYaw
+        val isoY = dx * sinYaw + dy * cosYaw
 
         val lift = customHudOffsetY ?: hudOffsetY
 
         val cx = if (screenCenterX > 0.0f) screenCenterX else (if (screenWidth > 0.0f) screenWidth / 2.0f else 0.0f)
         val cy = if (screenCenterY > 0.0f) screenCenterY else (if (screenHeight > 0.0f) screenHeight / 2.0f else 0.0f)
 
-        val sx = cx + (isoX * scaleX)
-        val sy = cy - (isoY * scaleY) - lift
+        if (usePerspective) {
+            val pitchRad = Math.toRadians(cameraPitch.toDouble()).toFloat()
+            val cosPitch = kotlin.math.cos(pitchRad)
+            val camHeight = if (highCamera) 30.0f else 26.0f
 
-        val onScreen = screenWidth > 0.0f && screenHeight > 0.0f && sx in 0.0f..screenWidth && sy in 0.0f..screenHeight
+            // Depth along camera line of sight (Z_depth)
+            val depth = (camHeight + (isoY * cosPitch)).coerceAtLeast(4.0f)
+            val perspScale = camHeight / depth
 
-        return outResult.set(sx, sy, onScreen, distM)
+            val sx = cx + (isoX * scaleX) * perspScale
+            val sy = cy - ((isoY * scaleY) + lift) * perspScale
+            val onScreen = screenWidth > 0.0f && screenHeight > 0.0f && sx in 0.0f..screenWidth && sy in 0.0f..screenHeight
+            return outResult.set(sx, sy, onScreen, distM)
+        } else {
+            val sx = cx + (isoX * scaleX)
+            val sy = cy - (isoY * scaleY) - lift
+            val onScreen = screenWidth > 0.0f && screenHeight > 0.0f && sx in 0.0f..screenWidth && sy in 0.0f..screenHeight
+            return outResult.set(sx, sy, onScreen, distM)
+        }
     }
 
     /**

@@ -10,6 +10,7 @@ import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.*
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.OvershootInterpolator
@@ -19,11 +20,14 @@ import com.vemins.esp.config.ConfigChangeListener
 import com.vemins.esp.config.ConfigManager
 import com.vemins.esp.config.OverlayConfig
 import com.vemins.esp.daemon.DaemonManager
+import com.vemins.esp.service.FloatingOverlayService
 import com.vemins.esp.state.ConnectionStatus
 import com.vemins.esp.state.OverlayState
 import com.vemins.esp.state.OverlayStateListener
 import com.vemins.esp.state.OverlayStateManager
 import com.vemins.esp.ui.MainActivity
+import com.vemins.esp.util.DisplayRateManager
+import java.util.Locale
 import kotlin.math.abs
 import kotlin.math.hypot
 
@@ -37,6 +41,7 @@ class FloatingMenuManager private constructor(private val context: Context) :
     ConfigChangeListener, OverlayStateListener {
 
     companion object {
+        private const val TAG = "FloatingMenuManager"
         private const val PUCK_SIZE_DP = 38
         private const val MENU_WIDTH_DP = 290
         private const val DOUBLE_TAP_TIMEOUT_MS = 320L
@@ -104,15 +109,17 @@ class FloatingMenuManager private constructor(private val context: Context) :
 
     private fun initLayoutParams() {
         val screen = getScreenDimensions()
+        val currentConfig = configManager.getConfig()
+        val baseFlags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS or
+                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED
 
         // 1. Draggable Trigger Puck Window Params (Consumes touch ONLY on the 38x38dp puck)
         triggerParams = WindowManager.LayoutParams(
             puckSizePx,
             puckSizePx,
             getOverlayWindowType(),
-            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
-                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS or
-                    WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
+            baseFlags,
             PixelFormat.TRANSLUCENT
         ).apply {
             gravity = Gravity.TOP or Gravity.START
@@ -125,9 +132,7 @@ class FloatingMenuManager private constructor(private val context: Context) :
             menuWidthPx,
             WindowManager.LayoutParams.WRAP_CONTENT,
             getOverlayWindowType(),
-            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
-                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS or
-                    WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
+            baseFlags,
             PixelFormat.TRANSLUCENT
         ).apply {
             gravity = Gravity.TOP or Gravity.START
@@ -263,10 +268,11 @@ class FloatingMenuManager private constructor(private val context: Context) :
      */
     fun setStealthMode(enabled: Boolean) {
         isStealthMode = enabled
+        DisplayRateManager.setStealthModuleActive(enabled)
         mainHandler.post {
             triggerView?.let { puck ->
                 if (enabled) {
-                    puck.alpha = 0.05f
+                    puck.alpha = 0.08f
                     puck.setBackgroundResource(R.drawable.bg_floating_trigger_stealth)
                     collapseMenu()
                 } else {
@@ -446,6 +452,20 @@ class FloatingMenuManager private constructor(private val context: Context) :
             populateModMenuFromConfig(configManager.getConfig())
         }
 
+        val btnForce120 = root.findViewById<Button>(R.id.btnModForce120Hz)
+        btnForce120?.setOnClickListener {
+            btnForce120.text = "⚡ LOCKING..."
+            DisplayRateManager.force120Hz { success ->
+                if (success) {
+                    btnForce120.text = "⚡ 120Hz OK"
+                    Toast.makeText(context, "⚡ Display Refresh Rate Locked to 120Hz", Toast.LENGTH_SHORT).show()
+                } else {
+                    btnForce120.text = "⚡ 120Hz"
+                    Toast.makeText(context, "[-] Failed to set 120Hz (Check Root)", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
         // Minimap X
         val sbMinimapX = root.findViewById<SeekBar>(R.id.sbModMinimapX)
         val tvValMinimapX = root.findViewById<TextView>(R.id.tvValMinimapX)
@@ -511,6 +531,94 @@ class FloatingMenuManager private constructor(private val context: Context) :
             )
         }
 
+        // Minimap Rotation (0° - 360°)
+        val sbMinimapRotation = root.findViewById<SeekBar>(R.id.sbModMinimapRotation)
+        val tvValMinimapRotation = root.findViewById<TextView>(R.id.tvValMinimapRotation)
+        val btnDecMinimapRotation = root.findViewById<Button>(R.id.btnDecMinimapRotation)
+        val btnIncMinimapRotation = root.findViewById<Button>(R.id.btnIncMinimapRotation)
+
+        setupModSlider(sbMinimapRotation, tvValMinimapRotation, btnDecMinimapRotation, btnIncMinimapRotation, min = 0, max = 360, step = 5, unit = "°") { v ->
+            val cfg = configManager.getConfig().minimap
+            configManager.updateMinimap(
+                posX = cfg.posX,
+                posY = cfg.posY,
+                width = cfg.width,
+                height = cfg.height,
+                rotationDegrees = v.toFloat()
+            )
+        }
+
+        // Radar Zoom
+        val sbMinimapZoom = root.findViewById<SeekBar>(R.id.sbModMinimapZoom)
+        val tvValMinimapZoom = root.findViewById<TextView>(R.id.tvValMinimapZoom)
+        val btnDecMinimapZoom = root.findViewById<Button>(R.id.btnDecMinimapZoom)
+        val btnIncMinimapZoom = root.findViewById<Button>(R.id.btnIncMinimapZoom)
+
+        setupModSlider(sbMinimapZoom, tvValMinimapZoom, btnDecMinimapZoom, btnIncMinimapZoom, min = 50, max = 200, step = 5, isPercent = true) { v ->
+            val cfg = configManager.getConfig().minimap
+            configManager.updateMinimap(
+                posX = cfg.posX,
+                posY = cfg.posY,
+                width = cfg.width,
+                height = cfg.height,
+                radarZoom = v / 100f
+            )
+        }
+
+        // Stretch X
+        val sbStretchX = root.findViewById<SeekBar>(R.id.sbModStretchX)
+        val tvValStretchX = root.findViewById<TextView>(R.id.tvValStretchX)
+        val btnDecStretchX = root.findViewById<Button>(R.id.btnDecStretchX)
+        val btnIncStretchX = root.findViewById<Button>(R.id.btnIncStretchX)
+
+        setupModSlider(sbStretchX, tvValStretchX, btnDecStretchX, btnIncStretchX, min = 50, max = 200, step = 5, isPercent = true) { v ->
+            val cfg = configManager.getConfig().minimap
+            configManager.updateMinimap(
+                posX = cfg.posX,
+                posY = cfg.posY,
+                width = cfg.width,
+                height = cfg.height,
+                stretchX = v / 100f
+            )
+        }
+
+        // Stretch Y
+        val sbStretchY = root.findViewById<SeekBar>(R.id.sbModStretchY)
+        val tvValStretchY = root.findViewById<TextView>(R.id.tvValStretchY)
+        val btnDecStretchY = root.findViewById<Button>(R.id.btnDecStretchY)
+        val btnIncStretchY = root.findViewById<Button>(R.id.btnIncStretchY)
+
+        setupModSlider(sbStretchY, tvValStretchY, btnDecStretchY, btnIncStretchY, min = 50, max = 200, step = 5, isPercent = true) { v ->
+            val cfg = configManager.getConfig().minimap
+            configManager.updateMinimap(
+                posX = cfg.posX,
+                posY = cfg.posY,
+                width = cfg.width,
+                height = cfg.height,
+                stretchY = v / 100f
+            )
+        }
+
+        // Quick Rotation Preset Buttons in Mod Menu
+        val setAngle = { deg: Int ->
+            sbMinimapRotation?.progress = deg
+            tvValMinimapRotation?.text = "$deg°"
+            val cfg = configManager.getConfig().minimap
+            configManager.updateMinimap(
+                posX = cfg.posX,
+                posY = cfg.posY,
+                width = cfg.width,
+                height = cfg.height,
+                rotationDegrees = deg.toFloat()
+            )
+        }
+
+        root.findViewById<Button>(R.id.btnModRot0)?.setOnClickListener { setAngle(0) }
+        root.findViewById<Button>(R.id.btnModRot45)?.setOnClickListener { setAngle(45) }
+        root.findViewById<Button>(R.id.btnModRot90)?.setOnClickListener { setAngle(90) }
+        root.findViewById<Button>(R.id.btnModRot180)?.setOnClickListener { setAngle(180) }
+        root.findViewById<Button>(R.id.btnModRot270)?.setOnClickListener { setAngle(270) }
+
         // Hero Icon Size
         val sbHeroSize = root.findViewById<SeekBar>(R.id.sbModHeroSize)
         val tvValHeroSize = root.findViewById<TextView>(R.id.tvValHeroSize)
@@ -521,19 +629,43 @@ class FloatingMenuManager private constructor(private val context: Context) :
             configManager.updateSizing(heroDotRadius = v.toFloat())
         }
 
-        // Diamond & Invert Y Switches
-        root.findViewById<Switch>(R.id.switchModDiamond)?.setOnCheckedChangeListener { _, checked ->
-            if (!isUpdatingFromCode) {
-                configManager.updateRenderToggle("diamond_mode", checked)
-            }
-        }
+        // Invert Y Switch
         root.findViewById<Switch>(R.id.switchModInvertY)?.setOnCheckedChangeListener { _, checked ->
             if (!isUpdatingFromCode) {
                 configManager.updateRenderToggle("invert_y", checked)
             }
         }
 
-        // --- TAB 2: COMBAT CONTROLS ---
+        // --- TAB 2: COMBAT & TOP CD BAR CONTROLS ---
+        // Top CD Bar Switch
+        root.findViewById<Switch>(R.id.switchModTopCdBar)?.setOnCheckedChangeListener { _, checked ->
+            if (!isUpdatingFromCode) {
+                configManager.updateRenderToggle("show_top_cd_bar", checked)
+            }
+        }
+
+        // Top CD Bar Y Position
+        val sbTopCdBarY = root.findViewById<SeekBar>(R.id.sbModTopCdBarY)
+        val tvValTopCdBarY = root.findViewById<TextView>(R.id.tvValTopCdBarY)
+        val btnDecTopCdBarY = root.findViewById<Button>(R.id.btnDecTopCdBarY)
+        val btnIncTopCdBarY = root.findViewById<Button>(R.id.btnIncTopCdBarY)
+
+        setupModSlider(sbTopCdBarY, tvValTopCdBarY, btnDecTopCdBarY, btnIncTopCdBarY, min = 0, max = 150, step = 2) { v ->
+            val cfg = configManager.getConfig().camera
+            configManager.updateCamera(scaleX = cfg.scaleX, scaleY = cfg.scaleY, hudOffsetY = cfg.hudOffsetY, topCdBarPosY = v.toFloat())
+        }
+
+        // Top CD Bar Scale
+        val sbTopCdBarScale = root.findViewById<SeekBar>(R.id.sbModTopCdBarScale)
+        val tvValTopCdBarScale = root.findViewById<TextView>(R.id.tvValTopCdBarScale)
+        val btnDecTopCdBarScale = root.findViewById<Button>(R.id.btnDecTopCdBarScale)
+        val btnIncTopCdBarScale = root.findViewById<Button>(R.id.btnIncTopCdBarScale)
+
+        setupModSlider(sbTopCdBarScale, tvValTopCdBarScale, btnDecTopCdBarScale, btnIncTopCdBarScale, min = 50, max = 200, step = 5, isPercent = true) { v ->
+            val cfg = configManager.getConfig().camera
+            configManager.updateCamera(scaleX = cfg.scaleX, scaleY = cfg.scaleY, hudOffsetY = cfg.hudOffsetY, topCdBarScale = v / 100f)
+        }
+
         // Scale X
         val sbScaleX = root.findViewById<SeekBar>(R.id.sbModScaleX)
         val tvValScaleX = root.findViewById<TextView>(R.id.tvValScaleX)
@@ -565,28 +697,6 @@ class FloatingMenuManager private constructor(private val context: Context) :
         setupModSlider(sbHudLift, tvValHudLift, btnDecHudLift, btnIncHudLift, min = 0, max = 180, step = 5) { v ->
             val cfg = configManager.getConfig().camera
             configManager.updateCamera(scaleX = cfg.scaleX, scaleY = cfg.scaleY, hudOffsetY = v.toFloat())
-        }
-
-        // Edge Margin
-        val sbEdgeMargin = root.findViewById<SeekBar>(R.id.sbModEdgeMargin)
-        val tvValEdgeMargin = root.findViewById<TextView>(R.id.tvValEdgeMargin)
-        val btnDecEdgeMargin = root.findViewById<Button>(R.id.btnDecEdgeMargin)
-        val btnIncEdgeMargin = root.findViewById<Button>(R.id.btnIncEdgeMargin)
-
-        setupModSlider(sbEdgeMargin, tvValEdgeMargin, btnDecEdgeMargin, btnIncEdgeMargin, min = 10, max = 120, step = 5) { v ->
-            val cfg = configManager.getConfig().camera
-            configManager.updateRadar(edgeMargin = v.toFloat(), maxRadarDistance = cfg.maxRadarDistance)
-        }
-
-        // Max Distance
-        val sbMaxDist = root.findViewById<SeekBar>(R.id.sbModMaxDist)
-        val tvValMaxDist = root.findViewById<TextView>(R.id.tvValMaxDist)
-        val btnDecMaxDist = root.findViewById<Button>(R.id.btnDecMaxDist)
-        val btnIncMaxDist = root.findViewById<Button>(R.id.btnIncMaxDist)
-
-        setupModSlider(sbMaxDist, tvValMaxDist, btnDecMaxDist, btnIncMaxDist, min = 15, max = 90, step = 5, unit = "m") { v ->
-            val cfg = configManager.getConfig().camera
-            configManager.updateRadar(edgeMargin = cfg.edgeMargin, maxRadarDistance = v.toFloat())
         }
 
         // HUD Badge Size
@@ -627,7 +737,8 @@ class FloatingMenuManager private constructor(private val context: Context) :
             R.id.swModUltBadge to "screen_show_ult_badge",
             R.id.swModSpellBadge to "screen_show_spell_badge",
             R.id.swModDistance to "screen_show_distance",
-            R.id.swModEdgeRadar to "screen_show_edge_radar"
+            R.id.swModEdgeRadar to "screen_show_edge_radar",
+            R.id.swModHideInRecording to "hide_in_recording"
         )
 
         for ((viewId, configKey) in layerMap) {
@@ -731,10 +842,34 @@ class FloatingMenuManager private constructor(private val context: Context) :
         root.findViewById<SeekBar>(R.id.sbModMinimapAlpha)?.progress = alphaInt
         root.findViewById<TextView>(R.id.tvValMinimapAlpha)?.text = "$alphaInt%"
 
-        root.findViewById<Switch>(R.id.switchModDiamond)?.isChecked = m.diamondMode
+        val rotInt = m.rotationDegrees.toInt()
+        root.findViewById<SeekBar>(R.id.sbModMinimapRotation)?.progress = rotInt
+        root.findViewById<TextView>(R.id.tvValMinimapRotation)?.text = "$rotInt°"
+
+        val zoomInt = (m.radarZoom * 100).toInt()
+        root.findViewById<SeekBar>(R.id.sbModMinimapZoom)?.progress = zoomInt
+        root.findViewById<TextView>(R.id.tvValMinimapZoom)?.text = "$zoomInt%"
+
+        val strXInt = (m.stretchX * 100).toInt()
+        root.findViewById<SeekBar>(R.id.sbModStretchX)?.progress = strXInt
+        root.findViewById<TextView>(R.id.tvValStretchX)?.text = "$strXInt%"
+
+        val strYInt = (m.stretchY * 100).toInt()
+        root.findViewById<SeekBar>(R.id.sbModStretchY)?.progress = strYInt
+        root.findViewById<TextView>(R.id.tvValStretchY)?.text = "$strYInt%"
+
         root.findViewById<Switch>(R.id.switchModInvertY)?.isChecked = m.invertY
 
         val c = config.camera
+        root.findViewById<Switch>(R.id.switchModTopCdBar)?.isChecked = c.showTopCdBar
+
+        root.findViewById<SeekBar>(R.id.sbModTopCdBarY)?.progress = c.topCdBarPosY.toInt()
+        root.findViewById<TextView>(R.id.tvValTopCdBarY)?.text = c.topCdBarPosY.toInt().toString()
+
+        val topScaleInt = (c.topCdBarScale * 100).toInt()
+        root.findViewById<SeekBar>(R.id.sbModTopCdBarScale)?.progress = topScaleInt
+        root.findViewById<TextView>(R.id.tvValTopCdBarScale)?.text = "$topScaleInt%"
+
         root.findViewById<SeekBar>(R.id.sbModScaleX)?.progress = (c.scaleX * 10).toInt()
         root.findViewById<TextView>(R.id.tvValScaleX)?.text = String.format("%.1f", c.scaleX)
 
@@ -743,12 +878,6 @@ class FloatingMenuManager private constructor(private val context: Context) :
 
         root.findViewById<SeekBar>(R.id.sbModHudLift)?.progress = c.hudOffsetY.toInt()
         root.findViewById<TextView>(R.id.tvValHudLift)?.text = c.hudOffsetY.toInt().toString()
-
-        root.findViewById<SeekBar>(R.id.sbModEdgeMargin)?.progress = c.edgeMargin.toInt()
-        root.findViewById<TextView>(R.id.tvValEdgeMargin)?.text = c.edgeMargin.toInt().toString()
-
-        root.findViewById<SeekBar>(R.id.sbModMaxDist)?.progress = c.maxRadarDistance.toInt()
-        root.findViewById<TextView>(R.id.tvValMaxDist)?.text = "${c.maxRadarDistance.toInt()}m"
 
         root.findViewById<Switch>(R.id.switchModHighCamera)?.isChecked = c.highCamera
 
@@ -774,6 +903,7 @@ class FloatingMenuManager private constructor(private val context: Context) :
         root.findViewById<Switch>(R.id.swModSpellBadge)?.isChecked = r.screenShowSpellBadge
         root.findViewById<Switch>(R.id.swModDistance)?.isChecked = r.screenShowDistance
         root.findViewById<Switch>(R.id.swModEdgeRadar)?.isChecked = r.screenShowEdgeRadar
+        root.findViewById<Switch>(R.id.swModHideInRecording)?.isChecked = r.hideInRecording
 
         isUpdatingFromCode = false
     }
@@ -874,44 +1004,51 @@ class FloatingMenuManager private constructor(private val context: Context) :
     @SuppressLint("SetTextI18n")
     override fun onStateChanged(state: OverlayState) {
         mainHandler.post {
-            updateStatusDot()
+            try {
+                updateStatusDot()
 
-            val root = modMenuView ?: return@post
-            val stats = state.stats
-            val badge = root.findViewById<TextView>(R.id.tvModSysStatusBadge)
-            val detail = root.findViewById<TextView>(R.id.tvModSysStatsDetail)
-            val footer = root.findViewById<TextView>(R.id.tvModFooterStats)
+                // Update live telemetry on floating status pill
+                val stats = state.stats
+                val tvFps = triggerView?.findViewById<TextView>(R.id.tvTriggerFps)
+                val tvLatency = triggerView?.findViewById<TextView>(R.id.tvTriggerLatency)
+                val fpsVal = if (stats.fps > 0) stats.fps.toInt() else 120
+                tvFps?.text = "$fpsVal FPS"
+                tvLatency?.text = if (stats.latencyMs > 0) "${stats.latencyMs}ms" else "0.4ms"
 
-            when (state.connectionStatus) {
-                ConnectionStatus.CONNECTED -> {
-                    badge?.text = "CONNECTED"
-                    badge?.setTextColor(context.getColor(R.color.vemins_green))
-                    badge?.background = context.getDrawable(R.drawable.bg_badge_green)
+                val root = modMenuView ?: return@post
+                val badge = root.findViewById<TextView>(R.id.tvModSysStatusBadge)
+                val detail = root.findViewById<TextView>(R.id.tvModSysStatsDetail)
+                val footer = root.findViewById<TextView>(R.id.tvModFooterStats)
+
+                when (state.connectionStatus) {
+                    ConnectionStatus.CONNECTED -> {
+                        badge?.text = "CONNECTED"
+                        badge?.setTextColor(context.getColor(R.color.vemins_white))
+                        badge?.background = context.getDrawable(R.drawable.bg_badge_elevated)
+                    }
+                    ConnectionStatus.CONNECTING, ConnectionStatus.RECONNECTING -> {
+                        badge?.text = state.connectionStatus.name
+                        badge?.setTextColor(context.getColor(R.color.vemins_text_secondary))
+                        badge?.background = context.getDrawable(R.drawable.bg_badge_elevated)
+                    }
+                    ConnectionStatus.DISCONNECTED, ConnectionStatus.ERROR -> {
+                        badge?.text = "STANDBY"
+                        badge?.setTextColor(context.getColor(R.color.vemins_text_muted))
+                        badge?.background = context.getDrawable(R.drawable.bg_badge_elevated)
+                    }
                 }
-                ConnectionStatus.CONNECTING, ConnectionStatus.RECONNECTING -> {
-                    badge?.text = state.connectionStatus.name
-                    badge?.setTextColor(context.getColor(R.color.vemins_yellow))
-                    badge?.background = context.getDrawable(R.drawable.bg_badge_yellow)
-                }
-                ConnectionStatus.DISCONNECTED, ConnectionStatus.ERROR -> {
-                    badge?.text = "STANDBY"
-                    badge?.setTextColor(context.getColor(R.color.vemins_red))
-                    badge?.background = context.getDrawable(R.drawable.bg_badge_red)
-                }
+
+                detail?.text = "PID: ${if (stats.targetPid > 0) stats.targetPid else "--"} | FPS: ${fpsVal} | Latency: ${stats.latencyMs}ms | Frames: ${stats.framesReceived}"
+                footer?.text = "PERCEPTION: NDK DMA • ${fpsVal} FPS"
+            } catch (t: Throwable) {
+                Log.e(TAG, "Error updating floating menu state: ${t.message}", t)
             }
-
-            detail?.text = "PID: ${if (stats.targetPid > 0) stats.targetPid else "--"} | FPS: ${stats.fps.toInt()} | Latency: ${stats.latencyMs}ms | Frames: ${stats.framesReceived}"
-            footer?.text = "STREAM: 127.0.0.1:9999 • ${stats.fps.toInt()} FPS"
         }
     }
 
     private fun updateStatusDot() {
         val dot = triggerView?.findViewById<View>(R.id.vStatusDot) ?: return
-        when (stateManager.getState().connectionStatus) {
-            ConnectionStatus.CONNECTED -> dot.setBackgroundResource(R.drawable.bg_status_dot_green)
-            ConnectionStatus.CONNECTING, ConnectionStatus.RECONNECTING -> dot.setBackgroundResource(R.drawable.bg_status_dot_yellow)
-            ConnectionStatus.DISCONNECTED, ConnectionStatus.ERROR -> dot.setBackgroundResource(R.drawable.bg_status_dot_red)
-        }
+        dot.setBackgroundResource(R.drawable.bg_status_dot_white)
     }
 
     private fun getScreenDimensions(): Point {

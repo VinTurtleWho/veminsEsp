@@ -124,6 +124,9 @@ class OverlayStateManager private constructor() {
         }
     }
 
+    // Throttle UI broadcast to eliminate Main Thread message flooding & lag
+    private var lastUiNotificationTimeNs = 0L
+
     /**
      * Updates the latest ingested FrameSnapshot from TelemetryClient.
      */
@@ -147,41 +150,48 @@ class OverlayStateManager private constructor() {
             (smoothedLatencyMs * 0.8 + roundTripLatencyMs * 0.2).toLong()
         }
 
-        val oldState = stateRef.get()
-        val oldStats = oldState.stats
+        // Throttle UI listener notifications & State allocations to 4 Hz (every 250ms)
+        // This eliminates 180+ Handler Runnable posts/sec to the Android Main Thread!
+        val shouldNotifyUi = (nowNs - lastUiNotificationTimeNs) >= 250_000_000L
+        if (shouldNotifyUi) {
+            lastUiNotificationTimeNs = nowNs
 
-        val resolvedPid = if (snapshot.pid > 0) {
-            snapshot.pid
-        } else if (snapshot.status == "waiting" || snapshot.status == "disconnected") {
-            0
-        } else {
-            oldStats.targetPid
-        }
+            val oldState = stateRef.get()
+            val oldStats = oldState.stats
 
-        val newStats = oldStats.copy(
-            fps = currentFps,
-            latencyMs = smoothedLatencyMs,
-            framesReceived = totalFrames,
-            bytesReceived = oldStats.bytesReceived + rawBytesLength,
-            lastFrameTimestampNs = nowNs,
-            daemonVersion = if (snapshot.version.isNotBlank()) snapshot.version else oldStats.daemonVersion,
-            daemonBuildHash = if (snapshot.buildHash.isNotBlank()) snapshot.buildHash else oldStats.daemonBuildHash,
-            targetPid = resolvedPid,
-            liblogicBase = if (snapshot.liblogicBase > 0L) snapshot.liblogicBase else oldStats.liblogicBase
-        )
+            val resolvedPid = if (snapshot.pid > 0) {
+                snapshot.pid
+            } else if (snapshot.status == "waiting" || snapshot.status == "disconnected") {
+                0
+            } else {
+                oldStats.targetPid
+            }
 
-        val newState = oldState.copy(
-            latestSnapshot = snapshot,
-            stats = newStats
-        )
-        stateRef.set(newState)
+            val newStats = oldStats.copy(
+                fps = currentFps,
+                latencyMs = smoothedLatencyMs,
+                framesReceived = totalFrames,
+                bytesReceived = oldStats.bytesReceived + rawBytesLength,
+                lastFrameTimestampNs = nowNs,
+                daemonVersion = if (snapshot.version.isNotBlank()) snapshot.version else oldStats.daemonVersion,
+                daemonBuildHash = if (snapshot.buildHash.isNotBlank()) snapshot.buildHash else oldStats.daemonBuildHash,
+                targetPid = resolvedPid,
+                liblogicBase = if (snapshot.liblogicBase > 0L) snapshot.liblogicBase else oldStats.liblogicBase
+            )
 
-        for (listener in listeners) {
-            try {
-                listener.onSnapshotUpdated(snapshot)
-                listener.onStateChanged(newState)
-            } catch (e: Exception) {
-                System.err.println("[OverlayStateManager] Listener error onFrameReceived: ${e.message}")
+            val newState = oldState.copy(
+                latestSnapshot = snapshot,
+                stats = newStats
+            )
+            stateRef.set(newState)
+
+            for (listener in listeners) {
+                try {
+                    listener.onSnapshotUpdated(snapshot)
+                    listener.onStateChanged(newState)
+                } catch (e: Exception) {
+                    System.err.println("[OverlayStateManager] Listener error onFrameReceived: ${e.message}")
+                }
             }
         }
     }

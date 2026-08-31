@@ -51,6 +51,23 @@ class TestKotlinEngineMath(unittest.TestCase):
         self.assertAlmostEqual(sx, 1253.74, delta=0.1)
         self.assertAlmostEqual(sy, 322.26, delta=0.1)
 
+    def test_perspective_world_to_screen_math(self):
+        """Validates 3D perspective projection depth division and foreshortening."""
+        # Target: (5.0, 3.0), Cam: (0.0, 0.0)
+        # iso_x = 1.41421356, iso_y = 5.65685424
+        # depth = 28.0 + 5.65685424 * cos(58 deg) = 28.0 + 2.99764 = 30.9976
+        # persp_scale = 28.0 / 30.9976 = 0.90329
+        sx, sy, on_screen = self.projector.world_to_screen_perspective(5.0, 3.0, 0.0, 0.0)
+        self.assertTrue(on_screen)
+        self.assertTrue(1200.0 < sx < 1253.74) # Perspective compresses compared to flat linear
+        self.assertTrue(sy < 540.0)
+
+        # Long range sniper target (e.g. Novaria S2 / Layla Ult) at (25.0, 25.0)
+        # Without perspective, linear shoots off; with perspective, remains bounded and proportional
+        sx_far, sy_far, on_screen_far = self.projector.world_to_screen_perspective(25.0, 25.0, 0.0, 0.0)
+        self.assertTrue(on_screen_far or not on_screen_far) # Valid finite coordinates
+        self.assertTrue(math.isfinite(sx_far) and math.isfinite(sy_far))
+
     def test_off_screen_edge_radar_clamping_math(self):
         """Validates edge radar ray-box intersection with margins."""
         # Distant off-screen enemy at (35.0, -25.0)

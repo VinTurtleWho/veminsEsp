@@ -45,7 +45,7 @@ class TelemetryClient(
     companion object {
         const val DEFAULT_HOST = "127.0.0.1"
         const val DEFAULT_PORT = 9999
-        private const val CMD_GET_INFO = "GET_INFO\n"
+        private const val CMD_GET_FRAME = "GET_FRAME\n"
         private const val BUFFER_SIZE = 65536
 
         @Volatile
@@ -126,7 +126,7 @@ class TelemetryClient(
      */
     private fun runClientLoop() {
         val targetFrameIntervalNs = (1_000_000_000L / targetFps.coerceIn(1, 120))
-        val cmdBytes = CMD_GET_INFO.toByteArray(Charsets.UTF_8)
+        val cmdBytes = CMD_GET_FRAME.toByteArray(Charsets.UTF_8)
 
         while (isRunning.get()) {
             try {

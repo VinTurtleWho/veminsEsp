@@ -148,8 +148,10 @@ static int get_cached_mem_fd(pid_t pid) {
 }
 
 static bool read_raw(int fd, uint64_t addr, void *buf, size_t size) {
-    // Support full 48-bit AArch64 user address space (0x10000000 .. 0x0000FFFFFFFFFFFF)
-    if (fd < 0 || addr < 0x10000000ULL || addr >= 0x0001000000000000ULL || !buf || size == 0) return false;
+    // Strip ARM64 Top-Byte-Ignore (TBI) / Pointer Authentication (PAC) tags
+    addr &= 0x0000FFFFFFFFFFFFULL;
+    // Support full 48-bit AArch64 user address space (0x10000 .. 0x0000FFFFFFFFFFFF)
+    if (fd < 0 || addr < 0x10000ULL || addr >= 0x0001000000000000ULL || !buf || size == 0) return false;
     return (pread(fd, buf, size, (off_t)addr) == (ssize_t)size);
 }
 
@@ -210,18 +212,30 @@ static bool is_pid_alive(pid_t pid) {
     return (kill(pid, 0) == 0 || errno == EPERM);
 }
 
+static time_t s_last_proc_scan = 0;
+
 static pid_t find_mlbb_pid() {
-    // 1. Ultra-fast path: If cached PID is alive and memory descriptor is readable, avoid scanning /proc
+    // 1. Ultra-fast path: If cached PID is alive, avoid expensive /proc and /proc/maps scans
     if (s_cached_pid > 0 && is_pid_alive(s_cached_pid)) {
         if (s_cached_mem_fd >= 0 && s_libcsharp_base > 0) {
-            uint32_t elf_magic = 0;
-            if (pread(s_cached_mem_fd, &elf_magic, 4, (off_t)s_libcsharp_base) == 4 && elf_magic == 0x464c457f) {
-                return s_cached_pid;
-            }
+            return s_cached_pid;
+        }
+        int fd = get_cached_mem_fd(s_cached_pid);
+        if (fd >= 0) {
+            if (!s_libcsharp_base) s_libcsharp_base = find_module_base(s_cached_pid, "libcsharp.so");
+            if (!s_liblogic_base) s_liblogic_base = find_module_base(s_cached_pid, "liblogic.so");
+            return s_cached_pid;
         }
     }
 
-    // 2. Scan /proc
+    // 2. Throttle /proc scanning to at most once per second to eliminate I/O lock contention & lag
+    time_t now = time(NULL);
+    if (s_cached_pid <= 0 && (now - s_last_proc_scan) < 1) {
+        return -1;
+    }
+    s_last_proc_scan = now;
+
+    // 3. Scan /proc
     DIR *dir = opendir("/proc");
     if (!dir) return (s_cached_pid > 0 && is_pid_alive(s_cached_pid)) ? s_cached_pid : -1;
 
@@ -274,13 +288,11 @@ static pid_t find_mlbb_pid() {
 
     if (target_pid > 0) {
         if (target_pid != s_cached_pid) {
-            if (s_cached_mem_fd >= 0) {
-                close(s_cached_mem_fd);
-                s_cached_mem_fd = -1;
-            }
+            invalidate_cached_process();
             s_cached_pid = target_pid;
             if (!s_libcsharp_base) s_libcsharp_base = find_module_base(target_pid, "libcsharp.so");
             if (!s_liblogic_base) s_liblogic_base = find_module_base(target_pid, "liblogic.so");
+            get_cached_mem_fd(target_pid);
         }
         return target_pid;
     }
@@ -403,12 +415,11 @@ struct HeroAbilitiesInfo {
     float battle_spell_rem_s;
     float battle_spell_max_s;
     bool battle_spell_ready;
-
     int ability_count;
     struct AbilitySlotInfo abilities[16];
 };
 
-static void parse_hero_abilities(int fd, uint64_t hero_addr, int32_t hero_id, struct HeroAbilitiesInfo *out_ab, json_buffer_t *buf) {
+static void parse_hero_abilities(int fd, uint64_t hero_addr, int32_t hero_id, uint32_t current_battle_time, struct HeroAbilitiesInfo *out_ab, json_buffer_t *buf) {
     if (out_ab) {
         memset(out_ab, 0, sizeof(*out_ab));
         out_ab->skill1_ready = true;
@@ -428,6 +439,9 @@ static void parse_hero_abilities(int fd, uint64_t hero_addr, int32_t hero_id, st
     }
 
     uint64_t skill_comp = read_u64(fd, hero_addr + 0x4e0);
+    if (!skill_comp) {
+        skill_comp = read_u64(fd, hero_addr + 0x4c0);
+    }
     if (!skill_comp) {
         if (buf) json_buf_append_str(buf, "]");
         return;
@@ -460,15 +474,33 @@ static void parse_hero_abilities(int fd, uint64_t hero_addr, int32_t hero_id, st
         if (!cd_data_ptr) continue;
 
         int32_t spell_id = read_i32(fd, cd_data_ptr + 0x10);
-        int32_t rem_ms = read_i32(fd, cd_data_ptr + 0x14);
-        int32_t max_ms = read_i32(fd, cd_data_ptr + 0x18);
+        uint32_t cool_time = (uint32_t)read_i32(fd, cd_data_ptr + 0x14);
+        uint32_t orig_max = (uint32_t)read_i32(fd, cd_data_ptr + 0x18);
+        uint32_t start_time = (uint32_t)read_i32(fd, cd_data_ptr + 0x1c);
         uint8_t is_cd = read_u8(fd, cd_data_ptr + 0x20);
 
         if (spell_id <= 0) continue;
 
-        float rem_s = (float)safe_float((double)rem_ms / 1000.0, 0.0, 0.0, 600.0);
-        float max_s = (float)safe_float((double)max_ms / 1000.0, 0.0, 0.0, 600.0);
-        bool on_cd = (is_cd != 0 && rem_ms > 0);
+        uint32_t end_time = start_time + cool_time;
+        int32_t rem_ms = 0;
+        bool on_cd = (is_cd != 0);
+
+        if (on_cd && current_battle_time > 0 && end_time > current_battle_time) {
+            uint32_t diff = end_time - current_battle_time;
+            if (diff > 50) {
+                rem_ms = (int32_t)diff;
+            } else {
+                rem_ms = 0;
+                on_cd = false;
+            }
+        } else {
+            rem_ms = 0;
+            on_cd = false;
+        }
+
+        int32_t max_ms = (orig_max > 0) ? (int32_t)orig_max : (int32_t)cool_time;
+        float rem_s = (float)rem_ms / 1000.0f;
+        float max_s = (float)max_ms / 1000.0f;
 
         int slot = auto_slot;
         int expected_s1 = hero_id * 100 + 10;
@@ -476,11 +508,11 @@ static void parse_hero_abilities(int fd, uint64_t hero_addr, int32_t hero_id, st
         int expected_s3 = hero_id * 100 + 30;
         int expected_s4 = hero_id * 100 + 40;
 
-        if (spell_id == expected_s1) {
+        if (spell_id == expected_s1 || (spell_id % 100 == 10)) {
             slot = 1;
-        } else if (spell_id == expected_s2) {
+        } else if (spell_id == expected_s2 || (spell_id % 100 == 20)) {
             slot = 2;
-        } else if (spell_id == expected_s3 || spell_id == expected_s4) {
+        } else if (spell_id == expected_s3 || spell_id == expected_s4 || (spell_id % 100 == 30) || (spell_id % 100 == 40)) {
             slot = 3;
         } else if ((spell_id >= 20000 && spell_id < 30000) || (spell_id >= 200000 && spell_id < 300000)) {
             slot = 5;
@@ -506,7 +538,10 @@ static void parse_hero_abilities(int fd, uint64_t hero_addr, int32_t hero_id, st
                 out_ab->battle_spell_rem_s = rem_s;
                 out_ab->battle_spell_max_s = max_s;
                 out_ab->battle_spell_ready = !on_cd;
-                strncpy(out_ab->battle_spell_name, get_spell_name(spell_id), sizeof(out_ab->battle_spell_name) - 1);
+                const char *sp_name = get_spell_name(spell_id);
+                if (sp_name && sp_name[0]) {
+                    strncpy(out_ab->battle_spell_name, sp_name, sizeof(out_ab->battle_spell_name) - 1);
+                }
             }
 
             if (out_ab->ability_count < 16) {
@@ -515,7 +550,7 @@ static void parse_hero_abilities(int fd, uint64_t hero_addr, int32_t hero_id, st
                 item->slot = slot;
                 item->rem_ms = rem_ms;
                 item->max_ms = max_ms;
-                item->is_cd = is_cd;
+                item->is_cd = on_cd ? 1 : 0;
                 strncpy(item->name, (slot == 5) ? out_ab->battle_spell_name : get_spell_name(spell_id), sizeof(item->name) - 1);
             }
         }
@@ -538,7 +573,7 @@ static void parse_hero_abilities(int fd, uint64_t hero_addr, int32_t hero_id, st
 
 // --- HERO JSON FORMATTER ---
 
-static void format_hero_json(int fd, uint64_t hero_addr, json_buffer_t *buf) {
+static void format_hero_json(int fd, uint64_t hero_addr, uint32_t current_battle_time, json_buffer_t *buf) {
     if (!buf) return;
     if (!hero_addr) {
         json_buf_append_str(buf, "null");
@@ -571,7 +606,7 @@ static void format_hero_json(int fd, uint64_t hero_addr, json_buffer_t *buf) {
     struct HeroAbilitiesInfo ab;
     json_buffer_t ab_buf;
     json_buf_init(&ab_buf, 512);
-    parse_hero_abilities(fd, hero_addr, hero_id, &ab, &ab_buf);
+    parse_hero_abilities(fd, hero_addr, hero_id, current_battle_time, &ab, &ab_buf);
 
     double s1_cd = safe_float(ab.skill1_rem_s, 0.0, 0.0, 600.0);
     double s1_max = safe_float(ab.skill1_max_s, 0.0, 0.0, 600.0);
@@ -828,7 +863,17 @@ static void build_live_snapshot_json(json_buffer_t *buf) {
 
     int32_t battle_state = read_i32(mem_fd, mgr_addr + 0x180);
     uint32_t frame_time_ms = (uint32_t)read_i32(mem_fd, mgr_addr + 0x19c);
-    bool in_match = (battle_state >= 2 && battle_state <= 6);
+
+    uint64_t self_ptr = read_u64(mem_fd, mgr_addr + 0x200);
+    if (!self_ptr) self_ptr = read_u64(mem_fd, mgr_addr + 0x0a0);
+
+    uint64_t dict_players = read_u64(mem_fd, mgr_addr + 0x0a8);
+    int32_t player_count = 0;
+    if (dict_players) {
+        player_count = read_i32(mem_fd, dict_players + 0x020);
+    }
+
+    bool in_match = (self_ptr != 0) || (player_count > 0) || (battle_state >= 1 && battle_state <= 8);
 
     // in_match state gating: if !in_match, serialize an empty snapshot immediately without reading deallocated memory
     if (!in_match) {
@@ -848,14 +893,11 @@ static void build_live_snapshot_json(json_buffer_t *buf) {
         return;
     }
 
-    uint64_t self_ptr = read_u64(mem_fd, mgr_addr + 0x200);
-    if (!self_ptr) self_ptr = read_u64(mem_fd, mgr_addr + 0x0a0);
-
     json_buffer_t local_buf;
     json_buf_init(&local_buf, 1024);
     int local_camp = 1;
     if (self_ptr) {
-        format_hero_json(mem_fd, self_ptr, &local_buf);
+        format_hero_json(mem_fd, self_ptr, frame_time_ms, &local_buf);
         local_camp = read_i32(mem_fd, self_ptr + 0x1dc);
         if (local_camp <= 0) local_camp = 1;
     } else {
@@ -870,7 +912,6 @@ static void build_live_snapshot_json(json_buffer_t *buf) {
     json_buf_append_str(&allies_buf, "[");
     int enemy_count = 0, ally_count = 0;
 
-    uint64_t dict_players = read_u64(mem_fd, mgr_addr + 0x0a8);
     if (dict_players) {
         uint64_t entries = read_u64(mem_fd, dict_players + 0x018);
         int32_t count = read_i32(mem_fd, dict_players + 0x020);
@@ -881,7 +922,7 @@ static void build_live_snapshot_json(json_buffer_t *buf) {
                 if (player_ptr && player_ptr != self_ptr) {
                     json_buffer_t h_buf;
                     json_buf_init(&h_buf, 1024);
-                    format_hero_json(mem_fd, player_ptr, &h_buf);
+                    format_hero_json(mem_fd, player_ptr, frame_time_ms, &h_buf);
                     int camp = read_i32(mem_fd, player_ptr + 0x1dc);
 
                     if (camp == local_camp) {
@@ -1095,9 +1136,12 @@ int main(int argc, char *argv[]) {
             setsockopt(client_fd, SOL_SOCKET, SO_RCVTIMEO, (const char *)&tv, sizeof(tv));
             setsockopt(client_fd, SOL_SOCKET, SO_SNDTIMEO, (const char *)&tv, sizeof(tv));
 
-            // Enable TCP_NODELAY for lowest latency
+            // Enable TCP_NODELAY and optimal socket buffer sizing for lowest latency
             int flag = 1;
             setsockopt(client_fd, IPPROTO_TCP, TCP_NODELAY, (char *)&flag, sizeof(int));
+            int buf_size = 65536;
+            setsockopt(client_fd, SOL_SOCKET, SO_SNDBUF, (char *)&buf_size, sizeof(int));
+            setsockopt(client_fd, SOL_SOCKET, SO_RCVBUF, (char *)&buf_size, sizeof(int));
 
             // Send initial handshake banner
             char banner[256];

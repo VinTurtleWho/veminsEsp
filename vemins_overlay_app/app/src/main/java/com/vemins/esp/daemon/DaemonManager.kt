@@ -148,8 +148,8 @@ class DaemonManager private constructor(private val context: Context) {
         val systemBinaryPath = "/data/local/tmp/$DAEMON_BINARY_NAME"
 
         return try {
-            // Stage to /data/local/tmp and run in background without killing unless port is truly dead
-            val command = "cp -f $internalBinaryPath $systemBinaryPath 2>/dev/null; chmod 755 $systemBinaryPath; killall -9 $DAEMON_BINARY_NAME 2>/dev/null; $systemBinaryPath $DAEMON_PORT >/data/local/tmp/vemins_daemon.log 2>&1 &"
+            // Stage to /data/local/tmp and run in background with clean socket port freeing
+            val command = "cp -f $internalBinaryPath $systemBinaryPath 2>/dev/null; chmod 755 $systemBinaryPath; pkill -9 $DAEMON_BINARY_NAME 2>/dev/null; killall -9 $DAEMON_BINARY_NAME 2>/dev/null; fuser -k $DAEMON_PORT/tcp 2>/dev/null; nohup $systemBinaryPath $DAEMON_PORT >/data/local/tmp/vemins_daemon.log 2>&1 &"
             val process = Runtime.getRuntime().exec(arrayOf("su", "-c", command))
             process.waitFor()
 
@@ -193,7 +193,8 @@ class DaemonManager private constructor(private val context: Context) {
     @Synchronized
     fun restartDaemon(): Boolean {
         try {
-            Runtime.getRuntime().exec(arrayOf("su", "-c", "killall -9 $DAEMON_BINARY_NAME 2>/dev/null")).waitFor()
+            val killCmd = "pkill -9 $DAEMON_BINARY_NAME 2>/dev/null; killall -9 $DAEMON_BINARY_NAME 2>/dev/null; fuser -k $DAEMON_PORT/tcp 2>/dev/null"
+            Runtime.getRuntime().exec(arrayOf("su", "-c", killCmd)).waitFor()
         } catch (_: Exception) {}
         Thread.sleep(150)
         return startDaemon()

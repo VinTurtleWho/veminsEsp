@@ -83,19 +83,19 @@ class MinimapProjection(config: MinimapConfig = MinimapConfig()) {
     var worldH: Float = config.worldHeight
         private set
 
-    // Rotated Coordinate Bounds for Diamond Map Projection
-    private var rotMinX: Float = -52.0f * INV_SQRT2
-    private var rotMaxX: Float = 52.0f * INV_SQRT2
-    private var rotMinY: Float = -52.0f * INV_SQRT2
-    private var rotMaxY: Float = 52.0f * INV_SQRT2
-    private var rotWorldW: Float = 104.0f * INV_SQRT2
-    private var rotWorldH: Float = 104.0f * INV_SQRT2
-
-    // Custom Angle Rotation Precomputations
-    private var rotationRad: Float = Math.toRadians(config.rotationDegrees.toDouble()).toFloat()
-    private var cosRot: Float = cos(rotationRad)
-    private var sinRot: Float = sin(rotationRad)
-    private var isCustomRotated: Boolean = config.rotationDegrees != 0.0f
+    // Custom Angle Rotation Precomputations (0° - 360°)
+    var rotationDegrees: Float = 0.0f
+        private set
+    var radarZoom: Float = 1.0f
+        private set
+    var stretchX: Float = 1.0f
+        private set
+    var stretchY: Float = 1.0f
+        private set
+    private var rotationRad: Float = 0.0f
+    private var cosRot: Float = 1.0f
+    private var sinRot: Float = 0.0f
+    private var isCustomRotated: Boolean = false
 
     private var mapCenterX: Float = mapX + mapWidth / 2.0f
     private var mapCenterY: Float = mapY + mapHeight / 2.0f
@@ -123,15 +123,11 @@ class MinimapProjection(config: MinimapConfig = MinimapConfig()) {
         worldW = if (maxX != minX) maxX - minX else 104.0f
         worldH = if (maxY != minY) maxY - minY else 104.0f
 
-        val halfSpan = Math.max(Math.abs(maxX - minX), Math.abs(maxY - minY)) / 2.0f
-        val maxExtentRot = halfSpan * INV_SQRT2
-        rotMinX = -maxExtentRot
-        rotMaxX = maxExtentRot
-        rotMinY = -maxExtentRot
-        rotMaxY = maxExtentRot
-        rotWorldW = rotMaxX - rotMinX
-        rotWorldH = rotMaxY - rotMinY
+        radarZoom = if (config.radarZoom > 0.0f) config.radarZoom else 1.0f
+        stretchX = if (config.stretchX > 0.0f) config.stretchX else 1.0f
+        stretchY = if (config.stretchY > 0.0f) config.stretchY else 1.0f
 
+        rotationDegrees = config.rotationDegrees
         val deg = config.rotationDegrees
         isCustomRotated = deg != 0.0f
         rotationRad = Math.toRadians(deg.toDouble()).toFloat()
@@ -149,79 +145,67 @@ class MinimapProjection(config: MinimapConfig = MinimapConfig()) {
      * @param worldX World Cartesian X coordinate in units $[-52.0, 52.0]$.
      * @param worldY World Cartesian Y coordinate in units $[-52.0, 52.0]$.
      * @param outPoint Output [Point2D] container to populate.
-     * @param useDiamond If true, applies 45° diamond matrix projection before viewport mapping.
+     * @param useDiamond Legacy parameter preserved for API compatibility.
      * @return [outPoint] populated with projected screen coordinates $(X_m, Y_m)$.
      */
     fun worldToMinimap(
         worldX: Float,
         worldY: Float,
         outPoint: Point2D,
-        useDiamond: Boolean = true
+        useDiamond: Boolean = false
     ): Point2D {
-        if (useDiamond) {
-            return worldToMinimapDiamond(worldX, worldY, outPoint)
-        }
+        val centerWorldX = (minX + maxX) / 2.0f
+        val centerWorldY = (minY + maxY) / 2.0f
 
-        var normX = (worldX - minX) / worldW
-        var normY = (worldY - minY) / worldH
+        val relX = worldX - centerWorldX
+        val relY = worldY - centerWorldY
 
-        normX = normX.coerceIn(0.0f, 1.0f)
-        normY = normY.coerceIn(0.0f, 1.0f)
+        val effectiveCos = if (useDiamond && !isCustomRotated) INV_SQRT2 else cosRot
+        val effectiveSin = if (useDiamond && !isCustomRotated) INV_SQRT2 else sinRot
 
-        if (!isCustomRotated) {
-            val sx = mapX + (normX * mapWidth)
-            val sy = if (invertY) {
-                mapY + ((1.0f - normY) * mapHeight)
-            } else {
-                mapY + (normY * mapHeight)
-            }
-            return outPoint.set(sx, sy)
+        // Dynamic bounding span ensures exact 1:1 mapping from center to borders without edge distortion
+        val spanFactor = if (isCustomRotated || useDiamond) {
+            (kotlin.math.abs(effectiveCos) + kotlin.math.abs(effectiveSin)).coerceAtLeast(1.0f)
         } else {
-            val unrotatedOffsetX = (normX - 0.5f) * mapWidth
-            val unrotatedOffsetY = if (invertY) {
-                ((1.0f - normY) - 0.5f) * mapHeight
-            } else {
-                (normY - 0.5f) * mapHeight
-            }
-
-            val rotX = unrotatedOffsetX * cosRot - unrotatedOffsetY * sinRot
-            val rotY = unrotatedOffsetX * sinRot + unrotatedOffsetY * cosRot
-
-            val sx = mapCenterX + rotX
-            val sy = mapCenterY + rotY
-            return outPoint.set(sx, sy)
+            1.0f
         }
+        val effectiveSpanX = worldW * spanFactor
+        val effectiveSpanY = worldH * spanFactor
+
+        val unrotatedOffsetX = (relX / effectiveSpanX) * mapWidth * radarZoom * stretchX
+        val unrotatedOffsetY = if (invertY) {
+            -(relY / effectiveSpanY) * mapHeight * radarZoom * stretchY
+        } else {
+            (relY / effectiveSpanY) * mapHeight * radarZoom * stretchY
+        }
+
+        val rotX: Float
+        val rotY: Float
+        if (!isCustomRotated && !useDiamond) {
+            rotX = unrotatedOffsetX
+            rotY = unrotatedOffsetY
+        } else {
+            rotX = unrotatedOffsetX * effectiveCos - unrotatedOffsetY * effectiveSin
+            rotY = unrotatedOffsetX * effectiveSin + unrotatedOffsetY * effectiveCos
+        }
+
+        val sx = mapCenterX + rotX
+        val sy = mapCenterY + rotY
+        return outPoint.set(sx, sy)
     }
 
     /**
      * Convenience method returning a new [Point2D] instance.
      */
     fun worldToMinimap(worldX: Float, worldY: Float): Point2D {
-        return worldToMinimap(worldX, worldY, Point2D(), useDiamond = true)
+        return worldToMinimap(worldX, worldY, Point2D(), useDiamond = false)
     }
 
     /**
-     * Applies the 45° Diamond rotation matrix $(x-y)/\sqrt{2}, (x+y)/\sqrt{2}$ and projects to the minimap.
+     * Applies rotation and projects to the minimap.
      */
     fun worldToMinimapDiamond(worldX: Float, worldY: Float, outPoint: Point2D): Point2D {
-        // 45° diamond transform
-        val rotX = (worldX - worldY) * INV_SQRT2
-        val rotY = (worldX + worldY) * INV_SQRT2
-
-        var normX = (rotX - rotMinX) / rotWorldW
-        var normY = (rotY - rotMinY) / rotWorldH
-
-        normX = normX.coerceIn(0.0f, 1.0f)
-        normY = normY.coerceIn(0.0f, 1.0f)
-
-        val sx = mapX + (normX * mapWidth)
-        val sy = if (invertY) {
-            mapY + ((1.0f - normY) * mapHeight)
-        } else {
-            mapY + (normY * mapHeight)
-        }
-
-        return outPoint.set(sx, sy)
+        return worldToMinimap(worldX, worldY, outPoint, useDiamond = true)
     }
 
     /**

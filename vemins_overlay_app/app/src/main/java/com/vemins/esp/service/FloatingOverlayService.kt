@@ -9,29 +9,37 @@ import android.content.pm.ServiceInfo
 import android.graphics.PixelFormat
 import android.os.Build
 import android.os.IBinder
+import android.os.Process
+import android.util.Log
 import android.view.Gravity
 import android.view.WindowManager
 import com.vemins.esp.R
 import com.vemins.esp.VeminsApplication
 import com.vemins.esp.config.ConfigManager
-import com.vemins.esp.config.OverlayConfig
 import com.vemins.esp.daemon.DaemonManager
+import com.vemins.esp.engine.VeminsNativeEngine
+import com.vemins.esp.model.BinarySnapshotReader
 import com.vemins.esp.model.FrameSnapshot
+import com.vemins.esp.model.MutableFrameSnapshot
 import com.vemins.esp.net.TelemetryClient
 import com.vemins.esp.net.TelemetryListener
+import com.vemins.esp.state.ConnectionStatus
+import com.vemins.esp.state.OverlayStateManager
 import com.vemins.esp.ui.MainActivity
 import com.vemins.esp.ui.floating.FloatingMenuManager
 import com.vemins.esp.view.OverlaySurfaceView
+import java.util.concurrent.atomic.AtomicBoolean
 
 /**
  * 100% Touch-Through Hardware-Accelerated Floating Telemetry Overlay Service.
  *
  * Runs exclusively in the background with zero intrusive floating bubbles or touch-stealing views.
- * All user gestures and taps pass directly through to the underlying game (FLAG_NOT_TOUCHABLE).
+ * Interfaces directly with [VeminsNativeEngine] via zero-copy [DirectByteBuffer] with TCP fallback.
  */
 class FloatingOverlayService : Service(), TelemetryListener {
 
     companion object {
+        private const val TAG = "FloatingOverlayService"
         const val ACTION_START = "com.vemins.esp.START"
         const val ACTION_STOP = "com.vemins.esp.STOP"
         const val NOTIFICATION_ID = 1001
@@ -44,7 +52,6 @@ class FloatingOverlayService : Service(), TelemetryListener {
     private lateinit var configManager: ConfigManager
     private var overlaySurfaceView: OverlaySurfaceView? = null
     private var telemetryClient: TelemetryClient? = null
-
     override fun onBind(intent: Intent?): IBinder? = null
 
     override fun onCreate() {
@@ -53,9 +60,8 @@ class FloatingOverlayService : Service(), TelemetryListener {
         configManager = ConfigManager.getInstance(this)
 
         startForegroundNotification()
-        DaemonManager.getInstance(this).startWatchdog()
         initTouchThroughOverlay()
-        initTelemetry()
+        initPerceptionEngine()
         FloatingMenuManager.getInstance(this).showTrigger()
         isServiceRunning = true
     }
@@ -121,15 +127,18 @@ class FloatingOverlayService : Service(), TelemetryListener {
             WindowManager.LayoutParams.TYPE_PHONE
         }
 
+        val currentConfig = configManager.getConfig()
+        val flags = WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or
+                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
+                WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS or
+                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED
+
         val overlayParams = WindowManager.LayoutParams(
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.MATCH_PARENT,
             overlayType,
-            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or
-                    WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
-                    WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or
-                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS or
-                    WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
+            flags,
             PixelFormat.TRANSLUCENT
         ).apply {
             gravity = Gravity.TOP or Gravity.START
@@ -137,7 +146,6 @@ class FloatingOverlayService : Service(), TelemetryListener {
             y = 0
         }
 
-        val currentConfig = configManager.getConfig()
         overlaySurfaceView = OverlaySurfaceView(this).apply {
             updateConfig(currentConfig.toMinimapConfig())
         }
@@ -148,6 +156,12 @@ class FloatingOverlayService : Service(), TelemetryListener {
         configManager.addListener { newConfig ->
             overlaySurfaceView?.updateConfig(newConfig.toMinimapConfig())
         }
+    }
+
+    private fun initPerceptionEngine() {
+        Log.i(TAG, "[+] Initializing Daemon Watchdog & Telemetry Stream Engine...")
+        DaemonManager.getInstance(this).startWatchdog()
+        initTelemetry()
     }
 
     private fun initTelemetry() {
@@ -162,6 +176,18 @@ class FloatingOverlayService : Service(), TelemetryListener {
 
     override fun onFrameSnapshot(snapshot: FrameSnapshot) {
         overlaySurfaceView?.updateSnapshot(snapshot)
+    }
+
+    override fun onConnected(daemonVersion: String, buildHash: String) {
+        Log.i(TAG, "[+] Telemetry Connected to daemon $daemonVersion ($buildHash)")
+    }
+
+    override fun onDisconnected(reason: String, willReconnect: Boolean) {
+        Log.w(TAG, "[-] Telemetry Disconnected: $reason (willReconnect=$willReconnect)")
+    }
+
+    override fun onGameRestart(oldPid: Int, newPid: Int) {
+        Log.i(TAG, "[+] Detected Game Transition: PID $oldPid -> $newPid")
     }
 
     override fun onDestroy() {

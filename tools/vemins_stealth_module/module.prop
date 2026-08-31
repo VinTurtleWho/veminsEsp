@@ -1,0 +1,6 @@
+id=vemins_stealth
+name=Vemins Stealth & 120Hz Engine
+version=v2.0
+versionCode=200
+author=Vemins
+description=Real-time SurfaceFlinger anti-recording exclusion and ColorOS 120Hz lock for VeminsESP.

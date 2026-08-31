@@ -25,13 +25,13 @@ data class AbilityInfo(
      * Convenience property returning true if the ability is off cooldown and ready for cast.
      */
     val isReady: Boolean
-        get() = !isCoolingDown && remainingCdMs <= 0
+        get() = !isCoolingDown || remainingCdMs <= 50
 
     /**
      * Cooldown remaining in fractional seconds (e.g. 14.5s).
      */
     val remainingSeconds: Float
-        get() = if (remainingCdMs > 0) remainingCdMs / 1000.0f else 0.0f
+        get() = if (isCoolingDown && remainingCdMs > 50) remainingCdMs / 1000.0f else 0.0f
 
     /**
      * Total cooldown duration in seconds.
@@ -43,7 +43,7 @@ data class AbilityInfo(
      * Cooldown progress ratio from 0.0 (ready) to 1.0 (just casted).
      */
     val cooldownProgress: Float
-        get() = if (maxCdMs > 0 && remainingCdMs > 0) {
+        get() = if (maxCdMs > 0 && remainingCdMs > 50 && isCoolingDown) {
             (remainingCdMs.toFloat() / maxCdMs.toFloat()).coerceIn(0.0f, 1.0f)
         } else {
             0.0f
@@ -56,14 +56,16 @@ data class AbilityInfo(
             if (json == null) return AbilityInfo(slot = slotIndex)
             val rem = json.optInt("remaining_ms", json.optInt("remaining_cd_ms", 0))
             val max = json.optInt("max_ms", json.optInt("max_cd_ms", 0))
-            val isCd = json.optBoolean("is_cooling_down", rem > 0)
+            val isCd = json.optBoolean("is_cooling_down", rem > 50)
             val slot = json.optInt("slot", slotIndex)
+            val finalRem = if (isCd && rem > 50) rem else 0
+            val finalIsCd = isCd && finalRem > 0
             return AbilityInfo(
                 spellId = json.optInt("spell_id", 0),
                 slot = slot,
-                remainingCdMs = rem,
+                remainingCdMs = finalRem,
                 maxCdMs = max,
-                isCoolingDown = isCd
+                isCoolingDown = finalIsCd
             )
         }
     }

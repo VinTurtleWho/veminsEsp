@@ -122,25 +122,26 @@ class IconCacheManager private constructor(context: Context?) {
     // -------------------------------------------------------------------------
 
     private fun initDefaultMappings() {
-        // Default Core Battle Spells
+        // Default Core Battle Spells & IL2CPP Key Variants
         val defaultSpells = mapOf(
-            20001 to "Flicker",
-            20002 to "Retribution",
-            20003 to "Inspire",
-            20004 to "Sprint",
-            20005 to "Revitalize",
-            20006 to "Aegis",
-            20007 to "Petrify",
-            20008 to "Purify",
-            20009 to "Flameshot",
-            20010 to "Vengeance",
-            20011 to "Arrival"
+            20001 to "Flicker", 20100 to "Flicker", 20101 to "Flicker", 20102 to "Flicker", 20103 to "Flicker",
+            20002 to "Retribution", 20200 to "Retribution", 20201 to "Retribution", 20202 to "Retribution", 20203 to "Retribution",
+            20003 to "Inspire", 20300 to "Inspire", 20301 to "Inspire",
+            20004 to "Sprint", 20400 to "Sprint", 20401 to "Sprint",
+            20005 to "Revitalize", 20500 to "Revitalize", 20501 to "Revitalize",
+            20006 to "Aegis", 20600 to "Aegis", 20601 to "Aegis",
+            20007 to "Petrify", 20700 to "Petrify", 20701 to "Petrify",
+            20008 to "Purify", 20800 to "Purify", 20801 to "Purify",
+            20009 to "Flameshot", 20900 to "Flameshot", 20901 to "Flameshot",
+            20010 to "Vengeance", 21000 to "Vengeance", 21001 to "Vengeance",
+            20011 to "Arrival", 21100 to "Arrival", 21101 to "Arrival"
         )
         spellNames.putAll(defaultSpells)
 
         for ((id, name) in defaultSpells) {
-            spellAssetPaths[id] = "spells/$id.png"
-            spellNameAssetPaths[name.toLowerCase()] = "spells/${name.toLowerCase()}.png"
+            val lower = name.lowercase()
+            spellAssetPaths[id] = "spells/$lower.png"
+            spellNameAssetPaths[lower] = "spells/$lower.png"
         }
 
         // Default Common Hero Names
@@ -261,7 +262,7 @@ class IconCacheManager private constructor(context: Context?) {
                 if (spellId != null) {
                     spellAssetPaths[spellId] = path
                 }
-                spellNameAssetPaths[k.toLowerCase()] = path
+                spellNameAssetPaths[k.lowercase()] = path
             }
         }
 
@@ -357,8 +358,33 @@ class IconCacheManager private constructor(context: Context?) {
         val cached = memoryCache.get(cacheKey)
         if (cached != null) return cached
 
-        val relativePath = skillAssetPaths[skillId] ?: "skills/$skillId.png"
-        val rawBitmap = loadBitmapFromAssets(relativePath) ?: return null
+        var rawBitmap: Bitmap? = null
+        val relativePath = skillAssetPaths[skillId]
+        if (relativePath != null) {
+            rawBitmap = loadBitmapFromAssets(relativePath)
+        }
+
+        if (rawBitmap == null) {
+            rawBitmap = loadBitmapFromAssets("skills/$skillId.png")
+        }
+
+        if (rawBitmap == null && skillId >= 100) {
+            val heroId = skillId / 100
+            val sub = skillId % 100
+            val slotCandidates = when (sub) {
+                10 -> listOf("skills/$heroId/skill1.png", "skills/${heroId}0.png", "skills/${heroId}10.png")
+                20 -> listOf("skills/$heroId/skill2.png", "skills/${heroId}20.png")
+                30, 40 -> listOf("skills/$heroId/ult.png", "skills/${heroId}30.png", "skills/${heroId}40.png")
+                0 -> listOf("skills/$heroId/passive.png", "skills/${heroId}00.png")
+                else -> listOf("skills/$heroId/skill1.png", "skills/$heroId/ult.png")
+            }
+            for (cand in slotCandidates) {
+                rawBitmap = loadBitmapFromAssets(cand)
+                if (rawBitmap != null) break
+            }
+        }
+
+        if (rawBitmap == null) return null
 
         val circular = createCircularBitmap(rawBitmap, targetDiameter)
         memoryCache.put(cacheKey, circular)
@@ -382,14 +408,33 @@ class IconCacheManager private constructor(context: Context?) {
         }
 
         if (rawBitmap == null) {
-            rawBitmap = loadBitmapFromAssets("spells/$spellId.png")
-        }
-
-        if (rawBitmap == null) {
-            val name = spellNames[spellId]?.toLowerCase()
+            val name = spellNames[spellId]?.lowercase()
             if (name != null) {
                 rawBitmap = loadBitmapFromAssets("spells/$name.png")
             }
+        }
+
+        if (rawBitmap == null) {
+            rawBitmap = loadBitmapFromAssets("spells/$spellId.png")
+        }
+
+        // Semantic IL2CPP range fallback
+        if (rawBitmap == null && spellId >= 20000) {
+            val fallbackName = when (spellId) {
+                in 20001..20001, in 20100..20199 -> "flicker"
+                in 20002..20002, in 20200..20299 -> "retribution"
+                in 20003..20003, in 20300..20399 -> "inspire"
+                in 20004..20004, in 20400..20499 -> "sprint"
+                in 20005..20005, in 20500..20599 -> "revitalize"
+                in 20006..20006, in 20600..20699 -> "aegis"
+                in 20007..20007, in 20700..20799 -> "petrify"
+                in 20008..20008, in 20800..20899 -> "purify"
+                in 20009..20009, in 20900..20999 -> "flameshot"
+                in 20010..20010, in 21000..21099 -> "vengeance"
+                in 20011..20011, in 21100..21199 -> "arrival"
+                else -> "flicker"
+            }
+            rawBitmap = loadBitmapFromAssets("spells/$fallbackName.png")
         }
 
         if (rawBitmap == null) return null
@@ -403,7 +448,7 @@ class IconCacheManager private constructor(context: Context?) {
      * Retrieves a battle spell icon by its string name (e.g. "flicker", "retribution").
      */
     fun getSpellIconByName(spellName: String, targetDiameter: Int = 0): Bitmap? {
-        val cleanName = spellName.trim().toLowerCase()
+        val cleanName = spellName.trim().lowercase()
         val cacheKey = "spell_name_${cleanName}_${targetDiameter}"
 
         val cached = memoryCache.get(cacheKey)
@@ -418,10 +463,91 @@ class IconCacheManager private constructor(context: Context?) {
     }
 
     /**
+     * Unified resolver for any hero ability icon (Skill 1, 2, 3/Ult, 4, or Battle Spell).
+     * Guarantees an icon is returned using hero folders, skill IDs, and spell mappings.
+     */
+    fun getHeroAbilityIcon(heroId: Int, slot: Int, spellId: Int = 0, targetDiameter: Int = 0): Bitmap? {
+        val cacheKey = "hero_ab_${heroId}_${slot}_${spellId}_${targetDiameter}"
+        val cached = memoryCache.get(cacheKey)
+        if (cached != null) return cached
+
+        var bitmap: Bitmap? = null
+
+        // 1. If Battle Spell (Slot 5 or Spell ID in 20000..299999)
+        if (slot == 5 || (spellId in 20000..299999)) {
+            val effSpellId = if (spellId > 0) spellId else 20001
+            bitmap = getSpellIcon(effSpellId, targetDiameter)
+        }
+
+        // 2. Direct Spell ID Lookup
+        if (bitmap == null && spellId > 0) {
+            bitmap = getSkillIcon(spellId, targetDiameter)
+        }
+
+        // 3. Hero-specific folder fallback
+        if (bitmap == null && heroId > 0) {
+            val candidates = when (slot) {
+                1 -> listOf(
+                    "skills/$heroId/skill1.png",
+                    "skills/${heroId}10.png",
+                    "skills/${heroId * 100 + 10}.png"
+                )
+                2 -> listOf(
+                    "skills/$heroId/skill2.png",
+                    "skills/${heroId}20.png",
+                    "skills/${heroId * 100 + 20}.png"
+                )
+                3 -> listOf(
+                    "skills/$heroId/ult.png",
+                    "skills/$heroId/skill3.png",
+                    "skills/${heroId}30.png",
+                    "skills/${heroId * 100 + 30}.png"
+                )
+                4 -> listOf(
+                    "skills/$heroId/skill4.png",
+                    "skills/$heroId/ult.png",
+                    "skills/${heroId}40.png",
+                    "skills/${heroId * 100 + 40}.png"
+                )
+                5 -> listOf(
+                    "spells/flicker.png",
+                    "spells/20001.png"
+                )
+                else -> listOf(
+                    "skills/$heroId/skill1.png",
+                    "skills/$heroId/ult.png"
+                )
+            }
+            for (path in candidates) {
+                val raw = loadBitmapFromAssets(path)
+                if (raw != null) {
+                    bitmap = createCircularBitmap(raw, targetDiameter)
+                    break
+                }
+            }
+        }
+
+        // 4. Ultimate / Hero Portrait fallback
+        if (bitmap == null && heroId > 0) {
+            val ultRaw = loadBitmapFromAssets("skills/$heroId/ult.png")
+            if (ultRaw != null) {
+                bitmap = createCircularBitmap(ultRaw, targetDiameter)
+            } else {
+                bitmap = getHeroPortrait(heroId, targetDiameter)
+            }
+        }
+
+        if (bitmap != null) {
+            memoryCache.put(cacheKey, bitmap)
+        }
+        return bitmap
+    }
+
+    /**
      * Retrieves an objective icon (e.g. "lord", "turtle", "buff_blue", "buff_red").
      */
     fun getObjectiveIcon(objectiveKey: String, targetDiameter: Int = 0): Bitmap? {
-        val cleanKey = objectiveKey.trim().toLowerCase()
+        val cleanKey = objectiveKey.trim().lowercase()
         val cacheKey = "obj_${cleanKey}_${targetDiameter}"
 
         val cached = memoryCache.get(cacheKey)

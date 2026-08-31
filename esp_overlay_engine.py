@@ -359,10 +359,15 @@ class ESPOverlayEngine:
                         ult_cd_s = rem_s
                         ult_ready = False
 
-            # World-to-Screen Isometric Projection
-            sx, sy, is_on_screen = self.projector.world_to_screen_isometric(
-                enemy.pos_x, enemy.pos_y, local_x, local_y
-            )
+            # World-to-Screen Projection (True 3D Perspective or Isometric)
+            if hasattr(self.projector, "world_to_screen_perspective") and cfg.get("use_perspective", True):
+                sx, sy, is_on_screen = self.projector.world_to_screen_perspective(
+                    enemy.pos_x, enemy.pos_y, local_x, local_y
+                )
+            else:
+                sx, sy, is_on_screen = self.projector.world_to_screen_isometric(
+                    enemy.pos_x, enemy.pos_y, local_x, local_y
+                )
 
             if is_on_screen:
                 # 1. On-Screen Overhead Combat HUD
