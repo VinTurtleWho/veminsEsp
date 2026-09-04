@@ -97,6 +97,8 @@ class IsometricProjection(config: MinimapConfig = MinimapConfig()) {
         private set
     var rotationDegrees: Float = config.rotationDegrees
         private set
+    var invertY: Boolean = config.invertY
+        private set
 
     var usePerspective: Boolean = config.usePerspective
         private set
@@ -131,6 +133,7 @@ class IsometricProjection(config: MinimapConfig = MinimapConfig()) {
         edgeMargin = config.edgeMargin
         maxRadarDistance = config.maxRadarDistance
         rotationDegrees = config.rotationDegrees
+        invertY = config.invertY
         highCamera = config.highCamera
         usePerspective = config.usePerspective
         cameraPitch = config.cameraPitch
@@ -170,10 +173,14 @@ class IsometricProjection(config: MinimapConfig = MinimapConfig()) {
         // Distance in world meters
         val distM = sqrt(dx * dx + dy * dy)
 
-        // MLBB fixed 45° isometric ground camera projection:
-        // isoX = (dx - dy) * cos(45°), isoY = (dx + dy) * sin(45°)
-        val isoX = (dx - dy) * ISO_FACTOR
-        val isoY = (dx + dy) * ISO_FACTOR
+        // MLBB isometric ground camera projection:
+        // Canonical 45° ground yaw (dx - dy, dx + dy).
+        // On Red side (rotation ~ 135° or camp 2), camera ground perspective is rotated 180°.
+        val isRedSide = (rotationDegrees in 120.0f..240.0f)
+        val flip = if (isRedSide) -1.0f else 1.0f
+
+        val isoX = (dx - dy) * ISO_FACTOR * flip
+        val isoY = (dx + dy) * ISO_FACTOR * flip
 
         val lift = customHudOffsetY ?: hudOffsetY
 

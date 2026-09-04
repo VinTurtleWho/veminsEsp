@@ -85,8 +85,8 @@ data class MinimapConfig(
  * Isometric camera, World-to-Screen projection, and Top CD Bar configuration.
  */
 data class CameraConfig(
-    var scaleX: Float = 38.0f,
-    var scaleY: Float = 27.0f,
+    var scaleX: Float = 72.0f,
+    var scaleY: Float = 52.0f,
     var hudOffsetY: Float = 65.0f,
     var camOffsetX: Float = 0.0f,
     var camOffsetY: Float = 0.0f,
@@ -115,8 +115,8 @@ data class CameraConfig(
         fun fromJson(json: JSONObject?): CameraConfig {
             if (json == null) return CameraConfig()
             return CameraConfig(
-                scaleX = json.optDouble("scale_x", 38.0).toFloat(),
-                scaleY = json.optDouble("scale_y", 27.0).toFloat(),
+                scaleX = json.optDouble("scale_x", 72.0).toFloat(),
+                scaleY = json.optDouble("scale_y", 52.0).toFloat(),
                 hudOffsetY = json.optDouble("hud_offset_y", 65.0).toFloat(),
                 camOffsetX = json.optDouble("cam_offset_x", 0.0).toFloat(),
                 camOffsetY = json.optDouble("cam_offset_y", 0.0).toFloat(),

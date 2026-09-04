@@ -3,8 +3,8 @@
     android:shape="rectangle">
     <solid android:color="@color/imgui_header_bg" />
     <corners
-        android:topLeftRadius="4dp"
-        android:topRightRadius="4dp"
+        android:topLeftRadius="2dp"
+        android:topRightRadius="2dp"
         android:bottomLeftRadius="0dp"
         android:bottomRightRadius="0dp" />
     <stroke

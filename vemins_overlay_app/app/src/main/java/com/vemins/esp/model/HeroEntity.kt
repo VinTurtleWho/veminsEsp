@@ -149,13 +149,12 @@ data class HeroEntity(
         get() = !isLocalPlayer && !isAlly
 
     /**
-     * Determines whether this hero archetype possesses 4 core active abilities rather than the standard 3.
-     * Detected dynamically from telemetry observations (slot 4 exists) or canonical hero ID table.
+     * Canonical 4-skill hero IDs in Mobile Legends:
+     * 50 = Zhask, 68 = Lunox, 95 = Yu Zhong, 105 = Beatrix
      */
     fun hasFourSkills(): Boolean {
-        if (abilities.any { it.slot == 4 || it.spellId % 100 == 40 || it.spellId == heroId * 100 + 40 }) return true
         return when (heroId) {
-            50, 68, 101, 105, 115, 116, 126, 127 -> true
+            50, 68, 95, 105 -> true
             else -> false
         }
     }
@@ -164,22 +163,22 @@ data class HeroEntity(
      * Look up ability info by slot index (1=S1, 2=S2, 3=S3/Ult, 4=S4/Ult, 5=Battle Spell).
      */
     fun getAbility(slot: Int): AbilityInfo? {
+        val fourSkills = hasFourSkills()
+        if (slot == 4 && !fourSkills) return null
+
         val bySlot = abilities.firstOrNull { it.slot == slot }
         if (bySlot != null) return bySlot
 
-        val fourSkills = hasFourSkills()
         return when (slot) {
-            1 -> abilities.firstOrNull { it.spellId % 100 == 10 || it.spellId == heroId * 100 + 10 } ?: abilities.getOrNull(0)
-            2 -> abilities.firstOrNull { it.spellId % 100 == 20 || it.spellId == heroId * 100 + 20 } ?: abilities.getOrNull(1)
-            3 -> {
-                abilities.firstOrNull { it.spellId % 100 == 30 || it.spellId == heroId * 100 + 30 } ?: abilities.getOrNull(2)
-            }
+            1 -> abilities.firstOrNull { it.slot == 1 || it.spellId % 100 == 10 || it.spellId == heroId * 100 + 10 }
+            2 -> abilities.firstOrNull { it.slot == 2 || it.spellId % 100 == 20 || it.spellId == heroId * 100 + 20 }
+            3 -> abilities.firstOrNull { it.slot == 3 || it.spellId % 100 == 30 || it.spellId == heroId * 100 + 30 }
             4 -> {
                 if (fourSkills) {
-                    abilities.firstOrNull { it.spellId % 100 == 40 || it.spellId == heroId * 100 + 40 } ?: abilities.getOrNull(3)
+                    abilities.firstOrNull { it.slot == 4 || it.spellId % 100 == 40 || it.spellId == heroId * 100 + 40 }
                 } else null
             }
-            5 -> abilities.firstOrNull { it.slot == 5 || (it.spellId in 20000..299999) } ?: abilities.lastOrNull()
+            5 -> abilities.firstOrNull { it.slot == 5 || (it.spellId in 20000..299999) }
             else -> null
         }
     }
@@ -191,15 +190,7 @@ data class HeroEntity(
         get() {
             val fourSkills = hasFourSkills()
             val targetSlot = if (fourSkills) 4 else 3
-            return abilities.firstOrNull { it.slot == targetSlot }
-                ?: if (fourSkills) {
-                    abilities.firstOrNull { it.spellId % 100 == 40 || it.spellId == heroId * 100 + 40 }
-                        ?: abilities.firstOrNull { it.slot == 3 || it.spellId % 100 == 30 }
-                } else {
-                    abilities.firstOrNull { it.spellId % 100 == 30 || it.spellId == heroId * 100 + 30 }
-                        ?: abilities.firstOrNull { it.slot == 3 }
-                }
-                ?: abilities.firstOrNull { it.spellId !in 20000..299999 && (it.spellId % 100 != 10 && it.spellId % 100 != 20) && it.spellId > 0 }
+            return getAbility(targetSlot)
         }
 
     /**

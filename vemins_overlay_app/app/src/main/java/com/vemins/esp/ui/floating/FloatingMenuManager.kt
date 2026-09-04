@@ -878,10 +878,10 @@ class FloatingMenuManager private constructor(private val context: Context) :
         val panelLayers = root.findViewById<View>(R.id.panelModLayers)
         val panelSys = root.findViewById<View>(R.id.panelModSys)
 
-        val selBg = context.getDrawable(R.drawable.bg_chip_tab_selected)
-        val unselBg = context.getDrawable(R.drawable.bg_chip_tab_unselected)
-        val activeTextColor = context.getColor(R.color.vemins_bg_dark)
-        val inactiveTextColor = context.getColor(R.color.vemins_text_secondary)
+        val selBg = context.getDrawable(R.drawable.bg_imgui_tab_selected)
+        val unselBg = context.getDrawable(R.drawable.bg_imgui_tab_unselected)
+        val activeTextColor = context.getColor(R.color.imgui_text_primary)
+        val inactiveTextColor = context.getColor(R.color.imgui_text_secondary)
 
         tabRadar?.background = if (index == 0) selBg else unselBg
         tabRadar?.setTextColor(if (index == 0) activeTextColor else inactiveTextColor)

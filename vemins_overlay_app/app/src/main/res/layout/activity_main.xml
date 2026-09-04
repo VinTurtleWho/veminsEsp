@@ -5,91 +5,66 @@
     android:background="@color/vemins_bg_dark"
     android:orientation="vertical">
 
-    <!-- ================================================================= -->
-    <!-- TOP APP BAR / COMMAND HEADER                                       -->
-    <!-- ================================================================= -->
+    <!-- IMGUI TOP COMMAND BAR -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/vemins_bg_secondary"
+        android:layout_height="36dp"
+        android:background="@drawable/bg_imgui_header"
         android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingLeft="16dp"
-        android:paddingTop="14dp"
-        android:paddingRight="16dp"
-        android:paddingBottom="12dp">
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp">
 
         <ImageView
             android:id="@+id/ivHeaderLogo"
-            android:layout_width="38dp"
-            android:layout_height="38dp"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_bubble" />
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_bubble"
+            android:contentDescription="@string/app_name" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/tvBrandTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:fontFamily="monospace"
+            android:text="VEMINS // ESP v2.0"
+            android:textColor="@color/imgui_header_title"
+            android:textSize="11sp"
+            android:textStyle="bold" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tvBrandTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="V E M I N S // E S P"
-                    android:textColor="@color/vemins_white"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tvHeaderVersionBadge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:background="@drawable/bg_badge_cyan"
-                    android:paddingLeft="6dp"
-                    android:paddingTop="2dp"
-                    android:paddingRight="6dp"
-                    android:paddingBottom="2dp"
-                    android:text="@string/badge_version"
-                    android:textColor="@color/vemins_white"
-                    android:textSize="10sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/app_subtitle"
-                android:textColor="@color/vemins_text_secondary"
-                android:textSize="11sp" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/tvHeaderVersionBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/bg_badge_cyan"
+            android:fontFamily="monospace"
+            android:paddingStart="5dp"
+            android:paddingTop="1dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="1dp"
+            android:text="PRO"
+            android:textColor="@color/vemins_white"
+            android:textSize="8sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvHeaderStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_badge_red"
-            android:paddingLeft="8dp"
-            android:paddingTop="4dp"
-            android:paddingRight="8dp"
-            android:paddingBottom="4dp"
+            android:fontFamily="monospace"
+            android:paddingStart="6dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="6dp"
+            android:paddingBottom="2dp"
             android:text="STOPPED"
             android:textColor="@color/vemins_red"
-            android:textSize="10sp"
+            android:textSize="8sp"
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- ================================================================= -->
-    <!-- SCROLLABLE DASHBOARD BODY                                         -->
-    <!-- ================================================================= -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -100,62 +75,75 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="8dp">
 
-            <!-- 1. PERMISSION CARD (Conditionally Visible) -->
+            <!-- 1. PERMISSION BANNER -->
             <LinearLayout
                 android:id="@+id/cardPermission"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/bg_card_elevated"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/bg_imgui_window"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="8dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/permission_required_title"
-                    android:textColor="@color/vemins_yellow"
-                    android:textSize="14sp"
+                    android:layout_weight="1"
+                    android:fontFamily="monospace"
+                    android:text="[!] Overlay Permission Required"
+                    android:textColor="@color/imgui_accent_amber"
+                    android:textSize="10sp"
                     android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="@string/permission_required_desc"
-                    android:textColor="@color/vemins_text_secondary"
-                    android:textSize="12sp" />
 
                 <Button
                     android:id="@+id/btnGrantPermission"
-                    android:layout_width="match_parent"
-                    android:layout_height="44dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_button_primary"
-                    android:text="@string/btn_grant_permission"
-                    android:textAllCaps="false"
-                    android:textColor="@color/vemins_bg_dark"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:background="@drawable/bg_imgui_button"
+                    android:fontFamily="monospace"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:text="GRANT"
+                    android:textColor="@color/imgui_text_primary"
+                    android:textSize="9sp" />
             </LinearLayout>
 
-            <!-- 2. HERO MASTER ACTUATOR CARD -->
+            <!-- 2. SERVICE CONTROL -->
             <LinearLayout
                 android:id="@+id/cardHeroControl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/bg_card_elevated"
-                android:orientation="vertical"
-                android:padding="14dp">
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/bg_imgui_window"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:background="@drawable/bg_imgui_header"
+                    android:gravity="center_vertical"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:text="## SERVICE CONTROL"
+                        android:textColor="@color/imgui_header_title"
+                        android:textSize="9sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="8dp">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -167,1390 +155,645 @@
                             android:id="@+id/tvServiceStatus"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/status_stopped"
-                            android:textColor="@color/vemins_text_secondary"
-                            android:textSize="13sp"
+                            android:fontFamily="monospace"
+                            android:text="ENGINE INACTIVE"
+                            android:textColor="@color/imgui_text_primary"
+                            android:textSize="11sp"
                             android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/tvServiceDetail"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="100% Touch-Through | Hardware Passthrough 60 FPS"
-                            android:textColor="@color/vemins_text_muted"
-                            android:textSize="11sp" />
+                            android:fontFamily="monospace"
+                            android:text="Tap START to launch overlay + puck"
+                            android:textColor="@color/imgui_text_secondary"
+                            android:textSize="8sp" />
                     </LinearLayout>
 
                     <Button
                         android:id="@+id/btnToggleService"
-                        android:layout_width="140dp"
-                        android:layout_height="44dp"
-                        android:background="@drawable/bg_button_primary"
-                        android:text="@string/btn_start_overlay"
-                        android:textAllCaps="false"
-                        android:textColor="@color/vemins_bg_dark"
-                        android:textSize="13sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="26dp"
+                        android:background="@drawable/bg_imgui_button"
+                        android:fontFamily="monospace"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:text="START"
+                        android:textColor="@color/imgui_accent_cyan"
+                        android:textSize="9sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- 3. LIVE CALIBRATION SANDBOX -->
+            <!-- 3. LIVE SANDBOX PREVIEW -->
             <LinearLayout
                 android:id="@+id/cardSandbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/bg_card"
-                android:orientation="vertical"
-                android:padding="12dp">
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/bg_imgui_window"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
+                    android:layout_height="22dp"
+                    android:background="@drawable/bg_imgui_header"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="⚡ LIVE CALIBRATION SANDBOX"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="13sp"
+                        android:fontFamily="monospace"
+                        android:text="## LIVE CALIBRATION CANVAS"
+                        android:textColor="@color/imgui_header_title"
+                        android:textSize="9sp"
                         android:textStyle="bold" />
 
-                    <TextView
+                    <Button
                         android:id="@+id/btnTogglePreview"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="4dp"
-                        android:text="COLLAPSE ▲"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="11sp" />
+                        android:layout_height="18dp"
+                        android:background="@drawable/bg_imgui_button"
+                        android:fontFamily="monospace"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
+                        android:text="TOGGLE"
+                        android:textColor="@color/imgui_text_primary"
+                        android:textSize="8sp" />
                 </LinearLayout>
 
-                <FrameLayout
+                <LinearLayout
                     android:id="@+id/previewContainer"
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:background="@drawable/bg_preview_frame"
-                    android:padding="2dp">
-
-                    <com.vemins.esp.view.PreviewCanvasView
-                        android:id="@+id/previewCanvas"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-                </FrameLayout>
-
-                <!-- Sandbox Presets Bar -->
-                <LinearLayout
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    android:padding="8dp">
 
-                    <Button
-                        android:id="@+id/btnPresetDefault"
-                        android:layout_width="0dp"
-                        android:layout_height="34dp"
-                        android:layout_marginEnd="4dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/bg_button_secondary"
-                        android:text="Standard"
-                        android:textAllCaps="false"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="11sp" />
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="130dp"
+                        android:background="@drawable/bg_preview_frame">
 
-                    <Button
-                        android:id="@+id/btnPresetDiamond"
-                        android:layout_width="0dp"
-                        android:layout_height="34dp"
-                        android:layout_marginEnd="4dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/bg_button_secondary"
-                        android:text="45° Diamond"
-                        android:textAllCaps="false"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="11sp" />
+                        <com.vemins.esp.view.PreviewCanvasView
+                            android:id="@+id/previewCanvas"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </FrameLayout>
 
-                    <Button
-                        android:id="@+id/btnPresetCompact"
-                        android:layout_width="0dp"
-                        android:layout_height="34dp"
-                        android:layout_marginEnd="4dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/bg_button_secondary"
-                        android:text="Notch Safe"
-                        android:textAllCaps="false"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="11sp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:orientation="horizontal">
 
-                    <Button
-                        android:id="@+id/btnPresetWide"
-                        android:layout_width="0dp"
-                        android:layout_height="34dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/bg_button_secondary"
-                        android:text="Tablet"
-                        android:textAllCaps="false"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="11sp" />
+                        <Button
+                            android:id="@+id/btnPresetDefault"
+                            android:layout_width="0dp"
+                            android:layout_height="22dp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_imgui_button"
+                            android:fontFamily="monospace"
+                            android:text="DEFAULT"
+                            android:textColor="@color/imgui_text_primary"
+                            android:textSize="8sp" />
+
+                        <Button
+                            android:id="@+id/btnPresetDiamond"
+                            android:layout_width="0dp"
+                            android:layout_height="22dp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_imgui_button"
+                            android:fontFamily="monospace"
+                            android:text="DIAMOND"
+                            android:textColor="@color/imgui_text_primary"
+                            android:textSize="8sp" />
+
+                        <Button
+                            android:id="@+id/btnPresetCompact"
+                            android:layout_width="0dp"
+                            android:layout_height="22dp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_imgui_button"
+                            android:fontFamily="monospace"
+                            android:text="COMPACT"
+                            android:textColor="@color/imgui_text_primary"
+                            android:textSize="8sp" />
+
+                        <Button
+                            android:id="@+id/btnPresetWide"
+                            android:layout_width="0dp"
+                            android:layout_height="22dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_imgui_button"
+                            android:fontFamily="monospace"
+                            android:text="WIDE"
+                            android:textColor="@color/imgui_text_primary"
+                            android:textSize="8sp" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- 4. REAL-TIME DAEMON DIAGNOSTICS HUD -->
+            <!-- 4. DIAGNOSTICS & HARDWARE -->
             <LinearLayout
                 android:id="@+id/cardDiagnostics"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/bg_card"
-                android:orientation="vertical"
-                android:padding="12dp">
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/bg_imgui_window"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="22dp"
+                    android:background="@drawable/bg_imgui_header"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="⚡ REAL-TIME DIAGNOSTICS HUD"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="13sp"
+                        android:fontFamily="monospace"
+                        android:text="## SYSTEM DIAGNOSTICS"
+                        android:textColor="@color/imgui_header_title"
+                        android:textSize="9sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tvDaemonStatusBadge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginEnd="4dp"
                         android:background="@drawable/bg_badge_red"
-                        android:paddingLeft="6dp"
-                        android:paddingTop="2dp"
-                        android:paddingRight="6dp"
-                        android:paddingBottom="2dp"
-                        android:text="STANDBY"
+                        android:fontFamily="monospace"
+                        android:paddingStart="4dp"
+                        android:paddingEnd="4dp"
+                        android:text="DAEMON: OFF"
                         android:textColor="@color/vemins_red"
-                        android:textSize="10sp"
-                        android:textStyle="bold" />
+                        android:textSize="8sp" />
 
                     <TextView
                         android:id="@+id/tvServerStatusBadge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="6dp"
-                        android:background="@drawable/bg_badge_green"
-                        android:paddingLeft="6dp"
-                        android:paddingTop="2dp"
-                        android:paddingRight="6dp"
-                        android:paddingBottom="2dp"
-                        android:text="API ACTIVE"
-                        android:textColor="@color/vemins_green"
-                        android:textSize="10sp"
-                        android:textStyle="bold" />
+                        android:background="@drawable/bg_badge_red"
+                        android:fontFamily="monospace"
+                        android:paddingStart="4dp"
+                        android:paddingEnd="4dp"
+                        android:text="CONN: OFF"
+                        android:textColor="@color/vemins_red"
+                        android:textSize="8sp" />
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/tvDaemonStats"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="Target: Standby | FPS: 0 | Latency: 0ms | Frames: 0"
-                    android:textColor="@color/vemins_text_secondary"
-                    android:textSize="11sp" />
-
-                <!-- Action Controls in Diagnostics HUD -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    android:padding="8dp">
 
-                    <Button
-                        android:id="@+id/btnTestPing"
-                        android:layout_width="0dp"
-                        android:layout_height="36dp"
-                        android:layout_marginEnd="4dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/bg_button_secondary"
-                        android:text="@string/btn_test_ping"
-                        android:textAllCaps="false"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="11sp"
-                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/tvDaemonStats"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:text="Telemetry: Offline
+FPS: -- | PID: --"
+                        android:textColor="@color/imgui_text_secondary"
+                        android:textSize="9sp" />
 
-                    <Button
-                        android:id="@+id/btnSaveConfig"
-                        android:layout_width="0dp"
-                        android:layout_height="36dp"
-                        android:layout_marginEnd="4dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/bg_button_primary"
-                        android:text="@string/btn_save_config"
-                        android:textAllCaps="false"
-                        android:textColor="@color/vemins_bg_dark"
-                        android:textSize="11sp"
-                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:orientation="horizontal">
 
-                    <Button
-                        android:id="@+id/btnResetDefaults"
-                        android:layout_width="0dp"
-                        android:layout_height="36dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/bg_button_secondary"
-                        android:text="@string/btn_reset_defaults"
-                        android:textAllCaps="false"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="11sp" />
+                        <Button
+                            android:id="@+id/btnTestPing"
+                            android:layout_width="0dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="3dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_imgui_button"
+                            android:fontFamily="monospace"
+                            android:text="PING"
+                            android:textColor="@color/imgui_text_primary"
+                            android:textSize="9sp" />
+
+                        <Button
+                            android:id="@+id/btnSaveConfig"
+                            android:layout_width="0dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="3dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_imgui_button"
+                            android:fontFamily="monospace"
+                            android:text="SAVE"
+                            android:textColor="@color/imgui_accent_cyan"
+                            android:textSize="9sp" />
+
+                        <Button
+                            android:id="@+id/btnResetDefaults"
+                            android:layout_width="0dp"
+                            android:layout_height="24dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_imgui_button"
+                            android:fontFamily="monospace"
+                            android:text="RESET"
+                            android:textColor="@color/imgui_accent_amber"
+                            android:textSize="9sp" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- 5. TACTICAL DASHBOARD TAB BAR -->
+            <!-- 5. IMGUI TAB SWITCHER -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
+                android:layout_height="26dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/bg_imgui_header"
                 android:orientation="horizontal">
 
-                <Button
+                <TextView
                     android:id="@+id/tabBtnRadar"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_marginEnd="4dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/bg_tab_selected"
-                    android:text="@string/tab_radar"
-                    android:textAllCaps="false"
-                    android:textColor="@color/vemins_bg_dark"
-                    android:textSize="12sp"
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:text="RADAR"
+                    android:textColor="@color/vemins_white"
+                    android:textSize="9sp"
                     android:textStyle="bold" />
 
-                <Button
+                <TextView
                     android:id="@+id/tabBtnCombatHud"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_weight="1.2"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:background="@drawable/bg_tab_unselected"
-                    android:text="@string/tab_combat_hud"
-                    android:textAllCaps="false"
-                    android:textColor="@color/vemins_text_secondary"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:text="COMBAT"
+                    android:textColor="@color/imgui_text_secondary"
+                    android:textSize="9sp" />
 
-                <Button
+                <TextView
                     android:id="@+id/tabBtnLayers"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_weight="1.2"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:background="@drawable/bg_tab_unselected"
-                    android:text="@string/tab_layers"
-                    android:textAllCaps="false"
-                    android:textColor="@color/vemins_text_secondary"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:text="LAYERS"
+                    android:textColor="@color/imgui_text_secondary"
+                    android:textSize="9sp" />
 
-                <Button
+                <TextView
                     android:id="@+id/tabBtnStatus"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1.1"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:background="@drawable/bg_tab_unselected"
-                    android:text="@string/tab_status"
-                    android:textAllCaps="false"
-                    android:textColor="@color/vemins_text_secondary"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:text="STATUS"
+                    android:textColor="@color/imgui_text_secondary"
+                    android:textSize="9sp" />
             </LinearLayout>
 
-            <!-- ============================================================= -->
-            <!-- TAB 1: RADAR CALIBRATION PANEL                                -->
-            <!-- ============================================================= -->
+            <!-- TAB 1: RADAR PANEL -->
             <LinearLayout
                 android:id="@+id/panelRadar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_card"
+                android:background="@drawable/bg_imgui_window"
                 android:orientation="vertical"
-                android:padding="16dp"
+                android:padding="8dp"
                 android:visibility="visible">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Minimap Radar Viewport Calibration"
-                    android:textColor="@color/vemins_text_primary"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="Calibrate X/Y offsets, radar dimensions, opacity, and diamond rotation."
-                    android:textColor="@color/vemins_text_muted"
-                    android:textSize="11sp" />
-
-                <!-- Minimap Pos X -->
+                <!-- X Offset -->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Minimap X Offset"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/etMinimapX"
-                        android:layout_width="65dp"
-                        android:layout_height="34dp"
-                        android:background="@drawable/bg_input_field"
-                        android:gravity="center"
-                        android:inputType="number"
-                        android:text="75"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
+                    android:layout_height="22dp"
+                    android:gravity="center_vertical">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="monospace" android:text="Minimap X" android:textColor="@color/imgui_text_secondary" android:textSize="9sp" />
+                    <EditText android:id="@+id/etMinimapX" android:layout_width="55dp" android:layout_height="22dp" android:background="@drawable/bg_input_field" android:fontFamily="monospace" android:gravity="center" android:inputType="number" android:text="75" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
                 </LinearLayout>
+                <SeekBar android:id="@+id/sbMinimapX" style="@style/CyberSlider" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="800" android:progress="75" />
 
-                <SeekBar
-                    android:id="@+id/sbMinimapX"
-                    style="@style/CyberSlider"
+                <!-- Y Offset -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_vertical">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="monospace" android:text="Minimap Y" android:textColor="@color/imgui_text_secondary" android:textSize="9sp" />
+                    <EditText android:id="@+id/etMinimapY" android:layout_width="55dp" android:layout_height="22dp" android:background="@drawable/bg_input_field" android:fontFamily="monospace" android:gravity="center" android:inputType="number" android:text="35" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                </LinearLayout>
+                <SeekBar android:id="@+id/sbMinimapY" style="@style/CyberSlider" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="800" android:progress="35" />
+
+                <!-- Size -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_vertical">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="monospace" android:text="Radar Size" android:textColor="@color/imgui_text_secondary" android:textSize="9sp" />
+                    <EditText android:id="@+id/etMinimapSize" android:layout_width="55dp" android:layout_height="22dp" android:background="@drawable/bg_input_field" android:fontFamily="monospace" android:gravity="center" android:inputType="number" android:text="342" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                </LinearLayout>
+                <SeekBar android:id="@+id/sbMinimapSize" style="@style/CyberSlider" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="800" android:progress="342" />
+
+                <!-- Alpha -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_vertical">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="monospace" android:text="Opacity" android:textColor="@color/imgui_text_secondary" android:textSize="9sp" />
+                    <EditText android:id="@+id/etMinimapAlpha" android:layout_width="55dp" android:layout_height="22dp" android:background="@drawable/bg_input_field" android:fontFamily="monospace" android:gravity="center" android:inputType="number" android:text="0" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                </LinearLayout>
+                <SeekBar android:id="@+id/sbMinimapAlpha" style="@style/CyberSlider" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="255" android:progress="0" />
+
+                <!-- Hero Radius -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_vertical">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="monospace" android:text="Hero Icon Radius" android:textColor="@color/imgui_text_secondary" android:textSize="9sp" />
+                    <EditText android:id="@+id/etMinimapHeroRadius" android:layout_width="55dp" android:layout_height="22dp" android:background="@drawable/bg_input_field" android:fontFamily="monospace" android:gravity="center" android:inputType="number" android:text="16" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                </LinearLayout>
+                <SeekBar android:id="@+id/sbMinimapHeroRadius" style="@style/CyberSlider" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="50" android:progress="16" />
+
+                <!-- Rotation -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_vertical">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="monospace" android:text="Rotation Deg" android:textColor="@color/imgui_text_secondary" android:textSize="9sp" />
+                    <EditText android:id="@+id/etMinimapRotation" android:layout_width="55dp" android:layout_height="22dp" android:background="@drawable/bg_input_field" android:fontFamily="monospace" android:gravity="center" android:inputType="number" android:text="315" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                </LinearLayout>
+                <SeekBar android:id="@+id/sbMinimapRotation" style="@style/CyberSlider" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="360" android:progress="315" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:max="800"
-                    android:progress="75" />
-
-                <!-- Minimap Pos Y -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
                     android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Minimap Y Offset"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/etMinimapY"
-                        android:layout_width="65dp"
-                        android:layout_height="34dp"
-                        android:background="@drawable/bg_input_field"
-                        android:gravity="center"
-                        android:inputType="number"
-                        android:text="15"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
+                    <Button android:id="@+id/btnRot0" android:layout_width="0dp" android:layout_height="22dp" android:layout_marginEnd="2dp" android:layout_weight="1" android:background="@drawable/bg_imgui_button" android:fontFamily="monospace" android:text="0°" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                    <Button android:id="@+id/btnRot45" android:layout_width="0dp" android:layout_height="22dp" android:layout_marginEnd="2dp" android:layout_weight="1" android:background="@drawable/bg_imgui_button" android:fontFamily="monospace" android:text="45°" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                    <Button android:id="@+id/btnRot90" android:layout_width="0dp" android:layout_height="22dp" android:layout_marginEnd="2dp" android:layout_weight="1" android:background="@drawable/bg_imgui_button" android:fontFamily="monospace" android:text="90°" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                    <Button android:id="@+id/btnRot180" android:layout_width="0dp" android:layout_height="22dp" android:layout_marginEnd="2dp" android:layout_weight="1" android:background="@drawable/bg_imgui_button" android:fontFamily="monospace" android:text="180°" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                    <Button android:id="@+id/btnRot270" android:layout_width="0dp" android:layout_height="22dp" android:layout_weight="1" android:background="@drawable/bg_imgui_button" android:fontFamily="monospace" android:text="270°" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
                 </LinearLayout>
 
-                <SeekBar
-                    android:id="@+id/sbMinimapY"
-                    style="@style/CyberSlider"
+                <!-- Zoom -->
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="22dp"
                     android:layout_marginTop="4dp"
-                    android:max="600"
-                    android:progress="15" />
+                    android:gravity="center_vertical">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="monospace" android:text="Radar Zoom" android:textColor="@color/imgui_text_secondary" android:textSize="9sp" />
+                    <EditText android:id="@+id/etMinimapZoom" android:layout_width="55dp" android:layout_height="22dp" android:background="@drawable/bg_input_field" android:fontFamily="monospace" android:gravity="center" android:inputType="numberDecimal" android:text="2.0" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                </LinearLayout>
+                <SeekBar android:id="@+id/sbMinimapZoom" style="@style/CyberSlider" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="300" android:progress="200" />
 
-                <!-- Minimap Size -->
+                <!-- Stretch X -->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Minimap Radar Size (Width &amp; Height)"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/etMinimapSize"
-                        android:layout_width="65dp"
-                        android:layout_height="34dp"
-                        android:background="@drawable/bg_input_field"
-                        android:gravity="center"
-                        android:inputType="number"
-                        android:text="320"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <SeekBar
-                    android:id="@+id/sbMinimapSize"
-                    style="@style/CyberSlider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="22dp"
                     android:layout_marginTop="4dp"
-                    android:max="600"
-                    android:progress="320" />
+                    android:gravity="center_vertical">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="monospace" android:text="Stretch X" android:textColor="@color/imgui_text_secondary" android:textSize="9sp" />
+                    <EditText android:id="@+id/etStretchX" android:layout_width="55dp" android:layout_height="22dp" android:background="@drawable/bg_input_field" android:fontFamily="monospace" android:gravity="center" android:inputType="numberDecimal" android:text="1.0" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                </LinearLayout>
+                <SeekBar android:id="@+id/sbStretchX" style="@style/CyberSlider" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="200" android:progress="100" />
 
-                <!-- Minimap Alpha -->
+                <!-- Stretch Y -->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Minimap Opacity (Alpha %)"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/etMinimapAlpha"
-                        android:layout_width="65dp"
-                        android:layout_height="34dp"
-                        android:background="@drawable/bg_input_field"
-                        android:gravity="center"
-                        android:inputType="number"
-                        android:text="85"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <SeekBar
-                    android:id="@+id/sbMinimapAlpha"
-                    style="@style/CyberSlider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="22dp"
                     android:layout_marginTop="4dp"
-                    android:max="100"
-                    android:progress="85" />
-
-                <!-- Minimap Hero Portrait / Icon Size -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Minimap Hero Portrait / Icon Size"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/etMinimapHeroRadius"
-                        android:layout_width="65dp"
-                        android:layout_height="34dp"
-                        android:background="@drawable/bg_input_field"
-                        android:gravity="center"
-                        android:inputType="number"
-                        android:text="9"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
+                    android:gravity="center_vertical">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="monospace" android:text="Stretch Y" android:textColor="@color/imgui_text_secondary" android:textSize="9sp" />
+                    <EditText android:id="@+id/etStretchY" android:layout_width="55dp" android:layout_height="22dp" android:background="@drawable/bg_input_field" android:fontFamily="monospace" android:gravity="center" android:inputType="numberDecimal" android:text="1.0" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
                 </LinearLayout>
-
-                <SeekBar
-                    android:id="@+id/sbMinimapHeroRadius"
-                    style="@style/CyberSlider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:max="25"
-                    android:progress="9" />
-
-                <!-- Minimap Radar Rotation (0° - 360°) -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Radar Rotation (0° - 360°)"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/etMinimapRotation"
-                        android:layout_width="65dp"
-                        android:layout_height="34dp"
-                        android:background="@drawable/bg_input_field"
-                        android:gravity="center"
-                        android:inputType="number"
-                        android:text="0"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <SeekBar
-                    android:id="@+id/sbMinimapRotation"
-                    style="@style/CyberSlider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:max="360"
-                    android:progress="0" />
-
-                <!-- Radar Zoom / Spread Scaling -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Radar Zoom / Spread Scale (%)"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/etMinimapZoom"
-                        android:layout_width="65dp"
-                        android:layout_height="34dp"
-                        android:background="@drawable/bg_input_field"
-                        android:gravity="center"
-                        android:inputType="number"
-                        android:text="100"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <SeekBar
-                    android:id="@+id/sbMinimapZoom"
-                    style="@style/CyberSlider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:max="200"
-                    android:progress="100" />
-
-                <!-- Radar Horizontal Stretch X -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Radar Horizontal Stretch X (%)"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/etStretchX"
-                        android:layout_width="65dp"
-                        android:layout_height="34dp"
-                        android:background="@drawable/bg_input_field"
-                        android:gravity="center"
-                        android:inputType="number"
-                        android:text="100"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <SeekBar
-                    android:id="@+id/sbStretchX"
-                    style="@style/CyberSlider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:max="200"
-                    android:progress="100" />
-
-                <!-- Radar Vertical Stretch Y -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Radar Vertical Stretch Y (%)"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/etStretchY"
-                        android:layout_width="65dp"
-                        android:layout_height="34dp"
-                        android:background="@drawable/bg_input_field"
-                        android:gravity="center"
-                        android:inputType="number"
-                        android:text="100"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <SeekBar
-                    android:id="@+id/sbStretchY"
-                    style="@style/CyberSlider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:max="200"
-                    android:progress="100" />
-
-                <!-- Quick Rotation Preset Buttons -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="28dp"
-                    android:layout_marginTop="6dp"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/btnRot0"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="3dp"
-                        android:background="@drawable/bg_step_button"
-                        android:text="0°"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="10sp" />
-
-                    <Button
-                        android:id="@+id/btnRot45"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="3dp"
-                        android:background="@drawable/bg_step_button"
-                        android:text="45°"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="10sp" />
-
-                    <Button
-                        android:id="@+id/btnRot90"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="3dp"
-                        android:background="@drawable/bg_step_button"
-                        android:text="90°"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="10sp" />
-
-                    <Button
-                        android:id="@+id/btnRot180"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="3dp"
-                        android:background="@drawable/bg_step_button"
-                        android:text="180°"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="10sp" />
-
-                    <Button
-                        android:id="@+id/btnRot270"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/bg_step_button"
-                        android:text="270°"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="10sp" />
-                </LinearLayout>
+                <SeekBar android:id="@+id/sbStretchY" style="@style/CyberSlider" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="200" android:progress="100" />
 
                 <CheckBox
                     android:id="@+id/cbMinimapInvertY"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:buttonTint="@color/vemins_white"
-                    android:checked="true"
-                    android:text="Invert Minimap Y-Axis (MLBB Standard)"
-                    android:textColor="@color/vemins_text_primary"
-                    android:textSize="13sp" />
+                    android:layout_height="26dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="monospace"
+                    android:text="Invert Minimap Y Axis"
+                    android:textColor="@color/imgui_text_primary"
+                    android:textSize="9sp" />
             </LinearLayout>
 
-            <!-- ============================================================= -->
-            <!-- TAB 2: COMBAT HUD CALIBRATION PANEL                           -->
-            <!-- ============================================================= -->
+            <!-- TAB 2: COMBAT HUD PANEL -->
             <LinearLayout
                 android:id="@+id/panelCombatHud"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_card"
+                android:background="@drawable/bg_imgui_window"
                 android:orientation="vertical"
-                android:padding="16dp"
+                android:padding="8dp"
                 android:visibility="gone">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="3D Combat &amp; Overhead HUD Calibration"
-                    android:textColor="@color/vemins_text_primary"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="Calibrate 3D character alignment, overhead bar height, and top-of-screen status strip."
-                    android:textColor="@color/vemins_text_muted"
-                    android:textSize="11sp" />
-
-                <!-- Camera Scale X -->
+                <!-- Scale X -->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="3D Spread Width (Scale X)"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/etScaleX"
-                        android:layout_width="65dp"
-                        android:layout_height="34dp"
-                        android:background="@drawable/bg_input_field"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        android:text="38.0"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
+                    android:layout_height="22dp"
+                    android:gravity="center_vertical">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="monospace" android:text="Camera Scale X" android:textColor="@color/imgui_text_secondary" android:textSize="9sp" />
+                    <EditText android:id="@+id/etScaleX" android:layout_width="55dp" android:layout_height="22dp" android:background="@drawable/bg_input_field" android:fontFamily="monospace" android:gravity="center" android:inputType="numberDecimal" android:text="38.0" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
                 </LinearLayout>
+                <SeekBar android:id="@+id/sbScaleX" style="@style/CyberSlider" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="80" android:progress="38" />
 
-                <SeekBar
-                    android:id="@+id/sbScaleX"
-                    style="@style/CyberSlider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:max="800"
-                    android:progress="380" />
-
-                <!-- Camera Scale Y -->
+                <!-- Scale Y -->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="3D Distance Depth (Scale Y)"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/etScaleY"
-                        android:layout_width="65dp"
-                        android:layout_height="34dp"
-                        android:background="@drawable/bg_input_field"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        android:text="27.0"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <SeekBar
-                    android:id="@+id/sbScaleY"
-                    style="@style/CyberSlider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="22dp"
                     android:layout_marginTop="4dp"
-                    android:max="600"
-                    android:progress="270" />
+                    android:gravity="center_vertical">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="monospace" android:text="Camera Scale Y" android:textColor="@color/imgui_text_secondary" android:textSize="9sp" />
+                    <EditText android:id="@+id/etScaleY" android:layout_width="55dp" android:layout_height="22dp" android:background="@drawable/bg_input_field" android:fontFamily="monospace" android:gravity="center" android:inputType="numberDecimal" android:text="27.0" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                </LinearLayout>
+                <SeekBar android:id="@+id/sbScaleY" style="@style/CyberSlider" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="80" android:progress="27" />
 
-                <!-- Overhead Height / HUD Offset Y -->
+                <!-- HUD Offset Y -->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Floating Height (Above Head)"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/etHudOffsetY"
-                        android:layout_width="65dp"
-                        android:layout_height="34dp"
-                        android:background="@drawable/bg_input_field"
-                        android:gravity="center"
-                        android:inputType="number"
-                        android:text="65"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <SeekBar
-                    android:id="@+id/sbHudOffsetY"
-                    style="@style/CyberSlider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="22dp"
                     android:layout_marginTop="4dp"
-                    android:max="180"
-                    android:progress="65" />
+                    android:gravity="center_vertical">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="monospace" android:text="HUD Vertical Lift" android:textColor="@color/imgui_text_secondary" android:textSize="9sp" />
+                    <EditText android:id="@+id/etHudOffsetY" android:layout_width="55dp" android:layout_height="22dp" android:background="@drawable/bg_input_field" android:fontFamily="monospace" android:gravity="center" android:inputType="number" android:text="65" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                </LinearLayout>
+                <SeekBar android:id="@+id/sbHudOffsetY" style="@style/CyberSlider" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="200" android:progress="65" />
 
-                <!-- Top-of-Screen Enemy CD Bar Toggle & Position -->
+                <!-- Top CD Bar -->
                 <CheckBox
                     android:id="@+id/cbShowTopCdBar"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:buttonTint="@color/vemins_white"
-                    android:checked="true"
-                    android:text="Top Screen Status Strip (All 5 Enemies)"
-                    android:textColor="@color/vemins_cyan"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+                    android:layout_height="26dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="monospace"
+                    android:text="Show Top Enemy CD Bar"
+                    android:textColor="@color/imgui_text_primary"
+                    android:textSize="9sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Top Strip Distance From Notch"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/etTopCdBarY"
-                        android:layout_width="65dp"
-                        android:layout_height="34dp"
-                        android:background="@drawable/bg_input_field"
-                        android:gravity="center"
-                        android:inputType="number"
-                        android:text="28"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <SeekBar
-                    android:id="@+id/sbTopCdBarY"
-                    style="@style/CyberSlider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="22dp"
                     android:layout_marginTop="4dp"
-                    android:max="150"
-                    android:progress="28" />
+                    android:gravity="center_vertical">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="monospace" android:text="Top CD Bar Y" android:textColor="@color/imgui_text_secondary" android:textSize="9sp" />
+                    <EditText android:id="@+id/etTopCdBarY" android:layout_width="55dp" android:layout_height="22dp" android:background="@drawable/bg_input_field" android:fontFamily="monospace" android:gravity="center" android:inputType="number" android:text="36" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                </LinearLayout>
+                <SeekBar android:id="@+id/sbTopCdBarY" style="@style/CyberSlider" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="300" android:progress="36" />
 
-                <!-- Top CD Bar Scale -->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Top Capsule Scale (%)"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/etTopCdBarScale"
-                        android:layout_width="65dp"
-                        android:layout_height="34dp"
-                        android:background="@drawable/bg_input_field"
-                        android:gravity="center"
-                        android:inputType="number"
-                        android:text="100"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <SeekBar
-                    android:id="@+id/sbTopCdBarScale"
-                    style="@style/CyberSlider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="22dp"
                     android:layout_marginTop="4dp"
-                    android:max="200"
-                    android:progress="100" />
+                    android:gravity="center_vertical">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="monospace" android:text="Top CD Bar Scale" android:textColor="@color/imgui_text_secondary" android:textSize="9sp" />
+                    <EditText android:id="@+id/etTopCdBarScale" android:layout_width="55dp" android:layout_height="22dp" android:background="@drawable/bg_input_field" android:fontFamily="monospace" android:gravity="center" android:inputType="numberDecimal" android:text="1.0" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                </LinearLayout>
+                <SeekBar android:id="@+id/sbTopCdBarScale" style="@style/CyberSlider" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="200" android:progress="100" />
 
-                <!-- HUD Badge Size -->
+                <!-- Badge Radius -->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Skill &amp; Ult Badge Radius (Circle Size)"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/etHudBadgeRadius"
-                        android:layout_width="65dp"
-                        android:layout_height="34dp"
-                        android:background="@drawable/bg_input_field"
-                        android:gravity="center"
-                        android:inputType="number"
-                        android:text="9"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <SeekBar
-                    android:id="@+id/sbHudBadgeRadius"
-                    style="@style/CyberSlider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="22dp"
                     android:layout_marginTop="4dp"
-                    android:max="20"
-                    android:progress="9" />
+                    android:gravity="center_vertical">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="monospace" android:text="Badge Radius" android:textColor="@color/imgui_text_secondary" android:textSize="9sp" />
+                    <EditText android:id="@+id/etHudBadgeRadius" android:layout_width="55dp" android:layout_height="22dp" android:background="@drawable/bg_input_field" android:fontFamily="monospace" android:gravity="center" android:inputType="number" android:text="15" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                </LinearLayout>
+                <SeekBar android:id="@+id/sbHudBadgeRadius" style="@style/CyberSlider" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="40" android:progress="15" />
 
                 <!-- HP Bar Scale -->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Overhead HP &amp; Shield Bar Scale (%)"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/etHudHpBarScale"
-                        android:layout_width="65dp"
-                        android:layout_height="34dp"
-                        android:background="@drawable/bg_input_field"
-                        android:gravity="center"
-                        android:inputType="number"
-                        android:text="100"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <SeekBar
-                    android:id="@+id/sbHudHpBarScale"
-                    style="@style/CyberSlider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="22dp"
                     android:layout_marginTop="4dp"
-                    android:max="200"
-                    android:progress="100" />
+                    android:gravity="center_vertical">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="monospace" android:text="HP Bar Scale" android:textColor="@color/imgui_text_secondary" android:textSize="9sp" />
+                    <EditText android:id="@+id/etHudHpBarScale" android:layout_width="55dp" android:layout_height="22dp" android:background="@drawable/bg_input_field" android:fontFamily="monospace" android:gravity="center" android:inputType="numberDecimal" android:text="1.0" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                </LinearLayout>
+                <SeekBar android:id="@+id/sbHudHpBarScale" style="@style/CyberSlider" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="200" android:progress="100" />
 
-                <!-- High Camera CheckBox -->
                 <CheckBox
                     android:id="@+id/cbHighCamera"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:buttonTint="@color/vemins_white"
-                    android:checked="true"
-                    android:text="High Camera Mode (In-Game Camera Setting)"
-                    android:textColor="@color/vemins_text_primary"
-                    android:textSize="13sp" />
+                    android:layout_height="26dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="monospace"
+                    android:text="High Camera Mode (Game Setting)"
+                    android:textColor="@color/imgui_text_primary"
+                    android:textSize="9sp" />
             </LinearLayout>
 
-            <!-- ============================================================= -->
-            <!-- TAB 3: LAYERS MATRIX PANEL (11 Tactical CheckBoxes)            -->
-            <!-- ============================================================= -->
+            <!-- TAB 3: LAYERS PANEL -->
             <LinearLayout
                 android:id="@+id/panelLayers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_card"
+                android:background="@drawable/bg_imgui_window"
                 android:orientation="vertical"
-                android:padding="16dp"
+                android:padding="8dp"
                 android:visibility="gone">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tactical Render Layers Matrix"
-                    android:textColor="@color/vemins_text_primary"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="Granularly toggle individual radar primitives and combat HUD elements."
-                    android:textColor="@color/vemins_text_muted"
-                    android:textSize="11sp" />
-
-                <CheckBox
-                    android:id="@+id/cbMinimapEnemies"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:buttonTint="@color/vemins_white"
-                    android:checked="true"
-                    android:text="Enemy Heroes (Minimap Red Portals &amp; Dots)"
-                    android:textColor="@color/vemins_text_primary"
-                    android:textSize="13sp" />
-
-                <CheckBox
-                    android:id="@+id/cbMinimapAllies"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:buttonTint="@color/vemins_white"
-                    android:checked="false"
-                    android:text="Allied Heroes (Minimap Blue Dots)"
-                    android:textColor="@color/vemins_text_primary"
-                    android:textSize="13sp" />
-
-                <CheckBox
-                    android:id="@+id/cbMinimapFacing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:buttonTint="@color/vemins_white"
-                    android:checked="true"
-                    android:text="Hero Heading Direction Vectors (Facing Arrows)"
-                    android:textColor="@color/vemins_text_primary"
-                    android:textSize="13sp" />
-
-                <CheckBox
-                    android:id="@+id/cbMinimapMinions"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:buttonTint="@color/vemins_white"
-                    android:checked="true"
-                    android:text="Lane Minion Waves (Blue/Orange Dots)"
-                    android:textColor="@color/vemins_text_primary"
-                    android:textSize="13sp" />
-
-                <CheckBox
-                    android:id="@+id/cbMinimapMonsters"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:buttonTint="@color/vemins_white"
-                    android:checked="true"
-                    android:text="Jungle Objectives (Lord, Turtle, Buffs)"
-                    android:textColor="@color/vemins_text_primary"
-                    android:textSize="13sp" />
-
-                <CheckBox
-                    android:id="@+id/cbScreenHp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:buttonTint="@color/vemins_white"
-                    android:checked="true"
-                    android:text="Overhead Health &amp; Active Shield Bars"
-                    android:textColor="@color/vemins_text_primary"
-                    android:textSize="13sp" />
-
-                <CheckBox
-                    android:id="@+id/cbScreenSkillCd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:buttonTint="@color/vemins_white"
-                    android:checked="true"
-                    android:text="Skill 1 &amp; Skill 2 Cooldown Timers"
-                    android:textColor="@color/vemins_text_primary"
-                    android:textSize="13sp" />
-
-                <CheckBox
-                    android:id="@+id/cbScreenUltBadge"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:buttonTint="@color/vemins_white"
-                    android:checked="true"
-                    android:text="Ultimate Readiness &amp; CD Badge"
-                    android:textColor="@color/vemins_text_primary"
-                    android:textSize="13sp" />
-
-                <CheckBox
-                    android:id="@+id/cbScreenSpellBadge"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:buttonTint="@color/vemins_white"
-                    android:checked="true"
-                    android:text="Battle Spell Tracker Badge"
-                    android:textColor="@color/vemins_text_primary"
-                    android:textSize="13sp" />
-
-                <CheckBox
-                    android:id="@+id/cbScreenDistance"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:buttonTint="@color/vemins_white"
-                    android:checked="true"
-                    android:text="Target Distance Text Readout (Meters)"
-                    android:textColor="@color/vemins_text_primary"
-                    android:textSize="13sp" />
-
-                <CheckBox
-                    android:id="@+id/cbScreenEdgeRadar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:buttonTint="@color/vemins_white"
-                    android:checked="true"
-                    android:text="Off-Screen Edge Radar (Chevrons)"
-                    android:textColor="@color/vemins_text_primary"
-                    android:textSize="13sp" />
-
-                <!-- Anti-Recording / Streamer Mode -->
-                <CheckBox
-                    android:id="@+id/cbHideInRecording"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:buttonTint="@color/vemins_white"
-                    android:checked="false"
-                    android:text="🛡️ Hide in Screen Recording / Screenshots (FLAG_SECURE)"
-                    android:textColor="@color/vemins_cyan"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+                <CheckBox android:id="@+id/cbMinimapEnemies" android:layout_width="match_parent" android:layout_height="24dp" android:fontFamily="monospace" android:text="Minimap: Enemy Heroes" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                <CheckBox android:id="@+id/cbMinimapAllies" android:layout_width="match_parent" android:layout_height="24dp" android:fontFamily="monospace" android:text="Minimap: Allied Heroes" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                <CheckBox android:id="@+id/cbMinimapFacing" android:layout_width="match_parent" android:layout_height="24dp" android:fontFamily="monospace" android:text="Minimap: Facing Heading Lines" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                <CheckBox android:id="@+id/cbMinimapMinions" android:layout_width="match_parent" android:layout_height="24dp" android:fontFamily="monospace" android:text="Minimap: Minion Waves" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                <CheckBox android:id="@+id/cbMinimapMonsters" android:layout_width="match_parent" android:layout_height="24dp" android:fontFamily="monospace" android:text="Minimap: Jungle Camps" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                <CheckBox android:id="@+id/cbScreenHp" android:layout_width="match_parent" android:layout_height="24dp" android:fontFamily="monospace" android:text="Combat: Overhead HP Bars" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                <CheckBox android:id="@+id/cbScreenSkillCd" android:layout_width="match_parent" android:layout_height="24dp" android:fontFamily="monospace" android:text="Combat: Skill 1-4 Cooldowns" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                <CheckBox android:id="@+id/cbScreenUltBadge" android:layout_width="match_parent" android:layout_height="24dp" android:fontFamily="monospace" android:text="Combat: Ultimate Ready Badges" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                <CheckBox android:id="@+id/cbScreenSpellBadge" android:layout_width="match_parent" android:layout_height="24dp" android:fontFamily="monospace" android:text="Combat: Battle Spell Badges" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                <CheckBox android:id="@+id/cbScreenDistance" android:layout_width="match_parent" android:layout_height="24dp" android:fontFamily="monospace" android:text="Combat: Distance Labels (Meters)" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                <CheckBox android:id="@+id/cbScreenEdgeRadar" android:layout_width="match_parent" android:layout_height="24dp" android:fontFamily="monospace" android:text="Combat: Screen Edge Radar" android:textColor="@color/imgui_text_primary" android:textSize="9sp" />
+                <CheckBox android:id="@+id/cbHideInRecording" android:layout_width="match_parent" android:layout_height="24dp" android:fontFamily="monospace" android:text="Stealth: Hide Overlay in Screen Recording" android:textColor="@color/imgui_accent_cyan" android:textSize="9sp" />
             </LinearLayout>
 
-            <!-- ============================================================= -->
-            <!-- TAB 4: VAULT / STATUS & LOCAL API                             -->
-            <!-- ============================================================= -->
+            <!-- TAB 4: STATUS / JSON PANEL -->
             <LinearLayout
                 android:id="@+id/panelStatus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_card"
+                android:background="@drawable/bg_imgui_window"
                 android:orientation="vertical"
-                android:padding="16dp"
+                android:padding="8dp"
                 android:visibility="gone">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="System Diagnostics &amp; Tactical Vault"
-                    android:textColor="@color/vemins_text_primary"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="Telemetry socket channels, local control server, and JSON configuration vault."
-                    android:textColor="@color/vemins_text_muted"
-                    android:textSize="11sp" />
-
-                <!-- Telemetry Transport Card -->
-                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_card_elevated"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Telemetry Stream Transport"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Channel: 127.0.0.1:9999 (High-Speed Local Socket)"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="11sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="Mode: Zero-Injection | Touch-Through Hardware Passthrough"
-                        android:textColor="@color/vemins_text_muted"
-                        android:textSize="10sp" />
-                </LinearLayout>
-
-                <!-- Local Control Server Card -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_card_elevated"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Local Control HTTP Server"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Endpoint: http://127.0.0.1:8888"
-                        android:textColor="@color/vemins_text_secondary"
-                        android:textSize="11sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="APIs: /api/status, /api/config, /api/toggle, /api/ping"
-                        android:textColor="@color/vemins_text_muted"
-                        android:textSize="10sp" />
-                </LinearLayout>
-
-                <!-- Configuration JSON Vault -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:text="Configuration JSON Vault"
-                    android:textColor="@color/vemins_text_primary"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+                    android:fontFamily="monospace"
+                    android:text="RAW CONFIGURATION JSON"
+                    android:textColor="@color/imgui_text_secondary"
+                    android:textSize="9sp" />
 
                 <EditText
                     android:id="@+id/etConfigJson"
                     android:layout_width="match_parent"
-                    android:layout_height="110dp"
-                    android:layout_marginTop="6dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="4dp"
                     android:background="@drawable/bg_input_field"
+                    android:fontFamily="monospace"
                     android:gravity="top|start"
-                    android:hint="Current configuration JSON will appear here for export, or paste JSON here to import..."
                     android:inputType="textMultiLine"
-                    android:padding="10dp"
-                    android:textColor="@color/vemins_white"
-                    android:textColorHint="@color/vemins_text_muted"
-                    android:textSize="11sp"
-                    android:typeface="monospace" />
+                    android:padding="6dp"
+                    android:textColor="@color/imgui_text_primary"
+                    android:textSize="9sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="6dp"
                     android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/btnExportConfig"
                         android:layout_width="0dp"
-                        android:layout_height="42dp"
-                        android:layout_marginEnd="4dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="3dp"
                         android:layout_weight="1"
-                        android:background="@drawable/bg_button_secondary"
-                        android:text="@string/btn_export_config"
-                        android:textAllCaps="false"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:background="@drawable/bg_imgui_button"
+                        android:fontFamily="monospace"
+                        android:text="EXPORT"
+                        android:textColor="@color/imgui_text_primary"
+                        android:textSize="9sp" />
 
                     <Button
                         android:id="@+id/btnImportConfig"
                         android:layout_width="0dp"
-                        android:layout_height="42dp"
+                        android:layout_height="24dp"
                         android:layout_weight="1"
-                        android:background="@drawable/bg_button_secondary"
-                        android:text="@string/btn_import_config"
-                        android:textAllCaps="false"
-                        android:textColor="@color/vemins_white"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:background="@drawable/bg_imgui_button"
+                        android:fontFamily="monospace"
+                        android:text="IMPORT"
+                        android:textColor="@color/imgui_text_primary"
+                        android:textSize="9sp" />
                 </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>
-

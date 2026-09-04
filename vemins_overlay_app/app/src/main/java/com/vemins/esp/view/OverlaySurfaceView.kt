@@ -763,6 +763,7 @@ class OverlaySurfaceView @JvmOverloads constructor(
             if (minimapProjection.rotationDegrees != targetRotation) {
                 val flippedConfig = config.copy(rotationDegrees = targetRotation)
                 minimapProjection.updateConfig(flippedConfig)
+                isometricProjection.updateConfig(flippedConfig)
             }
         }
 

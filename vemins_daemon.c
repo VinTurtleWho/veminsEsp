@@ -77,10 +77,23 @@ static const char *get_hero_name(int32_t hero_id) {
     return "Hero";
 }
 
+static inline bool is_four_skill_hero(int32_t hero_id) {
+    switch (hero_id) {
+        case 50:  // Zhask
+        case 68:  // Lunox
+        case 95:  // Yu Zhong
+        case 105: // Beatrix
+            return true;
+        default:
+            return false;
+    }
+}
+
+
 static const char *get_spell_name(int32_t spell_id) {
     switch (spell_id) {
-        case 20001: case 20100: case 20101: case 20102: case 20103: return "Flicker";
-        case 20002: case 20200: case 20201: case 20202: case 20203: return "Retribution";
+        case 20001: case 20100: case 20101: case 20102: case 20103: case 20190: return "Flicker";
+        case 20002: case 20020: case 20200: case 20201: case 20202: case 20203: return "Retribution";
         case 20003: case 20300: case 20301: return "Inspire";
         case 20004: case 20400: case 20401: return "Sprint";
         case 20005: case 20500: case 20501: return "Revitalize";
@@ -476,7 +489,6 @@ static void parse_hero_abilities(int fd, uint64_t hero_addr, int32_t hero_id, ui
         return;
     }
 
-    int auto_slot = 1;
     int emitted = 0;
     for (int i = 0; i < count; i++) {
         uint64_t entry_addr = entries_ptr + 0x20 + (i * 24);
@@ -493,19 +505,19 @@ static void parse_hero_abilities(int fd, uint64_t hero_addr, int32_t hero_id, ui
 
         uint32_t end_time = start_time + cool_time;
         int32_t rem_ms = 0;
-        bool on_cd = (is_cd != 0);
+        bool on_cd = false;
 
-        if (on_cd && current_battle_time > 0 && end_time > current_battle_time) {
+        // In MLBB Unity, cd_data_ptr + 0x20 may be 0 even when cooling down.
+        // True live cooldown check: end_time > current_battle_time with sensible delta
+        if (current_battle_time > 0 && cool_time > 100 && end_time > current_battle_time) {
             uint32_t diff = end_time - current_battle_time;
-            if (diff > 50) {
+            if (diff > 50 && diff <= (cool_time + 2000)) {
                 rem_ms = (int32_t)diff;
-            } else {
-                rem_ms = 0;
-                on_cd = false;
+                on_cd = true;
             }
-        } else {
-            rem_ms = 0;
-            on_cd = false;
+        } else if (is_cd != 0 && cool_time > 0) {
+            on_cd = true;
+            rem_ms = (int32_t)cool_time;
         }
 
         int32_t max_ms = (orig_max > 0) ? (int32_t)orig_max : (int32_t)cool_time;
@@ -518,22 +530,25 @@ static void parse_hero_abilities(int fd, uint64_t hero_addr, int32_t hero_id, ui
         int expected_s3 = hero_id * 100 + 30;
         int expected_s4 = hero_id * 100 + 40;
 
-        if ((spell_id >= 20000 && spell_id < 30000) || (spell_id >= 200000 && spell_id < 300000)) {
-            slot = 5; // Battle Spell (e.g. Flicker, Retribution)
-        } else if (spell_id == expected_s1 || (spell_id % 100 == 10)) {
+        // True battle spells (Flicker, Retribution, Purify, Sprint, etc.) have >= 10s cooldown
+        bool is_battle_spell = ((spell_id >= 20000 && spell_id < 30000) || (spell_id >= 200000 && spell_id < 300000))
+                                && (max_ms >= 10000 || cool_time >= 10000);
+
+        if (is_battle_spell) {
+            slot = 5; // Battle Spell
+        } else if (spell_id == expected_s1 || (spell_id % 100 == 10) || (spell_id / 10 == hero_id * 10 + 1) || (spell_id == 2000000 + hero_id * 100 + 10)) {
             slot = 1; // Skill 1
-        } else if (spell_id == expected_s2 || (spell_id % 100 == 20)) {
+        } else if (spell_id == expected_s2 || (spell_id % 100 == 20) || (spell_id / 10 == hero_id * 10 + 2) || (spell_id == 2000000 + hero_id * 100 + 20)) {
             slot = 2; // Skill 2
-        } else if (spell_id == expected_s3 || (spell_id % 100 == 30)) {
-            slot = 3; // Skill 3 (or Ult if 3-skill hero)
-        } else if (spell_id == expected_s4 || (spell_id % 100 == 40)) {
-            slot = 4; // Skill 4 (Ult for 4-skill hero like Zhask, Beatrix, Lunox)
+        } else if (spell_id == expected_s3 || (spell_id % 100 == 30) || (spell_id / 10 == hero_id * 10 + 3) || (spell_id == hero_id * 100 + 98)) {
+            slot = 3; // Skill 3 (or Ult if 3-skill hero, e.g. Cecilion 9298)
+        } else if (is_four_skill_hero(hero_id) && (spell_id == expected_s4 || (spell_id % 100 == 40) || (spell_id / 10 == hero_id * 10 + 4) || (spell_id == 2000000 + hero_id * 100 + 80))) {
+            slot = 4; // Skill 4 (Ult for 4-skill hero like Zhask, Beatrix, Lunox, Yu Zhong)
         } else {
-            // Sequential fallback assignment
-            slot = (auto_slot <= 4) ? auto_slot : 1;
+            slot = 0; // Internal buff, passive, emblem or animation lockout: reject
         }
 
-        if (out_ab) {
+        if (out_ab && slot > 0) {
             if (slot == 1) {
                 out_ab->skill1_rem_s = rem_s;
                 out_ab->skill1_max_s = max_s;
@@ -551,13 +566,18 @@ static void parse_hero_abilities(int fd, uint64_t hero_addr, int32_t hero_id, ui
                 out_ab->skill4_max_s = max_s;
                 out_ab->skill4_ready = !on_cd;
             } else if (slot == 5) {
-                out_ab->battle_spell_id = spell_id;
-                out_ab->battle_spell_rem_s = rem_s;
-                out_ab->battle_spell_max_s = max_s;
-                out_ab->battle_spell_ready = !on_cd;
-                const char *sp_name = get_spell_name(spell_id);
-                if (sp_name && sp_name[0]) {
-                    strncpy(out_ab->battle_spell_name, sp_name, sizeof(out_ab->battle_spell_name) - 1);
+                bool should_replace = (out_ab->battle_spell_id == 0) ||
+                                      (on_cd && out_ab->battle_spell_rem_s <= 0.0f) ||
+                                      (max_s > out_ab->battle_spell_max_s && out_ab->battle_spell_rem_s <= 0.0f);
+                if (should_replace) {
+                    out_ab->battle_spell_id = spell_id;
+                    out_ab->battle_spell_rem_s = rem_s;
+                    out_ab->battle_spell_max_s = max_s;
+                    out_ab->battle_spell_ready = !on_cd;
+                    const char *sp_name = get_spell_name(spell_id);
+                    if (sp_name && sp_name[0]) {
+                        strncpy(out_ab->battle_spell_name, sp_name, sizeof(out_ab->battle_spell_name) - 1);
+                    }
                 }
             }
 
@@ -572,28 +592,18 @@ static void parse_hero_abilities(int fd, uint64_t hero_addr, int32_t hero_id, ui
             }
         }
 
-        if (buf) {
+        if (buf && slot > 0) {
             if (emitted > 0) json_buf_append_str(buf, ",");
             json_buf_append_printf(buf,
                 "{\"spell_id\":%d,\"slot\":%d,\"remaining_ms\":%d,\"remaining_cd_ms\":%d,\"max_ms\":%d,\"max_cd_ms\":%d,\"is_cooling_down\":%s}",
                 spell_id, slot, rem_ms, rem_ms, max_ms, max_ms, on_cd ? "true" : "false");
             emitted++;
         }
-
-        if (slot != 5) {
-            auto_slot++;
-        }
     }
 
     if (out_ab) {
-        // Resolve ultimate: if 4th skill is present, slot 4 is the ultimate; otherwise slot 3 is the ultimate
-        bool has_slot4 = false;
-        for (int i = 0; i < out_ab->ability_count; i++) {
-            if (out_ab->abilities[i].slot == 4) {
-                has_slot4 = true;
-                break;
-            }
-        }
+        // Resolve ultimate: strictly based on canonical 4-skill classification
+        bool has_slot4 = is_four_skill_hero(hero_id) && (out_ab->skill4_max_s > 0.0f);
         if (has_slot4) {
             out_ab->ult_rem_s = out_ab->skill4_rem_s;
             out_ab->ult_max_s = out_ab->skill4_max_s;

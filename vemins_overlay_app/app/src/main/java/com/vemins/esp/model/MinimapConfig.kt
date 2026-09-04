@@ -23,8 +23,8 @@ data class MinimapConfig(
     val autoCampFlip: Boolean = true,
 
     // Layer 2: 3D-to-2D Isometric Camera & Top CD Bar Calibration
-    val scaleX: Float = 38.0f,
-    val scaleY: Float = 27.0f,
+    val scaleX: Float = 72.0f,
+    val scaleY: Float = 52.0f,
     val hudOffsetY: Float = 65.0f,
     val camOffsetX: Float = 0.0f,
     val camOffsetY: Float = 0.0f,
