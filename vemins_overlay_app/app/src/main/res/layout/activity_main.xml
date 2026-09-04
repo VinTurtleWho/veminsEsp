@@ -213,27 +213,28 @@
                         android:textSize="9sp"
                         android:textStyle="bold" />
 
-                    <Button
+                    <TextView
                         android:id="@+id/btnTogglePreview"
                         android:layout_width="wrap_content"
-                        android:layout_height="18dp"
+                        android:layout_height="20dp"
                         android:background="@drawable/bg_imgui_button"
                         android:fontFamily="monospace"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
+                        android:gravity="center"
+                        android:paddingStart="6dp"
+                        android:paddingEnd="6dp"
                         android:text="TOGGLE"
                         android:textColor="@color/imgui_text_primary"
                         android:textSize="8sp" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/previewContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="8dp">
 
                     <FrameLayout
+                        android:id="@+id/previewContainer"
                         android:layout_width="match_parent"
                         android:layout_height="130dp"
                         android:background="@drawable/bg_preview_frame">
@@ -421,7 +422,7 @@ FPS: -- | PID: --"
                 android:background="@drawable/bg_imgui_header"
                 android:orientation="horizontal">
 
-                <TextView
+                <Button
                     android:id="@+id/tabBtnRadar"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -434,7 +435,7 @@ FPS: -- | PID: --"
                     android:textSize="9sp"
                     android:textStyle="bold" />
 
-                <TextView
+                <Button
                     android:id="@+id/tabBtnCombatHud"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -446,7 +447,7 @@ FPS: -- | PID: --"
                     android:textColor="@color/imgui_text_secondary"
                     android:textSize="9sp" />
 
-                <TextView
+                <Button
                     android:id="@+id/tabBtnLayers"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -458,7 +459,7 @@ FPS: -- | PID: --"
                     android:textColor="@color/imgui_text_secondary"
                     android:textSize="9sp" />
 
-                <TextView
+                <Button
                     android:id="@+id/tabBtnStatus"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
