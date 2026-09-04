@@ -4,20 +4,28 @@
     "height": 1080.0
   },
   "minimap": {
-    "pos_x": 75.0,
-    "pos_y": 15.0,
-    "width": 320.0,
-    "height": 320.0,
-    "rotation_degrees": 0.0,
-    "invert_y": true
+    "pos_x": 0.0,
+    "pos_y": 0.0,
+    "width": 342.0,
+    "height": 342.0,
+    "rotation_degrees": 315.0,
+    "radar_zoom": 2.0,
+    "alpha": 0.0,
+    "invert_y": true,
+    "auto_camp_flip": true
   },
   "camera": {
     "scale_x": 38.0,
     "scale_y": 27.0,
     "hud_offset_y": 65.0,
+    "cam_offset_x": 0.0,
+    "cam_offset_y": 0.0,
     "edge_margin": 45.0,
     "max_radar_distance": 45.0,
-    "high_camera": true
+    "high_camera": true,
+    "show_top_cd_bar": true,
+    "top_cd_bar_pos_y": 28.0,
+    "top_cd_bar_scale": 1.0
   },
   "world_bounds": {
     "min_x": -52.0,
@@ -31,7 +39,7 @@
     "minimap_show_arrows": true,
     "minimap_show_minions": true,
     "minimap_show_monsters": true,
-    "minimap_hero_dot_radius": 19.0,
+    "minimap_hero_dot_radius": 16.0,
     "minimap_arrow_length": 18.0,
     "minimap_minion_dot_radius": 3.5,
     "minimap_monster_dot_radius": 7.0,
@@ -45,7 +53,7 @@
     "screen_show_edge_radar": true,
     "screen_show_hero_names": true,
     "screen_show_health_text": true,
-    "hud_badge_radius": 9.0,
+    "hud_badge_radius": 10.0,
     "hud_hp_bar_scale": 1.0,
     "hide_in_recording": false
   }

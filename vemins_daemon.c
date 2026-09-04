@@ -406,6 +406,14 @@ struct HeroAbilitiesInfo {
     float skill2_max_s;
     bool skill2_ready;
 
+    float skill3_rem_s;
+    float skill3_max_s;
+    bool skill3_ready;
+
+    float skill4_rem_s;
+    float skill4_max_s;
+    bool skill4_ready;
+
     float ult_rem_s;
     float ult_max_s;
     bool ult_ready;
@@ -424,6 +432,8 @@ static void parse_hero_abilities(int fd, uint64_t hero_addr, int32_t hero_id, ui
         memset(out_ab, 0, sizeof(*out_ab));
         out_ab->skill1_ready = true;
         out_ab->skill2_ready = true;
+        out_ab->skill3_ready = true;
+        out_ab->skill4_ready = true;
         out_ab->ult_ready = true;
         out_ab->battle_spell_ready = true;
         strncpy(out_ab->battle_spell_name, "None", sizeof(out_ab->battle_spell_name) - 1);
@@ -502,38 +512,45 @@ static void parse_hero_abilities(int fd, uint64_t hero_addr, int32_t hero_id, ui
         float rem_s = (float)rem_ms / 1000.0f;
         float max_s = (float)max_ms / 1000.0f;
 
-        int slot = auto_slot;
+        int slot = 0;
         int expected_s1 = hero_id * 100 + 10;
         int expected_s2 = hero_id * 100 + 20;
         int expected_s3 = hero_id * 100 + 30;
         int expected_s4 = hero_id * 100 + 40;
 
-        if (spell_id == expected_s1 || (spell_id % 100 == 10)) {
-            slot = 1;
+        if ((spell_id >= 20000 && spell_id < 30000) || (spell_id >= 200000 && spell_id < 300000)) {
+            slot = 5; // Battle Spell (e.g. Flicker, Retribution)
+        } else if (spell_id == expected_s1 || (spell_id % 100 == 10)) {
+            slot = 1; // Skill 1
         } else if (spell_id == expected_s2 || (spell_id % 100 == 20)) {
-            slot = 2;
-        } else if (spell_id == expected_s3 || spell_id == expected_s4 || (spell_id % 100 == 30) || (spell_id % 100 == 40)) {
-            slot = 3;
-        } else if ((spell_id >= 20000 && spell_id < 30000) || (spell_id >= 200000 && spell_id < 300000)) {
-            slot = 5;
+            slot = 2; // Skill 2
+        } else if (spell_id == expected_s3 || (spell_id % 100 == 30)) {
+            slot = 3; // Skill 3 (or Ult if 3-skill hero)
+        } else if (spell_id == expected_s4 || (spell_id % 100 == 40)) {
+            slot = 4; // Skill 4 (Ult for 4-skill hero like Zhask, Beatrix, Lunox)
+        } else {
+            // Sequential fallback assignment
+            slot = (auto_slot <= 4) ? auto_slot : 1;
         }
 
         if (out_ab) {
-            if (slot == 1 || spell_id == expected_s1) {
+            if (slot == 1) {
                 out_ab->skill1_rem_s = rem_s;
                 out_ab->skill1_max_s = max_s;
                 out_ab->skill1_ready = !on_cd;
-            } else if (slot == 2 || spell_id == expected_s2) {
+            } else if (slot == 2) {
                 out_ab->skill2_rem_s = rem_s;
                 out_ab->skill2_max_s = max_s;
                 out_ab->skill2_ready = !on_cd;
-            } else if (slot == 3 || slot == 4 || spell_id == expected_s3 || spell_id == expected_s4) {
-                out_ab->ult_rem_s = rem_s;
-                out_ab->ult_max_s = max_s;
-                out_ab->ult_ready = !on_cd;
-            }
-
-            if (slot == 5 || (spell_id >= 20000 && spell_id < 30000) || (spell_id >= 200000 && spell_id < 300000)) {
+            } else if (slot == 3) {
+                out_ab->skill3_rem_s = rem_s;
+                out_ab->skill3_max_s = max_s;
+                out_ab->skill3_ready = !on_cd;
+            } else if (slot == 4) {
+                out_ab->skill4_rem_s = rem_s;
+                out_ab->skill4_max_s = max_s;
+                out_ab->skill4_ready = !on_cd;
+            } else if (slot == 5) {
                 out_ab->battle_spell_id = spell_id;
                 out_ab->battle_spell_rem_s = rem_s;
                 out_ab->battle_spell_max_s = max_s;
@@ -563,7 +580,29 @@ static void parse_hero_abilities(int fd, uint64_t hero_addr, int32_t hero_id, ui
             emitted++;
         }
 
-        auto_slot++;
+        if (slot != 5) {
+            auto_slot++;
+        }
+    }
+
+    if (out_ab) {
+        // Resolve ultimate: if 4th skill is present, slot 4 is the ultimate; otherwise slot 3 is the ultimate
+        bool has_slot4 = false;
+        for (int i = 0; i < out_ab->ability_count; i++) {
+            if (out_ab->abilities[i].slot == 4) {
+                has_slot4 = true;
+                break;
+            }
+        }
+        if (has_slot4) {
+            out_ab->ult_rem_s = out_ab->skill4_rem_s;
+            out_ab->ult_max_s = out_ab->skill4_max_s;
+            out_ab->ult_ready = out_ab->skill4_ready;
+        } else {
+            out_ab->ult_rem_s = out_ab->skill3_rem_s;
+            out_ab->ult_max_s = out_ab->skill3_max_s;
+            out_ab->ult_ready = out_ab->skill3_ready;
+        }
     }
 
     if (buf) {
@@ -612,6 +651,10 @@ static void format_hero_json(int fd, uint64_t hero_addr, uint32_t current_battle
     double s1_max = safe_float(ab.skill1_max_s, 0.0, 0.0, 600.0);
     double s2_cd = safe_float(ab.skill2_rem_s, 0.0, 0.0, 600.0);
     double s2_max = safe_float(ab.skill2_max_s, 0.0, 0.0, 600.0);
+    double s3_cd = safe_float(ab.skill3_rem_s, 0.0, 0.0, 600.0);
+    double s3_max = safe_float(ab.skill3_max_s, 0.0, 0.0, 600.0);
+    double s4_cd = safe_float(ab.skill4_rem_s, 0.0, 0.0, 600.0);
+    double s4_max = safe_float(ab.skill4_max_s, 0.0, 0.0, 600.0);
     double ult_cd = safe_float(ab.ult_rem_s, 0.0, 0.0, 600.0);
     double ult_max = safe_float(ab.ult_max_s, 0.0, 0.0, 600.0);
     double spell_cd = safe_float(ab.battle_spell_rem_s, 0.0, 0.0, 600.0);
@@ -623,6 +666,7 @@ static void format_hero_json(int fd, uint64_t hero_addr, uint32_t current_battle
         "\"pos_x\":%.2f,\"pos_y\":%.2f,\"pos_z\":0.0,\"facing_x\":%.2f,\"facing_y\":%.2f,\"move_dir_x\":%.2f,\"move_dir_y\":%.2f,"
         "\"run_speed\":%.2f,\"attack_speed\":%.2f,\"gold\":%d,\"is_alive\":%s,\"is_dead\":%s,"
         "\"skill1_cd\":%.1f,\"skill1_max\":%.1f,\"skill2_cd\":%.1f,\"skill2_max\":%.1f,"
+        "\"skill3_cd\":%.1f,\"skill3_max\":%.1f,\"skill4_cd\":%.1f,\"skill4_max\":%.1f,"
         "\"ult_cd\":%.1f,\"ult_max_cd\":%.1f,\"spell_id\":%d,\"spell_name\":\"%s\",\"spell_cd\":%.1f,\"spell_max_cd\":%.1f,"
         "\"abilities\":%s}",
         (unsigned long)hero_addr, camp, camp, hero_id, hero_id, h_name,
@@ -630,6 +674,7 @@ static void format_hero_json(int fd, uint64_t hero_addr, uint32_t current_battle
         pos_x, pos_y, facing_x, facing_y, move_dir_x, move_dir_y,
         run_speed, atk_speed, gold, is_alive ? "true" : "false", (!is_alive) ? "true" : "false",
         s1_cd, s1_max, s2_cd, s2_max,
+        s3_cd, s3_max, s4_cd, s4_max,
         ult_cd, ult_max, ab.battle_spell_id, ab.battle_spell_name, spell_cd, spell_max,
         ab_buf.data ? ab_buf.data : "[]");
 
@@ -884,7 +929,7 @@ static void build_live_snapshot_json(json_buffer_t *buf) {
         json_buf_append_printf(buf,
                  "{\"agent\":\"vemins_daemon\",\"version\":\"%s\",\"build_hash\":\"%s\",\"status\":\"ok\","
                  "\"pid\":%d,\"liblogic_base\":\"0x%lx\",\"libcsharp_base\":\"0x%lx\","
-                 "\"timestamp\":%ld,\"timestamp_ns\":%llu,\"in_match\":false,\"battle_state\":%d,\"frame_time_ms\":%u,"
+                 "\"timestamp\":%ld,\"timestamp_ns\":%llu,\"in_match\":false,\"battle_state\":%d,\"frame_time_ms\":%u,\"local_camp\":1,"
                  "\"local_player\":null,\"enemies\":[],\"allies\":[],\"soldiers\":[],\"minions\":[],\"monsters\":[],\"towers\":[]}\n",
                  VEMINS_VERSION, VEMINS_BUILD_HASH,
                  pid, s_liblogic_base, s_libcsharp_base,
@@ -964,12 +1009,12 @@ static void build_live_snapshot_json(json_buffer_t *buf) {
     json_buf_append_printf(buf,
              "{\"agent\":\"vemins_daemon\",\"version\":\"%s\",\"build_hash\":\"%s\",\"status\":\"ok\","
              "\"pid\":%d,\"liblogic_base\":\"0x%lx\",\"libcsharp_base\":\"0x%lx\","
-             "\"timestamp\":%ld,\"timestamp_ns\":%llu,\"in_match\":%s,\"battle_state\":%d,\"frame_time_ms\":%u,"
+             "\"timestamp\":%ld,\"timestamp_ns\":%llu,\"in_match\":%s,\"battle_state\":%d,\"frame_time_ms\":%u,\"local_camp\":%d,"
              "\"local_player\":%s,\"enemies\":%s,\"allies\":%s,\"soldiers\":%s,\"minions\":%s,\"monsters\":%s,\"towers\":%s}\n",
              VEMINS_VERSION, VEMINS_BUILD_HASH,
              pid, s_liblogic_base, s_libcsharp_base,
              (long)time(NULL), (unsigned long long)timestamp_ns,
-             in_match ? "true" : "false", battle_state, frame_time_ms,
+             in_match ? "true" : "false", battle_state, frame_time_ms, local_camp,
              local_buf.data ? local_buf.data : "null",
              enemies_buf.data ? enemies_buf.data : "[]",
              allies_buf.data ? allies_buf.data : "[]",

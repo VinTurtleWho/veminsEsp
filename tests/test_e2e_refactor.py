@@ -945,15 +945,15 @@ class TestTier1FeatureCoverage(unittest.TestCase):
 
     def test_r3_02_minimap_radar_linear_projection_math(self):
         """Validates 2D world-to-minimap linear mapping with screen Y-inversion matching MinimapProjection.kt."""
-        # Center (0.0, 0.0) -> norm=(0.5, 0.5) -> (75 + 160 = 235, 15 + 160 = 175)
+        # Center (0.0, 0.0) -> norm=(0.5, 0.5)
         mx, my = self.projector.world_to_minimap(0.0, 0.0)
-        self.assertAlmostEqual(mx, 235.0, places=2)
-        self.assertAlmostEqual(my, 175.0, places=2)
+        self.assertAlmostEqual(mx, self.projector.map_x + 0.5 * self.projector.map_w, places=2)
+        self.assertAlmostEqual(my, self.projector.map_y + 0.5 * self.projector.map_h, places=2)
 
-        # Bottom-Left world (-52.0, -52.0) -> norm=(0.0, 0.0) -> inverted (75, 15 + 320 = 335)
+        # Bottom-Left world (-52.0, -52.0) -> norm=(0.0, 0.0) -> inverted screen
         bl_x, bl_y = self.projector.world_to_minimap(-52.0, -52.0)
-        self.assertAlmostEqual(bl_x, 75.0, places=2)
-        self.assertAlmostEqual(bl_y, 335.0, places=2)
+        self.assertAlmostEqual(bl_x, self.projector.map_x, places=2)
+        self.assertAlmostEqual(bl_y, self.projector.map_y + self.projector.map_h, places=2)
 
     def test_r3_03_diamond_45_degree_coordinate_and_heading_rotation(self):
         """Validates 45° diamond coordinate transformation and heading vector rotation."""
@@ -1111,15 +1111,15 @@ class TestTier2BoundaryAndCornerCases(unittest.TestCase):
         # Exact bounds
         mx_min, my_min = self.projector.world_to_minimap(-52.0, -52.0)
         mx_max, my_max = self.projector.world_to_minimap(52.0, 52.0)
-        self.assertAlmostEqual(mx_min, 75.0, places=2)
-        self.assertAlmostEqual(my_min, 335.0, places=2)
-        self.assertAlmostEqual(mx_max, 395.0, places=2)
-        self.assertAlmostEqual(my_max, 15.0, places=2)
+        self.assertAlmostEqual(mx_min, self.projector.map_x, places=2)
+        self.assertAlmostEqual(my_min, self.projector.map_y + self.projector.map_h, places=2)
+        self.assertAlmostEqual(mx_max, self.projector.map_x + self.projector.map_w, places=2)
+        self.assertAlmostEqual(my_max, self.projector.map_y, places=2)
 
         # Extreme Out-of-Bounds (-500.0, +999.0) safely clamped to minimap viewport
         mx_oob, my_oob = self.projector.world_to_minimap(-500.0, 999.0)
-        self.assertEqual(mx_oob, 75.0)
-        self.assertEqual(my_oob, 15.0)
+        self.assertEqual(mx_oob, self.projector.map_x)
+        self.assertEqual(my_oob, self.projector.map_y)
 
     def test_tier2_02_nan_and_infinity_floating_point_sanitization(self):
         """Validates strict isfinite() validation on NaN / Inf coordinates, health, and velocities."""

@@ -17,25 +17,25 @@ class TestKotlinEngineMath(unittest.TestCase):
 
     def test_minimap_normalization_and_inversion(self):
         """Validates [-52.0, 52.0] world coordinates mapped to minimap pixel space with invert_y."""
-        map_x = 75.0
-        map_y = 15.0
-        map_w = 320.0
-        map_h = 320.0
+        map_x = float(self.cfg["minimap"]["pos_x"])
+        map_y = float(self.cfg["minimap"]["pos_y"])
+        map_w = float(self.cfg["minimap"]["width"])
+        map_h = float(self.cfg["minimap"]["height"])
 
-        # Center (0.0, 0.0) -> norm_x = 0.5, norm_y = 0.5 -> screen = (75 + 160, 15 + 160) = (235, 175)
+        # Center (0.0, 0.0) -> norm_x = 0.5, norm_y = 0.5 -> screen
         mx, my = self.projector.world_to_minimap(0.0, 0.0)
-        self.assertAlmostEqual(mx, 235.0, places=2)
-        self.assertAlmostEqual(my, 175.0, places=2)
+        self.assertAlmostEqual(mx, map_x + 0.5 * map_w, places=2)
+        self.assertAlmostEqual(my, map_y + 0.5 * map_h, places=2)
 
-        # Bottom-Left world (-52.0, -52.0) -> norm = (0.0, 0.0) -> inverted screen = (75.0, 15 + 320 = 335.0)
+        # Bottom-Left world (-52.0, -52.0) -> norm = (0.0, 0.0) -> inverted screen
         bl_x, bl_y = self.projector.world_to_minimap(-52.0, -52.0)
-        self.assertAlmostEqual(bl_x, 75.0, places=2)
-        self.assertAlmostEqual(bl_y, 335.0, places=2)
+        self.assertAlmostEqual(bl_x, map_x, places=2)
+        self.assertAlmostEqual(bl_y, map_y + map_h, places=2)
 
-        # Top-Right world (52.0, 52.0) -> norm = (1.0, 1.0) -> inverted screen = (75 + 320 = 395.0, 15.0)
+        # Top-Right world (52.0, 52.0) -> norm = (1.0, 1.0) -> inverted screen
         tr_x, tr_y = self.projector.world_to_minimap(52.0, 52.0)
-        self.assertAlmostEqual(tr_x, 395.0, places=2)
-        self.assertAlmostEqual(tr_y, 15.0, places=2)
+        self.assertAlmostEqual(tr_x, map_x + map_w, places=2)
+        self.assertAlmostEqual(tr_y, map_y, places=2)
 
     def test_isometric_world_to_screen_math(self):
         """Validates 45-degree isometric projection formulas."""

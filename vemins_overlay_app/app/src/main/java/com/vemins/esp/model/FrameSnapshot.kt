@@ -17,6 +17,7 @@ data class FrameSnapshot(
     val status: String = "ok",
     val version: String = "",
     val buildHash: String = "",
+    val localCamp: Int = 1,
     val localPlayer: HeroEntity? = null,
     val enemies: List<HeroEntity> = emptyList(),
     val allies: List<HeroEntity> = emptyList(),
@@ -91,7 +92,7 @@ data class FrameSnapshot(
 
             // Local Hero
             val localHeroObj = json.optJSONObject("local_player")
-            val localCamp = localHeroObj?.optInt("camp", localHeroObj.optInt("team", 1)) ?: 1
+            val localCamp = json.optInt("local_camp", localHeroObj?.optInt("camp", localHeroObj.optInt("team", 1)) ?: 1)
             val localHero = localHeroObj?.let { HeroEntity.fromJson(it, isLocal = true, localCamp = localCamp) }
 
             // Enemies
@@ -165,6 +166,7 @@ data class FrameSnapshot(
                 status = status,
                 version = version,
                 buildHash = buildHash,
+                localCamp = localCamp,
                 localPlayer = localHero,
                 enemies = enemiesList,
                 allies = alliesList,

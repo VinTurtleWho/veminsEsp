@@ -91,4 +91,28 @@
     <color name="vemins_input_bg">#0A0A0A</color>
     <color name="vemins_input_border">#2C2C2E</color>
     <color name="vemins_bubble_bg">#F2141414</color>
+
+    <!-- ================================================================= -->
+    <!-- DEAR IMGUI CLASSIC DARK SLATE PALETTE                             -->
+    <!-- ================================================================= -->
+    <color name="imgui_window_bg">#F21E1E24</color>
+    <color name="imgui_window_border">#3F4152</color>
+    <color name="imgui_header_bg">#FF2A2B36</color>
+    <color name="imgui_header_border">#3F4152</color>
+    <color name="imgui_header_title">#E2E4EB</color>
+    <color name="imgui_tab_active_bg">#3E445B</color>
+    <color name="imgui_tab_inactive_bg">#23242E</color>
+    <color name="imgui_tab_border">#363847</color>
+    <color name="imgui_button_bg">#2B2D3A</color>
+    <color name="imgui_button_hover">#3B3E50</color>
+    <color name="imgui_button_border">#414559</color>
+    <color name="imgui_slider_bg">#181920</color>
+    <color name="imgui_slider_border">#343644</color>
+    <color name="imgui_text_primary">#EFEFF5</color>
+    <color name="imgui_text_secondary">#9B9DAA</color>
+    <color name="imgui_text_muted">#686B7B</color>
+    <color name="imgui_accent_cyan">#00E5FF</color>
+    <color name="imgui_accent_green">#2ECC71</color>
+    <color name="imgui_accent_amber">#F39C12</color>
+    <color name="imgui_accent_red">#E74C3C</color>
 </resources>

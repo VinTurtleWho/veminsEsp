@@ -3,22 +3,23 @@
     android:id="@+id/modMenuCardRoot"
     android:layout_width="290dp"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_glass_card_elevated"
-    android:orientation="vertical"
-    android:padding="10dp">
+    android:background="@drawable/bg_imgui_window"
+    android:orientation="vertical">
 
-    <!-- Header Drag Bar -->
+    <!-- Header Drag Bar (Dear ImGui Window Title Bar) -->
     <LinearLayout
         android:id="@+id/modMenuHeader"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="32dp"
+        android:background="@drawable/bg_imgui_header"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingBottom="6dp">
+        android:paddingStart="8dp"
+        android:paddingEnd="6dp">
 
         <ImageView
-            android:layout_width="18dp"
-            android:layout_height="18dp"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
             android:src="@drawable/ic_drag_handle_vemins"
             android:contentDescription="Drag Handle"
             android:scaleType="centerInside" />
@@ -28,45 +29,82 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:layout_weight="1"
-            android:text="VEMINS // APEX"
-            android:textColor="@color/vemins_cyan"
-            android:textSize="12sp"
+            android:text="VEMINS ESP // IMGUI"
+            android:textColor="@color/imgui_header_title"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <!-- 1-Tap 180° Map Flip Button -->
+        <Button
+            android:id="@+id/btnModFlipMap"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/bg_imgui_button"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:text="⟲ FLIP"
+            android:textColor="@color/imgui_accent_cyan"
+            android:textSize="9sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvModLiveBadge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/bg_badge_cyan"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/bg_badge_green"
             android:paddingStart="4dp"
             android:paddingTop="1dp"
             android:paddingEnd="4dp"
             android:paddingBottom="1dp"
             android:text="LIVE"
-            android:textColor="@color/vemins_cyan"
-            android:textSize="9sp"
+            android:textColor="@color/vemins_green"
+            android:textSize="8sp"
             android:textStyle="bold" />
 
+        <!-- Minimize/Collapse Content -->
+        <TextView
+            android:id="@+id/btnModMinimize"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="4dp"
+            android:gravity="center"
+            android:text="—"
+            android:textColor="@color/imgui_text_secondary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:background="?android:attr/selectableItemBackgroundBorderless" />
+
+        <!-- Ghost Stealth Mode -->
         <ImageView
             android:id="@+id/btnModStealth"
-            android:layout_width="22dp"
-            android:layout_height="22dp"
-            android:layout_marginEnd="6dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="4dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="Stealth Ghost Mode"
             android:padding="2dp"
             android:src="@drawable/ic_stealth" />
 
+        <!-- Close / Hide Menu -->
         <ImageView
             android:id="@+id/btnModClose"
-            android:layout_width="22dp"
-            android:layout_height="22dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="Close Menu"
             android:padding="2dp"
             android:src="@drawable/ic_close" />
     </LinearLayout>
+
+    <!-- Collapsible Mod Menu Body -->
+    <LinearLayout
+        android:id="@+id/modMenuContentBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
 
     <!-- Quick Presets bar -->
     <LinearLayout
@@ -211,6 +249,31 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:visibility="visible">
+
+                <!-- Auto Camp Map Flip Switch (315° ↔ 135°) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Auto Camp Flip (315° ↔ 135°)"
+                        android:textColor="@color/imgui_text_primary"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <Switch
+                        android:id="@+id/switchModAutoCampFlip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true" />
+                </LinearLayout>
 
                 <!-- Hero Portrait Size (PROMINENT AT TOP) -->
                 <LinearLayout
@@ -885,6 +948,134 @@
                     android:textSize="10sp"
                     android:layout_marginTop="2dp"
                     android:layout_marginBottom="4dp" />
+
+                <!-- Camera Offset X -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="2dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="3D Cam Offset X"
+                        android:textColor="@color/imgui_text_primary"
+                        android:textStyle="bold"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tvValCamOffsetX"
+                        android:layout_width="45dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="0"
+                        android:textColor="@color/imgui_accent_cyan"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnDecCamOffsetX"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="-"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <SeekBar
+                        android:id="@+id/sbModCamOffsetX"
+                        style="@style/CyberSlider"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:max="400"
+                        android:progress="200" />
+
+                    <Button
+                        android:id="@+id/btnIncCamOffsetX"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="+"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Camera Offset Y -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="3D Cam Offset Y"
+                        android:textColor="@color/imgui_text_primary"
+                        android:textStyle="bold"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tvValCamOffsetY"
+                        android:layout_width="45dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="0"
+                        android:textColor="@color/imgui_accent_cyan"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnDecCamOffsetY"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="-"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <SeekBar
+                        android:id="@+id/sbModCamOffsetY"
+                        style="@style/CyberSlider"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:max="400"
+                        android:progress="200" />
+
+                    <Button
+                        android:id="@+id/btnIncCamOffsetY"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/bg_step_button"
+                        android:text="+"
+                        android:textColor="@color/vemins_cyan"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <!-- HUD Skill & Ult Badge Size -->
                 <LinearLayout
@@ -1918,4 +2109,5 @@
             android:textStyle="bold" />
     </LinearLayout>
 
+    </LinearLayout>
 </LinearLayout>

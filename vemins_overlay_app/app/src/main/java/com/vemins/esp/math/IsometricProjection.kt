@@ -87,6 +87,10 @@ class IsometricProjection(config: MinimapConfig = MinimapConfig()) {
         private set
     var hudOffsetY: Float = config.hudOffsetY
         private set
+    var camOffsetX: Float = config.camOffsetX
+        private set
+    var camOffsetY: Float = config.camOffsetY
+        private set
     var edgeMargin: Float = config.edgeMargin
         private set
     var maxRadarDistance: Float = config.maxRadarDistance
@@ -122,6 +126,8 @@ class IsometricProjection(config: MinimapConfig = MinimapConfig()) {
         val pitchMultiplier = if (config.highCamera) 0.88f else 1.0f
         scaleY = config.scaleY * pitchMultiplier
         hudOffsetY = config.hudOffsetY
+        camOffsetX = config.camOffsetX
+        camOffsetY = config.camOffsetY
         edgeMargin = config.edgeMargin
         maxRadarDistance = config.maxRadarDistance
         rotationDegrees = config.rotationDegrees
@@ -137,6 +143,10 @@ class IsometricProjection(config: MinimapConfig = MinimapConfig()) {
     /**
      * Transforms relative Cartesian world coordinates into 2D pixel coordinates on the main screen.
      * Zero-allocation pass writing output into [outResult].
+     *
+     * In MLBB, the combat world camera is anchored at a fixed 45° ground yaw.
+     * Minimap rotation (315°/135°) applies exclusively to the 2D minimap radar,
+     * so 3D world projection is decoupled from minimap rotation to eliminate lateral drift.
      *
      * @param targetX World X coordinate of target entity.
      * @param targetY World Y coordinate of target entity.
@@ -160,14 +170,10 @@ class IsometricProjection(config: MinimapConfig = MinimapConfig()) {
         // Distance in world meters
         val distM = sqrt(dx * dx + dy * dy)
 
-        // MLBB in-game camera has a 45° ground yaw + custom user rotation offset
-        val totalYawDeg = 45.0 + rotationDegrees
-        val totalYawRad = Math.toRadians(totalYawDeg).toFloat()
-        val cosYaw = kotlin.math.cos(totalYawRad)
-        val sinYaw = kotlin.math.sin(totalYawRad)
-
-        val isoX = dx * cosYaw - dy * sinYaw
-        val isoY = dx * sinYaw + dy * cosYaw
+        // MLBB fixed 45° isometric ground camera projection:
+        // isoX = (dx - dy) * cos(45°), isoY = (dx + dy) * sin(45°)
+        val isoX = (dx - dy) * ISO_FACTOR
+        val isoY = (dx + dy) * ISO_FACTOR
 
         val lift = customHudOffsetY ?: hudOffsetY
 
@@ -180,16 +186,17 @@ class IsometricProjection(config: MinimapConfig = MinimapConfig()) {
             val camHeight = if (highCamera) 30.0f else 26.0f
 
             // Depth along camera line of sight (Z_depth)
-            val depth = (camHeight + (isoY * cosPitch)).coerceAtLeast(4.0f)
+            val depth = (camHeight + (isoY * cosPitch)).coerceAtLeast(6.0f)
             val perspScale = camHeight / depth
 
-            val sx = cx + (isoX * scaleX) * perspScale
-            val sy = cy - ((isoY * scaleY) + lift) * perspScale
+            val sx = cx + ((isoX * scaleX) * perspScale) + camOffsetX
+            val sy = cy - (((isoY * scaleY) + lift) * perspScale) + camOffsetY
             val onScreen = screenWidth > 0.0f && screenHeight > 0.0f && sx in 0.0f..screenWidth && sy in 0.0f..screenHeight
             return outResult.set(sx, sy, onScreen, distM)
         } else {
-            val sx = cx + (isoX * scaleX)
-            val sy = cy - (isoY * scaleY) - lift
+            // True axonometric orthographic projection with pixel lift and fine offsets
+            val sx = cx + (isoX * scaleX) + camOffsetX
+            val sy = cy - (isoY * scaleY) - lift + camOffsetY
             val onScreen = screenWidth > 0.0f && screenHeight > 0.0f && sx in 0.0f..screenWidth && sy in 0.0f..screenHeight
             return outResult.set(sx, sy, onScreen, distM)
         }

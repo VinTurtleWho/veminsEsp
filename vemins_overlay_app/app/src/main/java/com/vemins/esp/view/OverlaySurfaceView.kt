@@ -756,6 +756,16 @@ class OverlaySurfaceView @JvmOverloads constructor(
         canvas.drawRoundRect(scratchRectF, 8.0f, 8.0f, paintMinimapBg)
         canvas.drawRoundRect(scratchRectF, 8.0f, 8.0f, paintMinimapBorder)
 
+        // Auto-Camp Map Orientation Flip (Camp 1 = 315°, Camp 2 = 135°)
+        if (config.autoCampFlip && !isStandby) {
+            val camp = snapshot.localPlayer?.camp ?: snapshot.localCamp
+            val targetRotation = if (camp == 2) 135.0f else 315.0f
+            if (minimapProjection.rotationDegrees != targetRotation) {
+                val flippedConfig = config.copy(rotationDegrees = targetRotation)
+                minimapProjection.updateConfig(flippedConfig)
+            }
+        }
+
         // If in Standby, suppress all dynamic entities (minions, monsters, heroes)
         if (isStandby) {
             return
@@ -944,15 +954,22 @@ class OverlaySurfaceView @JvmOverloads constructor(
         val avatarRadius = 14.0f * scale
         val badgeRadius = 9.0f * scale
         val badgeSpacing = badgeRadius * 2.30f
-
-        // Each enemy has avatar + fixed 4 or 5 ability slots (S1, S2, Ult, [S4], Battle Spell)
-        val enemyCardWidth = (avatarRadius * 2.0f) + 8.0f * scale + (badgeSpacing * 4.0f) + 12.0f * scale
-        val enemyCardHeight = (avatarRadius * 2.0f) + 14.0f * scale
         val slotGap = 8.0f * scale
         val padH = 10.0f * scale
         val padV = 6.0f * scale
 
-        val totalBarWidth = (numSlots * enemyCardWidth) + ((numSlots - 1) * slotGap) + (padH * 2.0f)
+        // Dynamic card width based on whether the hero has 3 skills or 4 skills (+ battle spell)
+        fun getCardWidth(hero: HeroEntity): Float {
+            val badgeCount = if (hero.hasFourSkills()) 5 else 4
+            return (avatarRadius * 2.0f) + 8.0f * scale + (badgeSpacing * (badgeCount - 1)) + (badgeRadius * 2.0f) + 6.0f * scale
+        }
+
+        var totalCardsWidth = 0.0f
+        for (i in 0 until numSlots) {
+            totalCardsWidth += getCardWidth(enemies[i])
+        }
+        val totalBarWidth = totalCardsWidth + ((numSlots - 1) * slotGap) + (padH * 2.0f)
+        val enemyCardHeight = (avatarRadius * 2.0f) + 14.0f * scale
         val totalBarHeight = enemyCardHeight + (padV * 2.0f)
 
         val startX = (config.screenWidth - totalBarWidth) / 2.0f
@@ -967,6 +984,7 @@ class OverlaySurfaceView @JvmOverloads constructor(
 
         for (i in 0 until numSlots) {
             val enemy = enemies[i]
+            val cardW = getCardWidth(enemy)
             val avatarCx = cardLeft + avatarRadius
             val avatarCy = startY + padV + avatarRadius
 
@@ -1007,11 +1025,12 @@ class OverlaySurfaceView @JvmOverloads constructor(
                 canvas.drawText("DEAD", avatarCx, avatarCy + 3.5f * scale, paintTopCdDeadText)
             }
 
-            // Structured 4 (or 5) Tactical Ability Slots
+            // Dynamic Ability Slots: 3 skills or 4 skills + 1 battle spell
+            val fourSkills = enemy.hasFourSkills()
             val s1 = enemy.getAbility(1)
             val s2 = enemy.getAbility(2)
-            val ult = enemy.ultimateAbility ?: enemy.getAbility(3)
-            val s4 = enemy.getAbility(4)
+            val s3 = if (fourSkills) enemy.getAbility(3) else null
+            val ult = enemy.ultimateAbility
             val spell = enemy.battleSpell ?: enemy.getAbility(5)
 
             // Collect ability slot descriptors: (slotIndex, fallbackSpellId, abilityInfo, isUlt, isSpell)
@@ -1026,9 +1045,11 @@ class OverlaySurfaceView @JvmOverloads constructor(
             val slots = mutableListOf<TopBarSlot>()
             slots.add(TopBarSlot(1, enemy.heroId * 100 + 10, s1, isUlt = false, isSpell = false))
             slots.add(TopBarSlot(2, enemy.heroId * 100 + 20, s2, isUlt = false, isSpell = false))
-            slots.add(TopBarSlot(3, enemy.heroId * 100 + 30, ult, isUlt = true, isSpell = false))
-            if (s4 != null && s4.spellId > 0 && s4 != ult) {
-                slots.add(TopBarSlot(4, enemy.heroId * 100 + 40, s4, isUlt = false, isSpell = false))
+            if (fourSkills) {
+                slots.add(TopBarSlot(3, enemy.heroId * 100 + 30, s3, isUlt = false, isSpell = false))
+                slots.add(TopBarSlot(4, enemy.heroId * 100 + 40, ult, isUlt = true, isSpell = false))
+            } else {
+                slots.add(TopBarSlot(3, enemy.heroId * 100 + 30, ult, isUlt = true, isSpell = false))
             }
             val spellFallbackId = if (spell != null && spell.spellId > 0) spell.spellId else 20001
             slots.add(TopBarSlot(5, spellFallbackId, spell, isUlt = false, isSpell = true))
@@ -1072,7 +1093,7 @@ class OverlaySurfaceView @JvmOverloads constructor(
                 badgeCx += badgeSpacing
             }
 
-            cardLeft += enemyCardWidth + slotGap
+            cardLeft += cardW + slotGap
         }
     }
 
@@ -1210,14 +1231,17 @@ class OverlaySurfaceView @JvmOverloads constructor(
     ) {
         val badgeRadius = config.hudBadgeRadius
         val spacing = badgeRadius * 2.44f
+        val fourSkills = enemy.hasFourSkills()
 
-        val ult = if (config.screenShowUltBadge) (enemy.ultimateAbility ?: enemy.getAbility(3)) else null
         val s1 = if (config.screenShowSkillCooldowns) enemy.getAbility(1) else null
         val s2 = if (config.screenShowSkillCooldowns) enemy.getAbility(2) else null
+        val s3 = if (config.screenShowSkillCooldowns && fourSkills) enemy.getAbility(3) else null
+        val ult = if (config.screenShowUltBadge) enemy.ultimateAbility else null
         val spell = if (config.screenShowSpellBadge && config.screenShowBattleSpell) (enemy.battleSpell ?: enemy.getAbility(5)) else null
 
         val activeCount = (if (s1 != null || config.screenShowSkillCooldowns) 1 else 0) +
                 (if (s2 != null || config.screenShowSkillCooldowns) 1 else 0) +
+                (if (fourSkills && (s3 != null || config.screenShowSkillCooldowns)) 1 else 0) +
                 (if (ult != null || config.screenShowUltBadge) 1 else 0) +
                 (if (spell != null || config.screenShowSpellBadge) 1 else 0)
 
@@ -1239,14 +1263,21 @@ class OverlaySurfaceView @JvmOverloads constructor(
             currentX += spacing
         }
 
-        // 3. Ultimate Badge (Slot 3)
-        if (config.screenShowUltBadge) {
-            val ultRadius = badgeRadius * 1.22f
-            drawCircularSkillBadge(canvas, enemy.heroId, 3, ult, currentX, cy, ultRadius, isUlt = true)
+        // 3. Skill 3 Badge (Only for 4-skill heroes like Zhask, Beatrix, Lunox)
+        if (fourSkills && config.screenShowSkillCooldowns) {
+            drawCircularSkillBadge(canvas, enemy.heroId, 3, s3, currentX, cy, badgeRadius, isUlt = false)
             currentX += spacing
         }
 
-        // 4. Battle Spell Badge
+        // 4. Ultimate Badge (Slot 4 for 4-skill heroes, Slot 3 for 3-skill heroes)
+        if (config.screenShowUltBadge) {
+            val ultRadius = badgeRadius * 1.22f
+            val ultSlot = if (fourSkills) 4 else 3
+            drawCircularSkillBadge(canvas, enemy.heroId, ultSlot, ult, currentX, cy, ultRadius, isUlt = true)
+            currentX += spacing
+        }
+
+        // 5. Battle Spell Badge
         if (config.screenShowSpellBadge && config.screenShowBattleSpell) {
             drawCircularSpellBadge(canvas, enemy.heroId, spell, currentX, cy, badgeRadius)
         }

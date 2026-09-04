@@ -372,9 +372,10 @@ class IconCacheManager private constructor(context: Context?) {
             val heroId = skillId / 100
             val sub = skillId % 100
             val slotCandidates = when (sub) {
-                10 -> listOf("skills/$heroId/skill1.png", "skills/${heroId}0.png", "skills/${heroId}10.png")
+                10 -> listOf("skills/$heroId/skill1.png", "skills/${heroId}10.png", "skills/${heroId}0.png")
                 20 -> listOf("skills/$heroId/skill2.png", "skills/${heroId}20.png")
-                30, 40 -> listOf("skills/$heroId/ult.png", "skills/${heroId}30.png", "skills/${heroId}40.png")
+                30 -> listOf("skills/$heroId/skill3.png", "skills/$heroId/ult.png", "skills/${heroId}30.png")
+                40 -> listOf("skills/$heroId/skill4.png", "skills/$heroId/ult.png", "skills/${heroId}40.png")
                 0 -> listOf("skills/$heroId/passive.png", "skills/${heroId}00.png")
                 else -> listOf("skills/$heroId/skill1.png", "skills/$heroId/ult.png")
             }
@@ -498,16 +499,18 @@ class IconCacheManager private constructor(context: Context?) {
                     "skills/${heroId * 100 + 20}.png"
                 )
                 3 -> listOf(
-                    "skills/$heroId/ult.png",
                     "skills/$heroId/skill3.png",
+                    "skills/$heroId/ult.png",
                     "skills/${heroId}30.png",
-                    "skills/${heroId * 100 + 30}.png"
+                    "skills/${heroId * 100 + 30}.png",
+                    "skills/$heroId/skill1.png"
                 )
                 4 -> listOf(
                     "skills/$heroId/skill4.png",
                     "skills/$heroId/ult.png",
                     "skills/${heroId}40.png",
-                    "skills/${heroId * 100 + 40}.png"
+                    "skills/${heroId * 100 + 40}.png",
+                    "skills/$heroId/skill3.png"
                 )
                 5 -> listOf(
                     "spells/flicker.png",

@@ -413,6 +413,35 @@ class FloatingMenuManager private constructor(private val context: Context) :
             }
         }
 
+        // 1-Tap 180° Map Flip Button
+        root.findViewById<Button>(R.id.btnModFlipMap)?.setOnClickListener {
+            val cfg = configManager.getConfig().minimap
+            val newRot = if (cfg.rotationDegrees >= 225f && cfg.rotationDegrees <= 360f) 135f else 315f
+            configManager.updateMinimap(
+                posX = cfg.posX,
+                posY = cfg.posY,
+                width = cfg.width,
+                height = cfg.height,
+                rotationDegrees = newRot
+            )
+            Toast.makeText(context, "⟲ Minimap flipped to ${newRot.toInt()}°", Toast.LENGTH_SHORT).show()
+        }
+
+        // Minimize / Collapse Mod Menu Body
+        val contentBody = root.findViewById<View>(R.id.modMenuContentBody)
+        val btnMinimize = root.findViewById<TextView>(R.id.btnModMinimize)
+        btnMinimize?.setOnClickListener {
+            if (contentBody != null) {
+                if (contentBody.visibility == View.VISIBLE) {
+                    contentBody.visibility = View.GONE
+                    btnMinimize.text = "□"
+                } else {
+                    contentBody.visibility = View.VISIBLE
+                    btnMinimize.text = "—"
+                }
+            }
+        }
+
         // Close & Stealth Buttons
         root.findViewById<View>(R.id.btnModClose)?.setOnClickListener {
             collapseMenu()
@@ -636,6 +665,20 @@ class FloatingMenuManager private constructor(private val context: Context) :
             }
         }
 
+        // Auto Camp Rotation Flip Switch (315° / 135°)
+        root.findViewById<Switch>(R.id.switchModAutoCampFlip)?.setOnCheckedChangeListener { _, checked ->
+            if (!isUpdatingFromCode) {
+                val cfg = configManager.getConfig().minimap
+                configManager.updateMinimap(
+                    posX = cfg.posX,
+                    posY = cfg.posY,
+                    width = cfg.width,
+                    height = cfg.height,
+                    autoCampFlip = checked
+                )
+            }
+        }
+
         // --- TAB 2: COMBAT & TOP CD BAR CONTROLS ---
         // Top CD Bar Switch
         root.findViewById<Switch>(R.id.switchModTopCdBar)?.setOnCheckedChangeListener { _, checked ->
@@ -723,6 +766,40 @@ class FloatingMenuManager private constructor(private val context: Context) :
             if (!isUpdatingFromCode) {
                 configManager.updateRenderToggle("high_camera", checked)
             }
+        }
+
+        // 3D Cam Offset X (-200..+200, center=200, max=400)
+        val sbCamOffsetX = root.findViewById<SeekBar>(R.id.sbModCamOffsetX)
+        val tvValCamOffsetX = root.findViewById<TextView>(R.id.tvValCamOffsetX)
+        val btnDecCamOffsetX = root.findViewById<Button>(R.id.btnDecCamOffsetX)
+        val btnIncCamOffsetX = root.findViewById<Button>(R.id.btnIncCamOffsetX)
+
+        setupModOffsetSlider(sbCamOffsetX, tvValCamOffsetX, btnDecCamOffsetX, btnIncCamOffsetX, center = 200, max = 400, step = 5) { offset ->
+            val cfg = configManager.getConfig().camera
+            configManager.updateCamera(
+                scaleX = cfg.scaleX,
+                scaleY = cfg.scaleY,
+                hudOffsetY = cfg.hudOffsetY,
+                camOffsetX = offset.toFloat(),
+                camOffsetY = cfg.camOffsetY
+            )
+        }
+
+        // 3D Cam Offset Y (-200..+200, center=200, max=400)
+        val sbCamOffsetY = root.findViewById<SeekBar>(R.id.sbModCamOffsetY)
+        val tvValCamOffsetY = root.findViewById<TextView>(R.id.tvValCamOffsetY)
+        val btnDecCamOffsetY = root.findViewById<Button>(R.id.btnDecCamOffsetY)
+        val btnIncCamOffsetY = root.findViewById<Button>(R.id.btnIncCamOffsetY)
+
+        setupModOffsetSlider(sbCamOffsetY, tvValCamOffsetY, btnDecCamOffsetY, btnIncCamOffsetY, center = 200, max = 400, step = 5) { offset ->
+            val cfg = configManager.getConfig().camera
+            configManager.updateCamera(
+                scaleX = cfg.scaleX,
+                scaleY = cfg.scaleY,
+                hudOffsetY = cfg.hudOffsetY,
+                camOffsetX = cfg.camOffsetX,
+                camOffsetY = offset.toFloat()
+            )
         }
 
         // --- TAB 3: LAYERS SWITCHES ---
@@ -859,6 +936,7 @@ class FloatingMenuManager private constructor(private val context: Context) :
         root.findViewById<TextView>(R.id.tvValStretchY)?.text = "$strYInt%"
 
         root.findViewById<Switch>(R.id.switchModInvertY)?.isChecked = m.invertY
+        root.findViewById<Switch>(R.id.switchModAutoCampFlip)?.isChecked = m.autoCampFlip
 
         val c = config.camera
         root.findViewById<Switch>(R.id.switchModTopCdBar)?.isChecked = c.showTopCdBar
@@ -880,6 +958,12 @@ class FloatingMenuManager private constructor(private val context: Context) :
         root.findViewById<TextView>(R.id.tvValHudLift)?.text = c.hudOffsetY.toInt().toString()
 
         root.findViewById<Switch>(R.id.switchModHighCamera)?.isChecked = c.highCamera
+
+        root.findViewById<SeekBar>(R.id.sbModCamOffsetX)?.progress = (c.camOffsetX.toInt() + 200).coerceIn(0, 400)
+        root.findViewById<TextView>(R.id.tvValCamOffsetX)?.text = c.camOffsetX.toInt().toString()
+
+        root.findViewById<SeekBar>(R.id.sbModCamOffsetY)?.progress = (c.camOffsetY.toInt() + 200).coerceIn(0, 400)
+        root.findViewById<TextView>(R.id.tvValCamOffsetY)?.text = c.camOffsetY.toInt().toString()
 
         val r = config.renderSettings
         root.findViewById<SeekBar>(R.id.sbModHeroSize)?.progress = r.minimapHeroDotRadius.toInt()
@@ -906,6 +990,49 @@ class FloatingMenuManager private constructor(private val context: Context) :
         root.findViewById<Switch>(R.id.swModHideInRecording)?.isChecked = r.hideInRecording
 
         isUpdatingFromCode = false
+    }
+
+    private fun setupModOffsetSlider(
+        seekBar: SeekBar?,
+        valText: TextView?,
+        decBtn: Button?,
+        incBtn: Button?,
+        center: Int = 200,
+        max: Int = 400,
+        step: Int = 5,
+        onChanged: (Int) -> Unit
+    ) {
+        if (seekBar == null) return
+        seekBar.max = max
+
+        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            @SuppressLint("SetTextI18n")
+            override fun onProgressChanged(sb: SeekBar?, progress: Int, fromUser: Boolean) {
+                val offset = progress - center
+                valText?.text = offset.toString()
+                if (fromUser && !isUpdatingFromCode) {
+                    onChanged(offset)
+                }
+            }
+            override fun onStartTrackingTouch(sb: SeekBar?) {}
+            override fun onStopTrackingTouch(sb: SeekBar?) {}
+        })
+
+        decBtn?.setOnClickListener {
+            val newProgress = (seekBar.progress - step).coerceIn(0, max)
+            seekBar.progress = newProgress
+            val offset = newProgress - center
+            valText?.text = offset.toString()
+            onChanged(offset)
+        }
+
+        incBtn?.setOnClickListener {
+            val newProgress = (seekBar.progress + step).coerceIn(0, max)
+            seekBar.progress = newProgress
+            val offset = newProgress - center
+            valText?.text = offset.toString()
+            onChanged(offset)
+        }
     }
 
     private fun setupModSlider(

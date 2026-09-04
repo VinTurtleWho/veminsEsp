@@ -35,16 +35,17 @@ data class ScreenConfig(
  * Minimap radar bounding box and orientation configuration.
  */
 data class MinimapConfig(
-    var posX: Float = 75.0f,
-    var posY: Float = 15.0f,
-    var width: Float = 320.0f,
-    var height: Float = 320.0f,
-    var alpha: Float = 0.85f,
-    var rotationDegrees: Float = 0.0f,
-    var radarZoom: Float = 1.0f,
+    var posX: Float = 0.0f,
+    var posY: Float = 0.0f,
+    var width: Float = 342.0f,
+    var height: Float = 342.0f,
+    var alpha: Float = 0.0f,
+    var rotationDegrees: Float = 315.0f,
+    var radarZoom: Float = 2.0f,
     var stretchX: Float = 1.0f,
     var stretchY: Float = 1.0f,
-    var invertY: Boolean = true
+    var invertY: Boolean = true,
+    var autoCampFlip: Boolean = true
 ) {
     fun toJson(): JSONObject = JSONObject().apply {
         put("pos_x", posX.toDouble())
@@ -57,22 +58,24 @@ data class MinimapConfig(
         put("stretch_x", stretchX.toDouble())
         put("stretch_y", stretchY.toDouble())
         put("invert_y", invertY)
+        put("auto_camp_flip", autoCampFlip)
     }
 
     companion object {
         fun fromJson(json: JSONObject?): MinimapConfig {
             if (json == null) return MinimapConfig()
             return MinimapConfig(
-                posX = json.optDouble("pos_x", 75.0).toFloat(),
-                posY = json.optDouble("pos_y", 15.0).toFloat(),
-                width = json.optDouble("width", 320.0).toFloat(),
-                height = json.optDouble("height", 320.0).toFloat(),
-                alpha = json.optDouble("alpha", 0.85).toFloat(),
-                rotationDegrees = json.optDouble("rotation_degrees", 0.0).toFloat(),
-                radarZoom = json.optDouble("radar_zoom", 1.0).toFloat(),
+                posX = json.optDouble("pos_x", 0.0).toFloat(),
+                posY = json.optDouble("pos_y", 0.0).toFloat(),
+                width = json.optDouble("width", 342.0).toFloat(),
+                height = json.optDouble("height", 342.0).toFloat(),
+                alpha = json.optDouble("alpha", 0.0).toFloat(),
+                rotationDegrees = json.optDouble("rotation_degrees", 315.0).toFloat(),
+                radarZoom = json.optDouble("radar_zoom", 2.0).toFloat(),
                 stretchX = json.optDouble("stretch_x", 1.0).toFloat(),
                 stretchY = json.optDouble("stretch_y", 1.0).toFloat(),
-                invertY = json.optBoolean("invert_y", true)
+                invertY = json.optBoolean("invert_y", true),
+                autoCampFlip = json.optBoolean("auto_camp_flip", true)
             )
         }
     }
@@ -85,6 +88,8 @@ data class CameraConfig(
     var scaleX: Float = 38.0f,
     var scaleY: Float = 27.0f,
     var hudOffsetY: Float = 65.0f,
+    var camOffsetX: Float = 0.0f,
+    var camOffsetY: Float = 0.0f,
     var edgeMargin: Float = 45.0f,
     var maxRadarDistance: Float = 45.0f,
     var highCamera: Boolean = true,
@@ -96,6 +101,8 @@ data class CameraConfig(
         put("scale_x", scaleX.toDouble())
         put("scale_y", scaleY.toDouble())
         put("hud_offset_y", hudOffsetY.toDouble())
+        put("cam_offset_x", camOffsetX.toDouble())
+        put("cam_offset_y", camOffsetY.toDouble())
         put("edge_margin", edgeMargin.toDouble())
         put("max_radar_distance", maxRadarDistance.toDouble())
         put("high_camera", highCamera)
@@ -111,6 +118,8 @@ data class CameraConfig(
                 scaleX = json.optDouble("scale_x", 38.0).toFloat(),
                 scaleY = json.optDouble("scale_y", 27.0).toFloat(),
                 hudOffsetY = json.optDouble("hud_offset_y", 65.0).toFloat(),
+                camOffsetX = json.optDouble("cam_offset_x", 0.0).toFloat(),
+                camOffsetY = json.optDouble("cam_offset_y", 0.0).toFloat(),
                 edgeMargin = json.optDouble("edge_margin", 45.0).toFloat(),
                 maxRadarDistance = json.optDouble("max_radar_distance", 45.0).toFloat(),
                 highCamera = json.optBoolean("high_camera", true),
@@ -163,7 +172,7 @@ data class RenderSettingsConfig(
     var minimapShowArrows: Boolean = true,
     var minimapShowMinions: Boolean = true,
     var minimapShowMonsters: Boolean = true,
-    var minimapHeroDotRadius: Float = 19.0f,
+    var minimapHeroDotRadius: Float = 16.0f,
     var minimapArrowLength: Float = 18.0f,
     var minimapMinionDotRadius: Float = 3.5f,
     var minimapMonsterDotRadius: Float = 7.0f,
@@ -177,7 +186,7 @@ data class RenderSettingsConfig(
     var screenShowEdgeRadar: Boolean = true,
     var screenShowHeroNames: Boolean = true,
     var screenShowHealthText: Boolean = true,
-    var hudBadgeRadius: Float = 9.0f,
+    var hudBadgeRadius: Float = 10.0f,
     var hudHpBarScale: Float = 1.0f,
     var hideInRecording: Boolean = false
 ) {
@@ -215,7 +224,7 @@ data class RenderSettingsConfig(
                 minimapShowArrows = json.optBoolean("minimap_show_arrows", true),
                 minimapShowMinions = json.optBoolean("minimap_show_minions", true),
                 minimapShowMonsters = json.optBoolean("minimap_show_monsters", true),
-                minimapHeroDotRadius = json.optDouble("minimap_hero_dot_radius", 19.0).toFloat(),
+                minimapHeroDotRadius = json.optDouble("minimap_hero_dot_radius", 16.0).toFloat(),
                 minimapArrowLength = json.optDouble("minimap_arrow_length", 18.0).toFloat(),
                 minimapMinionDotRadius = json.optDouble("minimap_minion_dot_radius", 3.5).toFloat(),
                 minimapMonsterDotRadius = json.optDouble("minimap_monster_dot_radius", 7.0).toFloat(),
@@ -229,7 +238,7 @@ data class RenderSettingsConfig(
                 screenShowEdgeRadar = json.optBoolean("screen_show_edge_radar", true),
                 screenShowHeroNames = json.optBoolean("screen_show_hero_names", true),
                 screenShowHealthText = json.optBoolean("screen_show_health_text", true),
-                hudBadgeRadius = json.optDouble("hud_badge_radius", 9.0).toFloat(),
+                hudBadgeRadius = json.optDouble("hud_badge_radius", 10.0).toFloat(),
                 hudHpBarScale = json.optDouble("hud_hp_bar_scale", 1.0).toFloat(),
                 hideInRecording = json.optBoolean("hide_in_recording", false)
             )
@@ -311,9 +320,12 @@ data class OverlayConfig(
             stretchX = minimap.stretchX,
             stretchY = minimap.stretchY,
             invertY = minimap.invertY,
+            autoCampFlip = minimap.autoCampFlip,
             scaleX = camera.scaleX,
             scaleY = camera.scaleY,
             hudOffsetY = camera.hudOffsetY,
+            camOffsetX = camera.camOffsetX,
+            camOffsetY = camera.camOffsetY,
             edgeMargin = camera.edgeMargin,
             maxRadarDistance = camera.maxRadarDistance,
             highCamera = camera.highCamera,
@@ -363,12 +375,15 @@ data class OverlayConfig(
                     radarZoom = m.radarZoom,
                     stretchX = m.stretchX,
                     stretchY = m.stretchY,
-                    invertY = m.invertY
+                    invertY = m.invertY,
+                    autoCampFlip = m.autoCampFlip
                 ),
                 camera = CameraConfig(
                     scaleX = m.scaleX,
                     scaleY = m.scaleY,
                     hudOffsetY = m.hudOffsetY,
+                    camOffsetX = m.camOffsetX,
+                    camOffsetY = m.camOffsetY,
                     edgeMargin = m.edgeMargin,
                     maxRadarDistance = m.maxRadarDistance,
                     highCamera = m.highCamera,
@@ -672,7 +687,8 @@ class ConfigManager(
         rotationDegrees: Float? = null,
         radarZoom: Float? = null,
         stretchX: Float? = null,
-        stretchY: Float? = null
+        stretchY: Float? = null,
+        autoCampFlip: Boolean? = null
     ) {
         synchronized(lock) {
             activeConfig.minimap.posX = posX
@@ -680,7 +696,7 @@ class ConfigManager(
             activeConfig.minimap.width = width
             activeConfig.minimap.height = height
             if (alpha != null) {
-                activeConfig.minimap.alpha = alpha.coerceIn(0.1f, 1.0f)
+                activeConfig.minimap.alpha = alpha.coerceIn(0.0f, 1.0f)
             }
             if (invertY != null) {
                 activeConfig.minimap.invertY = invertY
@@ -698,6 +714,9 @@ class ConfigManager(
             if (stretchY != null) {
                 activeConfig.minimap.stretchY = stretchY.coerceIn(0.5f, 2.5f)
             }
+            if (autoCampFlip != null) {
+                activeConfig.minimap.autoCampFlip = autoCampFlip
+            }
         }
         saveConfig()
         notifyListeners()
@@ -713,7 +732,9 @@ class ConfigManager(
         highCamera: Boolean? = null,
         showTopCdBar: Boolean? = null,
         topCdBarPosY: Float? = null,
-        topCdBarScale: Float? = null
+        topCdBarScale: Float? = null,
+        camOffsetX: Float? = null,
+        camOffsetY: Float? = null
     ) {
         synchronized(lock) {
             activeConfig.camera.scaleX = scaleX
@@ -730,6 +751,12 @@ class ConfigManager(
             }
             if (topCdBarScale != null) {
                 activeConfig.camera.topCdBarScale = topCdBarScale
+            }
+            if (camOffsetX != null) {
+                activeConfig.camera.camOffsetX = camOffsetX
+            }
+            if (camOffsetY != null) {
+                activeConfig.camera.camOffsetY = camOffsetY
             }
         }
         saveConfig()
