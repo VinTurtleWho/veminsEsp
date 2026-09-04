@@ -13,7 +13,7 @@ import sys
 import mimetypes
 from urllib.parse import urlparse
 
-PORT = 8080
+PORT = 8888
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PUBLIC_DIR = os.path.join(BASE_DIR, "public")
 PROJECT_ROOT = os.path.abspath(os.path.join(BASE_DIR, ".."))
@@ -183,8 +183,13 @@ class DesignerHandler(http.server.SimpleHTTPRequestHandler):
 
 
 def run_server(port=PORT):
+    if len(sys.argv) > 1:
+        try:
+            port = int(sys.argv[1])
+        except ValueError:
+            pass
     socketserver.TCPServer.allow_reuse_address = True
-    for p in [port, 8081, 8888, 9090]:
+    for p in [port, 9090, 8000, 5000, 3000]:
         try:
             with socketserver.TCPServer(("0.0.0.0", p), DesignerHandler) as httpd:
                 print(f"[+] VeminsESP Web UI Studio running at:")
